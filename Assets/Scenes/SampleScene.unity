@@ -312,7 +312,7 @@ GameObject:
   - component: {fileID: 347537087}
   - component: {fileID: 347537086}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Square_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 1011194254}
   - component: {fileID: 1011194253}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: Circle_Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -542,7 +542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011194252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8348744, y: 0.35397685, z: 0.95383483}
+  m_LocalPosition: {x: -0.75, y: -0.1, z: 0.95383483}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 1468009163}

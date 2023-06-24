@@ -7,6 +7,11 @@ public class UIManager_Intro : MonoBehaviour
 {
     public GameObject IntroSetting; // 환경설정
 
+    private void Start()
+    {
+        // 슬라이더 초기값 설정
+        AudioManager.Instance.playBGM("IntroMusic");
+    }
     public void OnClick_Start()
     {
         SceneManager.LoadScene("Heaven_Width");

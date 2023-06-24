@@ -12,8 +12,8 @@ public class UI_Setting : MonoBehaviour
 
     private void OnEnable()
     {
-        BGMSlider.value = PlayerPrefs.GetFloat("BGM", 50);
-        SFXSlider.value = PlayerPrefs.GetFloat("SFX", 50);
+        BGMSlider.value = PlayerPrefs.GetFloat("BGM", 50.0f);
+        SFXSlider.value = PlayerPrefs.GetFloat("SFX", 50.0f);
         BGMText.text = $"{(int)BGMSlider.value}";
         SFXText.text = $"{(int)SFXSlider.value}";
     }
@@ -22,6 +22,7 @@ public class UI_Setting : MonoBehaviour
     {
         PlayerPrefs.SetFloat("BGM", BGMSlider.value);
         PlayerPrefs.SetFloat("SFX", SFXSlider.value);
+        PlayerPrefs.Save();
     } // BGM, SFX °ª ÀúÀå
 
     public void OnValueChanged_BGM()

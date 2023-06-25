@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Heaven_Width.unity
     guid: 22d5f608f8f092f4fb0ac2cdea1e4353
+  - enabled: 1
+    path: Assets/Scenes/Heaven.unity
+    guid: 2440309a893f49640af93bb58adb9d71
   m_configObjects: {}

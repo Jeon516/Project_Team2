@@ -722,7 +722,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: f95147a9bab9fe649b8070170fa7ebd2, type: 3}
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 45
     m_FontStyle: 1
     m_BestFit: 0
@@ -834,10 +834,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponent: {fileID: 1147241069}
-  imageComponents: []
+  imageComponents:
+  - {fileID: 1598050010}
+  - {fileID: 1862174816}
+  - {fileID: 407232573}
+  - {fileID: 1797406051}
+  - {fileID: 1659298037}
+  - {fileID: 777033582}
   fadeInSpeed: 0.1
-  fadeOutSpeed: 0.1
-  repeatCount: 1
+  fadeOutSpeed: 0.01
+  repeatCount: 3
 --- !u!1 &1598050008
 GameObject:
   m_ObjectHideFlags: 0

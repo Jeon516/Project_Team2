@@ -7,11 +7,10 @@ public class AudioManager : MonoBehaviour
     public static AudioManager Instance { get; private set; } = null;
 
     public AudioSource BGMSource;
-    private float SavedVolume;
 
     private void Start()
     {
-        
+        playBGM("IntroMusic");
     }
     private void Awake()
     {
@@ -25,9 +24,8 @@ public class AudioManager : MonoBehaviour
             if (BGMClip != null)
             {
                 BGMSource.clip = BGMClip;
-                //BGMSource.volume = PlayerPrefs.GetFloat("BGM")/100.0f;
                 BGMSource.Play();
-                BGMSource.volume = 0.6f;
+                BGMSource.volume = 0.4f;
             }
         }
     }

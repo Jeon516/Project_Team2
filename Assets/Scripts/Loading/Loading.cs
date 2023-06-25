@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Loading : MonoBehaviour
 {
-    public Text textComponent;
-    public List<Image> imageComponents;
+    public Text textComponent; // 로딩 텍스트
+    public List<Image> imageComponents; // 로딩 그림
     public float fadeInSpeed = 0.1f;
     public float fadeOutSpeed = 0.1f;
     public int repeatCount = 1;
@@ -16,8 +16,8 @@ public class Loading : MonoBehaviour
 
     private void Start()
     {
-        originalText = textComponent.text;
-        characters = SplitTextIntoCharacters(originalText);
+        originalText = textComponent.text; // 로딩 텍스트 저장
+        characters = SplitTextIntoCharacters(originalText); // 텍스트 나누기
 
         if (imageComponents.Count < characters.Count)
         {
@@ -44,7 +44,7 @@ public class Loading : MonoBehaviour
             {
                 textComponent.text += character;
                 yield return new WaitForSeconds(fadeInSpeed);
-            }
+            } // 텍스트 나타나는 시간
 
             yield return new WaitForSeconds(1f);
 
@@ -54,9 +54,9 @@ public class Loading : MonoBehaviour
                 image.canvasRenderer.SetAlpha(0f);
                 image.CrossFadeAlpha(1f, fadeInSpeed, true);
                 yield return new WaitForSeconds(fadeInSpeed);
-            }
+            } // 이미지 나타나는 시간
 
-            yield return new WaitForSeconds(1f);
+            //yield return new WaitForSeconds(1f);
 
             float maxFadeOutTime = characters.Count * fadeOutSpeed;
             float currentFadeOutTime = 0f;

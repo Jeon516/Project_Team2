@@ -8,6 +8,11 @@ public class AudioManager : MonoBehaviour
 
     public AudioSource BGMSource;
     private float SavedVolume;
+
+    private void Start()
+    {
+        
+    }
     private void Awake()
     {
         Instance = this;
@@ -20,11 +25,11 @@ public class AudioManager : MonoBehaviour
             if (BGMClip != null)
             {
                 BGMSource.clip = BGMClip;
-                BGMSource.volume = PlayerPrefs.GetFloat("BGM")/100.0f;
+                //BGMSource.volume = PlayerPrefs.GetFloat("BGM")/100.0f;
                 BGMSource.Play();
+                BGMSource.volume = 0.6f;
             }
         }
-        else { Debug.Log("akd"); }
     }
     private void Update()
     {

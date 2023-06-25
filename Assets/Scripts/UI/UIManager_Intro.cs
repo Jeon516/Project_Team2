@@ -9,16 +9,15 @@ public class UIManager_Intro : MonoBehaviour
 
     private void Start()
     {
-        // 슬라이더 초기값 설정
         AudioManager.Instance.playBGM("IntroMusic");
     }
     public void OnClick_Start()
     {
-        SceneManager.LoadScene("Heaven_Width");
+        SceneManager.LoadScene("Heaven");
     } // 'Game Start'를 눌렀을 때
     public void OnClick_Load()
     {
-        SceneManager.LoadScene("Heaven_Width");
+        SceneManager.LoadScene("Heaven");
     } // 'Load Start'를 눌렀을 때
     public void OnClick_Setting()
     {

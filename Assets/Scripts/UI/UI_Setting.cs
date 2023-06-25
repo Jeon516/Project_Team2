@@ -5,36 +5,63 @@ using UnityEngine.UI;
 
 public class UI_Setting : MonoBehaviour
 {
-    public Slider BGMSlider;
-    public Slider SFXSlider;
-    public Text BGMText;
-    public Text SFXText;
+    private float BGMVolume = 60f;
+    private float SFXVolume = 60f;
+    private int BGMOrder = 2;
+    private int SFXOrder = 2;
+    public GameObject[] BGMSize;
+    public GameObject[] SFXSize;
 
     private void OnEnable()
     {
-        BGMSlider.value = PlayerPrefs.GetFloat("BGM", 50.0f);
-        SFXSlider.value = PlayerPrefs.GetFloat("SFX", 50.0f);
-        BGMText.text = $"{(int)BGMSlider.value}";
-        SFXText.text = $"{(int)SFXSlider.value}";
+        PlayerPrefs.GetFloat("BGM", 60.0f);
+        PlayerPrefs.GetFloat("SFX", 60.0f);
     }
 
     private void OnDisable()
     {
-        PlayerPrefs.SetFloat("BGM", BGMSlider.value);
-        PlayerPrefs.SetFloat("SFX", SFXSlider.value);
+        PlayerPrefs.SetFloat("BGM", BGMVolume);
+        PlayerPrefs.SetFloat("SFX", SFXVolume);
         PlayerPrefs.Save();
     } // BGM, SFX 값 저장
-
-    public void OnValueChanged_BGM()
+    public void OnClick_BGMVolumeBig()
     {
-        BGMText.text = ((int)BGMSlider.value).ToString();
-    } // 슬라이더 값에 따른 BGM 텍스트 표시
-
-    public void OnValueChanged_SFX()
+        if (BGMVolume < 100)
+        {
+            BGMVolume += 20;
+            BGMOrder++;
+            BGMSize[BGMOrder].SetActive(false);
+            Debug.Log(BGMOrder);
+            Debug.Log(BGMSize);
+        }
+    }
+    public void OnClick_BGMVolumeSmall()
     {
-        SFXText.text = ((int)SFXSlider.value).ToString();
-    } // 슬라이더 값에 따른 SFX 텍스트 표시
-
+        if (BGMVolume > 0)
+        {
+            BGMVolume -= 20;
+            BGMOrder--;
+            BGMSize[BGMOrder].SetActive(true);
+            Debug.Log(BGMOrder);
+            Debug.Log(BGMSize);
+        }
+    }
+    public void OnClick_SFXVolumeBig()
+    {
+        if (SFXVolume < 100)
+        {
+            SFXVolume += 20;
+            SFXOrder++;
+        }
+    }
+    public void OnClick_SFXVolumeSmall()
+    {
+        if (SFXVolume > 0)
+        {
+            SFXVolume -= 20;
+            SFXOrder--;
+        }
+    }
     public void OnClick_Exit()
     {
         gameObject.SetActive(false);

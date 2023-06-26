@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Loading : MonoBehaviour
 {
     public Text textComponent; // 로딩 텍스트
     public List<Image> imageComponents; // 로딩 그림
-    public float fadeInSpeed = 0.1f;
-    public float fadeOutSpeed = 0.1f;
-    public int repeatCount = 1;
+    public float fadeInSpeed = 0.1f; // 페이드 인 속도
+    public float fadeOutSpeed = 0.1f; // 페이드 아웃 속도
+    public int repeatCount = 1; // 반복 횟수
 
     private string originalText;
     private List<string> characters;
@@ -32,6 +33,15 @@ public class Loading : MonoBehaviour
         }
 
         StartCoroutine(ShowLoading());
+
+        float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
+        PlayerPrefs.SetFloat("BGM", BGMVolume);
+        float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
+        PlayerPrefs.SetFloat("SFX", SFXVolume);
+
+        AudioManager.Instance.playBGM("IntroMusic");
+
+        Invoke("LoadNextScene", 13f);
     }
 
     private IEnumerator ShowLoading()
@@ -55,8 +65,6 @@ public class Loading : MonoBehaviour
                 image.CrossFadeAlpha(1f, fadeInSpeed, true);
                 yield return new WaitForSeconds(fadeInSpeed);
             } // 이미지 나타나는 시간
-
-            //yield return new WaitForSeconds(1f);
 
             float maxFadeOutTime = characters.Count * fadeOutSpeed;
             float currentFadeOutTime = 0f;
@@ -106,4 +114,9 @@ public class Loading : MonoBehaviour
         textComponent.canvasRenderer.SetAlpha(1f);
         textComponent.text = "";
     }
+
+    private void LoadNextScene()
+    {
+        SceneManager.LoadScene("Heaven");
+    } // 다음 씬으로 넘어가기
 }

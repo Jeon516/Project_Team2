@@ -15,6 +15,14 @@ public class Loading : MonoBehaviour
     private string originalText;
     private List<string> characters;
 
+    private void Awake()
+    {
+        float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
+        PlayerPrefs.SetFloat("BGM", BGMVolume);
+        float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
+        PlayerPrefs.SetFloat("SFX", SFXVolume);
+    }
+
     private void Start()
     {
         originalText = textComponent.text; // 로딩 텍스트 저장
@@ -33,11 +41,6 @@ public class Loading : MonoBehaviour
         }
 
         StartCoroutine(ShowLoading());
-
-        float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
-        PlayerPrefs.SetFloat("BGM", BGMVolume);
-        float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
-        PlayerPrefs.SetFloat("SFX", SFXVolume);
 
         AudioManager.Instance.playBGM("IntroMusic");
 

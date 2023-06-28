@@ -39,6 +39,11 @@ public class AudioManager : MonoBehaviour
             }
         }
     } // BGM Æ²±â
+
+    public void StopBGM()
+    {
+        BGMSource.Stop();
+    }
     /*public void playSFX(string name)
     {
         AudioClip SFXClip = Resources.Load<AudioClip>("SFX/" + name);

@@ -11,13 +11,21 @@ public class UI_MusicSetting : MonoBehaviour
     public GameObject[] BGMSize;
     public GameObject[] SFXSize;
 
-    private void OnEnable()
+    private void Start()
     {
         BGMVolume = PlayerPrefs.GetFloat("BGM") * 100;
         SFXVolume = PlayerPrefs.GetFloat("SFX") * 100;
         BGMOrder = PlayerPrefs.GetInt("BGMOrder", 2);
         SFXOrder = PlayerPrefs.GetInt("SFXOrder", 2);
-    } // BGM, SFX °ª ·Îµå
+        for (int i = 0; i <= BGMOrder; i++)
+        {
+            BGMSize[i].SetActive(false);
+        }
+        for (int i = BGMOrder + 1; i < 5; i++)
+        {
+            BGMSize[i].SetActive(true);
+        }
+    }
     public void OnClick_BGMVolumeBig()
     {
         if (BGMVolume < 100)

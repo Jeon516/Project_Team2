@@ -7,18 +7,19 @@ using UnityEngine.SceneManagement;
 public class UpbringingGameManager : MonoBehaviour
 {
     private int ActionNum; // 호감도
-    private int RandomNumber = Random.Range(0, 2);
     private bool IsPlay;
     private bool IsWalk;
     private bool IsGift;
     public Text NextDayText;
     public Text ActionNumText;
     public Text DayText;
+    public GameObject Stat;
+    public GameObject[] StatValue; // 스탯 막대기 
 
     public static UpbringingGameManager Instance { get; private set; } = null;
     private void Awake()
     {
-        ActionNum = PlayerPrefs.GetInt("ActionNum", 0);
+        ActionNum = PlayerPrefs.GetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("ActionNum", ActionNum);
         Instance = this;
     }
@@ -28,8 +29,8 @@ public class UpbringingGameManager : MonoBehaviour
         ActionNumText.text = ActionNum.ToString();
         IsPlay = true; IsWalk = true; IsGift = true;
 
-        AudioManager.Instance.StopBGM();
-        AudioManager.Instance.playBGM("Upbringing");
+        //AudioManager.Instance.StopBGM();
+        //AudioManager.Instance.playBGM("Upbringing");
     }
     private void NextDay()
     {
@@ -68,25 +69,25 @@ public class UpbringingGameManager : MonoBehaviour
             ActionNumText.text = ActionNum.ToString();
             IsPlay = false;
         }
-    } // 호감도 1올라감
+    } // 놀아주기 버튼
     public void OnClick_Walk()
     {
         if (IsWalk)
         {
-            ActionNum += RandomNumber + 2;
+            ActionNum += Random.Range(0, 2) + 2;
             ActionNumText.text = ActionNum.ToString();
             IsWalk = false;
-        }
-    } // 랜덤으로 2,3 호감도 올라감
+        } // 호감도 2,3 올라감
+    } // 산책하기 버튼
     public void OnClick_Gift()
     {
         if (IsGift)
         {
-            ActionNum += RandomNumber + 5;
+            ActionNum += Random.Range(0, 2) + 5;
             ActionNumText.text = ActionNum.ToString();
             IsGift = false;
-        }
-    } // 랜덤으로 5,6 호감도 올라감
+        } // 랜덤으로 5,6 호감도 올라감
+    } // 선물하기 버튼
     public void OnClick_Random()
     {
         if(ActionNum>=50)
@@ -97,10 +98,15 @@ public class UpbringingGameManager : MonoBehaviour
     } 
     public void OnClick_Want()
     {
-        if (ActionNum >= 100)
+        /*if (ActionNum >= 100)
         {
             ActionNum -= 100;
-            ActionNumText.text = ActionNum.ToString();
-        }
+            Stat.SetActive(true);
+        }*/
+        Stat.SetActive(true);
     }
+    private void StatMove()
+    {
+        ;
+    } // 스탯을 찍으면 스탯창에 반영
 }

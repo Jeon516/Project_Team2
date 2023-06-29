@@ -42,8 +42,6 @@ public class JSON_Manager : MonoBehaviour
                 Debug.Log("2nd Stat Value: " + dataObject.secondStatValue);
                 Debug.Log("Probability: " + dataObject.probability);
             }
-
-            // Additional Logic Adjustment
         }
         else
         {

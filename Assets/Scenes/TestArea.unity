@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf587314233ccc41af8ff797d263753, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jsonFilePath: foodinfo.json
+  jsonFilePath: DataFile/foodinfo.json
 --- !u!212 &227033462
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class UI_InvenotrySlot : MonoBehaviour
 {
-    public GameObject[] SelectedBoundary;
+    public GameObject DebugSelect;
     public Image SelectedImage;
 
     public static UI_InvenotrySlot Instance { get; private set; } = null;

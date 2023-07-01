@@ -18,6 +18,12 @@ public class UI_InventoryInformation : MonoBehaviour
     public void SwitchImage(Image SelectedImage)
     {
         FoodImage.GetComponent<Image>().sprite = SelectedImage.sprite;
-    }
+    } // 이미지 바꾸기
+
+    public void SwitchImageNull()
+    {
+        FoodImage.GetComponent<Image>().sprite = null;
+        FoodText.text = "";
+    } // 이미지 없애기 및 텍스트 없애기
 
 }

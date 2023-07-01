@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class UIManager_Intro : MonoBehaviour
 {
-    public GameObject IntroSetting; // È¯°æ¼³Á¤
+    public GameObject IntroSetting; // È¯ï¿½æ¼³ï¿½ï¿½
+    public GameObject Name;
 
     private void Start()
     {
@@ -14,17 +15,21 @@ public class UIManager_Intro : MonoBehaviour
     public void OnClick_Start()
     {
         SceneManager.LoadScene("Heaven");
-    } // 'Game Start'¸¦ ´­·¶À» ¶§
+    } // 'Game Start'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void OnClick_Load()
     {
         SceneManager.LoadScene("Heaven");
-    } // 'Load Start'¸¦ ´­·¶À» ¶§
+    } // 'Load Start'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
     public void OnClick_Setting()
     {
-        IntroSetting.SetActive(true); // È¯°æ¼³Á¤ Å°±â
-    } // 'Setting'À» ´­·¶À» ¶§
+        IntroSetting.SetActive(true); // È¯ï¿½æ¼³ï¿½ï¿½ Å°ï¿½ï¿½
+    } // 'Setting'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+    public void OnClick_Name()
+    {
+        Name.SetActive(true);
+    }
     public void OnClick_Exit()
     {
-        Application.Quit(); // °ÔÀÓ Á¾·á
-    } // 'Exit'À» ´­·¶À» ¶§
+        Application.Quit(); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+    } // 'Exit'ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 }

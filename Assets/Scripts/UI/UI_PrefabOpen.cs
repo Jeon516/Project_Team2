@@ -1,16 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_PrefabOpen : MonoBehaviour
 {
-    public GameObject prefabToOpen;
+    public GameObject prefab;
 
-    private void OnMouseDown()
+    private bool isPrefabVisible = false;
+
+    private void Start()
     {
-        if (prefabToOpen != null)
-        {
-            GameObject instantiatedPrefab = Instantiate(prefabToOpen, transform.position, transform.rotation);
-        }
+        // Deactivate the prefab initially
+        prefab.SetActive(false);
+    }
+
+    public void TogglePrefabDisplay()
+    {
+        // Toggle the visibility of the prefab
+        isPrefabVisible = !isPrefabVisible;
+        prefab.SetActive(isPrefabVisible);
     }
 }

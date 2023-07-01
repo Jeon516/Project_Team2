@@ -30,7 +30,6 @@ public class UI_InvenotrySlot : MonoBehaviour
             {
                 if (IsCheck[i] == 0 && SelectedImage[i].GetComponent<Image>().sprite != null)
                 {
-                    Debug.Log("무시");
                     IsCheck[i] = 1;
                     SelectedBoundary[i].SetActive(true);
                     UI_InventoryInformation.Instance.SwitchImage(SelectedImage[i]);
@@ -57,6 +56,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     public void Deleted()
     {
         SelectedImage[SelectedNum].GetComponent<Image>().sprite = null;
+        SelectedBoundary[SelectedNum].SetActive(false);
         UI_InventoryInformation.Instance.SwitchImageNull();
     } // 인벤토리 이미지 및 큰 이미지 삭제
     private void Initialized()

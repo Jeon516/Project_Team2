@@ -33,7 +33,7 @@ public class YourScriptName : MonoBehaviour
 
     private void Awake()
     {
-        savePath = Application.dataPath + "/DataFile/User_Data.json";
+        savePath = Application.dataPath + "/DataFile/UserData.json";
     }
 
     private void Start()

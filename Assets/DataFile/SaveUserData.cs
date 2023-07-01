@@ -18,18 +18,18 @@ public class SaveUserData : MonoBehaviour
 
     private void SaveData()
     {
-        //Inverse Linear 
+        // Load existing data if available
         UserData userData = LoadData();
 
-        //Data to UserData
+        // Update data with new input
         if (userData != null)
         {
             userData.name = inputField.text;
 
-            //linear
+            // Convert to JSON
             string jsonData = JsonUtility.ToJson(userData);
 
-            //Save data to file
+            // Save data to file
             File.WriteAllText(filePath, jsonData);
 
             Debug.Log("Data saved to: " + filePath);
@@ -44,7 +44,7 @@ public class SaveUserData : MonoBehaviour
     {
         if (File.Exists(filePath))
         {
-            //inverse linear
+            // Read existing data from file
             string jsonData = File.ReadAllText(filePath);
             UserData userData = JsonUtility.FromJson<UserData>(jsonData);
             return userData;

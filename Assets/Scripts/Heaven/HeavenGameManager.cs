@@ -20,5 +20,17 @@ public class HeavenGameManager : MonoBehaviour
     {
         DayText.text = Day.ToString() + "ÀÏ Â°";
     }
+    public void OnClick_LeftStation()
+    {
+        Debug.Log("Left");
+    }
+    public void OnClick_RightStation()
+    {
+        Debug.Log("Right");
+    }
+    public void OnClick_CancelStation()
+    {
+        Debug.Log("Cancel");
+    }
 
 }

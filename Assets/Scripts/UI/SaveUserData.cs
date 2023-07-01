@@ -18,18 +18,18 @@ public class SaveUserData : MonoBehaviour
 
     private void SaveData()
     {
-        // 데이터를 로드하여 기존 데이터 객체로 역직렬화
+        //Inverse Linear 
         UserData userData = LoadData();
 
-        // 입력받은 데이터를 UserData 객체에 추가
+        //Data to UserData
         if (userData != null)
         {
             userData.name = inputField.text;
 
-            // UserData 객체를 JSON 형태로 직렬화
+            //linear
             string jsonData = JsonUtility.ToJson(userData);
 
-            // JSON 데이터를 파일에 저장
+            //Save data to file
             File.WriteAllText(filePath, jsonData);
 
             Debug.Log("Data saved to: " + filePath);
@@ -44,7 +44,7 @@ public class SaveUserData : MonoBehaviour
     {
         if (File.Exists(filePath))
         {
-            // 파일이 존재하면 JSON 데이터를 읽어와서 UserData 객체로 역직렬화
+            //inverse linear
             string jsonData = File.ReadAllText(filePath);
             UserData userData = JsonUtility.FromJson<UserData>(jsonData);
             return userData;

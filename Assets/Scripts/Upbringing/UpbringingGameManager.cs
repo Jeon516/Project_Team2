@@ -34,6 +34,7 @@ public class UpbringingGameManager : MonoBehaviour
     }
     private void NextDay()
     {
+        Debug.Log(HeavenGameManager.Instance.Day);
         if (HeavenGameManager.Instance.Day < 20)
         {
             NextDayText.text = "´ÙÀ½ ³¯";

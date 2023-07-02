@@ -9,6 +9,7 @@ public class UI_StatManager : MonoBehaviour
 
     public void Onclick_Increase(int index)
     {
+        Debug.Log(StatManager.Instance.Energy);
         if(index==0 && StatManager.Instance.Energy<4)
         {
             StatManager.Instance.Energy++;
@@ -36,7 +37,7 @@ public class UI_StatManager : MonoBehaviour
         }
         RectTransform rectTransform = State[index].GetComponent<RectTransform>();
         rectTransform.anchoredPosition -= new Vector2(111, 0f);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     } // 왼쪽 버튼 누르면 각 스탯 증가, 위쪽부터 아래까지 0 ~ 4번째
     public void Onclick_Decrease(int index)
     {
@@ -67,6 +68,10 @@ public class UI_StatManager : MonoBehaviour
         }
         RectTransform rectTransform = State[index].GetComponent<RectTransform>();
         rectTransform.anchoredPosition += new Vector2(111, 0f);
-        gameObject.SetActive(false);
     } // 오른쪽 버튼 누르면 각 스탯 감소, 위쪽부터 아래까지 0 ~ 4번째
+
+    public void OnClick_CloseButton()
+    {
+        gameObject.SetActive(false);
+    }
 }

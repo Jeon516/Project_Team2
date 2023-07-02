@@ -1201,7 +1201,7 @@ RectTransform:
   m_Children:
   - {fileID: 993208909390511150}
   - {fileID: 5296654514812417160}
-  m_Father: {fileID: 3611809439504468485}
+  m_Father: {fileID: 6674927201858843227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1278,7 +1278,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3611809439504468485}
+  - component: {fileID: 6674927201858843227}
   - component: {fileID: 4406432651270005375}
   m_Layer: 0
   m_Name: UI_Volume
@@ -1287,7 +1287,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3611809439504468485
+--- !u!4 &6674927201858843227
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

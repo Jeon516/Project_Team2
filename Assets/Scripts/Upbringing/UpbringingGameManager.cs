@@ -9,8 +9,7 @@ public class UpbringingGameManager : MonoBehaviour
     private int ActionNum; // 호감도
     private bool IsPlay;
     private bool IsWalk;
-    private bool IsGift;
-    public Text NextDayText;
+    private bool IsGift; // 상호작용 하나
     public Text ActionNumText;
     public Text DayText;
     public GameObject Stat;
@@ -49,23 +48,11 @@ public class UpbringingGameManager : MonoBehaviour
     {
         ActionNumText.text = PlayerPrefs.GetInt("ActionNum", 1000).ToString();
     }
-    private void NextDay()
-    {
-        Debug.Log(HeavenGameManager.Instance.Day);
-        if (HeavenGameManager.Instance.Day < 20)
-        {
-            NextDayText.text = "다음 날";
 
-        } // 20일 내의 시간은 다음 날로 텍스트
-        else
-        {
-            NextDayText.text = "육성 종료";
-        } // 20일 째에는 육성 종료 텍스트
-        PlayerPrefs.SetInt("ActionNum", ActionNum);
-    }
     public void OnClick_NextDay()
     {
-        NextDay();
+        Debug.Log(HeavenGameManager.Instance.Day);
+        PlayerPrefs.SetInt("ActionNum", ActionNum);
         if (HeavenGameManager.Instance.Day<20)
         {
             HeavenGameManager.Instance.Day++;

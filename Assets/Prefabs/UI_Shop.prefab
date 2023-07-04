@@ -374,7 +374,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6891353856742469580
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1912,7 +1912,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uAC00\uCC60"
+  m_Text: "\uC0C1\uC810"
 --- !u!1 &3569289245031545814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,7 +2354,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 865036080572237307}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2891314632085883305}
+        m_TargetAssemblyTypeName: UI_ShopSetting, Assembly-CSharp
+        m_MethodName: OnClick_Shop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4018881495782273672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,7 +3380,7 @@ GameObject:
   - component: {fileID: 158637034386726400}
   - component: {fileID: 376011961490952979}
   m_Layer: 5
-  m_Name: Button
+  m_Name: CancelButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3475,7 +3487,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 158637034386726400}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2891314632085883305}
+        m_TargetAssemblyTypeName: UI_ShopSetting, Assembly-CSharp
+        m_MethodName: OnClick_Close
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7515467323687557314
 GameObject:
   m_ObjectHideFlags: 0
@@ -3995,7 +4019,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8550498662313422246}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2891314632085883305}
+        m_TargetAssemblyTypeName: UI_ShopSetting, Assembly-CSharp
+        m_MethodName: OnClick_Random
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8534521440800959102
 GameObject:
   m_ObjectHideFlags: 0
@@ -4128,6 +4164,7 @@ GameObject:
   - component: {fileID: 2280185688206005998}
   - component: {fileID: 4022520347236583957}
   - component: {fileID: 3966133822910032923}
+  - component: {fileID: 2891314632085883305}
   m_Layer: 5
   m_Name: UI_Shop
   m_TagString: Untagged
@@ -4197,6 +4234,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2891314632085883305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8648054288191298212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60433e667dad2c34097519310cf4f150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Random: {fileID: 728879931986401785}
+  Shop: {fileID: 870126007427738691}
 --- !u!1 &8671106635498217785
 GameObject:
   m_ObjectHideFlags: 0

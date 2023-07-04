@@ -9,9 +9,6 @@ public class UI_AssortMenu : MonoBehaviour
     public void OnClick_MeunOpen()
     {
         Menu.SetActive(true);
-    }
-    public void OnClick_MeunClose()
-    {
-        Menu.SetActive(false);
+        Time.timeScale = 0;
     }
 }

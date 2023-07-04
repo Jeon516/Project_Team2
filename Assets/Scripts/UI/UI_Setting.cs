@@ -10,6 +10,7 @@ public class UI_Setting : MonoBehaviour
     public void OnClick_Resume()
     {
         gameObject.SetActive(false);
+        Time.timeScale = 1;
     } // 버튼 X를 누를 때 프리팹 끄기
     public void OnClick_MusicSetting()
     {

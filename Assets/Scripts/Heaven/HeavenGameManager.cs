@@ -22,14 +22,17 @@ public class HeavenGameManager : MonoBehaviour
     }
     public void OnClick_LeftStation()
     {
+        DogWait.Instance.ChangeImage();
         Debug.Log("Left");
     }
     public void OnClick_RightStation()
     {
+        DogWait.Instance.ChangeImage();
         Debug.Log("Right");
     }
     public void OnClick_CancelStation()
     {
+        DogWait.Instance.ChangeImage();
         Debug.Log("Cancel");
     }
 

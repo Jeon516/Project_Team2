@@ -15,6 +15,7 @@ public class UpbringingGameManager : MonoBehaviour
 
     public GameObject RandomQuestion;
     public GameObject InteractionQuestion;
+    public GameObject NextDayQuestion;
 
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // 스탯 딕셔너리
     public int[] Cal = new int[2];
@@ -52,20 +53,8 @@ public class UpbringingGameManager : MonoBehaviour
 
     public void OnClick_NextDay()
     {
-        Debug.Log(HeavenGameManager.Instance.Day);
         PlayerPrefs.SetInt("ActionNum", ActionNum);
-        if (HeavenGameManager.Instance.Day<20)
-        {
-            HeavenGameManager.Instance.Day++;
-            PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
-            SceneManager.LoadScene("Heaven");
-
-        } // 20일 내의 시간은 천국 씬으로 넘어감
-        else
-        {
-            HeavenGameManager.Instance.Day = 0;
-            PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
-        } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
+        NextDayQuestion.SetActive(true);
     }
     public void OnClick_Random()
     {
@@ -82,4 +71,23 @@ public class UpbringingGameManager : MonoBehaviour
         InteractionQuestion.SetActive(true);
     }
 
+    public void NextDayAnswer(bool Yes)
+    {
+        NextDayQuestion.SetActive(false);
+        if (Yes)
+        {
+            if (HeavenGameManager.Instance.Day < 20)
+            {
+                HeavenGameManager.Instance.Day++;
+                PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
+                SceneManager.LoadScene("Heaven");
+
+            } // 20일 내의 시간은 천국 씬으로 넘어감
+            else
+            {
+                HeavenGameManager.Instance.Day = 0;
+                PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
+            } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
+        }
+    }
 }

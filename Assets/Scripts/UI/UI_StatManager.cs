@@ -7,9 +7,15 @@ public class UI_StatManager : MonoBehaviour
 {
     public GameObject[] State; // 스탯 막대기들
     public Text ActionNumText; // 스탯 텍스트
+    public GameObject StatQuestion; // 스탯 질문
     private int CurrentNum; // 현재 호감도
+    private int StatNum;
+    public Text QuestionText;
 
     Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // 스탯 딕셔너리
+
+    private string[] StatText = { "활발함", "사회성", "대담함", "호기심", "애정표현",
+        "차분함", "독립성", "신중함", "조용함", "냉정함"};
 
     private void Start()
     {
@@ -31,7 +37,7 @@ public class UI_StatManager : MonoBehaviour
         }
     } // 현재 스탯 반영
 
-    public void Onclick_Increase(int index)
+    public void Increase(int index)
     {
             if (index == 0 && StatManager.Instance.Energy < 4 && CurrentNum >= 100)
             {
@@ -70,12 +76,13 @@ public class UI_StatManager : MonoBehaviour
         }
     } // 왼쪽 버튼 누르면 각 스탯 증가, 위쪽부터 아래까지 0 ~ 4번째
 
-    public void Onclick_Decrease(int index)
+    public void Decrease(int index)
     {
         if (CurrentNum >= 100)
         {
             if (index == 0 && StatManager.Instance.Energy > -4 && CurrentNum >= 100)
             {
+                
                 StatManager.Instance.Energy--;
                 PlayerPrefs.SetInt("Energy", StatManager.Instance.Energy);
                 StatMove(index, 111);
@@ -144,8 +151,27 @@ public class UI_StatManager : MonoBehaviour
         PlayerPrefs.SetInt("ActionNum", ChangeNum);
     } // 호감도 감소
 
-    public void OnClick_Button(int index)
+    public void OnClick_StatButton(int index)
     {
-        ;
+        StatNum = index;
+        StatQuestion.SetActive(true);
+        QuestionText.text = "'"+StatText[index]+"'" + "을 증가하겠습니까?";
+    }
+    public void OnClick_QuestionButton(bool valiable)
+    {
+        if(valiable && StatNum>=0 && StatNum<=4)
+        {
+            Increase(StatNum);
+            StatQuestion.SetActive(false);
+        }
+        else if(valiable && StatNum >= 5 && StatNum <= 9)
+        {
+            Decrease(StatNum - 5);
+            StatQuestion.SetActive(false);
+        }
+        else if(!valiable)
+        {
+            StatQuestion.SetActive(false);
+        }
     }
 }

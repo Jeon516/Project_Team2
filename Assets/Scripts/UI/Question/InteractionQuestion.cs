@@ -46,7 +46,6 @@ public class InteractionQuestion : MonoBehaviour
             PlayerPrefs.SetInt("ActionNum", UpbringingGameManager.Instance.ActionNum);
             BlockButton();
         }
-        else
-            gameObject.SetActive(false);
+        gameObject.SetActive(false);
     }
 }

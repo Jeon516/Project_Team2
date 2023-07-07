@@ -7,30 +7,23 @@ using UnityEngine.SceneManagement;
 public class Clock : MonoBehaviour
 {
     public Image circleImage;
-    public float fillDuration = 30f;
+    public GameObject ClockStick;
+    public float fillDuration = 30f; // 게임 시간
+    public GameObject GameResult;
     private float fillTimer = 0f;
-
-    private float Daytime = 0;
-    private int minutes;
-    private int hours;
 
     private void Update()
     {
-        if (fillTimer < fillDuration)
+        if (fillTimer < fillDuration && HeavenGameManager.Instance.Play)
         {
             ClockMove();
         }
 
         if(fillTimer >= fillDuration)
         {
-            NextLoadScene();
+            GameResult.SetActive(true);
         }
     }
-
-    private void NextLoadScene()
-    {
-        SceneManager.LoadScene("Upbringing");
-    } // 다음 씬으로 이동
 
     private void ClockMove()
     {
@@ -38,14 +31,6 @@ public class Clock : MonoBehaviour
         float fillAmount = fillTimer / fillDuration;
         circleImage.fillAmount = fillAmount;
 
-        Daytime += Time.deltaTime * (540 / fillDuration);
-
-        hours = 9 + (int)Daytime / 60;
-        minutes = (int)Daytime % 60;
-
-        if (hours > 12)
-        {
-            hours -= 12;
-        }
+        ClockStick.transform.Rotate(Vector3.forward, -360 / fillDuration * Time.deltaTime);
     } // 시계 움직이기
 }

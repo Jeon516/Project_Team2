@@ -143,4 +143,9 @@ public class UI_StatManager : MonoBehaviour
         int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 100;
         PlayerPrefs.SetInt("ActionNum", ChangeNum);
     } // 호감도 감소
+
+    public void OnClick_Button(int index)
+    {
+        ;
+    }
 }

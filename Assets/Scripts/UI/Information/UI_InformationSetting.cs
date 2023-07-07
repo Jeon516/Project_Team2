@@ -11,7 +11,6 @@ public class UI_InformationSetting : MonoBehaviour
     public GameObject LevelButton;
     private bool IsDog = false;
     private bool IsFood = false;
-    private bool IsLevel = false;
 
     private void Start()
     {

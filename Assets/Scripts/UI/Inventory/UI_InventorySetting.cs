@@ -7,6 +7,8 @@ public class UI_InventorySetting : MonoBehaviour
     public GameObject ImageDesribe;
     public GameObject TextDescribe;
     public GameObject[] IsImage; // 음식 없으면 SetActive를 false 있으면 true로 설정
+    public GameObject TrashQuestion;
+    public GameObject UseQuestion;
 
     public static UI_InventorySetting Instance { get; private set; } = null;
 
@@ -22,11 +24,12 @@ public class UI_InventorySetting : MonoBehaviour
 
     public void OnClick_Trash()
     {
-        UI_InvenotrySlot.Instance.Deleted();
+        TrashQuestion.SetActive(true);
     } // '버리기' 버튼 
 
     public void OnClick_Use()
     {
-        UI_InvenotrySlot.Instance.Deleted();
+        UseQuestion.SetActive(true);
     } // '사용' 버튼
+
 }

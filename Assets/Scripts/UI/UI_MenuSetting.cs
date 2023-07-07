@@ -13,10 +13,6 @@ public class UI_MenuSetting : MonoBehaviour
     {
         Setting.SetActive(true);
     }
-    public void OnClick_Inventory()
-    {
-        Inventory.SetActive(true);
-    }
     public void OnClick_Shop()
     {
         Shop.SetActive(true);
@@ -24,5 +20,9 @@ public class UI_MenuSetting : MonoBehaviour
     public void OnClick_Informaition()
     {
         Information.SetActive(true);
+    }
+    public void OnClick_Inventory()
+    {
+        Inventory.SetActive(true);
     }
 }

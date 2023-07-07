@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI_Setting : MonoBehaviour
 {
     public GameObject MusicSetting;
+    public GameObject EndQuestion;
 
     public void OnClick_Resume()
     {
@@ -18,6 +19,14 @@ public class UI_Setting : MonoBehaviour
     } // 'È¯°æ¼³Á¤' Å°±â
     public void OnClick_Exit()
     {
-        Application.Quit();
+        EndQuestion.SetActive(true);
     } // ¾Û ²ô±â
+    public void OnClick_EndYes()
+    {
+        Application.Quit();
+    }
+    public void OnClick_EndNo()
+    {
+        EndQuestion.SetActive(false);
+    }
 }

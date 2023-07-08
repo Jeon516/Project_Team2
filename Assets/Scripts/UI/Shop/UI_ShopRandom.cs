@@ -16,13 +16,14 @@ public class UI_ShopRandom : MonoBehaviour
     {
         FreeBuyQuestion.SetActive(false);
         if (Yes)
-        {
+
+       {
             RandomResult.SetActive(true);
-        }
+       }
     }
 
     public void OnClick_Check()
     {
-        ;
+        RandomResult.SetActive(false);
     }
 }

@@ -10,6 +10,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "Black-bean-sauce noodles"
   },
   {
     "myClass": "중",
@@ -21,6 +22,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Jjambbong"
   },
   {
     "myClass": "중",
@@ -32,6 +34,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Sweet and sour pork"
   },
   {
     "myClass": "중",
@@ -43,6 +46,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Fried dumplings"
   },
   {
     "myClass": "중",
@@ -54,6 +58,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "katsudon"
   },
   {
     "myClass": "중",
@@ -65,6 +70,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "bibimbap"
   },
   {
     "myClass": "중",
@@ -76,6 +82,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "fried rice"
   },
   {
     "myClass": "중",
@@ -87,6 +94,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Curry Rice"
   },
   {
     "myClass": "중",
@@ -98,6 +106,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "omelet rice"
   },
   {
     "myClass": "중",
@@ -109,6 +118,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Ramen"
   },
   {
     "myClass": "중",
@@ -120,6 +130,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "Carbonara"
   },
   {
     "myClass": "중",
@@ -131,6 +142,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "stir-fried Rice Cake"
   },
   {
     "myClass": "중",
@@ -142,6 +154,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Fish cake skewers"
   },
   {
     "myClass": "중",
@@ -153,6 +166,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Takoyaki"
   },
   {
     "myClass": "중",
@@ -164,6 +178,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Chicken kebabs"
   },
   {
     "myClass": "중",
@@ -175,6 +190,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "hamburger"
   },
   {
     "myClass": "중",
@@ -186,6 +202,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "French fries"
   },
   {
     "myClass": "중",
@@ -197,6 +214,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Korean style Pancake"
   },
   {
     "myClass": "중",
@@ -208,6 +226,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Pork belly"
   },
   {
     "myClass": "중",
@@ -219,6 +238,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Korean style raw beef"
   },
   {
     "myClass": "중",
@@ -230,6 +250,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Fried Chicken"
   },
   {
     "myClass": "중",
@@ -241,6 +262,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "seasoned spicy chicken"
   },
   {
     "myClass": "중",
@@ -252,6 +274,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "fruit salad"
   },
   {
     "myClass": "중",
@@ -263,6 +286,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Macaron"
   },
   {
     "myClass": "중",
@@ -274,6 +298,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "a dango"
   },
   {
     "myClass": "중",
@@ -285,6 +310,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Pudding"
   },
   {
     "myClass": "중",
@@ -296,6 +322,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Strawberry cake"
   },
   {
     "myClass": "중",
@@ -307,6 +334,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "Chocolate Cake"
   },
   {
     "myClass": "중",
@@ -318,6 +346,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Carrot Cake"
   },
   {
     "myClass": "중",
@@ -329,6 +358,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Red Velvet cake"
   },
   {
     "myClass": "중",
@@ -340,6 +370,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Banana cake"
   },
   {
     "myClass": "중",
@@ -351,6 +382,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Shrimp sushi"
   },
   {
     "myClass": "중",
@@ -362,6 +394,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "fried tofu sushi"
   },
   {
     "myClass": "중",
@@ -373,6 +406,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Salmon sushi"
   },
   {
     "myClass": "중",
@@ -384,6 +418,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "Egg sushi"
   },
   {
     "myClass": "중",
@@ -395,6 +430,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "Tuna sushi"
   },
   {
     "myClass": "중",
@@ -406,6 +442,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Pork Cutlet"
   },
   {
     "myClass": "중",
@@ -417,6 +454,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Sweet Potatoes and Cheese Stuffed Pork Cutlet"
   },
   {
     "myClass": "중",
@@ -428,6 +466,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Pork Cutlet with Curry"
   },
   {
     "myClass": "중",
@@ -439,6 +478,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Ham and Cheese Sandwich"
   },
   {
     "myClass": "중",
@@ -450,6 +490,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Ham and egg Sandwich"
   },
   {
     "myClass": "중",
@@ -461,6 +502,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "a barbecued chicken sandwich"
   },
   {
     "myClass": "중",
@@ -472,6 +514,7 @@
     "firstStatValue": 2,
     "secondStatType": 102,
     "secondStatValue": -1
+    "imageName": "a peanut butter sandwich"
   },
   {
     "myClass": "중",
@@ -483,6 +526,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "ang butter sandwich"
   },
   {
     "myClass": "중",
@@ -494,6 +538,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Mint chocolate ice cream"
   },
   {
     "myClass": "중",
@@ -505,6 +550,7 @@
     "firstStatValue": 2,
     "secondStatType": 101,
     "secondStatValue": -1
+    "imageName": "Shooting Star ice cream"
   },
   {
     "myClass": "중",
@@ -516,6 +562,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Strawberry Ice Cream"
   },
   {
     "myClass": "중",
@@ -527,6 +574,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Chocolate ice cream"
   },
   {
     "myClass": "중",
@@ -538,6 +586,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Yogurt ice cream"
   },
   {
     "myClass": "중",
@@ -549,6 +598,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Soda ice cream"
   },
   {
     "myClass": "중",
@@ -560,6 +610,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "Combination Pizza"
   },
   {
     "myClass": "중",
@@ -571,6 +622,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Sweet Potato Pizza"
   },
   {
     "myClass": "중",
@@ -582,6 +634,7 @@
     "firstStatValue": 2,
     "secondStatType": 104,
     "secondStatValue": -1
+    "imageName": "Potato pizza"
   },
   {
     "myClass": "중",
@@ -593,6 +646,7 @@
     "firstStatValue": 2,
     "secondStatType": 103,
     "secondStatValue": -1
+    "imageName": "pepperoni pizza"
   },
   {
     "myClass": "중",
@@ -604,6 +658,7 @@
     "firstStatValue": 2,
     "secondStatType": 105,
     "secondStatValue": -1
+    "imageName": "Cheese pizza"
   }
 ]
 }

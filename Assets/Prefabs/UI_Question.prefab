@@ -165,6 +165,7 @@ GameObject:
   - component: {fileID: 3816056190769057408}
   - component: {fileID: 3816056190769057422}
   - component: {fileID: 3816056190769057423}
+  - component: {fileID: 4889035867607086351}
   m_Layer: 5
   m_Name: UI_Question
   m_TagString: Untagged
@@ -236,6 +237,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4889035867607086351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816056190769057409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7a8b19066950e409f964430f9a7bea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelData: {fileID: 4900000, guid: dc970ebddb0e1f84897281e1aed982c9, type: 3}
+  levels: []
+  selectionButton: {fileID: 3162973285810560376}
 --- !u!1 &3816056191148336281
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,7 +9,8 @@
       "firstStatType": 101,
       "firstStatValue": 2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "a rainbow cake filled with vitality"
     },
     {
       "myClass": "상",
@@ -20,7 +21,8 @@
       "firstStatType": 102,
       "firstStatValue": 2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Rainbow rive cake with sociality"
     },
     {
       "myClass": "상",
@@ -31,7 +33,8 @@
       "firstStatType": 103,
       "firstStatValue": 2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Rainbow Pancake with Boldness"
     },
     {
       "myClass": "상",
@@ -42,7 +45,8 @@
       "firstStatType": 104,
       "firstStatValue": 2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Curious rainbow lollipop"
     },
     {
       "myClass": "상",
@@ -53,7 +57,8 @@
       "firstStatType": 105,
       "firstStatValue": 2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Rainbow slush with various emotions"
     },
     {
       "myClass": "상",
@@ -64,7 +69,8 @@
       "firstStatType": 101,
       "firstStatValue": -2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "a calm whipped cream cake"
     },
     {
       "myClass": "상",
@@ -75,7 +81,8 @@
       "firstStatType": 102,
       "firstStatValue": -2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Baekseolgi with independence"
     },
     {
       "myClass": "상",
@@ -86,7 +93,8 @@
       "firstStatType": 103,
       "firstStatValue": -2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "Plain pancakes with prudence"
     },
     {
       "myClass": "상",
@@ -97,7 +105,8 @@
       "firstStatType": 104,
       "firstStatValue": -2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "a sepculative white candy"
     },
     {
       "myClass": "상",
@@ -108,7 +117,8 @@
       "firstStatType": 105,
       "firstStatValue": -2,
       "secondStatType": 0,
-      "secondStatValue": 0
+      "secondStatValue": 0,
+      "imageName": "a cold white slush"
     }
   ]
 }

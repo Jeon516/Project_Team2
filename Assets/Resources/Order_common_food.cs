@@ -1,5 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using System.IO;
 
 [System.Serializable]
 public class LevelData
@@ -9,17 +11,23 @@ public class LevelData
     public string jsonFilePath;
 }
 
-public class FirstProbabilitySetting : MonoBehaviour
+public class Order_common_food : MonoBehaviour
 {
     public TextAsset levelData;
     public LevelData[] levels;
     public Button selectionButton;
+    public Image selectedImage; // Reference to the UI Image component
+
+    private Dictionary<string, int> inventory; // Dictionary to store inventory data
 
     private void Start()
     {
         ParseLevelData();
 
         selectionButton.onClick.AddListener(StartSelection);
+
+        // Initialize inventory dictionary
+        inventory = new Dictionary<string, int>();
     }
 
     private void ParseLevelData()
@@ -55,6 +63,7 @@ public class FirstProbabilitySetting : MonoBehaviour
             if (selectedJsonFile != null)
             {
                 LoadJson(selectedJsonFile);
+                SaveInventoryToJson();
             }
             else
             {
@@ -91,6 +100,28 @@ public class FirstProbabilitySetting : MonoBehaviour
             {
                 ItemData selectedItem = itemList.items[Random.Range(0, itemList.items.Length)];
                 Debug.Log("Selected Item: " + selectedItem.name);
+
+                string imageName = selectedItem.imageName;
+                Sprite selectedSprite = Resources.Load<Sprite>(imageName);
+
+                if (selectedSprite != null)
+                {
+                    selectedImage.sprite = selectedSprite;
+
+                    // Add the obtained item to the inventory or increase its quantity if it already exists
+                    if (inventory.ContainsKey(selectedItem.name))
+                    {
+                        inventory[selectedItem.name]++;
+                    }
+                    else
+                    {
+                        inventory[selectedItem.name] = 1;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("Image file not found: " + imageName);
+                }
             }
             else
             {
@@ -119,6 +150,15 @@ public class FirstProbabilitySetting : MonoBehaviour
 
         return levels[0].level;
     }
+
+    private void SaveInventoryToJson()
+    {
+        string jsonFilePath = Application.persistentDataPath + "/inventory.json";
+        string jsonData = JsonUtility.ToJson(inventory);
+
+        // Write the inventory data to the JSON file
+        File.WriteAllText(jsonFilePath, jsonData);
+    }
 }
 
 [System.Serializable]
@@ -145,4 +185,5 @@ public class ItemData
     public int firstStatValue;
     public int secondStatType;
     public int secondStatValue;
+    public string imageName; // New field to hold the image file name
 }

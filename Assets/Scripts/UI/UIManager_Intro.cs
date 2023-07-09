@@ -14,7 +14,7 @@ public class UIManager_Intro : MonoBehaviour
     }
     public void OnClick_Start()
     {
-        SceneManager.LoadScene("Heaven");
+        SceneManager.LoadScene("Loading");
     } // 'Game Start'�� ������ ��
     public void OnClick_Load()
     {

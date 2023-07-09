@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Intro_Width.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Loading_Scene.unity
+    path: Assets/Scenes/Loading.unity
     guid: ca8cd2004284b884c940bb05b95a52b4
   - enabled: 1
     path: Assets/Scenes/Heaven.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Upbringing.unity
     guid: 73dc0b39732328a47919fa522c80c490
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: a10e4e48880ed584285dc6c726da4f9a
   m_configObjects: {}

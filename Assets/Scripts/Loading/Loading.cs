@@ -42,8 +42,6 @@ public class Loading : MonoBehaviour
 
         StartCoroutine(ShowLoading());
 
-        AudioManager.Instance.playBGM("IntroMusic");
-
         Invoke("LoadNextScene", 13f);
     }
 
@@ -120,6 +118,6 @@ public class Loading : MonoBehaviour
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene("Heaven");
+        SceneManager.LoadScene("Tutorial");
     } // 다음 씬으로 넘어가기
 }

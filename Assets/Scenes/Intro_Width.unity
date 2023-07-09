@@ -916,7 +916,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1799435266}
         m_TargetAssemblyTypeName: UIManager_Intro, Assembly-CSharp
-        m_MethodName: OnClick_Name
+        m_MethodName: OnClick_Start
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

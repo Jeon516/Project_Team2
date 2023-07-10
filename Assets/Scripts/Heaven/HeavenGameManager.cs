@@ -15,14 +15,20 @@ public class HeavenGameManager : MonoBehaviour
     public static HeavenGameManager Instance { get; private set; } = null;
     private void Awake()
     {
-        Day = 1;
-        PlayerPrefs.SetInt("Day", 1);
+        if (PlayerPrefs.GetInt("Day", 1) == 0)
+            Day = 1;
+        else
+            Day = PlayerPrefs.GetInt("Day", 1);
+        PlayerPrefs.SetInt("Day", Day);
         Instance = this;
     }
     private void Start()
     {
         DayText.text = Day.ToString() + "ÀÏ Â°";
-        GameStart.SetActive(true);
+        if (Day == 2)
+            GameStart.SetActive(true);
+        else
+            GameStart.SetActive(false);
     }
     public void OnClick_LeftStation()
     {
@@ -48,6 +54,9 @@ public class HeavenGameManager : MonoBehaviour
 
     public void OnClick_NextScene()
     {
-        SceneManager.LoadScene("Upbringing");
+        if(Day!=1)
+            SceneManager.LoadScene("Upbringing");
+        else
+            SceneManager.LoadScene("Tutorial");
     }
 }

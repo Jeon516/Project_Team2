@@ -14,9 +14,13 @@ public class Loading : MonoBehaviour
 
     private string originalText;
     private List<string> characters;
+    private int Day;
 
     private void Awake()
     {
+        Day = PlayerPrefs.GetInt("Day", 0);
+        PlayerPrefs.SetInt("Day", Day);
+
         float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
         PlayerPrefs.SetFloat("BGM", BGMVolume);
         float SFXVolume = PlayerPrefs.GetFloat("SFX", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
@@ -118,6 +122,9 @@ public class Loading : MonoBehaviour
 
     private void LoadNextScene()
     {
-        SceneManager.LoadScene("Tutorial");
+        if (Day == 0)
+            SceneManager.LoadScene("Tutorial");
+        else
+            SceneManager.LoadScene("Heaven");
     } // 다음 씬으로 넘어가기
 }

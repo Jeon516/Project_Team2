@@ -27,6 +27,8 @@ public class FirstGameEnd : MonoBehaviour
     {
         if (Day == 1)
             gameObject.SetActive(true);
+        else
+            gameObject.SetActive(false);
         ChatText.text = Chat[0];
         order = 1;
     }

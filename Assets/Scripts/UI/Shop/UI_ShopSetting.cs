@@ -9,36 +9,20 @@ public class UI_ShopSetting : MonoBehaviour
     private bool IsRandom = false;
     private bool IsShop = false;
 
+    private void Start()
+    {
+        Random.SetActive(true);
+    }
     public void OnClick_Random()
     {
-        if (!IsRandom)
-        { 
-            Random.SetActive(true);
-            Shop.SetActive(false);
-            IsRandom = true;
-            IsShop = false;
-        }
-        else
-        {
-            Random.SetActive(false);
-            IsRandom = false;
-        }
+        Random.SetActive(true);
+        Shop.SetActive(false);
     }
 
     public void OnClick_Shop()
     {
-        if (!IsShop)
-        {
-            Shop.SetActive(true);
-            Random.SetActive(false);
-            IsShop = true;
-            IsRandom = false;
-        }
-        else
-        {
-            Shop.SetActive(false);
-            IsShop = false;
-        }
+         Shop.SetActive(true);
+         Random.SetActive(false);
     }
 
     public void OnClick_Close()

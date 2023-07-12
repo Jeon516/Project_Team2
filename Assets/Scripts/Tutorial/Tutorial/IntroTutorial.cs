@@ -12,6 +12,7 @@ public class IntroTutorial : MonoBehaviour
     private string Name;
     private bool IsClick=true;
     private int Day;
+    private int TutorialDay;
 
     private string[] Chat = {  "아, 이번에 7번 관리소를 담당하게 된 분이신가요?","혹시 성함이 어떻게 되실까요?",
     "아하... 확인했습니다", "반갑습니다! 저는 7번 관리소의 인수인계를 맡게 된 '케이'라고 합니다.",
@@ -21,6 +22,9 @@ public class IntroTutorial : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
+        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
+        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
+
         ChatText.text = Chat[0];
         order = 1;
     }
@@ -28,15 +32,19 @@ public class IntroTutorial : MonoBehaviour
     private void Start()
     {
         if (Day >= 1)
+        {
             gameObject.SetActive(false);
-        else if(Day==0)
+        }
+        else if (Day == 0 && TutorialDay == 0)
+        {
             gameObject.SetActive(true);
+        }
     }
     void Update()
     {
-
         if (order == Chat.Length && Input.GetMouseButtonDown(0))
         {
+            PlayerPrefs.SetInt("TutorialDay", 1);
             gameObject.SetActive(false);
             SceneManager.LoadScene("Heaven");
         }

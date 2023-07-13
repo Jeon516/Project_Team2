@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UI_InvenotrySlot : MonoBehaviour
 {
     public GameObject[] SelectedBoundary;
+    public GameObject[] Icon;
     public Image[] SelectedImage;
     public Button[] buttons;
 
@@ -57,6 +58,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     {
         SelectedImage[SelectedNum].GetComponent<Image>().sprite = null;
         SelectedBoundary[SelectedNum].SetActive(false);
+        Icon[SelectedNum].SetActive(false);
         UI_InventoryInformation.Instance.SwitchImageNull();
     } // 인벤토리 이미지 및 큰 이미지 삭제
     private void Initialized()

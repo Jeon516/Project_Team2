@@ -30,6 +30,9 @@ public class UI_InformationSetting : MonoBehaviour
         if (!IsDog)
         {
             DogTag.SetActive(true);
+            FoodLow.SetActive(false);
+            FoodMiddle.SetActive(false);
+            FoodHigh.SetActive(false);
             LevelButton.SetActive(false);
             IsDog = true;
             IsFood = false;

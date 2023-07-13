@@ -24,12 +24,24 @@ public class UI_InventorySetting : MonoBehaviour
 
     public void OnClick_Trash()
     {
-        TrashQuestion.SetActive(true);
+        for (int i = 0; i < 20; i++)
+        {
+            if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)
+            {
+                TrashQuestion.SetActive(true);
+            }
+        }
     } // '버리기' 버튼 
 
     public void OnClick_Use()
     {
-        UseQuestion.SetActive(true);
+        for (int i = 0; i < 20; i++)
+        {
+            if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)
+            {
+                UseQuestion.SetActive(true);
+            }
+        }
     } // '사용' 버튼
 
 }

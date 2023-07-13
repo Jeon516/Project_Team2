@@ -8,9 +8,15 @@ public class InventoryUse : MonoBehaviour
 
     public void OnClick_YesButton()
     {
-        UI_InvenotrySlot.Instance.Deleted();
-        Block.SetActive(true);
-        gameObject.SetActive(false);
+        for(int i=0;i<20;i++)
+        {
+            if(UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf==true)
+            {
+                UI_InvenotrySlot.Instance.Deleted();
+                Block.SetActive(true);
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     public void OnClick_NoButton()

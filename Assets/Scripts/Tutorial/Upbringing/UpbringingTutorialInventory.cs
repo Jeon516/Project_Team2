@@ -16,8 +16,9 @@ public class UpbringingTutorialInventory : MonoBehaviour
     public GameObject ShopButton;
     public GameObject TutorialInventory;
     public GameObject ItemTutorial;
-    public GameObject UseTutorial;
+    public GameObject UseTutorial; // Use 상호작용
     public GameObject Stat;
+    public GameObject TutorialInteraciton;
     public RectTransform ChatTransform;
 
     private string[] Chat = { "구매한 음식은 이곳에서 확인할 수 있습니다.", "방금 구매한 음식이 저기 보이네요. 한 번 확인해보시겠어요?",
@@ -39,13 +40,12 @@ public class UpbringingTutorialInventory : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && order == 3 && IsClick)
         {
             ChatDisplay();
-            UseTutorial.SetActive(true);
         }
         else if(Input.GetMouseButtonDown(0) && order == Chat.Length)
         {
             Stat.SetActive(false);
             gameObject.SetActive(false);
-            // 호감도 gameObject를 올림
+            TutorialInteraciton.SetActive(true);
         }
     }
 
@@ -54,6 +54,8 @@ public class UpbringingTutorialInventory : MonoBehaviour
         ShopButton.SetActive(false);
         TutorialEat[0].SetActive(true);
         TutorialEat[1].SetActive(true);
+        ItemTutorial.SetActive(false);
+        UseTutorial.SetActive(false);
         ChatSet.SetActive(true);
         IsClick = false;
         ChatDisplay();
@@ -65,7 +67,7 @@ public class UpbringingTutorialInventory : MonoBehaviour
         TutorialEat[0].SetActive(false);
         TutorialEat[1].SetActive(false);
         TutorialInventory.SetActive(true);
-        UseTutorial.SetActive(true);
+        ItemTutorial.SetActive(true);
         order++;
         ChatDisplay();
         ChatTransform.anchoredPosition = new Vector2(0, 180);
@@ -73,6 +75,7 @@ public class UpbringingTutorialInventory : MonoBehaviour
 
     public void Onclick_ItemTutorial()
     {
+        UseTutorial.SetActive(true);
         ChatDisplay();
         IsClick = true;
         ChatTransform.anchoredPosition = new Vector2(0, -296);
@@ -90,6 +93,7 @@ public class UpbringingTutorialInventory : MonoBehaviour
     }
     public void Onclick_Yes()
     {
+        UseTutorial.SetActive(false);
         StartCoroutine(Wait());
     }
 

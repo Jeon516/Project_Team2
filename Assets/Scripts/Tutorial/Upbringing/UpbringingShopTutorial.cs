@@ -35,6 +35,7 @@ public class UpbringingShopTutorial : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && 1 == order && IsClick)
         {
             ChatText.text = Chat[order];
+            FreeButton.SetActive(true);
             Block[0].SetActive(false);
             order++;
             ChatTransform.anchoredPosition = new Vector2(0, -360);

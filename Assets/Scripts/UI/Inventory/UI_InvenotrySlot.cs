@@ -25,6 +25,7 @@ public class UI_InvenotrySlot : MonoBehaviour
 
     public void Selected(Button button)
     {
+        Debug.Log(button);
         for (int i=0;i<18;i++)
         {
             if (buttons[i] == button)

@@ -65,7 +65,7 @@ public class UpbringingTutorialInventory : MonoBehaviour
         TutorialEat[0].SetActive(false);
         TutorialEat[1].SetActive(false);
         TutorialInventory.SetActive(true);
-        ItemTutorial.SetActive(true);
+        UseTutorial.SetActive(true);
         order++;
         ChatDisplay();
         ChatTransform.anchoredPosition = new Vector2(0, 180);

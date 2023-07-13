@@ -19,6 +19,7 @@ public class HeavenTutorial : MonoBehaviour
 
     private int order;
     private int Day;
+    private int TutorialDay;
     private bool IsClick = true;
 
     private string[] Chat = {  "앞에 있는 버튼을 누르면 업무를 시작하게 됩니다. 한 번 눌러보시겠어요?", 
@@ -31,11 +32,13 @@ public class HeavenTutorial : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
+        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
+        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
     }
 
     private void Start()
     {
-        if (Day == 1)
+        if (Day == 1 && TutorialDay==1)
         {
             gameObject.SetActive(true);
             StartButton.interactable=false;

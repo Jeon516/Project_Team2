@@ -60,7 +60,7 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        BGMSource.volume = PlayerPrefs.GetFloat("BGM");
+        BGMSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
         //SFXSource.volume = PlayerPrefs.GetFloat("SFX");
     } // BGM, SFX을 바로 반영하기
 }

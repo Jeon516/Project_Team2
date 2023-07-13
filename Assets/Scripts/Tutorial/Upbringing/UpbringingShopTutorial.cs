@@ -17,6 +17,7 @@ public class UpbringingShopTutorial : MonoBehaviour
     public Button TutorialShopButton;
     public RectTransform ChatTransform;
     public GameObject CancelButton;
+    public GameObject FreeButton;
 
     private string[] Chat = {  "각각의 음식 주문은 하루에 한 번씩만 가능하니 유의하시기 바랍니다.","딱 이번만 비용을 대신 내드릴 테니 한 번 주문해보세요."};
 
@@ -57,9 +58,14 @@ public class UpbringingShopTutorial : MonoBehaviour
     {
         ChatText.text = "";
         ChatSet.SetActive(false);
+        FreeButton.SetActive(false);
     }
     public void Onclick_YesButton()
     {
         CancelButton.SetActive(false);
+    }
+    public void Onclick_NoButton()
+    {
+        FreeButton.SetActive(true);
     }
 }

@@ -121,8 +121,8 @@ public class Loading : MonoBehaviour
     }
 
     private void LoadNextScene()
-    {
-        if (Day == 0)
+    {   
+        if(Day==0)
             SceneManager.LoadScene("Tutorial");
         else
             SceneManager.LoadScene("Heaven");

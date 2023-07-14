@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class FirstGameEnd : MonoBehaviour
 {
     public Text ChatText;
+    public GameObject Name;
     private int order;
     private int Day;
     private int TutorialDay;
@@ -38,6 +39,7 @@ public class FirstGameEnd : MonoBehaviour
 
     void Update()
     {
+        Name.SetActive(false);
         if (order == Chat.Length && Input.GetMouseButtonDown(0))
         {
             gameObject.SetActive(false);

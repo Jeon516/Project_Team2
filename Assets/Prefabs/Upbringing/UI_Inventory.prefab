@@ -5622,7 +5622,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 7390796191145486357}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.50000006
+  m_Size: 0.5
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5979,6 +5979,7 @@ MonoBehaviour:
   - {fileID: 1094253058101378858}
   - {fileID: 2861117340054566508}
   - {fileID: 6539751655439926020}
+  Icon: []
   SelectedImage:
   - {fileID: 1046993220642857639}
   - {fileID: 3531792473345510024}
@@ -8983,7 +8984,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4889035867607086351, guid: ebe36434fe2b58745830958f2ad852d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ebe36434fe2b58745830958f2ad852d3, type: 3}
 --- !u!1 &4359131619215252300 stripped
 GameObject:
@@ -9150,7 +9152,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -10
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4889035867607086351, guid: ebe36434fe2b58745830958f2ad852d3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ebe36434fe2b58745830958f2ad852d3, type: 3}
 --- !u!1 &1089494750818583903 stripped
 GameObject:

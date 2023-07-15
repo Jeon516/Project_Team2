@@ -26,7 +26,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     public void Selected(Button button)
     {
         Debug.Log(button);
-        for (int i=0;i<18;i++)
+        for (int i=0;i<20;i++)
         {
             if (buttons[i] == button)
             {
@@ -57,6 +57,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     }
     public void Deleted()
     {
+        Debug.Log(SelectedNum);
         SelectedImage[SelectedNum].GetComponent<Image>().sprite = null;
         SelectedBoundary[SelectedNum].SetActive(false);
         Icon[SelectedNum].SetActive(false);
@@ -64,7 +65,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     } // 인벤토리 이미지 및 큰 이미지 삭제
     private void Initialized()
     {
-        for (int i = 0; i < 18; i++)
+        for (int i = 0; i < 20; i++)
         {
             IsCheck[i] = 0;
             SelectedBoundary[i].SetActive(false);

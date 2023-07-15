@@ -9,16 +9,24 @@ public class GameProcess : MonoBehaviour
     public Image TrainLeft;
     public Image TrainRight;
     public Image Ticket;
+    
 
     private int dayValue;
     private int TL;
     private int TR;
     private int R;
+    public int SN;
+    public int AN;
+    public int SE;
+    public int AE;
+    public string emblemcolor;
 
     private List<Sprite> trainLSprites = new List<Sprite>();
     private List<Sprite> trainRSprites = new List<Sprite>();
     private List<Sprite> ticketSprites = new List<Sprite>();
     private List<string> availableColors = new List<string>();
+    public delegate void ButtonClickedDelegate();
+    public static event ButtonClickedDelegate OnButtonClicked;
 
     private void Start()
     {
@@ -34,18 +42,30 @@ public class GameProcess : MonoBehaviour
             TL = 40;
             TR = 40;
             R = 20;
+            SN = 80;
+            AN = 20;
+            SE = 80;
+            AE = 20;
         }
         else if (dayValue >= 6 && dayValue <= 15)
         {
             TL--;
             TR--;
             R += 2;
+            SN -= 2;
+            AN += 2;
+            SE -= 2;
+            AE += 2;
         }
         else if (dayValue >= 16 && dayValue <= 20)
         {
             TL = 30;
             TR = 30;
             R = 40;
+            SN = 60;
+            AN = 40;
+            SE = 60;
+            AE = 40;
         }
 
         string JSONFilePath = "JsonFiles/Game/Set";
@@ -81,6 +101,7 @@ public class GameProcess : MonoBehaviour
 
         SetRandomImages();
     }
+    
 
     private void LoadImagesIntoList(string folderPath, List<Sprite> spriteList)
     {
@@ -137,6 +158,7 @@ private void SetRandomImages()
         int remainingIndex = Random.Range(0, remainingColors.Count);
         randomColor3 = remainingColors[remainingIndex];
     }
+    emblemcolor = randomColor3;
 
     Debug.Log("Random Color 3: " + randomColor3);
 
@@ -145,6 +167,12 @@ private void SetRandomImages()
     Ticket.sprite = GetTicketSprite(randomColor3);
 
 }
+public string GetRandomColor3()
+{
+    // Return the value of randomColor3
+    return emblemcolor;
+}
+
 private Sprite GetTicketSprite(string color)
 {
     foreach (Sprite ticketSprite in ticketSprites)
@@ -159,10 +187,22 @@ private Sprite GetTicketSprite(string color)
     return null;
 }
 
+private string GetRandomColor3FromGameProcess()
+{
+    // You need a reference to the GameProcess script, you can get it from a GameObject that has the GameProcess component attached
+    GameProcess gameProcessScript = GetComponent<GameProcess>();
+
+    // Return the value of randomColor3 from the GameProcess script
+    return gameProcessScript.GetRandomColor3();
+}
 
     private void OnButtonClick()
     {
         SetRandomImages();
+        if (OnButtonClicked != null)
+        {
+            OnButtonClicked();
+        }
     }
 }
 

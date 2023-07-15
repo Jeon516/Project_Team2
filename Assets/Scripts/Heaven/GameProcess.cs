@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 public class GameProcess : MonoBehaviour
 {
-    [SerializeField]
-    private Button[] configurableButtons; // 버튼 배열
+    public Button[] configurableButtons; // 버튼 배열
 
     public Image TrainLeft; // TrainLeft 이미지 UI 요소
     public Image TrainRight; // TrainRight 이미지 UI 요소
@@ -16,10 +15,6 @@ public class GameProcess : MonoBehaviour
     private int TL;
     private int TR;
     private int R;
-
-    private string TrainLPath;
-    private string TrainRPath;
-    private string TicketPath;
 
     private List<Sprite> trainLSprites = new List<Sprite>();
     private List<Sprite> trainRSprites = new List<Sprite>();
@@ -82,18 +77,37 @@ public class GameProcess : MonoBehaviour
                     string randomColor2 = availableColors[randomIndex2];
                     availableColors.RemoveAt(randomIndex2);
 
-                    int randomIndex3 = Random.Range(0, availableColors.Count);
-                    string randomColor3 = availableColors[randomIndex3];
+                    string randomColor3;
+                    int randomValue = Random.Range(1, 101);
+                    if (randomValue <= TL)
+                    {
+                        randomColor3 = randomColor1;
+                    }
+                    else if (randomValue <= TL + TR)
+                    {
+                        randomColor3 = randomColor2;
+                    }
+                    else
+                    {
+                        List<string> remainingColors = availableColors.FindAll(color => color != randomColor1 && color != randomColor2);
+                        int remainingIndex = Random.Range(0, remainingColors.Count);
+                        randomColor3 = remainingColors[remainingIndex];
+                    }
 
                     // 랜덤 컬러를 파일 경로에 할당
-                    TrainLPath = "Image/Heaven/Train(Size)/LeftSide/" + randomColor1;
-                    TrainRPath = "Image/Heaven/Train(Size)/RightSide/" + randomColor2;
-                    TicketPath = "Image/Heaven/tickets/" + randomColor3;
+                    string TrainLPath = "Image/Heaven/Train(Size)/LeftSide/" + randomColor1;
+                    string TrainRPath = "Image/Heaven/Train(Size)/RightSide/" + randomColor2;
+                    string TicketPath = "Image/Heaven/tickets/" + randomColor3;
 
                     // 이미지를 리스트로 로드
                     LoadImagesIntoList(TrainLPath, trainLSprites);
                     LoadImagesIntoList(TrainRPath, trainRSprites);
                     LoadImagesIntoList(TicketPath, ticketSprites);
+
+                    // 초기 이미지 할당
+                    SetRandomImage(TrainLeft, trainLSprites);
+                    SetRandomImage(TrainRight, trainRSprites);
+                    SetRandomImage(Ticket, ticketSprites);
                 }
                 else
                 {
@@ -135,8 +149,18 @@ public class GameProcess : MonoBehaviour
 
     private void OnButtonClick()
     {
-        SetRandomImage(TrainLeft, trainLSprites);
-        SetRandomImage(TrainRight, trainRSprites);
+        // 이미지를 다시 로드하고 새로운 이미지 할당
+        LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
+        LoadImagesIntoList("Image/Heaven/Train(Size)/RightSide", trainRSprites);
+        LoadImagesIntoList("Image/Heaven/tickets", ticketSprites);
+
+        // 랜덤 컬러를 선택
+        int randomIndex1 = Random.Range(0, trainLSprites.Count);
+        int randomIndex2 = Random.Range(0, trainRSprites.Count);
+
+        // 이미지 할당
+        TrainLeft.sprite = trainLSprites[randomIndex1];
+        TrainRight.sprite = trainRSprites[randomIndex2];
         SetRandomImage(Ticket, ticketSprites);
     }
 }

@@ -1,7 +1,7 @@
 {  
   "items": [
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "무지개색",
       "name": "활발함이 담긴  무지개 케이크",
       "itemText": "활발함이 담긴 무지개맛 케이크이다.\n활발함 +2",
@@ -13,7 +13,7 @@
       "imageName": "a rainbow cake filled with vitality"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "무지개색",
       "name": "사회성이 담긴 무지개 떡",
       "itemText": "사회성이 담긴 무지개맛 떡이다.\n사회성 +2",
@@ -25,7 +25,7 @@
       "imageName": "Rainbow rive cake with sociality"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "무지개색",
       "name": "대담함이 담긴  무지개 팬케이크",
       "itemText": "대담함이 담긴 무지개맛 팬케이크이다.\n대담함+2",
@@ -37,7 +37,7 @@
       "imageName": "Rainbow Pancake with Boldness"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "무지개색",
       "name": "호기심이 담긴 무지개 막대사탕",
       "itemText": "호기심이 담긴 무지개맛 막대사탕이다.\n호기심 +2",
@@ -49,7 +49,7 @@
       "imageName": "Curious rainbow lollipop"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "무지개색",
       "name": "다양한 감정이 담긴 무지개 슬러시",
       "itemText": "애정표현이 담긴 무지개맛 슬러쉬이다.\n애정표현+2",
@@ -61,7 +61,7 @@
       "imageName": "Rainbow slush with various emotions"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "흰색",
       "name": "차분함이 담긴 생크림 케이크",
       "itemText": "차분함이 담긴 고소한 생크림 케이크이다.\n차분함+2",
@@ -73,7 +73,7 @@
       "imageName": "a calm whipped cream cake"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "흰색",
       "name": "독립성이 담긴 백설기",
       "itemText": "독립성이 담긴 쫀득한 백설기이다.\n독립성+2",
@@ -85,7 +85,7 @@
       "imageName": "Baekseolgi with independence"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "흰색",
       "name": "신중함이 담긴 플레인 팬케이크",
       "itemText": "신중함이 담긴 풍미가득한 플레인 팬케이크이다.\n신중함+2",
@@ -97,7 +97,7 @@
       "imageName": "Plain pancakes with prudence"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "흰색",
       "name": "사색이 담긴 하얀 사탕",
       "itemText": "조용함이 담긴 달달한 하얀사탕이다.\n조용함+2",
@@ -109,7 +109,7 @@
       "imageName": "a sepculative white candy"
     },
     {
-      "myClass": "상",
+      "myClass": "H",
       "sort": "흰색",
       "name": "냉정함이 담긴 하얀 슬러시",
       "itemText": "냉정함이 담긴 시원한 하얀슬러시이다.\n냉정함+2",

@@ -49,7 +49,6 @@ public class UI_InformationSetting : MonoBehaviour
         if (!IsFood)
         {
             LevelButton.SetActive(true);
-            DogTag.SetActive(false);
             IsFood = true;
             IsDog = false;
         }
@@ -66,6 +65,7 @@ public class UI_InformationSetting : MonoBehaviour
         FoodMiddle.SetActive(false);
         FoodHigh.SetActive(false);
         LevelButton.SetActive(false);
+        DogTag.SetActive(false);
         IsFood = false;
     }
 
@@ -75,6 +75,7 @@ public class UI_InformationSetting : MonoBehaviour
         FoodLow.SetActive(false);
         FoodHigh.SetActive(false);
         LevelButton.SetActive(false);
+        DogTag.SetActive(false);
         IsFood = false;
     }
 
@@ -84,6 +85,7 @@ public class UI_InformationSetting : MonoBehaviour
         FoodLow.SetActive(false);
         FoodMiddle.SetActive(false);
         LevelButton.SetActive(false);
+        DogTag.SetActive(false);
         IsFood = false;
     }
 }

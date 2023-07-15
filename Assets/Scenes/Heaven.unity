@@ -1145,6 +1145,7 @@ GameObject:
   - component: {fileID: 490307889}
   - component: {fileID: 490307893}
   - component: {fileID: 490307894}
+  - component: {fileID: 490307895}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1281,6 +1282,25 @@ MonoBehaviour:
   Front: {fileID: 1260046973}
   Side1: {fileID: 737668436}
   Side2: {fileID: 1662635201}
+--- !u!114 &490307895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490307888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 248e6724ad97b33468299119ac504230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1114729284}
+  - {fileID: 127521713}
+  - {fileID: 1383427513}
+  TrainLeft: {fileID: 977261716}
+  TrainRight: {fileID: 1158773868}
+  Ticket: {fileID: 1898374405}
 --- !u!1 &497552464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1603,7 +1623,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &521325378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2735,17 +2755,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 985223832}
   m_CullTransparentMesh: 1
---- !u!114 &1028757993 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6993079053639567499, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
-  m_PrefabInstance: {fileID: 6993079054247284094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1051373149 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9189877320155504784, guid: 397b2e1887ee5f946a88241afe40c6bf, type: 3}
@@ -4592,7 +4601,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1917427358}
-  - component: {fileID: 1917427364}
   m_Layer: 5
   m_Name: Ticket
   m_TagString: Untagged
@@ -4621,29 +4629,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 148}
   m_SizeDelta: {x: 600, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1917427364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1917427357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80a0edc3ead5c6b4d9c2a5eb40c1c1c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadButtons:
-  - {fileID: 1114729284}
-  - {fileID: 127521713}
-  - {fileID: 1383427513}
-  - {fileID: 1028757993}
-  emblemImageElement: {fileID: 2097200456}
-  sortImageElement: {fileID: 1898374405}
-  textElement: {fileID: 517298740}
-  emblemImagesFolderPath: Assets/Download Assets/Fantasy Emblem3(living) Set Pack/FantasyEmblem3_128_W
-  sortImagesFolderPath: Assets/Resources/Image/Heaven/tickets
-  jsonFilePath: Assets/Resources/JsonFiles/Game/Set.json
 --- !u!1 &1932327678
 GameObject:
   m_ObjectHideFlags: 0

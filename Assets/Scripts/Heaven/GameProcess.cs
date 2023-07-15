@@ -46,68 +46,6 @@ public class GameProcess : MonoBehaviour
                 {
                     availableColors.Add(setData.Color);
                 }
-
-                if (dayValue >= 1 && dayValue <= 5)
-                {
-                    TL = 40;
-                    TR = 40;
-                    R = 20;
-                }
-                else if (dayValue >= 6 && dayValue <= 15)
-                {
-                    TL--;
-                    TR--;
-                    R += 2;
-                }
-                else if (dayValue >= 16 && dayValue <= 20)
-                {
-                    TL = 30;
-                    TR = 30;
-                    R = 40;
-                }
-
-                if (availableColors.Count >= 3)
-                {
-                    // Fisher-Yates 알고리즘을 사용하여 availableColors 리스트를 섞습니다.
-                    int n = availableColors.Count;
-                    while (n > 1)
-                    {
-                        n--;
-                        int k = Random.Range(0, n + 1);
-                        string value = availableColors[k];
-                        availableColors[k] = availableColors[n];
-                        availableColors[n] = value;
-                    }
-
-                    // 첫 3개의 색상을 가져옵니다.
-                    string randomColor1 = availableColors[0];
-                    string randomColor2 = availableColors[1];
-                    string randomColor3 = availableColors[2];
-
-                    // 랜덤 컬러를 파일 경로에 할당
-                    string TrainLPath = "Image/Heaven/Train(Size)/LeftSide/" + randomColor1;
-                    string TrainRPath = "Image/Heaven/Train(Size)/RightSide/" + randomColor2;
-                    string TicketPath = "Image/Heaven/tickets/" + randomColor3;
-
-                    // 이미지를 리스트로 로드
-                    LoadImagesIntoList(TrainLPath, trainLSprites);
-                    LoadImagesIntoList(TrainRPath, trainRSprites);
-                    LoadImagesIntoList(TicketPath, ticketSprites);
-
-                    // 초기 이미지 할당
-                    SetRandomImage(TrainLeft, trainLSprites);
-                    SetRandomImage(TrainRight, trainRSprites);
-                    SetRandomImage(Ticket, ticketSprites);
-
-                    // 로그 출력
-                    Debug.Log("Random Color 1: " + randomColor1);
-                    Debug.Log("Random Color 2: " + randomColor2);
-                    Debug.Log("Random Color 3: " + randomColor3);
-                }
-                else
-                {
-                    Debug.LogError("사용 가능한 색상이 충분하지 않습니다.");
-                }
             }
             else
             {
@@ -124,6 +62,9 @@ public class GameProcess : MonoBehaviour
         {
             button.onClick.AddListener(() => OnButtonClick());
         }
+
+        // 초기 이미지 할당
+        SetRandomImages();
     }
 
     private void LoadImagesIntoList(string folderPath, List<Sprite> spriteList)
@@ -132,17 +73,22 @@ public class GameProcess : MonoBehaviour
         spriteList.Clear();
         spriteList.AddRange(loadedSprites);
     }
+private Sprite GetTrainSprite(string color, bool isLeftSide)
+{
+    string folderPath = isLeftSide ? "Image/Heaven/Train(Size)/LeftSide/" : "Image/Heaven/Train(Size)/RightSide/";
+    string imagePath = folderPath + color;
 
-    private void SetRandomImage(Image image, List<Sprite> spriteList)
+    Sprite sprite = Resources.Load<Sprite>(imagePath);
+    if (sprite == null)
     {
-        if (spriteList.Count > 0)
-        {
-            int randomIndex = Random.Range(0, spriteList.Count);
-            image.sprite = spriteList[randomIndex];
-        }
+        Debug.LogError("해당 컬러에 대한 기차 이미지를 찾을 수 없습니다: " + color);
     }
 
-    private void OnButtonClick()
+    return sprite;
+}
+
+
+private void SetRandomImages()
 {
     // 이미지를 다시 로드하고 새로운 이미지 할당
     LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
@@ -153,15 +99,11 @@ public class GameProcess : MonoBehaviour
     int randomIndex1 = Random.Range(0, trainLSprites.Count);
     int randomIndex2 = Random.Range(0, trainRSprites.Count);
 
-    // randomIndex1과 randomIndex2가 서로 다른 값이 될 때까지 반복합니다.
+    // 중복되지 않는 이미지가 선택될 때까지 반복
     while (randomIndex1 == randomIndex2)
     {
         randomIndex2 = Random.Range(0, trainRSprites.Count);
     }
-
-    // 이미지 할당
-    TrainLeft.sprite = trainLSprites[randomIndex1];
-    TrainRight.sprite = trainRSprites[randomIndex2];
 
     // 로그 출력
     string randomColor1 = availableColors[randomIndex1];
@@ -186,18 +128,38 @@ public class GameProcess : MonoBehaviour
         int remainingIndex = Random.Range(0, remainingColors.Count);
         randomColor3 = remainingColors[remainingIndex];
     }
+
+    // 로그 출력
     Debug.Log("Random Color 3: " + randomColor3);
 
     // 이미지 할당
+    TrainLeft.sprite = GetTrainSprite(randomColor1, true);
+    TrainRight.sprite = GetTrainSprite(randomColor2, false);
     Ticket.sprite = GetTicketSprite(randomColor3);
+
+    // 기타 남은 로직 처리...
+}
+
+
+private Sprite GetTicketSprite(string color)
+{
+    foreach (Sprite ticketSprite in ticketSprites)
+    {
+        if (ticketSprite.name.Contains(color))
+        {
+            return ticketSprite;
+        }
     }
 
-    private Sprite GetTicketSprite(string color)
+    Debug.LogError("해당 컬러에 대한 티켓 이미지를 찾을 수 없습니다: " + color);
+    return null;
+}
+
+
+    private void OnButtonClick()
     {
-        // color에 해당하는 Ticket 이미지를 리소스에서 찾아 반환합니다.
-        string path = "Image/Heaven/tickets/" + color;
-        Sprite ticketSprite = Resources.Load<Sprite>(path);
-        return ticketSprite;
+        // 새로운 이미지 할당
+        SetRandomImages();
     }
 }
 

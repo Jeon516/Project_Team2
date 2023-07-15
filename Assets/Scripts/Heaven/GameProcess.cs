@@ -143,51 +143,52 @@ public class GameProcess : MonoBehaviour
     }
 
     private void OnButtonClick()
+{
+    // 이미지를 다시 로드하고 새로운 이미지 할당
+    LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
+    LoadImagesIntoList("Image/Heaven/Train(Size)/RightSide", trainRSprites);
+    LoadImagesIntoList("Image/Heaven/tickets", ticketSprites);
+
+    // 랜덤 컬러를 선택
+    int randomIndex1 = Random.Range(0, trainLSprites.Count);
+    int randomIndex2 = Random.Range(0, trainRSprites.Count);
+
+    // randomIndex1과 randomIndex2가 서로 다른 값이 될 때까지 반복합니다.
+    while (randomIndex1 == randomIndex2)
     {
-        // 이미지를 다시 로드하고 새로운 이미지 할당
-        LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
-        LoadImagesIntoList("Image/Heaven/Train(Size)/RightSide", trainRSprites);
-        LoadImagesIntoList("Image/Heaven/tickets", ticketSprites);
+        randomIndex2 = Random.Range(0, trainRSprites.Count);
+    }
 
-        // 랜덤 컬러를 선택
-        int randomIndex1 = Random.Range(0, trainLSprites.Count);
-        int randomIndex2 = Random.Range(0, trainRSprites.Count);
+    // 이미지 할당
+    TrainLeft.sprite = trainLSprites[randomIndex1];
+    TrainRight.sprite = trainRSprites[randomIndex2];
 
-        // randomIndex1과 randomIndex2가 서로 다른 값이 될 때까지 반복합니다.
-        while (randomIndex1 == randomIndex2)
-        {
-            randomIndex2 = Random.Range(0, trainRSprites.Count);
-        }
+    // 로그 출력
+    string randomColor1 = availableColors[randomIndex1];
+    string randomColor2 = availableColors[randomIndex2];
+    Debug.Log("Random Color 1: " + randomColor1);
+    Debug.Log("Random Color 2: " + randomColor2);
 
-        // 이미지 할당
-        TrainLeft.sprite = trainLSprites[randomIndex1];
-        TrainRight.sprite = trainRSprites[randomIndex2];
+    // randomColor3 선택
+    int randomValue = Random.Range(1, TL + TR + R + 1);
+    string randomColor3;
+    if (randomValue <= TL)
+    {
+        randomColor3 = randomColor1;
+    }
+    else if (randomValue <= TL + TR)
+    {
+        randomColor3 = randomColor2;
+    }
+    else
+    {
+        List<string> remainingColors = availableColors.FindAll(color => color != randomColor1 && color != randomColor2);
+        int remainingIndex = Random.Range(0, remainingColors.Count);
+        randomColor3 = remainingColors[remainingIndex];
+    }
+    Debug.Log("Random Color 3: " + randomColor3);
 
-        // 로그 출력
-        string randomColor1 = availableColors[randomIndex1];
-        string randomColor2 = availableColors[randomIndex2];
-        Debug.Log("Random Color 1: " + randomColor1);
-        Debug.Log("Random Color 2: " + randomColor2);
-
-        // randomColor3 선택
-        string randomColor3;
-        int randomValue = Random.Range(1, 101);
-        if (randomValue <= TL)
-        {
-            randomColor3 = randomColor1;
-        }
-        else if (randomValue <= TL + TR)
-        {
-            randomColor3 = randomColor2;
-        }
-        else
-        {
-            List<string> remainingColors = availableColors.FindAll(color => color != randomColor1 && color != randomColor2);
-            int remainingIndex = Random.Range(0, remainingColors.Count);
-            randomColor3 = remainingColors[remainingIndex];
-        }
-        Debug.Log("Random Color 3: " + randomColor3);
-
+    // 이미지 할당
     Ticket.sprite = GetTicketSprite(randomColor3);
     }
 

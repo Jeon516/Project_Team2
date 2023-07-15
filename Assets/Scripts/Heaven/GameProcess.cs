@@ -5,11 +5,10 @@ using System.Collections.Generic;
 
 public class GameProcess : MonoBehaviour
 {
-    public Button[] configurableButtons; // 버튼 배열
-
-    public Image TrainLeft; // TrainLeft 이미지 UI 요소
-    public Image TrainRight; // TrainRight 이미지 UI 요소
-    public Image Ticket; // Ticket 이미지 UI 요소
+    public Button[] configurableButtons;
+    public Image TrainLeft;
+    public Image TrainRight;
+    public Image Ticket;
 
     private int dayValue;
     private int TL;
@@ -19,7 +18,6 @@ public class GameProcess : MonoBehaviour
     private List<Sprite> trainLSprites = new List<Sprite>();
     private List<Sprite> trainRSprites = new List<Sprite>();
     private List<Sprite> ticketSprites = new List<Sprite>();
-
     private List<string> availableColors = new List<string>();
 
     private void Start()
@@ -30,6 +28,25 @@ public class GameProcess : MonoBehaviour
         TL = 40;
         TR = 40;
         R = 20;
+
+        if (dayValue >= 1 && dayValue <= 5)
+        {
+            TL = 40;
+            TR = 40;
+            R = 20;
+        }
+        else if (dayValue >= 6 && dayValue <= 15)
+        {
+            TL--;
+            TR--;
+            R += 2;
+        }
+        else if (dayValue >= 16 && dayValue <= 20)
+        {
+            TL = 30;
+            TR = 30;
+            R = 40;
+        }
 
         string JSONFilePath = "JsonFiles/Game/Set";
         string JSONFullPath = Path.Combine("Assets/Resources", JSONFilePath);
@@ -57,13 +74,11 @@ public class GameProcess : MonoBehaviour
             Debug.LogError("파일을 찾을 수 없습니다: " + JSONFullPath);
         }
 
-        // 버튼에 클릭 이벤트 리스너 추가
         foreach (Button button in configurableButtons)
         {
             button.onClick.AddListener(() => OnButtonClick());
         }
 
-        // 초기 이미지 할당
         SetRandomImages();
     }
 
@@ -87,31 +102,25 @@ private Sprite GetTrainSprite(string color, bool isLeftSide)
     return sprite;
 }
 
-
 private void SetRandomImages()
 {
-    // 이미지를 다시 로드하고 새로운 이미지 할당
     LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
     LoadImagesIntoList("Image/Heaven/Train(Size)/RightSide", trainRSprites);
     LoadImagesIntoList("Image/Heaven/tickets", ticketSprites);
 
-    // 랜덤 컬러를 선택
     int randomIndex1 = Random.Range(0, trainLSprites.Count);
     int randomIndex2 = Random.Range(0, trainRSprites.Count);
 
-    // 중복되지 않는 이미지가 선택될 때까지 반복
     while (randomIndex1 == randomIndex2)
     {
         randomIndex2 = Random.Range(0, trainRSprites.Count);
     }
 
-    // 로그 출력
     string randomColor1 = availableColors[randomIndex1];
     string randomColor2 = availableColors[randomIndex2];
     Debug.Log("Random Color 1: " + randomColor1);
     Debug.Log("Random Color 2: " + randomColor2);
 
-    // randomColor3 선택
     int randomValue = Random.Range(1, TL + TR + R + 1);
     string randomColor3;
     if (randomValue <= TL)
@@ -129,18 +138,13 @@ private void SetRandomImages()
         randomColor3 = remainingColors[remainingIndex];
     }
 
-    // 로그 출력
     Debug.Log("Random Color 3: " + randomColor3);
 
-    // 이미지 할당
     TrainLeft.sprite = GetTrainSprite(randomColor1, true);
     TrainRight.sprite = GetTrainSprite(randomColor2, false);
     Ticket.sprite = GetTicketSprite(randomColor3);
 
-    // 기타 남은 로직 처리...
 }
-
-
 private Sprite GetTicketSprite(string color)
 {
     foreach (Sprite ticketSprite in ticketSprites)
@@ -158,7 +162,6 @@ private Sprite GetTicketSprite(string color)
 
     private void OnButtonClick()
     {
-        // 새로운 이미지 할당
         SetRandomImages();
     }
 }

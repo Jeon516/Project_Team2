@@ -1301,6 +1301,11 @@ MonoBehaviour:
   TrainLeft: {fileID: 977261716}
   TrainRight: {fileID: 1158773868}
   Ticket: {fileID: 1898374405}
+  SN: 0
+  AN: 0
+  SE: 0
+  AE: 0
+  emblemcolor: 
 --- !u!1 &497552464
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,7 +1628,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &521325378
 RectTransform:
   m_ObjectHideFlags: 0

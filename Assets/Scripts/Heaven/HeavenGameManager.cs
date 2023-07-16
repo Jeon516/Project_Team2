@@ -15,10 +15,7 @@ public class HeavenGameManager : MonoBehaviour
     public static HeavenGameManager Instance { get; private set; } = null;
     private void Awake()
     {
-        if (PlayerPrefs.GetInt("Day", 1) == 0)
-            Day = 1;
-        else
-            Day = PlayerPrefs.GetInt("Day", 1);
+        Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
         Instance = this;
     }

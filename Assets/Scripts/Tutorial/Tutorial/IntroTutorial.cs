@@ -45,6 +45,7 @@ public class IntroTutorial : MonoBehaviour
         if (order == Chat.Length && Input.GetMouseButtonDown(0))
         {
             PlayerPrefs.SetInt("TutorialDay", 1);
+            PlayerPrefs.SetInt("Day", 1);
             gameObject.SetActive(false);
             SceneManager.LoadScene("Heaven");
         }

@@ -1,7 +1,7 @@
 {
 "items": [
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "우유맛 스틱 개껌",
     "itemText": "우유맛이 나는 스틱형 개껌이다.\n애정표현+1, 신중함+1",
@@ -9,11 +9,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Milk-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "치즈맛 스틱 개껌",
     "itemText": "치즈맛이 나는 개껌이다.\n사회성+1, 신중함+1",
@@ -21,11 +21,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Cheese-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "고구마맛 스틱 개껌",
     "itemText": "고구마맛이 나는 개껌이다.\n대담함+1, 차분함+1",
@@ -33,11 +33,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Sweet potato-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "닭고기맛 스틱 개껌",
     "itemText": "닭고기맛이 나는 개껌이다.\n활발함+1, 독립성+1",
@@ -45,11 +45,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Chicken-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "북어맛 스틱 개껌",
     "itemText": "북어맛이 나는 개껌이다.\n애정표현+1, 독립성+1",
@@ -57,11 +57,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Dried pollack flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "소고기맛 스틱 개껌",
     "itemText": "소고기맛이 나는 개껌이다.\n호기심+1, 신중함+1",
@@ -69,11 +69,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Beef-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "스틱형 개껌",
     "name": "연어맛 스틱 개껌",
     "itemText": "연어맛이 나는 개껌이다.\n대담함+1, 차분함+1",
@@ -81,11 +81,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Salmon-flavored stick dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "우유맛 꽈배기형 개껌",
     "itemText": "우유맛이 나는 꽈배기형 개껌이다.\n애정표현+1, 조용함+1",
@@ -93,11 +93,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Milk-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "치즈맛 꽈배기형 개껌",
     "itemText": "치즈맛이 나는 꽈배기형 개껌이다.\n활발함+1, 신중함+1",
@@ -105,11 +105,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Cheese-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "고구마맛 꽈배기형 개껌",
     "itemText": "고구마맛이 나는 꽈배기형 개껌이다.\n대담함+1, 조용함+1",
@@ -117,11 +117,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Sweet potato-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "닭고기맛 꽈배기형 개껌",
     "itemText": "닭고기맛이 나는 꽈배기형 개껌이다.\n호기심+1, 차분함+1",
@@ -129,11 +129,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Chicken-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "북어맛 꽈배기형 개껌",
     "itemText": "북어맛이 나는 꽈배기형 개껌이다.\n대담함+1, 조용함+1",
@@ -141,11 +141,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Dried pollack-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "소고기맛 꽈배기형 개껌",
     "itemText": "소고기맛이 나는 꽈배기형 개껌이다.\n사회성+1, 냉정함+1",
@@ -153,11 +153,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Beef-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "꽈배기형 개껌",
     "name": "연어맛 꽈배기형 개껌",
     "itemText": "연어맛이 나는 꽈배기형 개껌이다.\n애정표현+1, 차분함+1",
@@ -165,11 +165,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Salmon-flavored twisted dog gum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "사료",
     "name": "닭고기맛 사료",
     "itemText": "닭고기맛이 나는 사료이다.\n사회성+1, 차분함+1",
@@ -177,11 +177,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "chicken-flavored feed"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "사료",
     "name": "연어맛 사료",
     "itemText": "연어맛이 나는 사료이다.\n활발함+1, 냉정함+1",
@@ -189,11 +189,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "salmon-flavored feed"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "사료",
     "name": "소고기맛 사료",
     "itemText": "소고기맛이 나는 사료이다.\n대담함+1, 독립성+1",
@@ -201,11 +201,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "beef-flavored feed"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "사료",
     "name": "북어맛 사료",
     "itemText": "북어맛이 나는 사료이다.\n사회성+1, 조용함+1",
@@ -213,11 +213,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "dried pollack feed"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "수박",
     "itemText": "시원함이 가득한 수박이다.\n호기심+1, 차분함+1",
@@ -225,11 +225,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Watermelon"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "바나나",
     "itemText": "달달함이 가득한 바나나이다.\n호기심+1, 냉정함+1",
@@ -237,11 +237,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Banana"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "천도 복숭아",
     "itemText": "아삭아삭 맛있는 천도복숭아이다.\n사회성+1, 냉정함+1",
@@ -249,11 +249,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a heavenly peach"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "체리",
     "itemText": "새콤함이 가득한 체리이다.\n활발함+1, 조용함+1",
@@ -261,11 +261,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "cherry"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "참외",
     "itemText": "달콤함이 가득한 참외이다.\n사회성+1, 차분함+1",
@@ -273,11 +273,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "oriental melon"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "망고",
     "itemText": "달콤함이 가득한 망고이다.\n신중함+1, 차분함+1",
@@ -285,11 +285,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Mango"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "과일",
     "name": "자두",
     "itemText": "상큼함이 가득한 자두이다.\n대담함+1, 냉정함+1",
@@ -297,11 +297,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "plum"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "소고기맛 캔",
     "itemText": "소고기맛이 나는 캔이다.\n사회성+1, 조용함+1",
@@ -309,11 +309,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a beef-flavored can"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "연어맛 캔",
     "itemText": "연어맛이 나는 캔이다.\n사회성+1, 차분함+1",
@@ -321,11 +321,11 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a salmon-flavored can"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "닭고기맛 캔",
     "itemText": "닭고기맛이 나는 캔이다.\n활발함+1, 독립성+1",
@@ -333,11 +333,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a chicken-flavored can"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "양고기맛 캔",
     "itemText": "양고기맛이 나는 캔이다.\n호기심+1, 독립성+1",
@@ -345,11 +345,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a lamb-flavored can"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "오리고기맛 캔",
     "itemText": "오리고기맛이 나는 캔이다.\n애정표현+1, 차분함+1",
@@ -357,11 +357,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "a duck-flavored can"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "캔 간식",
     "name": "참치캔",
     "itemText": "참치맛이 나는 캔이다.\n애정표현+1, 차분함+1",
@@ -369,11 +369,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "canned tuna"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "강아지 사탕",
     "itemText": "달달한 강아지 사탕이다.\n애정표현+1, 신중함+1",
@@ -381,11 +381,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Puppy candy"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "개푸치노/멍푸치노",
     "itemText": "달달씁쓸한 강아지 커피이다.\n호기심+1, 독립성+1",
@@ -393,11 +393,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Meong Puccino"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "고양이 츄르",
     "itemText": "고양이가 좋아하는 츄르이다.\n호기심+1, 차분함+1",
@@ -405,11 +405,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 101,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Cat Churu"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "캣닢",
     "itemText": "고양이가 좋아하는 캣닢이다.\n애정표현+1, 조용함+1",
@@ -417,11 +417,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "catnip"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "뼈다귀",
     "itemText": "누군가 살만 먹고 버린 뼈다귀이다.\n호기심+1, 냉정함+1",
@@ -429,11 +429,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "bone"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "펫 밀크",
     "itemText": "달달함이 가득한 펫밀크이다.\n활발함+1, 조용함+1",
@@ -441,11 +441,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 104,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "pet milk"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "오리 목뼈 간식",
     "itemText": "오독오독 씹히는 오리목뼈간식이다.\n애정표현+1, 독립성+1",
@@ -453,11 +453,11 @@
     "firstStatType": 105,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "the neck of a duck"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "펫 간식",
     "name": "새우깡(고래깡)",
     "itemText": "갈매기가 좋아하는 새우깡이다.\n활발함+1, 신중함+1",
@@ -465,11 +465,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Shrimp crackers"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "고구마 말랭이",
     "itemText": "달달하니 맛있는 고구마 말랭이이다.\n활발함+1, 독립성+1",
@@ -477,11 +477,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "dried sweet potatoes"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "호박고구마",
     "itemText": "그래,,! 호구,,, 호박고구마,,! 호!박!고!구!마! 이다.\n대담함+1, 독립성+1",
@@ -489,11 +489,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 102,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Pumpkin sweet potatoes"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "닭가슴살",
     "itemText": "부드러운 닭가슴살이다.\n호기심+1, 신중함+1",
@@ -501,11 +501,11 @@
     "firstStatType": 104,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Chicken breast"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "샐러드",
     "itemText": "건강한 샐러드이다.\n대담함+1, 냉정함+1",
@@ -513,11 +513,11 @@
     "firstStatType": 103,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "Salad"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "두부",
     "itemText": "말랑말랑 맛있는 두부이다.\n활발함+1, 냉정함+1",
@@ -525,11 +525,11 @@
     "firstStatType": 101,
     "firstStatValue": 1,
     "secondStatType": 105,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "bean curd"
   },
   {
-    "myClass": "하",
+    "myClass": "L",
     "sort": "건강식",
     "name": "황태포",
     "itemText": "쫄깃쫄깃 맛있는 황태포이다.\n사회성+1, 신중함+1",
@@ -537,7 +537,7 @@
     "firstStatType": 102,
     "firstStatValue": 1,
     "secondStatType": 103,
-    "secondStatValue": -1
+    "secondStatValue": -1,
     "imageName": "dried pollack salad"
   }
 ]

@@ -5,37 +5,65 @@ using UnityEngine.SceneManagement;
 
 public class UIManager_Intro : MonoBehaviour
 {
-    public GameObject IntroSetting; // ȯ�漳��
-    public GameObject Name;
+    public GameObject IntroSetting; // 환경 설정
+    public GameObject NewQuestion;
+    public GameObject NoData;
 
+    private int Day;
+    private int TutorialDay;
+    private void Awake()
+    {
+        Day= PlayerPrefs.GetInt("TutorialDay", 0);
+        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
+        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
+        PlayerPrefs.SetInt("Day", Day);
+    }
     private void Start()
     {
         AudioManager.Instance.playBGM("IntroMusic");
     }
     public void OnClick_Start()
     {
-        int TuTorialDay = PlayerPrefs.GetInt("TuTorialDay", 0);
-        PlayerPrefs.SetInt("TuTorialDay", TuTorialDay); // 튜토리얼을 위한 날짜
+        if(Day!=0)
+        {
+            NewQuestion.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene("Loading");
+        }
+    } // 'Game Start'을 누를 때
+    public void OnClick_NewStart(bool Yes)
+    {
+        if(Yes)
+        {
+            PlayerPrefs.SetInt("TutorialDay", 0);
+            PlayerPrefs.SetInt("Day", 0);
+            SceneManager.LoadScene("Loading");
+        }
+        else
+        {
+            NewQuestion.SetActive(false);
+        }
+    } // 새로 시작할 것인지
 
-        int Day = PlayerPrefs.GetInt("Day", 0);
-        PlayerPrefs.SetInt("Day", Day);
-
-        SceneManager.LoadScene("Loading");
-    } // 'Game Start'�� ������ ��
     public void OnClick_Load()
     {
-        SceneManager.LoadScene("Heaven");
-    } // 'Load Start'�� ������ ��
+        if (Day != 0)
+        {
+            SceneManager.LoadScene("Loading");
+        }
+        else
+        {
+            NoData.SetActive(true);
+        }
+    } // 'Load Start'을 누를 때
     public void OnClick_Setting()
     {
         IntroSetting.SetActive(true); // ȯ�漳�� Ű��
-    } // 'Setting'�� ������ ��
-    public void OnClick_Name()
-    {
-        Name.SetActive(true);
-    }
+    } // 'Setting'을 누를 때
     public void OnClick_Exit()
     {
-        Application.Quit(); // ���� ����
-    } // 'Exit'�� ������ ��
+        Application.Quit(); // 어플 종료
+    } // 'Exit'을 누를 때
 }

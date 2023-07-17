@@ -6,7 +6,11 @@ using System.Collections.Generic;
 public class TextLoader : MonoBehaviour
 {
     public Text displayText;
-
+    public static string textValue = "example_text_value";
+    public string TextValue
+    {
+        get { return textValue; }
+    }
     private void Start()
     {
         GameProcess.OnButtonClicked += OnGameProcessButtonClicked;
@@ -41,7 +45,6 @@ public class TextLoader : MonoBehaviour
                 string textValue;
                 if (useMatchingText && matchingSets.Count > 0)
                 {
-
                     int randomIndex = Random.Range(0, matchingSets.Count);
                     textValue = matchingSets[randomIndex].Sort;
                 }

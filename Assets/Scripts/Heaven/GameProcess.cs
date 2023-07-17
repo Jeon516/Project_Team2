@@ -9,7 +9,7 @@ public class GameProcess : MonoBehaviour
     public Image TrainLeft;
     public Image TrainRight;
     public Image Ticket;
-    
+    private int correct = 0;
 
     private int dayValue;
     private int TL;
@@ -27,11 +27,16 @@ public class GameProcess : MonoBehaviour
     private List<string> availableColors = new List<string>();
     public delegate void ButtonClickedDelegate();
     public static event ButtonClickedDelegate OnButtonClicked;
+    private List<SetData> setDataList = new List<SetData>(); // Move setDataList to class level
+    private TextLoader textLoader;
+    private EmblemLoader emblemLoader;
 
     private void Start()
     {
         dayValue = HeavenGameManager.Instance.Day;
         Debug.Log("Day: " + dayValue);
+        textLoader = GetComponent<TextLoader>();
+        emblemLoader = GetComponent<EmblemLoader>();
 
         TL = 40;
         TR = 40;
@@ -76,9 +81,29 @@ public class GameProcess : MonoBehaviour
         {
             string json = File.ReadAllText(JSONFullPath);
             SetDataList setDataList = JsonUtility.FromJson<SetDataList>(json);
+            
 
             if (setDataList != null && setDataList.Sets.Count > 0)
             {
+                string randomColor3 = GetComponent<GameProcess>().GetRandomColor3();
+
+            List<SetData> matchingSets = setDataList.Sets.FindAll(setData =>
+                setData.Color == randomColor3 &&
+                setData.emblemAssets == EmblemLoader.Emblempng &&
+                setData.Sort == TextLoader.textValue
+            );
+
+            if (matchingSets.Count > 0)
+            {
+                // At least one matching set found, correct answer
+                correct++;
+                Debug.Log("Correct! Correct count: " + correct);
+            }
+            else
+            {
+                // No matching set found, wrong answer
+                Debug.Log("Wrong! Correct count: " + correct);
+            }
                 foreach (SetData setData in setDataList.Sets)
                 {
                     availableColors.Add(setData.Color);
@@ -109,21 +134,21 @@ public class GameProcess : MonoBehaviour
         spriteList.Clear();
         spriteList.AddRange(loadedSprites);
     }
-private Sprite GetTrainSprite(string color, bool isLeftSide)
-{
-    string folderPath = isLeftSide ? "Image/Heaven/Train(Size)/LeftSide/" : "Image/Heaven/Train(Size)/RightSide/";
-    string imagePath = folderPath + color;
-
-    Sprite sprite = Resources.Load<Sprite>(imagePath);
-    if (sprite == null)
+    private Sprite GetTrainSprite(string color, bool isLeftSide)
     {
-        Debug.LogError("해당 컬러에 대한 기차 이미지를 찾을 수 없습니다: " + color);
+        string folderPath = isLeftSide ? "Image/Heaven/Train(Size)/LeftSide/" : "Image/Heaven/Train(Size)/RightSide/";
+        string imagePath = folderPath + color;
+
+        Sprite sprite = Resources.Load<Sprite>(imagePath);
+        if (sprite == null)
+        {
+            Debug.LogError("해당 컬러에 대한 기차 이미지를 찾을 수 없습니다: " + color);
+        }
+
+        return sprite;
     }
 
-    return sprite;
-}
-
-private void SetRandomImages()
+public void SetRandomImages()
 {
     LoadImagesIntoList("Image/Heaven/Train(Size)/LeftSide", trainLSprites);
     LoadImagesIntoList("Image/Heaven/Train(Size)/RightSide", trainRSprites);
@@ -165,11 +190,15 @@ private void SetRandomImages()
     TrainLeft.sprite = GetTrainSprite(randomColor1, true);
     TrainRight.sprite = GetTrainSprite(randomColor2, false);
     Ticket.sprite = GetTicketSprite(randomColor3);
+    List<SetData> matchingSets = setDataList.FindAll(setData => setData.Color == randomColor3 && setData.emblemAssets == EmblemLoader.Emblempng && setData.Sort == TextLoader.textValue);
+        {
+            correct++;
+            Debug.Log("Correct! Correct count: " + correct);
+        }
 
 }
 public string GetRandomColor3()
 {
-    // Return the value of randomColor3
     return emblemcolor;
 }
 
@@ -189,10 +218,8 @@ private Sprite GetTicketSprite(string color)
 
 private string GetRandomColor3FromGameProcess()
 {
-    // You need a reference to the GameProcess script, you can get it from a GameObject that has the GameProcess component attached
     GameProcess gameProcessScript = GetComponent<GameProcess>();
 
-    // Return the value of randomColor3 from the GameProcess script
     return gameProcessScript.GetRandomColor3();
 }
 
@@ -205,6 +232,7 @@ private string GetRandomColor3FromGameProcess()
         }
     }
 }
+
 
 [System.Serializable]
 public class SetDataList

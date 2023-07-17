@@ -6,7 +6,11 @@ using System.Collections.Generic;
 public class EmblemLoader : MonoBehaviour
 {
     public Image emblemImage;
-
+    public static string Emblempng = "example";
+    public string EemblemValue
+    {
+        get { return Emblempng; }
+    }
     private void Start()
     {
         GameProcess.OnButtonClicked += OnGameProcessButtonClicked;
@@ -40,20 +44,20 @@ public class EmblemLoader : MonoBehaviour
 
                 bool useMatchingEmblem = Random.value < matchingEmblemProbability;
 
-                string emblemAssets;
+                string Emblempng;
                 if (useMatchingEmblem && matchingSets.Count > 0)
                 {
                     int randomIndex = Random.Range(0, matchingSets.Count);
-                    emblemAssets = matchingSets[randomIndex].emblemAssets;
+                    Emblempng = matchingSets[randomIndex].emblemAssets;
                 }
                 else
                 {
                     List<SetData> nonMatchingSets = setDataList.Sets.FindAll(setData => setData.Color != randomColor3);
                     int randomIndex = Random.Range(0, nonMatchingSets.Count);
-                    emblemAssets = nonMatchingSets[randomIndex].emblemAssets;
+                    Emblempng = nonMatchingSets[randomIndex].emblemAssets;
                 }
 
-                LoadEmblemImage(emblemAssets);
+                LoadEmblemImage(Emblempng);
             }
             else
             {
@@ -66,9 +70,9 @@ public class EmblemLoader : MonoBehaviour
         }
     }
 
-    private void LoadEmblemImage(string emblemAssets)
+    private void LoadEmblemImage(string Emblempng)
     {
-        string imagePath = Path.Combine("Assets/Download Assets/Fantasy Emblem3(living) Set Pack/FantasyEmblem3_128_W", emblemAssets + ".png");
+        string imagePath = Path.Combine("Assets/Download Assets/Fantasy Emblem3(living) Set Pack/FantasyEmblem3_128_W", Emblempng + ".png");
 
         Texture2D texture = LoadTextureFromFile(imagePath);
 
@@ -80,7 +84,7 @@ public class EmblemLoader : MonoBehaviour
         }
         else
         {
-            Debug.LogError("해당 주소에 대한 엠블럼 이미지를 찾을 수 없습니다: " + emblemAssets);
+            Debug.LogError("해당 주소에 대한 엠블럼 이미지를 찾을 수 없습니다: " + Emblempng);
         }
     }
 

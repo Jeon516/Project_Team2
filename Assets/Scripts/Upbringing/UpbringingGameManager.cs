@@ -41,13 +41,11 @@ public class UpbringingGameManager : MonoBehaviour
     {
         DayText.text = HeavenGameManager.Instance.Day.ToString()+"ÀÏ Â°";
         ActionNumText.text = ActionNum.ToString();
-
-        //AudioManager.Instance.StopBGM();
-        //AudioManager.Instance.playBGM("Upbringing");
     }
 
     private void Update()
     {
+        ActionNum= PlayerPrefs.GetInt("ActionNum", 1000);
         ActionNumText.text = PlayerPrefs.GetInt("ActionNum", 1000).ToString();
     }
 

@@ -8,9 +8,8 @@ public class RandomQuestion : MonoBehaviour
     {
         if (UpbringingGameManager.Instance.ActionNum >= 50)
         {
-            UpbringingGameManager.Instance.ActionNum -= 50;
-            UpbringingGameManager.Instance.ActionNumText.text = UpbringingGameManager.Instance.ActionNum.ToString();
-            PlayerPrefs.SetInt("ActionNum", UpbringingGameManager.Instance.ActionNum);
+            int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 50;
+            PlayerPrefs.SetInt("ActionNum", ChangeNum);
 
             int StatOrderNum = Random.Range(0, 5);
             int StatNum = Random.Range(0, 2);

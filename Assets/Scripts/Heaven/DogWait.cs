@@ -11,6 +11,8 @@ public class DogWait : MonoBehaviour
     Image Side1;
     [SerializeField]
     Image Side2;
+    [SerializeField]
+    Image Side3;
 
     Queue<int> DogOrder = new Queue<int>(); // 강아지의 순서
 
@@ -32,6 +34,7 @@ public class DogWait : MonoBehaviour
         DogOrder.Enqueue(Random.Range(0, 7));
         DogOrder.Enqueue(Random.Range(0, 7));
         DogOrder.Enqueue(Random.Range(0, 7));
+        DogOrder.Enqueue(Random.Range(0, 7));
     } // 첫 시작할 때 기다리는 강아지 배치
 
     private void SelectImage()
@@ -43,6 +46,9 @@ public class DogWait : MonoBehaviour
         QueueChange();
 
         Side2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + DogOrder.Peek().ToString());
+        QueueChange();
+
+        Side3.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + DogOrder.Peek().ToString());
         QueueChange();
     } // 강아지 적용
 
@@ -62,8 +68,11 @@ public class DogWait : MonoBehaviour
         Side1.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + DogOrder.Peek().ToString());
         QueueChange();
 
+        Side2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + DogOrder.Peek().ToString());
+        QueueChange();
+
         int last = Random.Range(0, 7);
         DogOrder.Enqueue(last);
-        Side2.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + last.ToString());
+        Side3.GetComponent<Image>().sprite = Resources.Load<Sprite>("Image/ClientDog/Side/" + last.ToString());
     } // 클릭할 때 강아지 순서 바꾸기
 }

@@ -3606,6 +3606,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459650907}
   m_CullTransparentMesh: 1
+--- !u!114 &469029417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8129429260617957684, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+  m_PrefabInstance: {fileID: 676261356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &525011351
 GameObject:
   m_ObjectHideFlags: 0
@@ -4376,9 +4387,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1000504435}
     m_Modifications:
+    - target: {fileID: 804301261226840807, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+      propertyPath: m_Text
+      value: "\uC9ED\uC870\uB984\uD55C \uD398\uD398\uB85C\uB2C8\uAC00 \uC62C\uB77C\uAC04
+        \uD398\uD398\uB85C\uB2C8\uD53C\uC790\uC774\uB2E4.\n\uD65C\uBC1C\uD568+2 \uC2E0\uC911\uD568+1"
+      objectReference: {fileID: 0}
     - target: {fileID: 1671084509557975309, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1712902215310941650, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
       propertyPath: m_Pivot.x
@@ -4464,6 +4480,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3489828967462494314, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+      propertyPath: m_Text
+      value: "\uB2E4\uC591\uD55C \uAC10\uC815\uC774 \uB2F4\uAE34 \uBB34\uC9C0\uAC1C
+        \uC2AC\uB7EC\uC2DC"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489828967462494314, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489828967462494314, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 4704259715993824177, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
       propertyPath: m_Name
       value: UI_ShopGacha
@@ -4548,7 +4577,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: "\uC7AC\uD615\uB2D8 \uBA54\uB871~~~~"
 --- !u!222 &687860965
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5255,6 +5284,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761334482}
   m_CullTransparentMesh: 1
+--- !u!114 &765414216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3489828967462494314, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+  m_PrefabInstance: {fileID: 676261356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &767086382
 GameObject:
   m_ObjectHideFlags: 0
@@ -6107,6 +6147,26 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 810f422de793b8648ac7799bc537acfc, type: 3}
+    - target: {fileID: 9205338491386312225, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: OpenImage
+      value: 
+      objectReference: {fileID: 469029417}
+    - target: {fileID: 9205338491386312225, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: foodImage
+      value: 
+      objectReference: {fileID: 1881302116}
+    - target: {fileID: 9205338491386312225, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: SelectedInfo
+      value: 
+      objectReference: {fileID: 1874953037}
+    - target: {fileID: 9205338491386312225, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: SelectedName
+      value: 
+      objectReference: {fileID: 765414216}
+    - target: {fileID: 9205338491386312225, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: selectedImage
+      value: 
+      objectReference: {fileID: 1881302116}
     m_RemovedComponents:
     - {fileID: 618097346305772961, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
@@ -14185,6 +14245,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3816056190769057408, guid: ebe36434fe2b58745830958f2ad852d3, type: 3}
   m_PrefabInstance: {fileID: 1861919280}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1874953037 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 804301261226840807, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+  m_PrefabInstance: {fileID: 676261356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1876462064
 GameObject:
   m_ObjectHideFlags: 0
@@ -14264,6 +14335,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1876462064}
   m_CullTransparentMesh: 1
+--- !u!114 &1881302116 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8953328285838025603, guid: db19ab349e970164db0131fe2a0ccae5, type: 3}
+  m_PrefabInstance: {fileID: 676261356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1883255871
 GameObject:
   m_ObjectHideFlags: 0
@@ -25819,6 +25901,10 @@ MonoBehaviour:
   levels: []
   selectionButton: {fileID: 6313252532885182229}
   selectedImage: {fileID: 0}
+  foodImage: {fileID: 0}
+  SelectedName: {fileID: 0}
+  SelectedInfo: {fileID: 0}
+  OpenImage: {fileID: 0}
 --- !u!224 &4604737870290699480
 RectTransform:
   m_ObjectHideFlags: 0

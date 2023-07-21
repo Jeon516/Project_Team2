@@ -8,7 +8,7 @@ public class LevelData
 {
     public string level;
     public float probability;
-    public string jsonFilePath;
+    public string jsonFileName; // Name of the JSON file (without extension)
 }
 
 public class Order_common_food : MonoBehaviour
@@ -17,6 +17,10 @@ public class Order_common_food : MonoBehaviour
     public LevelData[] levels;
     public Button selectionButton;
     public Image selectedImage; // Reference to the UI Image component
+    public Image foodImage; // Reference to the UI Image component for Food Image
+    public Text SelectedName; // Reference to the UI Text component for Selected Name
+    public Text SelectedInfo; // Reference to the UI Text component for Selected Info
+    public Image OpenImage; // Reference to the UI Image component for Open Image
 
     private Dictionary<string, int> inventory; // Dictionary to store inventory data
 
@@ -30,22 +34,33 @@ public class Order_common_food : MonoBehaviour
         inventory = new Dictionary<string, int>();
     }
 
-    private void ParseLevelData()
+    private ProbabilityData ParseLevelData(TextAsset levelData)
     {
         if (levelData != null)
         {
-            ProbabilityData data = JsonUtility.FromJson<ProbabilityData>(levelData.text);
-            levels = data.levels;
-
-            for (int i = 0; i < levels.Length; i++)
-            {
-                string jsonFilePath = "JsonFiles/" + levels[i].level;
-                levels[i].jsonFilePath = jsonFilePath;
-            }
+            string jsonText = levelData.text;
+            ProbabilityData data = JsonUtility.FromJson<ProbabilityData>(jsonText);
+            return data;
         }
         else
         {
             Debug.LogError("Level data not assigned.");
+            return null;
+        }
+    }
+
+    private void ParseLevelData()
+    {
+        ProbabilityData data = ParseLevelData(levelData);
+        if (data != null)
+        {
+            levels = data.levels;
+
+            for (int i = 0; i < levels.Length; i++)
+            {
+                string jsonFileName = "JsonFiles/" + levels[i].level;
+                levels[i].jsonFileName = jsonFileName;
+            }
         }
     }
 
@@ -57,12 +72,12 @@ public class Order_common_food : MonoBehaviour
 
         if (selectedLevelData != null)
         {
-            string jsonFilePath = selectedLevelData.jsonFilePath;
+            string jsonFilePath = selectedLevelData.jsonFileName;
             TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
 
             if (selectedJsonFile != null)
             {
-                LoadJson(selectedJsonFile);
+                LoadJson(selectedJsonFile, selectedLevelData);
                 SaveInventoryToJson();
             }
             else
@@ -89,7 +104,7 @@ public class Order_common_food : MonoBehaviour
         return null;
     }
 
-    private void LoadJson(TextAsset jsonFile)
+    private void LoadJson(TextAsset jsonFile, LevelData selectedLevelData)
     {
         if (jsonFile != null)
         {
@@ -101,12 +116,19 @@ public class Order_common_food : MonoBehaviour
                 ItemData selectedItem = itemList.items[Random.Range(0, itemList.items.Length)];
                 Debug.Log("Selected Item: " + selectedItem.name);
 
-                string imageName = selectedItem.imageName;
-                Sprite selectedSprite = Resources.Load<Sprite>(imageName);
+                // Load the Food Image based on the imageName and selectedLevel
+                string imagePath = "Image/Food/" + selectedLevelData.level + "/" + selectedItem.imageName;
+                Sprite selectedSprite = Resources.Load<Sprite>(imagePath);
 
                 if (selectedSprite != null)
                 {
                     selectedImage.sprite = selectedSprite;
+                    foodImage.sprite = selectedSprite; // Assign the Food Image
+                    OpenImage.sprite = selectedSprite; // Assign the Open Image
+
+                    // Assign the Selected Name and Selected Info Text
+                    SelectedName.text = selectedItem.name;
+                    SelectedInfo.text = selectedItem.itemText;
 
                     // Add the obtained item to the inventory or increase its quantity if it already exists
                     if (inventory.ContainsKey(selectedItem.name))
@@ -120,7 +142,7 @@ public class Order_common_food : MonoBehaviour
                 }
                 else
                 {
-                    Debug.LogError("Image file not found: " + imageName);
+                    Debug.LogError("Image file not found: " + imagePath);
                 }
             }
             else
@@ -185,5 +207,5 @@ public class ItemData
     public int firstStatValue;
     public int secondStatType;
     public int secondStatValue;
-    public string imageName; // New field to hold the image file name
+    public string imageName;
 }

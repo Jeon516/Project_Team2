@@ -10,8 +10,14 @@ public class ShopGacha : MonoBehaviour
     public GameObject Gacha;
     public GameObject GachaResult;
 
+    public static ShopGacha Instance { get; private set; } = null;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
-    void Start()
+    public void GachaStart()
     {
         Gacha.SetActive(true);
         Close.SetActive(true);

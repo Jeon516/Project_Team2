@@ -1299,10 +1299,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248e6724ad97b33468299119ac504230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor1: {fileID: 0}
-  buttonColor2: {fileID: 0}
-  buttonChangeColors: {fileID: 0}
-  buttonDifferentColor: {fileID: 0}
+  buttonColor1: {fileID: 1114729284}
+  buttonColor2: {fileID: 127521713}
+  buttonChangeColors: {fileID: 1760209740}
+  buttonDifferentColor: {fileID: 1383427513}
   TrainLeft: {fileID: 977261716}
   TrainRight: {fileID: 1158773868}
   Ticket: {fileID: 1898374405}
@@ -4578,6 +4578,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1730766243}
   m_CullTransparentMesh: 1
+--- !u!114 &1760209740 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6993079053639567499, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
+  m_PrefabInstance: {fileID: 6993079054247284094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1794785755
 GameObject:
   m_ObjectHideFlags: 0

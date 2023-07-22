@@ -18,6 +18,7 @@ public class GameProcess : MonoBehaviour
     private int combo = 0;
     private int wrongCount = 0;
     private int totalCount = 0;
+    private int ingamegold = 0;
     //private Clock clock;
 
     public int CorrectCount
@@ -63,7 +64,7 @@ public class GameProcess : MonoBehaviour
 
     private void Awake()
     {
-        dayValue = 1;
+        dayValue = PlayerPrefs.GetInt("Day", 1);
     }
     private void Update()
     {
@@ -356,6 +357,15 @@ public class GameProcess : MonoBehaviour
             //clock.fillTimer+=2;
             WrongSound();
         }
+        if(combo<=4){
+            ingamegold+=100;
+        }else if(combo>=5 && combo<=9){
+            ingamegold+=130;
+        }else if(combo>=10 && combo<=14){
+            ingamegold+=160;
+        }else{
+            ingamegold+=200;
+        }
 
         totalCount++;
         SetRandomColors();
@@ -448,6 +458,15 @@ public class GameProcess : MonoBehaviour
             wrongCount++;
             //clock.fillTimer+=2;
             WrongSound();
+        }
+        if(combo<=4){
+            ingamegold+=100;
+        }else if(combo>=5 && combo<=9){
+            ingamegold+=130;
+        }else if(combo>=10 && combo<=14){
+            ingamegold+=160;
+        }else{
+            ingamegold+=200;
         }
 
         totalCount++;
@@ -644,7 +663,15 @@ public class GameProcess : MonoBehaviour
             correct++;
             CorrectSound();
         }
-
+        if(combo<=4){
+            ingamegold+=100;
+        }else if(combo>=5 && combo<=9){
+            ingamegold+=130;
+        }else if(combo>=10 && combo<=14){
+            ingamegold+=160;
+        }else{
+            ingamegold+=200;
+        }
         totalCount++;
         SetRandomColors();
         TrainLeft.sprite = GetTrainSprite(randomColor1, true);

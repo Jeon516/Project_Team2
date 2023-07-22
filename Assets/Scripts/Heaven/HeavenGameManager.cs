@@ -22,7 +22,7 @@ public class HeavenGameManager : MonoBehaviour
     private void Start()
     {
         DayText.text = Day.ToString() + "ÀÏ Â°";
-        if (Day >= 2)
+        if (Day >=2)
             GameStart.SetActive(true);
         else
             GameStart.SetActive(false);

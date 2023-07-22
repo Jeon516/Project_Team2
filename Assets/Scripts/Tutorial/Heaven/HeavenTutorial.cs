@@ -38,7 +38,7 @@ public class HeavenTutorial : MonoBehaviour
 
     private void Start()
     {
-        if (Day == 1 && TutorialDay==1)
+        if (Day == 0 && TutorialDay==0)
         {
             gameObject.SetActive(true);
             StartButton.interactable=false;

@@ -1269,7 +1269,6 @@ MonoBehaviour:
   Money: 0
   Day: 0
   DayText: {fileID: 1681426045}
-  Gold: 0
   GameStart: {fileID: 1802178830}
   Play: 0
 --- !u!114 &490307894
@@ -1300,24 +1299,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248e6724ad97b33468299119ac504230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonColor1: {fileID: 1114729284}
-  buttonColor2: {fileID: 127521713}
-  buttonChangeColors: {fileID: 1647647922}
-  buttonDifferentColor: {fileID: 1383427513}
+  configurableButtons: []
   TrainLeft: {fileID: 977261716}
   TrainRight: {fileID: 1158773868}
   Ticket: {fileID: 1898374405}
-  DayText: {fileID: 1681426045}
-  dayValue: 0
   SN: 0
   AN: 0
   SE: 0
   AE: 0
-  randomColor3: 
-  previousRandomColor3: 
-  audioSources:
-  - {fileID: 490307899}
-  - {fileID: 490307899}
+  emblemcolor: 
 --- !u!114 &490307896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1331,7 +1321,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emblemImage: {fileID: 2097200456}
-  emblempng: example
 --- !u!114 &490307897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1593,7 +1582,6 @@ MonoBehaviour:
   ClockStick: {fileID: 806407591}
   fillDuration: 5
   GameResult: {fileID: 1936496286}
-  fillTimer: 0
 --- !u!1 &517298738
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,17 +4194,6 @@ MonoBehaviour:
   textElement: {fileID: 705595578}
   imageElement: {fileID: 977261716}
   jsonFilePath: JsonFiles/Game/AssignElementsData.json
---- !u!114 &1647647922 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6993079053639567499, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
-  m_PrefabInstance: {fileID: 6993079054247284094}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1662635199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5387,7 +5364,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413424, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413425, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_Pivot.x

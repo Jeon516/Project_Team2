@@ -6,7 +6,7 @@ using System;
 
 public class HeavenTutorial : MonoBehaviour
 {
-    public int Delay;
+    public float Delay=2f;
     public RectTransform ChatTransform;
     public Text ChatText;
     public Button StartButton;
@@ -111,7 +111,7 @@ public class HeavenTutorial : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(Delay);
         for (int i = 0; i < 3; i++)
             TutorialInformation[i].SetActive(true);
         TutorialInformation[4].SetActive(true);

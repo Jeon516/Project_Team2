@@ -9,7 +9,6 @@ public class HeavenGameManager : MonoBehaviour
     public int Money;
     public int Day;
     public Text DayText;
-    public int Gold;
     public GameObject GameStart;
     public bool Play = false;
 
@@ -19,12 +18,10 @@ public class HeavenGameManager : MonoBehaviour
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
         Instance = this;
-        Gold = PlayerPrefs.GetInt("Gold");
-        PlayerPrefs.SetInt("Gold", Gold);
     }
     private void Start()
     {
-        DayText.text = Day.ToString() + "ï¿½ï¿½ Â°";
+        DayText.text = Day.ToString() + "ÀÏ Â°";
         if (Day >= 2)
             GameStart.SetActive(true);
         else
@@ -50,7 +47,7 @@ public class HeavenGameManager : MonoBehaviour
     {
         GameStart.SetActive(false);
         Play = true;
-    } // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸Æ®
+    } // °ÔÀÓ ½ºÅ¸Æ®
 
     public void OnClick_NextScene()
     {

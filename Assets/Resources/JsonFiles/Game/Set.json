@@ -1,54 +1,54 @@
 {
     "Sets": [
         {
-            "Color": "ticket to heaven 3",
-            "emblemAssets": "FantasyEmblem3_256_B_03",
-            "Sort": "바다의"
+            "Color": "DogGum",
+            "emblemAssets": "Fantasy Emblem3_128_W_7",
+            "Sort": "파도의 천국"
         },
         {
-            "Color": "ticket to heaven 4",
-            "emblemAssets": "FantasyEmblem3_256_B_04",
-            "Sort": "행운의"
+            "Color": "Space",
+            "emblemAssets": "Fantasy Emblem3_128_W_8",
+            "Sort": "자연의 천국"
         },
         {
-            "Color": "ticket to heaven 6",
-            "emblemAssets": "FantasyEmblem3_256_B_06",
-            "Sort": "간식의"
+            "Color": "Kpop",
+            "emblemAssets": "Fantasy Emblem3_128_W_12",
+            "Sort": "간식의 천국"
         },
         {
-            "Color": "ticket to heaven 7",
-            "emblemAssets": "FantasyEmblem3_256_B_07",
-            "Sort": "자연의"
+            "Color": "Sunflower",
+            "emblemAssets": "Fantasy Emblem3_128_W_13",
+            "Sort": "겨율의 천국"
         },
         {
-            "Color": "ticket to heaven 8",
-            "emblemAssets": "FantasyEmblem3_256_B_08",
-            "Sort": "과일의"
+            "Color": "Bamboo",
+            "emblemAssets": "Fantasy Emblem3_128_W_15",
+            "Sort": "별빛의 천국"
         },
         {
-            "Color": "ticket to heaven 9",
-            "emblemAssets": "FantasyEmblem3_256_B_09",
-            "Sort": "미용의"
+            "Color": "hiphop",
+            "emblemAssets": "Fantasy Emblem3_128_W_20",
+            "Sort": "모험의 천국"
         },
         {
-            "Color": "ticket to heaven 13",
-            "emblemAssets": "FantasyEmblem3_256_B_13",
-            "Sort": "겨울의"
+            "Color": "Aurora",
+            "emblemAssets": "Fantasy Emblem3_128_W_25",
+            "Sort": "숲속의 천국"
         },
         {
-            "Color": "ticket to heaven 15",
-            "emblemAssets": "FantasyEmblem3_256_B_15",
-            "Sort": "별빛의"
+            "Color": "Toy",
+            "emblemAssets": "Fantasy Emblem3_128_W_33",
+            "Sort": "음악의 천국"
         },
         {
-            "Color": "ticket to heaven 21",
-            "emblemAssets": "FantasyEmblem3_256_B_21",
-            "Sort": "모험의"
+            "Color": "Game",
+            "emblemAssets": "Fantasy Emblem3_128_W_34",
+            "Sort": "치유의 천국"
         },
         {
-            "Color": "ticket to heaven 35",
-            "emblemAssets": "FantasyEmblem3_256_B_35",
-            "Sort": "도서의"
+            "Color": "Cake",
+            "emblemAssets": "Fantasy Emblem3_128_W_37",
+            "Sort": "로맨스 천국"
         }
     ]
 }

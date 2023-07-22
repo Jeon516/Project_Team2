@@ -6,7 +6,7 @@ public class UI_ShopSetting : MonoBehaviour
 {
     public GameObject Random;
     public GameObject Shop;
-    public GameObject ShopGacha;
+    public GameObject ShopGachaScreen;
     private bool IsRandom = false;
     private bool IsShop = false;
 
@@ -33,6 +33,7 @@ public class UI_ShopSetting : MonoBehaviour
 
     public void OnClick_ShopGacha()
     {
-        ShopGacha.SetActive(true);
+        ShopGachaScreen.SetActive(true);
+        ShopGacha.Instance.GachaStart();
     }
 }

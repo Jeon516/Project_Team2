@@ -1902,28 +1902,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 521325377}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5020366bd77cf48b6ca3c48d04f935, type: 3}
+  m_Script: {fileID: 11500000, guid: 1b9de45b9f733604aa512a2909d97b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Delay: 10
-  ChatTransform: {fileID: 764375483}
-  ChatText: {fileID: 985223834}
-  StartButton: {fileID: 903173211765952903}
-  RealStart: {fileID: 1802178830}
-  TutorialStart: {fileID: 903173211570914684}
-  TutorialChat: {fileID: 764375482}
-  BlockScreen: {fileID: 293923118}
-  TutorialInformation:
-  - {fileID: 393592096}
-  - {fileID: 259743454}
-  - {fileID: 126274574}
-  - {fileID: 1730766243}
-  - {fileID: 623986442}
-  - {fileID: 1090833104}
-  - {fileID: 711327440}
-  - {fileID: 1162490117}
-  - {fileID: 171370798}
-  - {fileID: 630639227}
+  Delay: 0
+  ChatTransform: {fileID: 0}
+  ChatText: {fileID: 0}
+  StartButton: {fileID: 0}
+  RealStart: {fileID: 0}
+  TutorialStart: {fileID: 0}
+  TutorialChat: {fileID: 0}
+  BlockScreen: {fileID: 0}
+  TutorialInformation: []
 --- !u!1 &623986442
 GameObject:
   m_ObjectHideFlags: 0

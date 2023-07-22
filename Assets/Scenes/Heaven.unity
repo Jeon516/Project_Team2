@@ -1271,6 +1271,7 @@ MonoBehaviour:
   DayText: {fileID: 1681426045}
   GameStart: {fileID: 1802178830}
   Play: 0
+  Gold: 0
 --- !u!114 &490307894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1590,7 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleImage: {fileID: 1095284365}
   ClockStick: {fileID: 806407591}
-  fillDuration: 5
+  fillDuration: 1000
   GameResult: {fileID: 1936496286}
   fillTimer: 0
 --- !u!1 &517298738

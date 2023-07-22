@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         Instance = this; // 인스턴스화
-        BGMSource.volume = PlayerPrefs.GetFloat("BGM", 0.6f);
 
         if (instance == null)
         {

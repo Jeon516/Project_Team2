@@ -27,14 +27,12 @@ public class UpbringingTutorial : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        if (Day == 1 && TutorialDay == 1)
+        if (Day%20 == 1 && Day/20==0)
         {
             gameObject.SetActive(true);
             ChatSet.SetActive(false);

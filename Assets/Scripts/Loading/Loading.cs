@@ -15,14 +15,14 @@ public class Loading : MonoBehaviour
     private string originalText;
     private List<string> characters;
     private int Day;
-    private int TutorialDay;
+    private int IsHeaven;
 
     private void Awake()
     {
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
+        IsHeaven = PlayerPrefs.GetInt("IsHeaven", 1);
+        PlayerPrefs.SetInt("IsHeaven", IsHeaven);
 
         float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
         PlayerPrefs.SetFloat("BGM", BGMVolume);
@@ -124,10 +124,18 @@ public class Loading : MonoBehaviour
     }
 
     private void LoadNextScene()
-    {   
-        if(Day==0 && TutorialDay==0)
+    {
+        if (Day / 20 == 0 && Day % 20 == 0)
+        {
             SceneManager.LoadScene("Tutorial");
-        else
+        }
+        else if (IsHeaven == 1)
+        {
             SceneManager.LoadScene("Heaven");
+        }
+        else if (IsHeaven == 0)
+        {
+            SceneManager.LoadScene("Upbringing");
+        }
     } // 다음 씬으로 넘어가기
 }

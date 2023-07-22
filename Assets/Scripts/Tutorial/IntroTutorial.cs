@@ -21,16 +21,18 @@ public class IntroTutorial : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
-        ChatText.text = Chat[0];
-        order = 1;
     }
 
     private void Start()
     {
         if (Day >= 1)
             gameObject.SetActive(false);
-        else if(Day==0)
+        else if (Day / 20 == 0 && Day % 20 == 0)
+        {
             gameObject.SetActive(true);
+            ChatText.text = Chat[0];
+            order = 1;
+        }
     }
     void Update()
     {
@@ -38,6 +40,8 @@ public class IntroTutorial : MonoBehaviour
         if (order == Chat.Length && Input.GetMouseButtonDown(0))
         {
             gameObject.SetActive(false);
+            Day++;
+            PlayerPrefs.SetInt("Day", Day);
             SceneManager.LoadScene("Heaven");
         }
         if (Input.GetMouseButtonDown(0) && Chat.Length>order && IsClick)

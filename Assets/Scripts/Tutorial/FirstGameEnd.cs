@@ -25,12 +25,14 @@ public class FirstGameEnd : MonoBehaviour
 
     private void Start()
     {
-        if (Day == 1)
+        if (Day%20 == 1 && Day/20==0)
+        {
             gameObject.SetActive(true);
+            ChatText.text = Chat[0];
+            order = 1;
+        }
         else
             gameObject.SetActive(false);
-        ChatText.text = Chat[0];
-        order = 1;
     }
 
     void Update()

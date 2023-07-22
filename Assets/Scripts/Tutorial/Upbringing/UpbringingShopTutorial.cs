@@ -18,16 +18,9 @@ public class UpbringingShopTutorial : MonoBehaviour
     public RectTransform ChatTransform;
     public GameObject CancelButton;
     public GameObject FreeButton;
+    public GameObject QuestioinTutorial;
 
     private string[] Chat = {  "각각의 음식 주문은 하루에 한 번씩만 가능하니 유의하시기 바랍니다.","딱 이번만 비용을 대신 내드릴 테니 한 번 주문해보세요."};
-
-    private void Awake()
-    {
-        Day = PlayerPrefs.GetInt("Day");
-        PlayerPrefs.SetInt("Day", Day);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
-    }
 
     // Update is called once per frame
     void Update()
@@ -64,9 +57,14 @@ public class UpbringingShopTutorial : MonoBehaviour
     public void Onclick_YesButton()
     {
         CancelButton.SetActive(false);
+        StartCoroutine(Wait());
     }
     public void Onclick_NoButton()
     {
         FreeButton.SetActive(true);
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(5);
     }
 }

@@ -193,7 +193,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\uC7AC\uD615\uB2D8\uC740 \uB178\uB798\uB97C \uC798 \uBD80\uB978\uB2E4~~~"
 --- !u!222 &271189291
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -611,7 +611,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1408950639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0eadf5cbfcb5a0488fcd8027b3eb223, type: 3}
+  m_Script: {fileID: 11500000, guid: f02bf93bfe546ec48a9cf54823925356, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   NameQuestion: {fileID: 1486488534}
@@ -830,7 +830,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2133610421
 RectTransform:
   m_ObjectHideFlags: 0
@@ -860,11 +860,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2133610420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0514d4e9642abf64992ceac24f2231dc, type: 3}
+  m_Script: {fileID: 11500000, guid: af2e42e4c16438c40ae9265022d340bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ChatText: {fileID: 271189290}
-  Name: {fileID: 1486488534}
 --- !u!114 &2133610423
 MonoBehaviour:
   m_ObjectHideFlags: 0

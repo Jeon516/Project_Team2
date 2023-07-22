@@ -1591,7 +1591,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleImage: {fileID: 1095284365}
   ClockStick: {fileID: 806407591}
-  fillDuration: 1000
+  fillDuration: 5
   GameResult: {fileID: 1936496286}
   fillTimer: 0
 --- !u!1 &517298738

@@ -27,10 +27,6 @@ public class UpbringingTutorialInventory : MonoBehaviour
 
     private void Awake()
     {
-        Day = PlayerPrefs.GetInt("Day");
-        PlayerPrefs.SetInt("Day", Day);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
         ItemTutorial.SetActive(false);
     }
 
@@ -79,6 +75,7 @@ public class UpbringingTutorialInventory : MonoBehaviour
         ChatDisplay();
         IsClick = true;
         ChatTransform.anchoredPosition = new Vector2(0, -296);
+        Debug.Log(order);
     }
 
     public void Onclick_Use()

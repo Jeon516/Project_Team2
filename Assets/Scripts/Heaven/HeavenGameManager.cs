@@ -22,14 +22,16 @@ public class HeavenGameManager : MonoBehaviour
         Gold = PlayerPrefs.GetInt("Gold");
         PlayerPrefs.SetInt("Gold", Gold);
     }
+
     private void Start()
     {
-        DayText.text = Day.ToString() + "�� °";
+        DayText.text = Day.ToString() + "일째";
         if (Day >=2)
             GameStart.SetActive(true);
         else
             GameStart.SetActive(false);
     }
+
     public void OnClick_LeftStation()
     {
         DogWait.Instance.ChangeImage();

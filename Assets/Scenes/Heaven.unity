@@ -465,7 +465,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -679.99994, y: 174.99997}
+  m_AnchoredPosition: {x: -680, y: 174.99997}
   m_SizeDelta: {x: -1360, y: -702.4999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &126274576
@@ -1299,15 +1299,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 248e6724ad97b33468299119ac504230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  configurableButtons: []
+  buttonColor1: {fileID: 0}
+  buttonColor2: {fileID: 0}
+  buttonChangeColors: {fileID: 0}
+  buttonDifferentColor: {fileID: 0}
   TrainLeft: {fileID: 977261716}
   TrainRight: {fileID: 1158773868}
   Ticket: {fileID: 1898374405}
+  DayText: {fileID: 1681426045}
+  dayValue: 0
   SN: 0
   AN: 0
   SE: 0
   AE: 0
-  emblemcolor: 
+  randomColor3: 
+  previousRandomColor3: 
+  audioSources:
+  - {fileID: 490307899}
+  - {fileID: 490307899}
 --- !u!114 &490307896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1321,6 +1330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emblemImage: {fileID: 2097200456}
+  emblempng: example
 --- !u!114 &490307897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1344,7 +1354,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a3fa3c81e8982ed4e87705da83bd8728, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 8e5f959f5759f7348bf945706bf76f90, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1440,7 +1450,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e73b1f838a860dd439915a03a36fd25d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 08b0d04a449f3be4b9c4e6f51d11a611, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1582,6 +1592,7 @@ MonoBehaviour:
   ClockStick: {fileID: 806407591}
   fillDuration: 5
   GameResult: {fileID: 1936496286}
+  fillTimer: 0
 --- !u!1 &517298738
 GameObject:
   m_ObjectHideFlags: 0
@@ -3227,7 +3238,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -489.99994, y: 0}
+  m_AnchoredPosition: {x: -490, y: 0}
   m_SizeDelta: {x: -980, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1114729284
@@ -4458,7 +4469,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -489.99994, y: 0}
+  m_AnchoredPosition: {x: -490, y: 0}
   m_SizeDelta: {x: -980, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1730766245

@@ -8,9 +8,9 @@ public class Clock : MonoBehaviour
 {
     public Image circleImage;
     public GameObject ClockStick;
-    public float fillDuration = 30f; // °ÔÀÓ ½Ã°£
+    public float fillDuration = 30f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½
     public GameObject GameResult;
-    private float fillTimer = 0f;
+    public float fillTimer = 0f;
 
     private void Update()
     {
@@ -32,5 +32,5 @@ public class Clock : MonoBehaviour
         circleImage.fillAmount = fillAmount;
 
         ClockStick.transform.Rotate(Vector3.forward, -360 / fillDuration * Time.deltaTime);
-    } // ½Ã°è ¿òÁ÷ÀÌ±â
+    } // ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½
 }

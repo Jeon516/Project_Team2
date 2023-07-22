@@ -13,9 +13,7 @@ public class UIManager_Intro : MonoBehaviour
     private int TutorialDay;
     private void Awake()
     {
-        Day= PlayerPrefs.GetInt("TutorialDay", 0);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
+        Day= PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
     }
     private void Start()
@@ -37,7 +35,6 @@ public class UIManager_Intro : MonoBehaviour
     {
         if(Yes)
         {
-            PlayerPrefs.SetInt("TutorialDay", 0);
             PlayerPrefs.SetInt("Day", 0);
             SceneManager.LoadScene("Loading");
         }
@@ -58,6 +55,7 @@ public class UIManager_Intro : MonoBehaviour
             NoData.SetActive(true);
         }
     } // 'Load Start'을 누를 때
+
     public void OnClick_Setting()
     {
         IntroSetting.SetActive(true); // ȯ�漳�� Ű��

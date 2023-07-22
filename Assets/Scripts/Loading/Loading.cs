@@ -21,8 +21,6 @@ public class Loading : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
-        TutorialDay = PlayerPrefs.GetInt("TutorialDay", 0);
-        PlayerPrefs.SetInt("TutorialDay", TutorialDay);
 
         float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
         PlayerPrefs.SetFloat("BGM", BGMVolume);
@@ -125,7 +123,7 @@ public class Loading : MonoBehaviour
 
     private void LoadNextScene()
     {   
-        if(Day==0 && TutorialDay==0)
+        if(Day==0)
             SceneManager.LoadScene("Tutorial");
         else
             SceneManager.LoadScene("Heaven");

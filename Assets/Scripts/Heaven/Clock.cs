@@ -8,7 +8,7 @@ public class Clock : MonoBehaviour
 {
     public Image circleImage;
     public GameObject ClockStick;
-    public float fillDuration = 30f; // 게임 시간
+    public float fillDuration = 30f;
     public GameObject GameResult;
     private float fillTimer = 0f;
 

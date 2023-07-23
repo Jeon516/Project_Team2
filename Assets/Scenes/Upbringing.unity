@@ -12189,6 +12189,7 @@ MonoBehaviour:
   InteractionQuestion: {fileID: 930216929}
   NextDayQuestion: {fileID: 870292955}
   Cal: 0000000000000000
+  InteractionChance: 0
 --- !u!114 &1610893774
 MonoBehaviour:
   m_ObjectHideFlags: 0

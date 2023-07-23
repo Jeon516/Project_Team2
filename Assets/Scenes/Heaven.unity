@@ -1309,6 +1309,7 @@ MonoBehaviour:
   TrainRight: {fileID: 1158773868}
   Ticket: {fileID: 1898374405}
   DayText: {fileID: 1681426045}
+  correct: 0
   dayValue: 0
   SN: 0
   AN: 0
@@ -5450,7 +5451,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413424, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413425, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_Pivot.x

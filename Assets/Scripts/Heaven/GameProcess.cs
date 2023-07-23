@@ -14,12 +14,14 @@ public class GameProcess : MonoBehaviour
     public Image Ticket;
     public Text DayText; // 날짜 텍스트
     public static string emblemcolor;
-    private int correct = 0;
+    public int correct = 0;
     private int combo = 0;
     private int wrongCount = 0;
     private int totalCount = 0;
     private int ingamegold = 0;
     //private Clock clock;
+
+    public static GameProcess Instance { get; private set; } = null;
 
     public int CorrectCount
     {

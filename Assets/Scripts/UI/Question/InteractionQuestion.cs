@@ -5,6 +5,14 @@ using UnityEngine;
 public class InteractionQuestion : MonoBehaviour
 {
     private int InteractionNum;
+
+    public static InteractionQuestion Instance { get; private set; } = null;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public void OnClick_Play(int index)
     {
         InteractionNum = 0;
@@ -18,7 +26,7 @@ public class InteractionQuestion : MonoBehaviour
         InteractionNum = 2;
     } // 선물하기 버튼
 
-    private void BlockButton()
+    public void BlockButton()
     {
         for (int i = 0; i < 3; i++)
         {
@@ -28,7 +36,7 @@ public class InteractionQuestion : MonoBehaviour
 
     public void OnClick_Button(bool Yes)
     {
-        if (Yes)
+        if (Yes && PlayerPrefs.GetInt("Interaction")<1)
         {
             if (InteractionNum == 0)
             {
@@ -44,6 +52,7 @@ public class InteractionQuestion : MonoBehaviour
             }
             UpbringingGameManager.Instance.ActionNumText.text = UpbringingGameManager.Instance.ActionNum.ToString();
             PlayerPrefs.SetInt("ActionNum", UpbringingGameManager.Instance.ActionNum);
+            UpbringingGameManager.Instance.InteractionChance++;
             BlockButton();
         }
         gameObject.SetActive(false);

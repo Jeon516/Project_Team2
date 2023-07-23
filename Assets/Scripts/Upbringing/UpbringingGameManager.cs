@@ -6,22 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class UpbringingGameManager : MonoBehaviour
 {
-    public int ActionNum; // 호감도
+    public int ActionNum; // Flavor
     public Text ActionNumText;
     public int Gold; // Money
     public Text GoldText;
     public Text DayText;
     public GameObject Stat;
-    public GameObject[] StatValue; // 스탯 막대기 
+    public GameObject[] StatValue; // Stat stick
     public GameObject[] BlockInteraction;
 
     public GameObject RandomQuestion;
     public GameObject InteractionQuestion;
     public GameObject NextDayQuestion;
 
-    public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // 스탯 딕셔너리
+    public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary
     public int[] Cal = new int[2];
 
+    public int InteractionChance;
 
     public static UpbringingGameManager Instance { get; private set; } = null;
     private void Awake()
@@ -52,6 +53,16 @@ public class UpbringingGameManager : MonoBehaviour
         Gold = PlayerPrefs.GetInt("Gold");
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
+
+        InteractionChance = PlayerPrefs.GetInt("Interaction", 0);
+        PlayerPrefs.SetInt("Interaction", InteractionChance);
+        if(InteractionChance>=1)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                BlockInteraction[i].SetActive(true);
+            }
+        } // One Interaction
     }
 
     public void OnClick_NextDay()
@@ -61,13 +72,15 @@ public class UpbringingGameManager : MonoBehaviour
     }
     public void OnClick_Random()
     {
-        RandomQuestion.SetActive(true);
-    } // '무작위 성향 +1' 버튼
+        if(ActionNum>=50)
+            RandomQuestion.SetActive(true);
+    } // RandomStat
 
     public void OnClick_Want()
     {
-        Stat.SetActive(true);
-    } // '원하는 성향 +1' 버튼
+        if(ActionNum>=100)
+            Stat.SetActive(true);
+    } // WantStat
 
     public void OnClick_InteractiQuestion()
     {

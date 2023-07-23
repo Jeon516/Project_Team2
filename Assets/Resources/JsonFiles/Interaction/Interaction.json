@@ -1,0 +1,16 @@
+{
+  "Interaction": [
+    {
+      "Value": "하",
+      "TID": 0,
+      "Interaction": "무엇을 좋아하는 지 들어주기",
+      "Conversation": "내 얘기 들어줘서 정말 고마워!"
+    },
+    {
+      "Value": "하",
+      "TID": 1,
+      "Interaction": "좋아하는 간식에 대해 물어보기",
+      "Conversation": "난 먹는거라면 다 좋지만 특별한걸 먹어보고 시퍼!"
+    }
+  ]
+}

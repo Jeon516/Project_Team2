@@ -153,9 +153,12 @@ public class UI_StatManager : MonoBehaviour
 
     public void OnClick_StatButton(int index)
     {
-        StatNum = index;
-        StatQuestion.SetActive(true);
-        QuestionText.text = "'"+StatText[index]+"'" + "을 증가하겠습니까?";
+        if (UpbringingGameManager.Instance.ActionNum >= 100)
+        {
+            StatNum = index;
+            StatQuestion.SetActive(true);
+            QuestionText.text = "'" + StatText[index] + "'" + "을 증가하겠습니까?";
+        }
     }
     public void OnClick_QuestionButton(bool valiable)
     {

@@ -27,8 +27,7 @@ public class UIManager_Intro : MonoBehaviour
     {
         if((Day/20 == 0 && Day%20==0)|| (Day / 20 == 0 && Day % 20 == 1))
         {
-            PlayerPrefs.SetInt("Day", 0);
-            SceneManager.LoadScene("Loading");
+            Restart();
         }
         else
         {
@@ -69,4 +68,12 @@ public class UIManager_Intro : MonoBehaviour
     {
         Application.Quit(); // 어플 종료
     } // 'Exit'을 누를 때
+
+    private void Restart()
+    {
+        PlayerPrefs.SetInt("Day", 0);
+        PlayerPrefs.SetInt("ActionNum", 0);
+        PlayerPrefs.SetInt("Gold", 1000);
+        PlayerPrefs.SetInt("IsHeaven", 1);
+    } // Data Initialize
 }

@@ -1272,6 +1272,7 @@ MonoBehaviour:
   GameStart: {fileID: 1802178830}
   Play: 0
   Gold: 0
+  GoldText: {fileID: 6367761}
 --- !u!114 &490307894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1860,7 +1861,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &521325378
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5449,7 +5450,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413424, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6993079053830413425, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_Pivot.x

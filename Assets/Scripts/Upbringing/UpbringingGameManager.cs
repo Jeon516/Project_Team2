@@ -8,6 +8,8 @@ public class UpbringingGameManager : MonoBehaviour
 {
     public int ActionNum; // 호감도
     public Text ActionNumText;
+    public int Gold; // Money
+    public Text GoldText;
     public Text DayText;
     public GameObject Stat;
     public GameObject[] StatValue; // 스탯 막대기 
@@ -33,8 +35,6 @@ public class UpbringingGameManager : MonoBehaviour
         Cal[0] = 1;
         Cal[1] = -1;
 
-        ActionNum = PlayerPrefs.GetInt("ActionNum", 1000);
-        PlayerPrefs.SetInt("ActionNum", ActionNum);
         Instance = this;
     }
     private void Start()
@@ -46,7 +46,12 @@ public class UpbringingGameManager : MonoBehaviour
     private void Update()
     {
         ActionNum= PlayerPrefs.GetInt("ActionNum", 1000);
+        PlayerPrefs.SetInt("ActionNum", ActionNum);
         ActionNumText.text = PlayerPrefs.GetInt("ActionNum", 1000).ToString();
+
+        Gold = PlayerPrefs.GetInt("Gold");
+        PlayerPrefs.SetInt("Gold", Gold);
+        GoldText.text = Gold.ToString();
     }
 
     public void OnClick_NextDay()

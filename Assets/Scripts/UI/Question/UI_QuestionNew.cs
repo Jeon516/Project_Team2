@@ -7,7 +7,10 @@ public class UI_QuestionNew : MonoBehaviour
 {
     public void OnClick_NextNew()
     {
+        PlayerPrefs.SetInt("ActionNum", 0);
+        PlayerPrefs.SetInt("Gold", 0);
         PlayerPrefs.SetInt("Day", 0);
+        PlayerPrefs.SetInt("IsHeaven", 1);
         SceneManager.LoadScene("Heaven");
     } // New Start
     public void OnClick_Cancel()

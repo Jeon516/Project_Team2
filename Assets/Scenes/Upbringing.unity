@@ -11519,6 +11519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActionNum: 0
   ActionNumText: {fileID: 1979716909}
+  Gold: 0
+  GoldText: {fileID: 254329580}
   DayText: {fileID: 1397207208}
   Stat: {fileID: 1702557039}
   StatValue: []
@@ -11575,6 +11577,7 @@ MonoBehaviour:
   GameStart: {fileID: 0}
   Play: 0
   Gold: 0
+  GoldText: {fileID: 0}
 --- !u!1 &1617218743
 GameObject:
   m_ObjectHideFlags: 0

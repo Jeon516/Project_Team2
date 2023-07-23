@@ -12,6 +12,7 @@ public class HeavenGameManager : MonoBehaviour
     public GameObject GameStart;
     public bool Play = false;
     public int Gold;
+    public Text GoldText;
 
     public static HeavenGameManager Instance { get; private set; } = null;
     private void Awake()
@@ -21,6 +22,7 @@ public class HeavenGameManager : MonoBehaviour
         Instance = this;
         Gold = PlayerPrefs.GetInt("Gold");
         PlayerPrefs.SetInt("Gold", Gold);
+        GoldText.text = Gold.ToString();
     }
 
     private void Start()

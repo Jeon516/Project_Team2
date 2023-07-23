@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractionQuestion : MonoBehaviour
 {
     private int InteractionNum;
+    public GameObject NoMoney;
 
     public static InteractionQuestion Instance { get; private set; } = null;
 
@@ -40,20 +41,57 @@ public class InteractionQuestion : MonoBehaviour
         {
             if (InteractionNum == 0)
             {
-                UpbringingGameManager.Instance.ActionNum++;
+                if (UpbringingGameManager.Instance.Gold >= 100)
+                {
+                    UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.LowFlavor;
+                    InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.LowInteractionConservation;
+                    UpbringingGameManager.Instance.Gold -= 100;
+                    PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
+                    UpbringingGameManager.Instance.InteractionChance++;
+                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
+                    BlockButton();
+                }
+                else
+                {
+                    NoMoney.SetActive(true);
+                }
             }
             else if (InteractionNum == 1)
             {
-                UpbringingGameManager.Instance.ActionNum += Random.Range(0, 2) + 2;
+                if (UpbringingGameManager.Instance.Gold >= 200)
+                {
+                    UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.MiddleFlavor;
+                    InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.MiddleInteractionConservation;
+                    UpbringingGameManager.Instance.Gold -= 200;
+                    PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
+                    UpbringingGameManager.Instance.InteractionChance++;
+                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
+                    BlockButton();
+                }
+                else
+                {
+                    NoMoney.SetActive(true);
+                }
             }
             else if (InteractionNum == 2)
             {
-                UpbringingGameManager.Instance.ActionNum += Random.Range(0, 2) + 5;
+                if (UpbringingGameManager.Instance.Gold >= 300)
+                {
+                    UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.HighFlavor;
+                    InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.HighInteractionConservation;
+                    UpbringingGameManager.Instance.Gold -= 300;
+                    PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
+                    UpbringingGameManager.Instance.InteractionChance++;
+                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
+                    BlockButton();
+                }
+                else
+                {
+                    NoMoney.SetActive(true);
+                }
             }
             UpbringingGameManager.Instance.ActionNumText.text = UpbringingGameManager.Instance.ActionNum.ToString();
             PlayerPrefs.SetInt("ActionNum", UpbringingGameManager.Instance.ActionNum);
-            UpbringingGameManager.Instance.InteractionChance++;
-            BlockButton();
         }
         gameObject.SetActive(false);
     }

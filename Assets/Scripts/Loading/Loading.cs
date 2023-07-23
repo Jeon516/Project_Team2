@@ -127,7 +127,7 @@ public class Loading : MonoBehaviour
     {
         if ((Day / 20 == 0 && Day % 20 == 0) || (Day / 20 == 0 && Day % 20 == 1))
         {
-            SceneManager.LoadScene("Tutorial");
+            SceneManager.LoadScene("IntroScene");
         }
         else if (IsHeaven == 1)
         { 

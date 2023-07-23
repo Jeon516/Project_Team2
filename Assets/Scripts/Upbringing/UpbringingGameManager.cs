@@ -23,6 +23,7 @@ public class UpbringingGameManager : MonoBehaviour
     public int[] Cal = new int[2];
 
     public int InteractionChance;
+    private int Day;
 
     public static UpbringingGameManager Instance { get; private set; } = null;
     private void Awake()
@@ -37,10 +38,13 @@ public class UpbringingGameManager : MonoBehaviour
         Cal[1] = -1;
 
         Instance = this;
+
+        Day = PlayerPrefs.GetInt("Day");
+        PlayerPrefs.SetInt("Day", Day);
     }
     private void Start()
     {
-        DayText.text = HeavenGameManager.Instance.Day.ToString()+"일 째";
+        DayText.text = Day.ToString() + "일 째";
         ActionNumText.text = ActionNum.ToString();
     }
 
@@ -63,11 +67,19 @@ public class UpbringingGameManager : MonoBehaviour
                 BlockInteraction[i].SetActive(true);
             }
         } // One Interaction
+        else
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                BlockInteraction[i].SetActive(false);
+            }
+        }
     }
 
     public void OnClick_NextDay()
     {
         PlayerPrefs.SetInt("ActionNum", ActionNum);
+        PlayerPrefs.SetInt("Interaction", 0);
         NextDayQuestion.SetActive(true);
     }
     public void OnClick_Random()
@@ -92,18 +104,18 @@ public class UpbringingGameManager : MonoBehaviour
         NextDayQuestion.SetActive(false);
         if (Yes)
         {
-            if (HeavenGameManager.Instance.Day < 20)
+            if (Day < 20)
             {
-                HeavenGameManager.Instance.Day++;
+                Day++;
                 PlayerPrefs.SetInt("IsHeaven", 1);
-                PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
+                PlayerPrefs.SetInt("Day", Day);
                 SceneManager.LoadScene("Heaven");
 
             } // 20일 내의 시간은 천국 씬으로 넘어감
             else
             {
-                HeavenGameManager.Instance.Day = 0;
-                PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
+                Day = 0;
+                PlayerPrefs.SetInt("Day", Day);
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }
     }

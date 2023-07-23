@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class ImageData
@@ -86,7 +87,11 @@ public class FirstScene : MonoBehaviour
 
         transitionCoroutine = StartCoroutine(TransitionBlurEffect(targetBlurValue, transitionTime));
 
-        currentImageIndex = (currentImageIndex + 1) % imagesToDisplay.Length;
+        currentImageIndex = (currentImageIndex + 1);
+        if (currentImageIndex == imagesToDisplay.Length)
+        {
+            SceneManager.LoadScene("Tutorial");
+        } // next Scene
         ShowImage(currentImageIndex);
     }
 }

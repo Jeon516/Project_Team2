@@ -1,0 +1,634 @@
+{
+  "FlavorInteraction": [
+    {
+      "Value": "하",
+      "NUM": 0,
+      "Interaction": "무엇을 좋아하는 지 들어주기",
+      "Conversation": "내 얘기 들어줘서 정말 고마워!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 1,
+      "Interaction": "좋아하는 간식에 대해 물어보기",
+      "Conversation": "난 먹는거라면 다 좋지만 특별한걸 먹어보고 시퍼!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 2,
+      "Interaction": "좋아하는 장난감에 대해 물어보기",
+      "Conversation": "난 강아지풀이 좋더라! 살랑살랑 내 얼굴을 간지럽혀",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 3,
+      "Interaction": "좋아하는 놀이에 대해 물어보기",
+      "Conversation": "우아아앙! 깜짝 놀래키기!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 4,
+      "Interaction": "재미있는 얘기해주기",
+      "Conversation": "푸하하 배꼽이 있었다면 빠져버렸을거야",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 5,
+      "Interaction": "행복했던 얘기해주기",
+      "Conversation": "헤헷 그 얘길 들으니까 나도 너무 행복해져",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 6,
+      "Interaction": "즐거웠던 얘기해주기",
+      "Conversation": "니가 웃으니 따라 웃게돼 !",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 7,
+      "Interaction": "용감하다 칭찬해주기",
+      "Conversation": "그럼!!  난 아마 치와와였을지도 몰라!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 8,
+      "Interaction": "똑똑하다 칭찬해주기",
+      "Conversation": "훗,  ABCDEFG  (어..? 어디서 들었던 말이더라?)",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 9,
+      "Interaction": "예쁘다 칭찬해주기",
+      "Conversation": "나 얼굴이 빨개지는거가타..",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 10,
+      "Interaction": "잘했다 칭찬해주기",
+      "Conversation": "고마워 넌 정말 상냥한 사람 아니 귀신이야!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 11,
+      "Interaction": "멋있다 칭찬해주기",
+      "Conversation": "난 정말 듬직한 유령이야! 흠흠!",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 12,
+      "Interaction": "예뻐해주기",
+      "Conversation": "헤헤헤헤헤헤헤 내가 그렇게 예뻐?",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 13,
+      "Interaction": "귀여워해주기",
+      "Conversation": "헤헤헤헤 왠지 혓바닥이 길어지는 느낌이야",
+      "Favor": 5
+    },
+    {
+      "Value": "하",
+      "NUM": 14,
+      "Interaction": "천국출입국관리소 구경시켜주기",
+      "Conversation": "저 강아지 정말 멋지다! 나는 어떤 모습이었을까?",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 15,
+      "Interaction": "신나는 노래 불러주기",
+      "Conversation": "♪랄랄라~ 어? 어디서 들어본 노래인데. 더 불러봐! 뭔가 기억날지도 몰라!",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 16,
+      "Interaction": "눈 마주치기",
+      "Conversation": "너 눈에 솜사탕이 있어! 앗, 나잖아?",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 17,
+      "Interaction": "잔잔한 음악 들려주기",
+      "Conversation": "음~ 좋다...zzZZZ 으앗! 미..미안해! zzZZZZ",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 18,
+      "Interaction": "신나는 음악 들려주기",
+      "Conversation": "예! 락앤롤! 나랑 같이 춤추자! 휭~ 휭~",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 19,
+      "Interaction": "천국에서의 생활에 대해 물어보기",
+      "Conversation": "널 만나기 전까진 너무 외롭고 무서웠는데 이젠 괜찮아!",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 20,
+      "Interaction": "갖고 싶은 장난감에 대해 물어보기",
+      "Conversation": "저기 저 별도 가지고 놀 수 있을까?",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 21,
+      "Interaction": "천국에서 즐거웠던 일 물어보기",
+      "Conversation": "널 처음 만났을때가 제일 즐거워써! 내 말을 들어준 귀신은 너가 처음이었거든",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 22,
+      "Interaction": "천국에서 재밌었던 일 물어보기",
+      "Conversation": "이렇게 붕붕 떠다니는건 너무 재미써 !  땅을 밟는건 어떤 느낌일까?",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 23,
+      "Interaction": "천국에서 인상깊은 경험에 대해 물어보기",
+      "Conversation": "다른 유령이랑 부딪혔는데 하나두 안아팠어! 슝~슝~",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 24,
+      "Interaction": "먹어보고 싶은 음식 물어보기",
+      "Conversation": "사람들이 먹던 음식을 제일 먹어보고 싶어... 살아있을땐 못먹어봤거든",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 25,
+      "Interaction": "여러 천국 종류에 대해 말해주기",
+      "Conversation": "나도 갈 수 있을까? 정말 정말 가보고 시퍼!",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 26,
+      "Interaction": "천국행 열차에 대해 말해주기",
+      "Conversation": "칙칙폭폭... 나도 어서 기억을 찾아서 천국행 열차를 타고 싶어",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 27,
+      "Interaction": "살아있을 때 기억에 대해 묻기",
+      "Conversation": "전혀... 기억이 나지 않아... 그래도 걱정해줘서 고마워",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 28,
+      "Interaction": "천국출입국관리소에서의 하루 말해주기",
+      "Conversation": "다음엔 나도 같이 가자! 몰래 숨어 있을께!",
+      "Favor": 6
+    },
+    {
+      "Value": "하",
+      "NUM": 29,
+      "Interaction": "천국출입국관리소에서 있었던 일화 말해주기",
+      "Conversation": "그런 일이 있었어?? 나도 봤어야 했는데...! 아쉽다",
+      "Favor": 6
+    },
+    {
+      "Value": "중",
+      "NUM": 30,
+      "Interaction": "머리 쓰다듬기",
+      "Conversation": "흐아,, 너무 조아,, 사랑받고 있는거 가태,,",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 31,
+      "Interaction": "턱 쓰다듬기",
+      "Conversation": "뭐야! 우쭈쭈 하는거야? 그런거 필요없,,,,흠 좋넹,,,,,",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 32,
+      "Interaction": "등 쓰다듬기",
+      "Conversation": "꼬리는 건들지 마!! 등만 해조 헤헤 고마어!!",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 33,
+      "Interaction": "배 긁어주기",
+      "Conversation": "헤헤.. 시원하다 더 긁어줘! 더! 더!",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 34,
+      "Interaction": "발 주물러주기",
+      "Conversation": "발 더러운데 갠차나,,? 고마워 너무 조타,,",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 35,
+      "Interaction": "목 주물러주기",
+      "Conversation": "헤헤.. 시원하다 더 주물러줘! 더! 더!",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 36,
+      "Interaction": "다리 주물러주기",
+      "Conversation": "어어 좀더 왼쪽으로 아니아니 좀더 밑에,,,, 오른쪽,,,, 좋아,,,",
+      "Favor": 7
+    },
+    {
+      "Value": "중",
+      "NUM": 37,
+      "Interaction": "껴안아주기",
+      "Conversation": "어디선가 느껴본 적이 있는 포근함이야,, 살아있을 때도 많이 안겨있었을까?",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 38,
+      "Interaction": "털 빗어주기",
+      "Conversation": "이잉 느낌조아 더 찰랑찰랑 해지게 빗어조!!",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 39,
+      "Interaction": "토닥여주기",
+      "Conversation": "기억을 잃었지만,, 힘내서 다시 찾을거야..! 고마워",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 40,
+      "Interaction": "무릎에 앉히기",
+      "Conversation": "포근하다.. 따뜻함이 느껴지는 것 같아",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 41,
+      "Interaction": "엉덩이 팡팡해주기",
+      "Conversation": "헤헤 궁디팡팡 기분 좋아~!",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 42,
+      "Interaction": "서로 기대고 앉아있기",
+      "Conversation": "너 없으면 천국에서 정말 힘들었을거야 .정말 의지가 많이 되고 있어. 고마워",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 43,
+      "Interaction": "고민 들어주기",
+      "Conversation": "음... 내가 어떤 강아지였는지 도저히 기억이 안나. 빨리 내가 누군지 찾고싶어",
+      "Favor": 8
+    },
+    {
+      "Value": "중",
+      "NUM": 44,
+      "Interaction": "동전이 든 컵 찾기 게임하기",
+      "Conversation": "으잇... 틀렸다... 또 해!! 이번엔 맞출거야!!!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 45,
+      "Interaction": "터그 놀이하기",
+      "Conversation": "앙냥얀안낭낭낭낭냥냥낭-!!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 46,
+      "Interaction": "원반 던져주기",
+      "Conversation": "봤어?! 낚아채는거 봤어??!!!! 훗 내가 이정도라고!!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 47,
+      "Interaction": "같이 공놀이하기",
+      "Conversation": "나나 멀리 던져도 가서 물어올 수 있다!! 보여주까?!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 48,
+      "Interaction": "노즈워크하기",
+      "Conversation": "여기인가,,? 킁킁 여기서 맛있는 냄새 나는거가타!!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 49,
+      "Interaction": "같이 산책하기",
+      "Conversation": "날씨도 조코~ 바람도 조코~ 저기! 나 저기도 가볼래!!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 50,
+      "Interaction": "레이저 포인트로 놀아주기",
+      "Conversation": "잡았다! 어라? 모야!! 왜 안잡혀!",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 51,
+      "Interaction": "숨박꼭질하기",
+      "Conversation": "여기있나? 아니네... 여긴가? 찾았다!!!! 이번엔 너가 술래야",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 52,
+      "Interaction": "술래잡기하기",
+      "Conversation": "우다다다!! 쪼금만 더 빠르면 잡을 수 있었는데 아쉽다",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 53,
+      "Interaction": "달리기 시합하기",
+      "Conversation": "아싸! 이겼다! 어때?! 나 빠르지?",
+      "Favor": 9
+    },
+    {
+      "Value": "중",
+      "NUM": 54,
+      "Interaction": "목욕시키기",
+      "Conversation": "뽀득뽀득하게 닦아줘! 깨끗해져서 천국갈래!",
+      "Favor": 10
+    },
+    {
+      "Value": "중",
+      "NUM": 55,
+      "Interaction": "같이 낮잠 자기",
+      "Conversation": "음냐,,, 나도 줘,, 나도 먹을래,,,,(zzz)",
+      "Favor": 10
+    },
+    {
+      "Value": "중",
+      "NUM": 56,
+      "Interaction": "같이 신나는 노래 부르기",
+      "Conversation": "나 지금 너무 신나는거가타! 어때? 나 노래 잘불러?!",
+      "Favor": 10
+    },
+    {
+      "Value": "중",
+      "NUM": 57,
+      "Interaction": "같이 음악 듣기",
+      "Conversation": "어쩐지 익숙한 멜로디야 살아있을 때 주인이 좋아하던 노래일까?",
+      "Favor": 10
+    },
+    {
+      "Value": "중",
+      "NUM": 58,
+      "Interaction": "자장가 불러주며 재워주기",
+      "Conversation": "나른 나른하다... 노래소리도 너무 좋아.... zZZ",
+      "Favor": 10
+    },
+    {
+      "Value": "중",
+      "NUM": 59,
+      "Interaction": "같이 동물농장 시청하기",
+      "Conversation": "사람들은 '인간극장'이란 프로그램을 본다며? 우리는 동물농장이 최곤데!",
+      "Favor": 10
+    },
+    {
+      "Value": "상",
+      "NUM": 60,
+      "Interaction": "빨간 원반 선물해주기",
+      "Conversation": "원반이 날아가는 속도가 아무리 빨라도 내 달리기 속도보단 느리다구~",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 61,
+      "Interaction": "노란 원반 선물해주기",
+      "Conversation": "원반이 날아가는 속도가 아무리 빨라도 내 달리기 속도보단 느리다구~",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 62,
+      "Interaction": "초록 원반 선물해주기",
+      "Conversation": "원반이 날아가는 속도가 아무리 빨라도 내 달리기 속도보단 느리다구~",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 63,
+      "Interaction": "파란 원반 선물해주기",
+      "Conversation": "원반이 날아가는 속도가 아무리 빨라도 내 달리기 속도보단 느리다구~",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 64,
+      "Interaction": "보라색 원반 선물해주기",
+      "Conversation": "원반이 날아가는 속도가 아무리 빨라도 내 달리기 속도보단 느리다구~",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 65,
+      "Interaction": "빨간 장난감 공 선물해주기",
+      "Conversation": "우리 물어와! 놀이하자~ 너가 공을 저멀리 던지면 내가 빨리 달려가서 가져올게",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 66,
+      "Interaction": "노란 장난감 공 선물해주기",
+      "Conversation": "우리 물어와! 놀이하자~ 너가 공을 저멀리 던지면 내가 빨리 달려가서 가져올게",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 67,
+      "Interaction": "초록 장난감 공 선물해주기",
+      "Conversation": "우리 물어와! 놀이하자~ 너가 공을 저멀리 던지면 내가 빨리 달려가서 가져올게",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 68,
+      "Interaction": "파란 장난감 공 선물해주기",
+      "Conversation": "우리 물어와! 놀이하자~ 너가 공을 저멀리 던지면 내가 빨리 달려가서 가져올게",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 69,
+      "Interaction": "보라색 장난감 공 선물해주기",
+      "Conversation": "우리 물어와! 놀이하자~ 너가 공을 저멀리 던지면 내가 빨리 달려가서 가져올게",
+      "Favor": 11
+    },
+    {
+      "Value": "상",
+      "NUM": 70,
+      "Interaction": "구름 모양 방석 선물해주기",
+      "Conversation": "구름 모양이라 그런가? 구름처럼 폭신폭신해",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 71,
+      "Interaction": "강아지 인디언 텐트 선물하기",
+      "Conversation": "나만의 공간이다~!! 정말 고마워!!",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 72,
+      "Interaction": "뼈다귀 모양 삑삑이 인형 선물해주기",
+      "Conversation": "아니이 난 먹을 건 줄 알고 한 입에 왕! 하고 깨물었는데 인형이었지 뭐야?",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 73,
+      "Interaction": "과일 모양 삑삑이 인형 선물해주기",
+      "Conversation": "여름에는 수박! 겨울에는 귤! 계절마다 다르게 가지고 놀거야~",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 74,
+      "Interaction": "닭다리 모양 삑삑이 인형 선물해주기",
+      "Conversation": "닭다리 인형을 보니까 뭔가 배가 고파지는 거 같아 헤헤",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 75,
+      "Interaction": "붕어빵 모양 삑삑이 인형 선물해주기",
+      "Conversation": "분명 물고기처럼 생겼는데 왜 뱃속에는 다른게 들어있는거지? 신기해...",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 76,
+      "Interaction": "닭삑삑이 선물해주기",
+      "Conversation": "삑삑거리는 소리가 너무 재밌어! 하루종일 눌러봐도 안질리는 거 같아",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 77,
+      "Interaction": "천국 도그 어질리티 연습하기",
+      "Conversation": "천국에도 이런 곳이 있다니. 신기하다. 슉슉슉 더 빨리 뛰어야지",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 78,
+      "Interaction": "천국 공원으로 소풍가기",
+      "Conversation": "날 위해서 도시락까지 싸온거야? 완전 맛있겠다! 잘 먹을게~",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 79,
+      "Interaction": "천국 강아지 놀이터 놀러가기",
+      "Conversation": "나나 그네 타고싶어! 혹시 밀어줄 수 있어?",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 80,
+      "Interaction": "천국 강아지 놀이공원 가기",
+      "Conversation": "대관람차에서 보는 천국 풍경은 너어무 이쁘다아~ 꼭 구름에 손이 닿을 것만 같아!",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 81,
+      "Interaction": "천국 바다 가기",
+      "Conversation": "방금 수영하다가 너무 목이 말라서 바닷물을 쪼금 마셔봤는데 너무 짠거있지?! 넌 바닷물 마셔봤어?",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 82,
+      "Interaction": "천국 강아지 수영장 가기",
+      "Conversation": "우리 누가누가 더 빨리 수영하나 내기해보자! 아마 내가 더 빠를걸?",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 83,
+      "Interaction": "같이  스파하기",
+      "Conversation": "노곤노곤 너무 따뜻해...잠이 솔솔 올 것만 같아 헤헤",
+      "Favor": 12
+    },
+    {
+      "Value": "상",
+      "NUM": 84,
+      "Interaction": "뽀뽀해주기",
+      "Conversation": "사랑받는다는 건 이런 기분이구나...지금 너무 행복하고 기분이 좋아!",
+      "Favor": 13
+    },
+    {
+      "Value": "상",
+      "NUM": 85,
+      "Interaction": "사랑한다고 말해주기",
+      "Conversation": "헤헤... 강아지 유령인 나도 사랑해줘서 고마워.. 나도 사랑해!",
+      "Favor": 13
+    },
+    {
+      "Value": "상",
+      "NUM": 86,
+      "Interaction": "같이 있어서 행복하다고 말해주기",
+      "Conversation": "나도!!나도!! 나도 너하고 같이 있어서 행복해",
+      "Favor": 13
+    },
+    {
+      "Value": "상",
+      "NUM": 87,
+      "Interaction": "별명 지어주기",
+      "Conversation": "나도 천국에서 불릴 별명이 생겼다~~ 고마워 이름이 기억안나서 슬펐는데, 덕분에 특별해진 기분이야",
+      "Favor": 13
+    },
+    {
+      "Value": "상",
+      "NUM": 88,
+      "Interaction": "자신의 인생에 대해서 말해주기",
+      "Conversation": "우와~너 지인짜 멋지다! 내가 아는 사람 중에서 제일 최고야!",
+      "Favor": 13
+    },
+    {
+      "Value": "상",
+      "NUM": 89,
+      "Interaction": "자신의 강아지와의 추억 말해주기",
+      "Conversation": "너는 강아지를 정말 사랑한 주인이었구나. 내 주인도 나를 그렇게 사랑했겠지? 빨리 기억이 났으면 좋겠어...",
+      "Favor": 13
+    }
+  ]
+}

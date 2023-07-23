@@ -10,26 +10,29 @@ public class UI_InvenotrySlot : MonoBehaviour
     public Image[] SelectedImage;
     public Button[] buttons;
 
-    private int[] IsCheck = new int[18]; // 눌렀는지 안 눌렀는지
+    private int[] IsCheck; // 눌렀는지 안 눌렀는지
     private int SelectedNum; // 선택된 순서
     public static UI_InvenotrySlot Instance { get; private set; } = null;
 
     private void Awake()
     {
         Instance = this;
+        IsCheck = new int[buttons.Length];
     }
     private void OnEnable()
     {
+        Debug.Log(buttons.Length);
         Initialized();
     } 
 
     public void Selected(Button button)
     {
         Debug.Log(button);
-        for (int i=0;i<20;i++)
+        for (int i=0;i< buttons.Length; i++)
         {
             if (buttons[i] == button)
             {
+                Debug.Log(i + "이 인식되었습니다");
                 if (IsCheck[i] == 0 && SelectedImage[i].GetComponent<Image>().sprite != null)
                 {
                     IsCheck[i] = 1;
@@ -65,7 +68,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     } // 인벤토리 이미지 및 큰 이미지 삭제
     private void Initialized()
     {
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < buttons.Length; i++)
         {
             IsCheck[i] = 0;
             SelectedBoundary[i].SetActive(false);

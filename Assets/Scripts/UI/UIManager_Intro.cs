@@ -27,6 +27,7 @@ public class UIManager_Intro : MonoBehaviour
     {
         if((Day/20 == 0 && Day%20==0)|| (Day / 20 == 0 && Day % 20 == 1))
         {
+            PlayerPrefs.SetInt("Day", 0);
             SceneManager.LoadScene("Loading");
         }
         else
@@ -50,7 +51,7 @@ public class UIManager_Intro : MonoBehaviour
 
     public void OnClick_Load()
     {
-        if ((Day / 20 == 0 && Day % 20 == 0) || (Day / 20 == 0 && Day % 20 == 1))
+        if (Day / 20 == 0 && Day % 20 == 0 || Day / 20 == 0 && Day % 20 == 1)
         {
             NoData.SetActive(true);
         }

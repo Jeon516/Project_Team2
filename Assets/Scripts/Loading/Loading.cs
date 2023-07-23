@@ -21,7 +21,7 @@ public class Loading : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
-        IsHeaven = PlayerPrefs.GetInt("IsHeaven", 1);
+        IsHeaven = PlayerPrefs.GetInt("IsHeaven");
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
 
         float BGMVolume = PlayerPrefs.GetFloat("BGM", 0.6f); // 맨 처음에 BGM은 0.6으로 맞춘다.
@@ -125,12 +125,12 @@ public class Loading : MonoBehaviour
 
     private void LoadNextScene()
     {
-        if (Day / 20 == 0 && Day % 20 == 0)
+        if ((Day / 20 == 0 && Day % 20 == 0) || (Day / 20 == 0 && Day % 20 == 1))
         {
             SceneManager.LoadScene("Tutorial");
         }
         else if (IsHeaven == 1)
-        {
+        { 
             SceneManager.LoadScene("Heaven");
         }
         else if (IsHeaven == 0)

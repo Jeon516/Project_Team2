@@ -77,6 +77,7 @@ public class UpbringingGameManager : MonoBehaviour
             if (HeavenGameManager.Instance.Day < 20)
             {
                 HeavenGameManager.Instance.Day++;
+                PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("Day", HeavenGameManager.Instance.Day);
                 SceneManager.LoadScene("Heaven");
 

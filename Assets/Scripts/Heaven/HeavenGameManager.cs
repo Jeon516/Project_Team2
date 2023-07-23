@@ -56,9 +56,9 @@ public class HeavenGameManager : MonoBehaviour
 
     public void OnClick_NextScene()
     {
-        if(Day!=1)
-            SceneManager.LoadScene("Upbringing");
-        else
+        if(Day / 20 == 0 && Day % 20 == 1)
             SceneManager.LoadScene("Tutorial");
+        else
+            SceneManager.LoadScene("Upbringing");
     }
 }

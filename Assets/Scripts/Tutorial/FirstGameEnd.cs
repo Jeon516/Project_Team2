@@ -25,6 +25,7 @@ public class FirstGameEnd : MonoBehaviour
 
     private void Start()
     {
+        Debug.Log(Day);
         if (Day%20 == 1 && Day/20==0)
         {
             gameObject.SetActive(true);

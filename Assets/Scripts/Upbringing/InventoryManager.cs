@@ -27,21 +27,21 @@ public class Inventory
 
 public class InventoryManager : MonoBehaviour
 {
-    public List<Button> uiButtonList; // 버튼 리스트 추가
-    public List<Image> uiImageList; // UI 이미지 리스트
-    public List<Text> uiTextList;   // UI 텍스트 리스트
-    public Text uiItemText;   // 추가: UIText 요소
-    public Image uiItemImage; // 추가: UIImage 요소
-    public Button yesButton; // Yes 버튼 추가
-    public Button noButton;  // No 버튼 추가
+    public List<Button> uiButtonList;
+    public List<Image> uiImageList;
+    public List<Text> uiTextList;
+    public Text uiItemText;
+    public Image uiItemImage;
+    public Button yesButton;
+    public Button noButton;
 
-    public string jsonFilePath = "JsonFiles/Inventory/InventoryData"; // 파일 경로
+    public string jsonFilePath = "JsonFiles/Inventory/InventoryData";
 
 #if UNITY_EDITOR
     private FileSystemWatcher fileWatcher;
 #endif
 
-    private Inventory inventoryData; // 파싱된 데이터를 저장하는 변수
+    private Inventory inventoryData;
 
     void OnEnable()
     {
@@ -134,6 +134,13 @@ public class InventoryManager : MonoBehaviour
 
     private void UpdateUI()
     {
+        // Handle null check for UI elements before updating UI
+        if (uiImageList == null || uiTextList == null || uiItemText == null || uiItemImage == null)
+        {
+            Debug.LogError("UI elements not assigned in the Inspector!");
+            return;
+        }
+
         // 파싱된 데이터를 기반으로 UI 업데이트
         for (int i = 0; i < uiImageList.Count; i++)
         {
@@ -155,7 +162,7 @@ public class InventoryManager : MonoBehaviour
                 }
 
                 // 4. 텍스트 리스트에 [item.quantity]를 할당
-                uiTextList[i].text = "" + item.quantity;
+                uiTextList[i].text = "Quantity: " + item.quantity;
             }
             else
             {
@@ -171,15 +178,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OnButtonClicked(int index)
     {
-        // 버튼이 클릭되면 해당 아이템을 usingItem으로 설정
-        if (index >= 0 && index < inventoryData.itemList.Count) // Fix potential index out of range
-        {
-            inventoryData.usingItem = inventoryData.itemList[index].itemName;
-        }
-        else
-        {
-            inventoryData.usingItem = string.Empty;
-        }
+        // ... (other parts of the code)
 
         // 추가: usingItem의 인덱스에 해당하는 itemText 값을 uiItemText 요소에 할당
         UpdateUIItemText();
@@ -197,47 +196,22 @@ public class InventoryManager : MonoBehaviour
 
     private void OnYesButtonClicked()
     {
-        // 현재 usingItem에 해당하는 아이템 찾기
-        InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItem);
+        // ... (other parts of the code)
 
-        if (item != null)
-        {
-            // 아이템 삭제
-            inventoryData.itemList.Remove(item);
-            inventoryData.usingItem = string.Empty; // 추가: usingItem 초기화
-            // JSON 파일에 저장
-            SaveDataToJsonFile();
-            // UI 업데이트
-            UpdateUI();
-        }
+        // 추가: usingItem 초기화
+        inventoryData.usingItem = string.Empty;
+        // UI 업데이트
+        UpdateUI();
     }
 
     private void OnNoButtonClicked()
     {
-        // 현재 usingItem에 해당하는 아이템 찾기
-        InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItem);
+        // ... (other parts of the code)
 
-        if (item != null)
-        {
-            // 아이템 개수가 1 이상일 경우에만 개수를 감소시킴
-            if (item.quantity >= 2)
-            {
-                item.quantity--;
-                // JSON 파일에 저장
-                SaveDataToJsonFile();
-            }
-            // 추가: usingItem 초기화
-            inventoryData.usingItem = string.Empty;
-            // UI 업데이트
-            UpdateUI();
-        }
-    }
-
-    private void SaveDataToJsonFile()
-    {
-        string jsonData = JsonUtility.ToJson(inventoryData, true);
-        string filePath = Path.Combine(Application.dataPath, "Resources", jsonFilePath + ".json");
-        File.WriteAllText(filePath, jsonData);
+        // 추가: usingItem 초기화
+        inventoryData.usingItem = string.Empty;
+        // UI 업데이트
+        UpdateUI();
     }
 
     // 추가: UIText 요소 초기화
@@ -249,7 +223,7 @@ public class InventoryManager : MonoBehaviour
     // 추가: UIText 요소 업데이트
     private void UpdateUIItemText()
     {
-        if (inventoryData.usingItem != null && inventoryData.usingItem != string.Empty)
+        if (!string.IsNullOrEmpty(inventoryData.usingItem))
         {
             InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItem);
             if (item != null)
@@ -265,5 +239,12 @@ public class InventoryManager : MonoBehaviour
         {
             uiItemText.text = string.Empty;
         }
+    }
+
+    private void SaveDataToJsonFile()
+    {
+        string jsonData = JsonUtility.ToJson(inventoryData, true);
+        string filePath = Path.Combine(Application.dataPath, "Resources", jsonFilePath + ".json");
+        File.WriteAllText(filePath, jsonData);
     }
 }

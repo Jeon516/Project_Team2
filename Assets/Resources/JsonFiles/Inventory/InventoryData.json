@@ -1,1 +1,4 @@
-{"itemList":[{"itemName":"북어맛 꽈배기형 개껌","quantity":1,"conv":"","firstStatValue":0,"secondStatValue":0,"itemText":"","imageName":""},{"itemName":"오리고기맛 캔","quantity":1,"conv":"뇸뇸 맛있다. 어디서 먹어봤더라?","firstStatValue":1,"secondStatValue":-1,"itemText":"오리고기맛이 나는 캔이다.\n애정표현+1, 차분함+1","imageName":"a duck-flavored can"}],"usingItem":""}
+{
+    "itemList": [],
+    "usingItem": "북어맛 사료"
+}

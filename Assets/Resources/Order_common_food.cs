@@ -8,7 +8,7 @@ public class LevelData
 {
     public string level;
     public float probability;
-    public string jsonFileName; // Name of the JSON file (without extension)
+    public string jsonFileName;
 }
 
 [System.Serializable]
@@ -21,13 +21,14 @@ public class InventoryData
 [System.Serializable]
 public class ItemInfo
 {
+    public string myClass;
     public string itemName;
     public int quantity;
-    public string conv; // Additional field: conv
-    public int firstStatValue; // Additional field: firstStatValue
-    public int secondStatValue; // Additional field: secondStatValue
-    public string itemText; // Additional field: itemText
-    public string imageName; // Additional field: imageName
+    public string conv;
+    public int firstStatValue;
+    public int secondStatValue; 
+    public string itemText;
+    public string imageName; 
 }
 
 public class Order_common_food : MonoBehaviour
@@ -35,21 +36,18 @@ public class Order_common_food : MonoBehaviour
     public TextAsset levelData;
     public LevelData[] levels;
     public Button selectionButton;
-    public Image selectedImage; // Reference to the UI Image component
-    public Image foodImage; // Reference to the UI Image component for Food Image
-    public Text SelectedName; // Reference to the UI Text component for Selected Name
-    public Text SelectedInfo; // Reference to the UI Text component for Selected Info
-    public Image OpenImage; // Reference to the UI Image component for Open Image
+    public Image selectedImage;
+    public Image foodImage;
+    public Text SelectedName;
+    public Text SelectedInfo;
+    public Image OpenImage;
 
-    private Dictionary<string, int> inventory; // Dictionary to store inventory data
+    private Dictionary<string, int> inventory;
 
     private void Start()
     {
         ParseLevelData();
-
         selectionButton.onClick.AddListener(StartSelection);
-
-        // Initialize inventory dictionary
         inventory = new Dictionary<string, int>();
     }
 
@@ -135,21 +133,18 @@ public class Order_common_food : MonoBehaviour
                 ItemData selectedItem = itemList.items[Random.Range(0, itemList.items.Length)];
                 Debug.Log("Selected Item: " + selectedItem.name);
 
-                // Load the Food Image based on the imageName and selectedLevel
                 string imagePath = "Image/Food/" + selectedLevelData.level + "/" + selectedItem.imageName;
                 Sprite selectedSprite = Resources.Load<Sprite>(imagePath);
 
                 if (selectedSprite != null)
                 {
                     selectedImage.sprite = selectedSprite;
-                    foodImage.sprite = selectedSprite; // Assign the Food Image
-                    OpenImage.sprite = selectedSprite; // Assign the Open Image
+                    foodImage.sprite = selectedSprite; 
+                    OpenImage.sprite = selectedSprite; 
 
-                    // Assign the Selected Name and Selected Info Text
                     SelectedName.text = selectedItem.name;
                     SelectedInfo.text = selectedItem.itemText;
 
-                    // Add the obtained item to the inventory or increase its quantity if it already exists
                     if (inventory.ContainsKey(selectedItem.name))
                     {
                         inventory[selectedItem.name]++;
@@ -159,9 +154,9 @@ public class Order_common_food : MonoBehaviour
                         inventory[selectedItem.name] = 1;
                     }
 
-                    // Create a new ItemInfo object and store the additional fields
                     ItemInfo newItemInfo = new ItemInfo
                     {
+                        myClass = selectedItem.myClass,
                         itemName = selectedItem.name,
                         quantity = 1,
                         conv = selectedItem.conv,
@@ -208,7 +203,6 @@ public class Order_common_food : MonoBehaviour
             return;
         }
 
-        // Check if the item is already in the inventory
         ItemInfo foundItem = null;
         foreach (ItemInfo item in inventoryData.itemList)
         {
@@ -219,19 +213,14 @@ public class Order_common_food : MonoBehaviour
             }
         }
 
-        // Update the inventory based on the item's presence
         if (foundItem != null)
         {
-            // If the item already exists, increase its quantity by 1
             foundItem.quantity++;
         }
         else
         {
-            // If the item doesn't exist, add the new item to the inventory
             inventoryData.itemList.Add(newItemInfo);
         }
-
-        // Save the updated inventory data back to the JSON file
         string updatedJsonData = JsonUtility.ToJson(inventoryData);
         File.WriteAllText(jsonFilePath, updatedJsonData);
     }
@@ -258,8 +247,15 @@ public class Order_common_food : MonoBehaviour
         string jsonFilePath = Application.persistentDataPath + "/inventory.json";
         string jsonData = JsonUtility.ToJson(inventory);
 
-        // Write the inventory data to the JSON file
-        File.WriteAllText(jsonFilePath, jsonData);
+        try
+        {
+            File.WriteAllText(jsonFilePath, jsonData);
+            Debug.Log("Inventory JSON file saved successfully.");
+        }
+        catch (IOException e)
+        {
+            Debug.LogError("Error writing inventory JSON file: " + e.Message);
+        }
     }
 }
 
@@ -282,10 +278,10 @@ public class ItemData
     public string sort;
     public string name;
     public string itemText;
-    public string conv; // Additional field: conv
+    public string conv;
     public int firstStatType;
-    public int firstStatValue; // Additional field: firstStatValue
+    public int firstStatValue; 
     public int secondStatType;
-    public int secondStatValue; // Additional field: secondStatValue
-    public string imageName; // Additional field: imageName
+    public int secondStatValue; 
+    public string imageName; 
 }

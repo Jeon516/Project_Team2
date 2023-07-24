@@ -8,35 +8,26 @@ public class LevelData
 {
     public string level;
     public float probability;
+    public string jsonFileName; // Name of the JSON file (without extension)
 }
 
 [System.Serializable]
-public class InGameData
+public class InventoryData
 {
-    public List<ItemData> itemList;
+    public List<ItemInfo> itemList = new List<ItemInfo>();
     public string usingItem;
 }
 
 [System.Serializable]
-public class ItemDataList
+public class ItemInfo
 {
-    public ItemData[] items;
-}
-
-[System.Serializable]
-public class ItemData
-{
-    public string myClass;
-    public string sort;
-    public string name;
-    public string itemText;
-    public string conv;
-    public int firstStatType;
-    public int firstStatValue;
-    public int secondStatType;
-    public int secondStatValue;
-    public string imageName;
+    public string itemName;
     public int quantity;
+    public string conv; // Additional field: conv
+    public int firstStatValue; // Additional field: firstStatValue
+    public int secondStatValue; // Additional field: secondStatValue
+    public string itemText; // Additional field: itemText
+    public string imageName; // Additional field: imageName
 }
 
 public class Order_common_food : MonoBehaviour
@@ -44,14 +35,13 @@ public class Order_common_food : MonoBehaviour
     public TextAsset levelData;
     public LevelData[] levels;
     public Button selectionButton;
-    public Image selectedImage;
-    public Image foodImage;
-    public Text SelectedName;
-    public Text SelectedInfo;
-    public Image OpenImage;
+    public Image selectedImage; // Reference to the UI Image component
+    public Image foodImage; // Reference to the UI Image component for Food Image
+    public Text SelectedName; // Reference to the UI Text component for Selected Name
+    public Text SelectedInfo; // Reference to the UI Text component for Selected Info
+    public Image OpenImage; // Reference to the UI Image component for Open Image
 
-    private Dictionary<string, int> inventory;
-    private InGameData inGameData;
+    private Dictionary<string, int> inventory; // Dictionary to store inventory data
 
     private void Start()
     {
@@ -61,38 +51,35 @@ public class Order_common_food : MonoBehaviour
 
         // Initialize inventory dictionary
         inventory = new Dictionary<string, int>();
-
-        // Load in-game data from JSON file (if it exists)
-        LoadInGameData();
     }
 
-    private void ParseLevelData()
+    private ProbabilityData ParseLevelData(TextAsset levelData)
     {
         if (levelData != null)
         {
             string jsonText = levelData.text;
-            ItemDataList itemList = JsonUtility.FromJson<ItemDataList>(jsonText);
-
-            if (itemList != null && itemList.items.Length > 0)
-            {
-                levels = new LevelData[itemList.items.Length];
-                for (int i = 0; i < itemList.items.Length; i++)
-                {
-                    levels[i] = new LevelData
-                    {
-                        level = itemList.items[i].name,
-                        probability = Random.Range(0f, 100f) // Generate random probability for each item
-                    };
-                }
-            }
-            else
-            {
-                Debug.LogError("No items found in the JSON file.");
-            }
+            ProbabilityData data = JsonUtility.FromJson<ProbabilityData>(jsonText);
+            return data;
         }
         else
         {
             Debug.LogError("Level data not assigned.");
+            return null;
+        }
+    }
+
+    private void ParseLevelData()
+    {
+        ProbabilityData data = ParseLevelData(levelData);
+        if (data != null)
+        {
+            levels = data.levels;
+
+            for (int i = 0; i < levels.Length; i++)
+            {
+                string jsonFileName = "JsonFiles/" + levels[i].level;
+                levels[i].jsonFileName = jsonFileName;
+            }
         }
     }
 
@@ -104,7 +91,7 @@ public class Order_common_food : MonoBehaviour
 
         if (selectedLevelData != null)
         {
-            string jsonFilePath = "JsonFiles/" + selectedLevelData.level;
+            string jsonFilePath = selectedLevelData.jsonFileName;
             TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
 
             if (selectedJsonFile != null)
@@ -114,7 +101,7 @@ public class Order_common_food : MonoBehaviour
             }
             else
             {
-                Debug.LogError("JSON file not found for selected level: " + selectedLevelData.level);
+                Debug.LogError("JSON file not found for selected level: " + selectedLevel);
             }
         }
         else
@@ -163,7 +150,29 @@ public class Order_common_food : MonoBehaviour
                     SelectedInfo.text = selectedItem.itemText;
 
                     // Add the obtained item to the inventory or increase its quantity if it already exists
-                    AddToInventory(selectedItem);
+                    if (inventory.ContainsKey(selectedItem.name))
+                    {
+                        inventory[selectedItem.name]++;
+                    }
+                    else
+                    {
+                        inventory[selectedItem.name] = 1;
+                    }
+
+                    // Create a new ItemInfo object and store the additional fields
+                    ItemInfo newItemInfo = new ItemInfo
+                    {
+                        itemName = selectedItem.name,
+                        quantity = 1,
+                        conv = selectedItem.conv,
+                        firstStatValue = selectedItem.firstStatValue,
+                        secondStatValue = selectedItem.secondStatValue,
+                        itemText = selectedItem.itemText,
+                        imageName = selectedItem.imageName
+                    };
+
+                    // Update the inventory data JSON file
+                    UpdateInventory(newItemInfo);
                 }
                 else
                 {
@@ -179,6 +188,52 @@ public class Order_common_food : MonoBehaviour
         {
             Debug.LogError("JSON file not assigned.");
         }
+    }
+
+    private void UpdateInventory(ItemInfo newItemInfo)
+    {
+        // Load the existing inventory data
+        string jsonFilePath = "Assets/Resources/JsonFiles/Inventory/InventoryData.json";
+        TextAsset jsonFile = Resources.Load<TextAsset>("JsonFiles/Inventory/InventoryData");
+        InventoryData inventoryData = null;
+
+        if (jsonFile != null)
+        {
+            string jsonData = jsonFile.text;
+            inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
+        }
+        else
+        {
+            Debug.LogError("Inventory JSON file not found: " + jsonFilePath);
+            return;
+        }
+
+        // Check if the item is already in the inventory
+        ItemInfo foundItem = null;
+        foreach (ItemInfo item in inventoryData.itemList)
+        {
+            if (item.itemName == newItemInfo.itemName)
+            {
+                foundItem = item;
+                break;
+            }
+        }
+
+        // Update the inventory based on the item's presence
+        if (foundItem != null)
+        {
+            // If the item already exists, increase its quantity by 1
+            foundItem.quantity++;
+        }
+        else
+        {
+            // If the item doesn't exist, add the new item to the inventory
+            inventoryData.itemList.Add(newItemInfo);
+        }
+
+        // Save the updated inventory data back to the JSON file
+        string updatedJsonData = JsonUtility.ToJson(inventoryData);
+        File.WriteAllText(jsonFilePath, updatedJsonData);
     }
 
     private string SelectLevel()
@@ -198,65 +253,39 @@ public class Order_common_food : MonoBehaviour
         return levels[0].level;
     }
 
-    private void AddToInventory(ItemData selectedItem)
-    {
-        if (selectedItem == null)
-            return;
-
-        // Check if the item already exists in the inventory
-        if (inventory.ContainsKey(selectedItem.name))
-        {
-            // If the item exists, increase its quantity by 1
-            inventory[selectedItem.name]++;
-        }
-        else
-        {
-            // If the item does not exist, add it to the inventory with quantity 1
-            inventory[selectedItem.name] = 1;
-        }
-    }
-
-    private void LoadInGameData()
-    {
-        string jsonFilePath = "JsonFiles/Inventory/InventoryData";
-        TextAsset inventoryData = Resources.Load<TextAsset>(jsonFilePath);
-
-        if (inventoryData != null)
-        {
-            inGameData = JsonUtility.FromJson<InGameData>(inventoryData.text);
-
-            // Initialize inventory dictionary from in-game data
-            foreach (ItemData item in inGameData.itemList)
-            {
-                inventory[item.name] = item.quantity;
-            }
-        }
-        else
-        {
-            Debug.LogWarning("Inventory JSON file not found.");
-            inGameData = new InGameData
-            {
-                itemList = new List<ItemData>(),
-                usingItem = ""
-            };
-        }
-    }
-
     private void SaveInventoryToJson()
     {
-        // Save the updated inventory data to inGameData
-        inGameData.itemList.Clear();
-        foreach (var item in inventory)
-        {
-            inGameData.itemList.Add(new ItemData
-            {
-                name = item.Key,
-                quantity = item.Value
-            });
-        }
+        string jsonFilePath = Application.persistentDataPath + "/inventory.json";
+        string jsonData = JsonUtility.ToJson(inventory);
 
-        string jsonFilePath = "JsonFiles/Inventory/InventoryData";
-        string jsonData = JsonUtility.ToJson(inGameData);
-        File.WriteAllText(Application.dataPath + "/Resources/" + jsonFilePath + ".json", jsonData);
+        // Write the inventory data to the JSON file
+        File.WriteAllText(jsonFilePath, jsonData);
     }
+}
+
+[System.Serializable]
+public class ProbabilityData
+{
+    public LevelData[] levels;
+}
+
+[System.Serializable]
+public class ItemDataList
+{
+    public ItemData[] items;
+}
+
+[System.Serializable]
+public class ItemData
+{
+    public string myClass;
+    public string sort;
+    public string name;
+    public string itemText;
+    public string conv; // Additional field: conv
+    public int firstStatType;
+    public int firstStatValue; // Additional field: firstStatValue
+    public int secondStatType;
+    public int secondStatValue; // Additional field: secondStatValue
+    public string imageName; // Additional field: imageName
 }

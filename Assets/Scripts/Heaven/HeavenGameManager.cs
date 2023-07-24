@@ -13,8 +13,14 @@ public class HeavenGameManager : MonoBehaviour
     public bool Play = false;
     public int Gold;
     public Text GoldText;
+    public GameObject LoadingScreen;
+    private int IsHeaven = PlayerPrefs.GetInt("IsHeaven");
 
     public static HeavenGameManager Instance { get; private set; } = null;
+
+    private static HeavenGameManager instance;
+    public static HeavenGameManager INstance => instance;
+
     private void Awake()
     {
         Day = PlayerPrefs.GetInt("Day");
@@ -23,11 +29,24 @@ public class HeavenGameManager : MonoBehaviour
         Gold = PlayerPrefs.GetInt("Gold",1000);
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
+
+
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(true);
+
+        LoadingScreen.SetActive(false);
     }
 
     private void Start()
     {
-        DayText.text = Day.ToString() + "일째";
+        DayText.text = (Day % 20).ToString() + "일째";
         if (Day >=2)
             GameStart.SetActive(true);
         else
@@ -58,9 +77,27 @@ public class HeavenGameManager : MonoBehaviour
 
     public void OnClick_NextScene()
     {
-        if(Day / 20 == 0 && Day % 20 == 1)
+        if (Day / 20 == 0 && Day % 20 == 1)
+        {
+            gameObject.SetActive(false);
             SceneManager.LoadScene("Tutorial");
+        }
         else
-            SceneManager.LoadScene("Upbringing");
+        {
+            PlayerPrefs.SetInt("IsHeaven", 0);
+            LoadingScreen.SetActive(true);
+            StartCoroutine(LoadingScene());
+        }
     }
+
+    IEnumerator LoadingScene()
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
+
+        while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
+        {
+            yield return new WaitForSeconds(0.05f);
+            gameObject.SetActive(false);
+        }
+    } // LoadingScene Prepare
 }

@@ -24,8 +24,13 @@ public class UpbringingGameManager : MonoBehaviour
 
     public int InteractionChance;
     private int Day;
+    private int IsHeaven = PlayerPrefs.GetInt("IsHeaven");
 
     public static UpbringingGameManager Instance { get; private set; } = null;
+    private static UpbringingGameManager instance;
+    public static UpbringingGameManager INstance => instance;
+    public GameObject LoadingScreen;
+
     private void Awake()
     {
         StatOrder.Add(0, "Energy");
@@ -41,10 +46,22 @@ public class UpbringingGameManager : MonoBehaviour
 
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
+
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+        DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(true);
+
+        LoadingScreen.SetActive(false);
     }
     private void Start()
     {
-        DayText.text = Day.ToString() + "일 째";
+        DayText.text = (Day%20).ToString() + "일 째";
         ActionNumText.text = ActionNum.ToString();
     }
 
@@ -80,7 +97,7 @@ public class UpbringingGameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("ActionNum", ActionNum);
         PlayerPrefs.SetInt("Interaction", 0);
-        NextDayQuestion.SetActive(true);
+       NextDayQuestion.SetActive(true);
     }
     public void OnClick_Random()
     {
@@ -109,14 +126,26 @@ public class UpbringingGameManager : MonoBehaviour
                 Day++;
                 PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("Day", Day);
-                SceneManager.LoadScene("Heaven");
-
+                LoadingScreen.SetActive(true);
+                StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
             else
             {
-                Day = 0;
+                Day++;
                 PlayerPrefs.SetInt("Day", Day);
+                StartCoroutine(LoadingScene());
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }
     }
+
+    IEnumerator LoadingScene()
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
+
+        while (!loading.isDone) 
+        {
+            yield return new WaitForSeconds(0.05f);
+            gameObject.SetActive(false);
+        }
+    } // LoadingScene Prepare
 }

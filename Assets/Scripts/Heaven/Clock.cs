@@ -22,7 +22,6 @@ public class Clock : MonoBehaviour
         if(fillTimer >= fillDuration)
         {
             GameResult.SetActive(true);
-            PlayerPrefs.SetInt("IsHeaven", 0);
         }
     }
 

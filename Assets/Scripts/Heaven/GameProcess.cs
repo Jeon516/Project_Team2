@@ -359,7 +359,7 @@ public class GameProcess : MonoBehaviour
             //clock.fillTimer+=2;
             WrongSound();
         }
-        if(combo<=4){
+        if(combo>=1 && combo<=4){
             ingamegold+=100;
         }else if(combo>=5 && combo<=9){
             ingamegold+=130;
@@ -461,7 +461,7 @@ public class GameProcess : MonoBehaviour
             //clock.fillTimer+=2;
             WrongSound();
         }
-        if(combo<=4){
+        if(combo>=1 && combo<=4){
             ingamegold+=100;
         }else if(combo>=5 && combo<=9){
             ingamegold+=130;
@@ -665,7 +665,7 @@ public class GameProcess : MonoBehaviour
             correct++;
             CorrectSound();
         }
-        if(combo<=4){
+        if(combo>=1 && combo<=4){
             ingamegold+=100;
         }else if(combo>=5 && combo<=9){
             ingamegold+=130;

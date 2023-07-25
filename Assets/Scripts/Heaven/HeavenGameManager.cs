@@ -18,9 +18,6 @@ public class HeavenGameManager : MonoBehaviour
 
     public static HeavenGameManager Instance { get; private set; } = null;
 
-    private static HeavenGameManager instance;
-    public static HeavenGameManager INstance => instance;
-
     private void Awake()
     {
         Day = PlayerPrefs.GetInt("Day");
@@ -29,17 +26,6 @@ public class HeavenGameManager : MonoBehaviour
         Gold = PlayerPrefs.GetInt("Gold",1000);
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
-
-
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(true);
 
         LoadingScreen.SetActive(false);
     }
@@ -90,7 +76,7 @@ public class HeavenGameManager : MonoBehaviour
         }
     }
 
-    IEnumerator LoadingScene()
+    public IEnumerator LoadingScene()
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
 
@@ -99,5 +85,5 @@ public class HeavenGameManager : MonoBehaviour
             yield return new WaitForSeconds(0.05f);
             gameObject.SetActive(false);
         }
-    } // LoadingScene Prepare
+    }
 }

@@ -27,8 +27,6 @@ public class UpbringingGameManager : MonoBehaviour
     private int IsHeaven = PlayerPrefs.GetInt("IsHeaven");
 
     public static UpbringingGameManager Instance { get; private set; } = null;
-    private static UpbringingGameManager instance;
-    public static UpbringingGameManager INstance => instance;
     public GameObject LoadingScreen;
 
     private void Awake()
@@ -46,16 +44,6 @@ public class UpbringingGameManager : MonoBehaviour
 
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
-
-        if (instance != null && instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        instance = this;
-        DontDestroyOnLoad(gameObject);
-        gameObject.SetActive(true);
 
         LoadingScreen.SetActive(false);
     }
@@ -96,7 +84,6 @@ public class UpbringingGameManager : MonoBehaviour
     public void OnClick_NextDay()
     {
         PlayerPrefs.SetInt("ActionNum", ActionNum);
-        PlayerPrefs.SetInt("Interaction", 0);
        NextDayQuestion.SetActive(true);
     }
     public void OnClick_Random()
@@ -126,26 +113,26 @@ public class UpbringingGameManager : MonoBehaviour
                 Day++;
                 PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("Day", Day);
-                LoadingScreen.SetActive(true);
+                PlayerPrefs.SetInt("Interaction", 0);
                 StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
             else
             {
                 Day++;
                 PlayerPrefs.SetInt("Day", Day);
-                StartCoroutine(LoadingScene());
+                //StartCoroutine(LoadingSceneController.Instance.LoadingScene());
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }
     }
 
-    IEnumerator LoadingScene()
+    public IEnumerator LoadingScene()
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
 
-        while (!loading.isDone) 
+        while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {
             yield return new WaitForSeconds(0.05f);
             gameObject.SetActive(false);
         }
-    } // LoadingScene Prepare
+    }
 }

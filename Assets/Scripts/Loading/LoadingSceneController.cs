@@ -5,13 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class LoadingSceneController : MonoBehaviour
 {
-    static string nextScene;
+    public static LoadingSceneController Instance { get; private set; } = null;
+    //private static LoadingSceneController instance;
+    //public static LoadingSceneController Instance => instance;
 
-    public static LoadingSceneController instance;
-
-    public static void LoadLoadingScene(string sceneName)
+    private void Awake()
     {
-        nextScene = sceneName;
-        SceneManager.LoadScene("Loading");
+        /*if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;*/
+        DontDestroyOnLoad(gameObject);
+        gameObject.SetActive(true);
     }
 }

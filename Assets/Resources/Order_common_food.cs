@@ -25,6 +25,8 @@ public class ItemInfo
     public string itemName;
     public int quantity;
     public string conv;
+    public int firstStatType; 
+    public int secondStatType;   
     public int firstStatValue;
     public int secondStatValue; 
     public string itemText;
@@ -160,6 +162,8 @@ public class Order_common_food : MonoBehaviour
                         itemName = selectedItem.name,
                         quantity = 1,
                         conv = selectedItem.conv,
+                        firstStatType= selectedItem.firstStatType, 
+                        secondStatType = selectedItem.secondStatType, 
                         firstStatValue = selectedItem.firstStatValue,
                         secondStatValue = selectedItem.secondStatValue,
                         itemText = selectedItem.itemText,

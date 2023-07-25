@@ -12,6 +12,8 @@ public class InvenData
     public string itemName;
     public int quantity;
     public string conv;
+    public int firstStatType;
+    public int secondStatType;
     public int firstStatValue;
     public int secondStatValue;
     public string itemText;
@@ -36,6 +38,11 @@ public class InventoryManager : MonoBehaviour
     public Button noButton;
 
     public string jsonFilePath = "JsonFiles/Inventory/InventoryData";
+
+    private int firstStatType = 101;
+    private int secondStatType = 102;
+    private int firstStatValue = 1;
+    private int secondStatValue = -1;
 
 #if UNITY_EDITOR
     private FileSystemWatcher fileWatcher;
@@ -150,6 +157,11 @@ public class InventoryManager : MonoBehaviour
 
                 // 2. UI이미지 리스트에는 Assets/Resources/Image/Food/[item.MyClass]/[item.imageName].PNG가 할당되어야 함
                 string imagePath = "Image/Food/" + item.myClass + "/" + item.imageName;
+                //stat
+                firstStatType = item.firstStatType;
+                firstStatValue = item.firstStatValue;
+                secondStatType = item.secondStatType;
+                secondStatValue = item.secondStatValue; // Get data
                 Sprite sprite = Resources.Load<Sprite>(imagePath);
                 if (sprite != null)
                 {
@@ -197,11 +209,12 @@ public class InventoryManager : MonoBehaviour
     private void OnYesButtonClicked()
     {
         // ... (other parts of the code)
-
         // 추가: usingItem 초기화
         inventoryData.usingItem = string.Empty;
         // UI 업데이트
         UpdateUI();
+        // StatChange
+        StatChange();
     }
 
     private void OnNoButtonClicked()
@@ -246,5 +259,116 @@ public class InventoryManager : MonoBehaviour
         string jsonData = JsonUtility.ToJson(inventoryData, true);
         string filePath = Path.Combine(Application.dataPath, "Resources", jsonFilePath + ".json");
         File.WriteAllText(filePath, jsonData);
+    }
+
+    private void StatChange()
+    {
+        int[] StatType = { firstStatType, secondStatType };
+        int[] StatValue = { firstStatValue, secondStatValue };
+        //data connect
+
+        for (int i = 0; i < 2; i++)
+        {
+            Debug.Log(StatType[i]);
+            if (StatType[i] == 101)
+            {
+                if (StatValue[i] > 0)
+                {
+                    if (PlayerPrefs.GetInt("Energy") < 4)
+                    {
+                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + 1);
+                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111);
+                    }
+                }
+                else
+                {
+                    if (PlayerPrefs.GetInt("Energy") > -4)
+                    {
+                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") - 1);
+                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") + 111);
+                    }
+                }
+            }
+            else if (StatType[i] == 102)
+            {
+                if (StatValue[i] > 0)
+                {
+                    if (PlayerPrefs.GetInt("Sociality") < 4)
+                    {
+                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + 1);
+                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111);
+                    }
+                }
+                else
+                {
+                    if (PlayerPrefs.GetInt("Sociality") > -4)
+                    {
+                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") - 1);
+                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") + 111);
+                    }
+                }
+            }
+            else if (StatType[i] == 103)
+            {
+                if (StatValue[i] > 0)
+                {
+                    if (PlayerPrefs.GetInt("Deliberation") < 4)
+                    {
+                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + 1);
+                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111);
+                    }
+                }
+                else
+                {
+                    if (PlayerPrefs.GetInt("Deliberation") > -4)
+                    {
+                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") - 1);
+                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") + 111);
+                    }
+                }
+            }
+            else if (StatType[i] == 104)
+            {
+                if (StatValue[i] > 0)
+                {
+                    if (PlayerPrefs.GetInt("Curiosoty") < 4)
+                    {
+                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + 1);
+                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111);
+                    }
+                }
+                else
+                {
+                    if (PlayerPrefs.GetInt("Curiosoty") > -4)
+                    {
+                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") - 1);
+                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") + 111);
+                    }
+                }
+            }
+            else if (StatType[i] == 105)
+            {
+                if (StatValue[i] > 0)
+                {
+                    if (PlayerPrefs.GetInt("Love") < 4)
+                    {
+                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + 1);
+                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111);
+                    }
+                }
+                else
+                {
+                    if (PlayerPrefs.GetInt("Love") > -4)
+                    {
+                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") - 1);
+                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") + 111);
+                    }
+                }
+            }
+            else if (StatType[i] == 106)
+            {
+                PlayerPrefs.SetInt("ActionNum", PlayerPrefs.GetInt("ActionNum") + firstStatValue);
+            }
+        }
     }
 }

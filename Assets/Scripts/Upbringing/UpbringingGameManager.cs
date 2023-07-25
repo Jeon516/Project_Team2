@@ -49,6 +49,7 @@ public class UpbringingGameManager : MonoBehaviour
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
         IsRandomFree = PlayerPrefs.GetInt("IsRandomFree");
         PlayerPrefs.SetInt("IsRandomFree", IsRandomFree);
+        PlayerPrefs.SetInt("Gold", 10000);
 
         LoadingScreen.SetActive(false);
     }

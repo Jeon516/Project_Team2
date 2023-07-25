@@ -7,12 +7,22 @@ public class UI_ShopSetting : MonoBehaviour
     public GameObject Random;
     public GameObject Shop;
     public GameObject ShopGachaScreen;
+    public int Gold;
     private bool IsRandom = false;
     private bool IsShop = false;
 
+    public static UI_ShopSetting Instance { get; private set; } = null;
+
     private void Start()
     {
+        Gold = PlayerPrefs.GetInt("Gold");
+        PlayerPrefs.SetInt("Gold", Gold);
         Random.SetActive(true);
+    }
+    private void Update()
+    {
+        Gold = PlayerPrefs.GetInt("Gold");
+        PlayerPrefs.SetInt("Gold", Gold);
     }
     public void OnClick_Random()
     {
@@ -33,6 +43,9 @@ public class UI_ShopSetting : MonoBehaviour
 
     public void OnClick_ShopGacha()
     {
+        Gold -= 2000;
+        PlayerPrefs.SetInt("Gold", Gold);
+        PlayerPrefs.SetInt("IsRandomFree", 1);
         ShopGachaScreen.SetActive(true);
         ShopGacha.Instance.GachaStart();
     }

@@ -41,11 +41,11 @@ public class InteractionQuestion : MonoBehaviour
         {
             if (InteractionNum == 0)
             {
-                if (UpbringingGameManager.Instance.Gold >= 100)
+                if (UpbringingGameManager.Instance.Gold >= 1000)
                 {
                     UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.LowFlavor;
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.LowInteractionConservation;
-                    UpbringingGameManager.Instance.Gold -= 100;
+                    UpbringingGameManager.Instance.Gold -= 1000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
                     UpbringingGameManager.Instance.InteractionChance++;
                     PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
@@ -58,11 +58,11 @@ public class InteractionQuestion : MonoBehaviour
             }
             else if (InteractionNum == 1)
             {
-                if (UpbringingGameManager.Instance.Gold >= 200)
+                if (UpbringingGameManager.Instance.Gold >= 2000)
                 {
                     UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.MiddleFlavor;
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.MiddleInteractionConservation;
-                    UpbringingGameManager.Instance.Gold -= 200;
+                    UpbringingGameManager.Instance.Gold -= 2000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
                     UpbringingGameManager.Instance.InteractionChance++;
                     PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
@@ -75,11 +75,11 @@ public class InteractionQuestion : MonoBehaviour
             }
             else if (InteractionNum == 2)
             {
-                if (UpbringingGameManager.Instance.Gold >= 300)
+                if (UpbringingGameManager.Instance.Gold >= 3000)
                 {
                     UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.HighFlavor;
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.HighInteractionConservation;
-                    UpbringingGameManager.Instance.Gold -= 300;
+                    UpbringingGameManager.Instance.Gold -= 3000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
                     UpbringingGameManager.Instance.InteractionChance++;
                     PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);

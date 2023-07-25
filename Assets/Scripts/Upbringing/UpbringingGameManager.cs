@@ -24,7 +24,8 @@ public class UpbringingGameManager : MonoBehaviour
 
     public int InteractionChance;
     private int Day;
-    private int IsHeaven = PlayerPrefs.GetInt("IsHeaven");
+    private int IsHeaven;
+    private int IsRandomFree;
 
     public static UpbringingGameManager Instance { get; private set; } = null;
     public GameObject LoadingScreen;
@@ -44,6 +45,10 @@ public class UpbringingGameManager : MonoBehaviour
 
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
+        IsHeaven = PlayerPrefs.GetInt("IsHeaven");
+        PlayerPrefs.SetInt("IsHeaven", IsHeaven);
+        IsRandomFree = PlayerPrefs.GetInt("IsRandomFree");
+        PlayerPrefs.SetInt("IsRandomFree", IsRandomFree);
 
         LoadingScreen.SetActive(false);
     }
@@ -112,6 +117,7 @@ public class UpbringingGameManager : MonoBehaviour
             {
                 Day++;
                 PlayerPrefs.SetInt("IsHeaven", 1);
+                PlayerPrefs.SetInt("IsRandomFree", 0);
                 PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("Interaction", 0);
                 StartCoroutine(LoadingScene());

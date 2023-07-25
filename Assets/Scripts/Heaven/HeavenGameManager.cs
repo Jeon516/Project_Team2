@@ -14,7 +14,7 @@ public class HeavenGameManager : MonoBehaviour
     public int Gold;
     public Text GoldText;
     public GameObject LoadingScreen;
-    private int IsHeaven = PlayerPrefs.GetInt("IsHeaven");
+    private int IsHeaven;
 
     public static HeavenGameManager Instance { get; private set; } = null;
 
@@ -26,6 +26,8 @@ public class HeavenGameManager : MonoBehaviour
         Gold = PlayerPrefs.GetInt("Gold",1000);
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
+        IsHeaven = PlayerPrefs.GetInt("IsHeaven");
+        PlayerPrefs.SetInt("IsHeaven", IsHeaven);
 
         LoadingScreen.SetActive(false);
     }

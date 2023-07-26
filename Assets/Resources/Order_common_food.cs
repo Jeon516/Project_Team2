@@ -51,7 +51,9 @@ public class Order_common_food : MonoBehaviour
         ParseLevelData();
         selectionButton.onClick.AddListener(StartSelection);
         inventory = new Dictionary<string, int>();
-        LoadInventoryData(); // Load inventory data from Resources at the start
+        LoadInventoryData();
+
+        DebugInventoryContents();
     }
 
     private ProbabilityData ParseLevelData(TextAsset levelData)
@@ -287,6 +289,18 @@ public class Order_common_food : MonoBehaviour
         else
         {
             Debug.LogError("Inventory JSON file not found in Resources.");
+        }
+    }
+
+    private void DebugInventoryContents()
+    {
+        Debug.Log("Inventory Contents:");
+
+        foreach (var itemEntry in inventory)
+        {
+            string itemName = itemEntry.Key;
+            int quantity = itemEntry.Value;
+            Debug.Log(itemName + " x " + quantity);
         }
     }
 }

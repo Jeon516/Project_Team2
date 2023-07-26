@@ -17777,6 +17777,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -100
       objectReference: {fileID: 0}
+    - target: {fileID: 953409172696788234, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: ImageDesribe
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 953409172696788234, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: TextDescribe
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 1046993220642857639, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -18469,6 +18477,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6961451139268135710, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 7618610b5bad0d643a28f0a81475d9fe, type: 3}
+    - target: {fileID: 6961451139268135710, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_FontData.m_MaxSize
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 6961451139268135710, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 70
+      objectReference: {fileID: 0}
     - target: {fileID: 6973871405836957850, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: m_Text
       value: 
@@ -18537,6 +18557,10 @@ PrefabInstance:
       propertyPath: uiItemImage
       value: 
       objectReference: {fileID: 1956768843}
+    - target: {fileID: 7596243328793185752, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: uiItemTextComponent
+      value: 
+      objectReference: {fileID: 1912867778}
     - target: {fileID: 7596243328793185752, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: uiButtonList.Array.size
       value: 20

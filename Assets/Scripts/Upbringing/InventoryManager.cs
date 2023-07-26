@@ -39,10 +39,10 @@ public class InventoryManager : MonoBehaviour
 
     public string jsonFilePath = "JsonFiles/Inventory/InventoryData";
 
-    private int firstStatType = 101;
-    private int secondStatType = 102;
-    private int firstStatValue = 1;
-    private int secondStatValue = -1;
+    private int firstStatType;
+    private int secondStatType;
+    private int firstStatValue;
+    private int secondStatValue;
 
 #if UNITY_EDITOR
     private FileSystemWatcher fileWatcher;
@@ -219,6 +219,8 @@ public class InventoryManager : MonoBehaviour
         UpdateUI();
         // StatChange
         StatChange();
+        Debug.Log(firstStatType + "에서 " + firstStatValue+"만큼 증가하였습니다");
+        Debug.Log(secondStatType + "에서 " + secondStatValue + "만큼 증가하였습니다");
     }
 
     private void OnNoButtonClicked()
@@ -267,16 +269,16 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Energy") < 4)
                     {
-                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + 1);
-                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111);
+                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + StatValue[i]);
+                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111* StatValue[i]);
                     }
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("Energy") > -4)
                     {
-                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") - 1);
-                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") + 111);
+                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + StatValue[i]);
+                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111 * StatValue[i]);
                     }
                 }
             }
@@ -286,16 +288,16 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Sociality") < 4)
                     {
-                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + 1);
-                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111);
+                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + StatValue[i]);
+                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("Sociality") > -4)
                     {
-                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") - 1);
-                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") + 111);
+                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + StatValue[i]);
+                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111 * StatValue[i]);
                     }
                 }
             }
@@ -305,16 +307,16 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Deliberation") < 4)
                     {
-                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + 1);
-                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111);
+                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + StatValue[i]);
+                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("Deliberation") > -4)
                     {
-                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") - 1);
-                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") + 111);
+                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + StatValue[i]);
+                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111 * StatValue[i]);
                     }
                 }
             }
@@ -324,16 +326,16 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Curiosoty") < 4)
                     {
-                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + 1);
-                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111);
+                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + StatValue[i]);
+                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("Curiosoty") > -4)
                     {
-                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") - 1);
-                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") + 111);
+                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + StatValue[i]);
+                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111 * StatValue[i]);
                     }
                 }
             }
@@ -343,16 +345,16 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (PlayerPrefs.GetInt("Love") < 4)
                     {
-                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + 1);
-                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111);
+                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + StatValue[i]);
+                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
                     if (PlayerPrefs.GetInt("Love") > -4)
                     {
-                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") - 1);
-                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") + 111);
+                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + StatValue[i]);
+                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111 * StatValue[i]);
                     }
                 }
             }

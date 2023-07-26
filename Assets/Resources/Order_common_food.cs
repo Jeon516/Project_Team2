@@ -84,31 +84,31 @@ public class Order_common_food : MonoBehaviour
     }
 
     private void StartSelection()
+{
+    string selectedLevel = SelectLevel();
+
+    LevelData selectedLevelData = GetLevelData(selectedLevel);
+
+    if (selectedLevelData != null)
     {
-        string selectedLevel = SelectLevel();
+        string jsonFilePath = selectedLevelData.jsonFileName;
+        TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
 
-        LevelData selectedLevelData = GetLevelData(selectedLevel);
-
-        if (selectedLevelData != null)
+        if (selectedJsonFile != null)
         {
-            string jsonFilePath = selectedLevelData.jsonFileName;
-            TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
-
-            if (selectedJsonFile != null)
-            {
-                LoadJson(selectedJsonFile, selectedLevelData);
-                SaveInventoryToJson();
-            }
-            else
-            {
-                Debug.LogError("JSON file not found for selected level: " + selectedLevel);
-            }
+            LoadJson(selectedJsonFile, selectedLevelData); // 올바른 인수를 전달했는지 확인하세요.
+            SaveInventoryToJson();
         }
         else
         {
-            Debug.LogError("Invalid level selected.");
+            Debug.LogError("JSON file not found for selected level: " + selectedLevel);
         }
     }
+    else
+    {
+        Debug.LogError("Invalid level selected.");
+    }
+}
 
     private LevelData GetLevelData(string level)
     {

@@ -135,7 +135,7 @@ public class Order_common_food : MonoBehaviour
                 ItemData selectedItem = itemList.items[Random.Range(0, itemList.items.Length)];
                 Debug.Log("Selected Item: " + selectedItem.name);
 
-                string imagePath = "Image/Food/" + selectedLevelData.level + "/" + selectedItem.imageName;
+                string imagePath = "Image/Food/" + selectedItem.myClass + "/" + selectedItem.imageName;
                 Sprite selectedSprite = Resources.Load<Sprite>(imagePath);
 
                 if (selectedSprite != null)

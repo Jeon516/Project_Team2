@@ -32,7 +32,7 @@ public class InventoryManager : MonoBehaviour
     public List<Button> uiButtonList;
     public List<Image> uiImageList;
     public List<Text> uiTextList;
-    public Text uiItemText;
+    public Text uiItemTextComponent; // Renamed variable to avoid naming conflicts
     public Image uiItemImage;
     public Button yesButton;
     public Button noButton;
@@ -142,7 +142,7 @@ public class InventoryManager : MonoBehaviour
     private void UpdateUI()
     {
         // Handle null check for UI elements before updating UI
-        if (uiImageList == null || uiTextList == null || uiItemText == null || uiItemImage == null)
+        if (uiImageList == null || uiTextList == null || uiItemTextComponent == null || uiItemImage == null)
         {
             Debug.LogError("UI elements not assigned in the Inspector!");
             return;
@@ -192,7 +192,10 @@ public class InventoryManager : MonoBehaviour
     {
         // ... (other parts of the code)
 
-        // 추가: usingItem의 인덱스에 해당하는 itemText 값을 uiItemText 요소에 할당
+        // 아이템 사용 중인지 여부를 확인하고 usingItem 값을 설정
+        inventoryData.usingItem = (index >= 0 && index < inventoryData.itemList.Count) ? inventoryData.itemList[index].itemName : string.Empty;
+
+        // 추가: usingItem의 인덱스에 해당하는 itemText 값을 uiItemTextComponent 요소에 할당
         UpdateUIItemText();
 
         // 추가: usingItem의 인덱스에 해당하는 이미지를 uiItemImage 요소에 할당
@@ -209,6 +212,7 @@ public class InventoryManager : MonoBehaviour
     private void OnYesButtonClicked()
     {
         // ... (other parts of the code)
+
         // 추가: usingItem 초기화
         inventoryData.usingItem = string.Empty;
         // UI 업데이트
@@ -227,12 +231,6 @@ public class InventoryManager : MonoBehaviour
         UpdateUI();
     }
 
-    // 추가: UIText 요소 초기화
-    private void InitializeUIText()
-    {
-        uiItemText.text = string.Empty;
-    }
-
     // 추가: UIText 요소 업데이트
     private void UpdateUIItemText()
     {
@@ -241,24 +239,17 @@ public class InventoryManager : MonoBehaviour
             InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItem);
             if (item != null)
             {
-                uiItemText.text = item.itemText;
+                uiItemTextComponent.text = item.itemText;
             }
             else
             {
-                uiItemText.text = string.Empty;
+                uiItemTextComponent.text = string.Empty;
             }
         }
         else
         {
-            uiItemText.text = string.Empty;
+            uiItemTextComponent.text = string.Empty;
         }
-    }
-
-    private void SaveDataToJsonFile()
-    {
-        string jsonData = JsonUtility.ToJson(inventoryData, true);
-        string filePath = Path.Combine(Application.dataPath, "Resources", jsonFilePath + ".json");
-        File.WriteAllText(filePath, jsonData);
     }
 
     private void StatChange()

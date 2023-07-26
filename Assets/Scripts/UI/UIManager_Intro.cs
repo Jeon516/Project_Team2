@@ -70,11 +70,27 @@ public class UIManager_Intro : MonoBehaviour
 
     private void Restart()
     {
+
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("Interaction", 0);
+
+        PlayerPrefs.SetInt("Energy", 0);
+        PlayerPrefs.SetFloat("EnergyX", 0);
+
+        PlayerPrefs.SetInt("Sociality", 0);
+        PlayerPrefs.SetFloat("SocialityX", 0);
+
+        PlayerPrefs.SetInt("Deliberation", 0);
+        PlayerPrefs.SetFloat("DeliberationX", 0);
+
+        PlayerPrefs.SetInt("Curiosoty", 0);
+        PlayerPrefs.SetFloat("CuriosotyX", 0);
+
+        PlayerPrefs.SetInt("Love", 0);
+        PlayerPrefs.SetFloat("LoveX", 0);
         SceneManager.LoadScene("Loading");
     } // Data Initialize
 }

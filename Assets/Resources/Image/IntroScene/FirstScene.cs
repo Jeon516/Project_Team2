@@ -162,7 +162,11 @@ public class FirstScene : MonoBehaviour
         {
             StopCoroutine(colorTransitionCoroutine);
         }
-
+        
+        if(currentImageIndex==imagesToDisplay.Length-1)
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
         currentImageIndex = (currentImageIndex + 1) % imagesToDisplay.Length;
         ShowImage(currentImageIndex);
     }

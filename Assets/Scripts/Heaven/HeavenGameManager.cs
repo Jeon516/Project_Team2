@@ -23,7 +23,7 @@ public class HeavenGameManager : MonoBehaviour
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
         Instance = this;
-        Gold = PlayerPrefs.GetInt("Gold",1000);
+        Gold = PlayerPrefs.GetInt("Gold",100000);
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
         IsHeaven = PlayerPrefs.GetInt("IsHeaven");

@@ -174,7 +174,7 @@ public class InventoryManager : MonoBehaviour
                 }
 
                 // 4. 텍스트 리스트에 [item.quantity]를 할당
-                uiTextList[i].text = "Quantity: " + item.quantity;
+                uiTextList[i].text = "" + item.quantity;
             }
             else
             {

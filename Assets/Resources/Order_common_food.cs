@@ -51,6 +51,7 @@ public class Order_common_food : MonoBehaviour
         ParseLevelData();
         selectionButton.onClick.AddListener(StartSelection);
         inventory = new Dictionary<string, int>();
+        LoadInventoryData(); // Load inventory data from Resources at the start
     }
 
     private ProbabilityData ParseLevelData(TextAsset levelData)
@@ -84,31 +85,31 @@ public class Order_common_food : MonoBehaviour
     }
 
     private void StartSelection()
-{
-    string selectedLevel = SelectLevel();
-
-    LevelData selectedLevelData = GetLevelData(selectedLevel);
-
-    if (selectedLevelData != null)
     {
-        string jsonFilePath = selectedLevelData.jsonFileName;
-        TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
+        string selectedLevel = SelectLevel();
 
-        if (selectedJsonFile != null)
+        LevelData selectedLevelData = GetLevelData(selectedLevel);
+
+        if (selectedLevelData != null)
         {
-            LoadJson(selectedJsonFile, selectedLevelData); // 올바른 인수를 전달했는지 확인하세요.
-            SaveInventoryToJson();
+            string jsonFilePath = selectedLevelData.jsonFileName;
+            TextAsset selectedJsonFile = Resources.Load<TextAsset>(jsonFilePath);
+
+            if (selectedJsonFile != null)
+            {
+                LoadJson(selectedJsonFile, selectedLevelData);
+                SaveInventoryToJson();
+            }
+            else
+            {
+                Debug.LogError("JSON file not found for selected level: " + selectedLevel);
+            }
         }
         else
         {
-            Debug.LogError("JSON file not found for selected level: " + selectedLevel);
+            Debug.LogError("Invalid level selected.");
         }
     }
-    else
-    {
-        Debug.LogError("Invalid level selected.");
-    }
-}
 
     private LevelData GetLevelData(string level)
     {
@@ -261,6 +262,31 @@ public class Order_common_food : MonoBehaviour
         catch (IOException e)
         {
             Debug.LogError("Error writing inventory JSON file: " + e.Message);
+        }
+    }
+
+    private void LoadInventoryData()
+    {
+        TextAsset jsonFile = Resources.Load<TextAsset>("JsonFiles/Inventory/InventoryData");
+        if (jsonFile != null)
+        {
+            string jsonData = jsonFile.text;
+            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
+            if (inventoryData != null)
+            {
+                foreach (ItemInfo itemInfo in inventoryData.itemList)
+                {
+                    inventory[itemInfo.itemName] = itemInfo.quantity;
+                }
+            }
+            else
+            {
+                Debug.LogError("Failed to parse InventoryData from JSON.");
+            }
+        }
+        else
+        {
+            Debug.LogError("Inventory JSON file not found in Resources.");
         }
     }
 }

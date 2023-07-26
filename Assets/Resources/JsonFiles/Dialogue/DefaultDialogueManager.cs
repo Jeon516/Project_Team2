@@ -17,12 +17,12 @@ public class DefaultDialogueManager : MonoBehaviour
 
     private void LoadDialogue()
     {
-        string filePath = Path.Combine("Assets/Resources/JsonFiles/Dialogue", "Default_dialogue.json");
+        TextAsset jsonFile = Resources.Load<TextAsset>("JsonFiles/Dialogue/Default_dialogue");
 
-        if (File.Exists(filePath))
+        if (jsonFile != null)
         {
-            string json = File.ReadAllText(filePath);
-            DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(json);
+            string jsonData = jsonFile.text;
+            DialogueData dialogueData = JsonUtility.FromJson<DialogueData>(jsonData);
 
             messages = new List<string>();
             foreach (Dialogue dialogue in dialogueData.dialogue)
@@ -32,7 +32,7 @@ public class DefaultDialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("Dialogue file not found at path: " + filePath);
+            Debug.LogError("Dialogue file not found at path: " + jsonFile);
         }
     }
 

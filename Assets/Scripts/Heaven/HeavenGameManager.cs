@@ -84,7 +84,7 @@ public class HeavenGameManager : MonoBehaviour
 
         while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.1f);
             gameObject.SetActive(false);
         }
     }

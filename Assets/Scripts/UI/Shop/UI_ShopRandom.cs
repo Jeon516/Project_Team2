@@ -24,7 +24,10 @@ public class UI_ShopRandom : MonoBehaviour
     }
     private void Update()
     {
-        if(IsRandomFree>=1)
+        IsRandomFree = PlayerPrefs.GetInt("IsRandomFree", 0);
+        PlayerPrefs.SetInt("IsRandomFree", IsRandomFree);
+
+        if (IsRandomFree>=1)
         {
             FreeButton.interactable = false;
         }

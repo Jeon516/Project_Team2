@@ -225,6 +225,8 @@ public class Order_common_food : MonoBehaviour
         {
             inventoryData.itemList.Add(newItemInfo);
         }
+
+        // Save the updated inventory data back to JSON
         string updatedJsonData = JsonUtility.ToJson(inventoryData);
         File.WriteAllText(jsonFilePath, updatedJsonData);
     }

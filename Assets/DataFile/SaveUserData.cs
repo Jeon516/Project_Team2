@@ -12,7 +12,7 @@ public class SaveUserData : MonoBehaviour
 
     private void Awake()
     {
-        filePath = Path.Combine(Application.dataPath, "DataFile/UserData.json");
+        filePath = "UserData"; // The file name without extension since it's in the Resources folder
         saveButton.onClick.AddListener(SaveData);
     }
 
@@ -30,7 +30,7 @@ public class SaveUserData : MonoBehaviour
             string jsonData = JsonUtility.ToJson(userData);
 
             // Save data to file
-            File.WriteAllText(filePath, jsonData);
+            File.WriteAllText(Path.Combine(Application.dataPath, "Resources/UserData.json"), jsonData);
 
             Debug.Log("Data saved to: " + filePath);
         }
@@ -42,11 +42,10 @@ public class SaveUserData : MonoBehaviour
 
     private UserData LoadData()
     {
-        if (File.Exists(filePath))
+        TextAsset jsonData = Resources.Load<TextAsset>(filePath);
+        if (jsonData != null)
         {
-            // Read existing data from file
-            string jsonData = File.ReadAllText(filePath);
-            UserData userData = JsonUtility.FromJson<UserData>(jsonData);
+            UserData userData = JsonUtility.FromJson<UserData>(jsonData.text);
             return userData;
         }
         else

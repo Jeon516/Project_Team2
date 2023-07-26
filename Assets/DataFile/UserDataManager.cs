@@ -1,53 +1,34 @@
 using System;
 using System.Collections.Generic;
-using System.IO;
 using UnityEngine;
 
 [Serializable]
 public class UserData
 {
-    public List<string> inven;
     public string name;
-    public int gold;
     public int dia;
     public List<string> dog_list;
     public List<string> food_list;
-    public int favor;
-    public string Date;
-
-    public static UserData FromJson(string json)
-    {
-        return JsonUtility.FromJson<UserData>(json);
-    }
-
-    public string ToJson()
-    {
-        return JsonUtility.ToJson(this);
-    }
 }
 
-public class YourScriptName : MonoBehaviour
+public class UserDataManager : MonoBehaviour
 {
     private UserData userData;
     private string savePath; // JSON FILE PATH
 
     private void Awake()
     {
-        savePath = Application.dataPath + "/DataFile/UserData.json";
+        savePath = "UserData";
     }
 
     private void Start()
     {
         // USER_DATA_SETTING(DEFAULT)
         userData = new UserData();
-        userData.inven = new List<string>() { "item1", "item2" };
         userData.name = "DEFAULT";
-        userData.gold = 100;
-        userData.dia = 10;
-        userData.dog_list = new List<string>() { "dog1", "dog2" };
-        userData.food_list = new List<string>() { "food1", "food2" };
-        userData.favor = 5;
-        userData.Date = DateTime.Now.ToString();
+        userData.dia = 0;
+        userData.dog_list = new List<string>();
+        userData.food_list = new List<string>();
 
         // SAVE_USER_DATA
         SaveUserData(userData);
@@ -57,8 +38,10 @@ public class YourScriptName : MonoBehaviour
         if (loadedData != null)
         {
             Debug.Log("Loaded name: " + loadedData.name);
-            Debug.Log("Loaded gold: " + loadedData.gold);
-            //ADDITIONAL CODE PROGRAMMER SHOULD INPUT
+            Debug.Log("Loaded dia: " + loadedData.dia);
+            Debug.Log("Loaded dog_list: " + string.Join(", ", loadedData.dog_list));
+            Debug.Log("Loaded food_list: " + string.Join(", ", loadedData.food_list));
+            // ADDITIONAL CODE PROGRAMMER SHOULD INPUT
         }
         else
         {
@@ -68,16 +51,16 @@ public class YourScriptName : MonoBehaviour
 
     private void SaveUserData(UserData data)
     {
-        string json = data.ToJson();
-        File.WriteAllText(savePath, json);
+        string json = JsonUtility.ToJson(data);
+        PlayerPrefs.SetString(savePath, json);
     }
 
     private UserData LoadUserData()
     {
-        if (File.Exists(savePath))
+        if (PlayerPrefs.HasKey(savePath))
         {
-            string json = File.ReadAllText(savePath);
-            return UserData.FromJson(json);
+            string json = PlayerPrefs.GetString(savePath);
+            return JsonUtility.FromJson<UserData>(json);
         }
         return null;
     }

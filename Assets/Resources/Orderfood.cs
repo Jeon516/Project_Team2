@@ -84,17 +84,17 @@ public class Orderfood : MonoBehaviour
                 // For Android, use UnityWebRequest to load the JSON file
                 yield return www.SendWebRequest();
 
-                if (!www.isNetworkError && !www.isHttpError)
+                if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+                {
+                    Debug.LogError("Error loading JSON file: " + www.error);
+                }
+                else
                 {
                     string jsonData = www.downloadHandler.text;
                     ItemDataList itemList = JsonUtility.FromJson<ItemDataList>(jsonData);
                     LoadRandomItem(itemList);
                     SaveInventoryToJson();
                     UpdateUI();
-                }
-                else
-                {
-                    Debug.LogError("Error loading JSON file: " + www.error);
                 }
             }
             else

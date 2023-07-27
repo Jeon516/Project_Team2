@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEngine.Networking;
 
 [System.Serializable]
 public class InvenData
@@ -34,8 +36,7 @@ public class InventoryManager : MonoBehaviour
     public Image uiItemImage;
     public Button yesButton;
     public Button noButton;
-
-    public string jsonFilePath = "JsonFiles/Inventory/InventoryData";
+    public string jsonFilePath = "InventoryData"; // Removed the directory part of the path
 
     private int firstStatType;
     private int secondStatType;
@@ -67,17 +68,44 @@ public class InventoryManager : MonoBehaviour
         UpdateUI();
     }
 
+    private string GetCorrectedFilePath(string originalPath)
+    {
+        return originalPath.Replace("\\", "/");
+    }
+
     private IEnumerator LoadDataFromJsonFile()
     {
-        TextAsset jsonTextAsset = Resources.Load<TextAsset>(jsonFilePath);
-        if (jsonTextAsset != null)
+        string filePath = Path.Combine(Application.streamingAssetsPath, GetCorrectedFilePath(jsonFilePath + ".json"));
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+        // Android needs special handling due to its security model.
+        UnityWebRequest www = UnityWebRequest.Get(filePath);
+
+        // The file path for Android should start with "jar:file://" for streaming assets.
+        www.url = "jar:file://" + filePath;
+
+        yield return www.SendWebRequest();
+
+        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
         {
-            inventoryData = JsonUtility.FromJson<Inventory>(jsonTextAsset.text);
+            Debug.LogError(www.error);
         }
         else
         {
-            Debug.LogError("JSON file not found at path: " + jsonFilePath);
+            inventoryData = JsonUtility.FromJson<Inventory>(www.downloadHandler.text);
         }
+#else
+        // For other platforms, use File.ReadAllText
+        if (File.Exists(filePath))
+        {
+            string jsonString = File.ReadAllText(filePath);
+            inventoryData = JsonUtility.FromJson<Inventory>(jsonString);
+        }
+        else
+        {
+            Debug.LogError("File not found at path: " + filePath);
+        }
+#endif
 
         yield return null;
     }

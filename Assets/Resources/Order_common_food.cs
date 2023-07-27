@@ -25,12 +25,12 @@ public class ItemInfo
     public string itemName;
     public int quantity;
     public string conv;
-    public int firstStatType; 
-    public int secondStatType;   
+    public int firstStatType;
+    public int secondStatType;
     public int firstStatValue;
-    public int secondStatValue; 
+    public int secondStatValue;
     public string itemText;
-    public string imageName; 
+    public string imageName;
 }
 
 public class Order_common_food : MonoBehaviour
@@ -99,7 +99,8 @@ public class Order_common_food : MonoBehaviour
 
             if (selectedJsonFile != null)
             {
-                LoadJson(selectedJsonFile, selectedLevelData);
+                // 동기화 작업한거
+                LoadJson(selectedJsonFile, selectedLevelData, selectedImage, foodImage, OpenImage, SelectedName, SelectedInfo);
                 SaveInventoryToJson();
             }
             else
@@ -126,7 +127,7 @@ public class Order_common_food : MonoBehaviour
         return null;
     }
 
-    private void LoadJson(TextAsset jsonFile, LevelData selectedLevelData)
+    private void LoadJson(TextAsset jsonFile, LevelData selectedLevelData, Image selectedImage, Image foodImage, Image OpenImage, Text SelectedName, Text SelectedInfo)
     {
         if (jsonFile != null)
         {
@@ -144,8 +145,8 @@ public class Order_common_food : MonoBehaviour
                 if (selectedSprite != null)
                 {
                     selectedImage.sprite = selectedSprite;
-                    foodImage.sprite = selectedSprite; 
-                    OpenImage.sprite = selectedSprite; 
+                    foodImage.sprite = selectedSprite;
+                    OpenImage.sprite = selectedSprite;
 
                     SelectedName.text = selectedItem.name;
                     SelectedInfo.text = selectedItem.itemText;
@@ -165,8 +166,8 @@ public class Order_common_food : MonoBehaviour
                         itemName = selectedItem.name,
                         quantity = 1,
                         conv = selectedItem.conv,
-                        firstStatType= selectedItem.firstStatType, 
-                        secondStatType = selectedItem.secondStatType, 
+                        firstStatType = selectedItem.firstStatType,
+                        secondStatType = selectedItem.secondStatType,
                         firstStatValue = selectedItem.firstStatValue,
                         secondStatValue = selectedItem.secondStatValue,
                         itemText = selectedItem.itemText,
@@ -326,8 +327,8 @@ public class ItemData
     public string itemText;
     public string conv;
     public int firstStatType;
-    public int firstStatValue; 
+    public int firstStatValue;
     public int secondStatType;
-    public int secondStatValue; 
-    public string imageName; 
+    public int secondStatValue;
+    public string imageName;
 }

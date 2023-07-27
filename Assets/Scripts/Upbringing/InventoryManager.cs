@@ -2,8 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 
 [System.Serializable]
 public class InvenData
@@ -44,26 +42,11 @@ public class InventoryManager : MonoBehaviour
     private int firstStatValue;
     private int secondStatValue;
 
-#if UNITY_EDITOR
-    private FileSystemWatcher fileWatcher;
-#endif
-
     private Inventory inventoryData;
 
     void OnEnable()
     {
         StartCoroutine(LoadDataAndUpdateUI());
-
-#if UNITY_EDITOR
-        StartFileWatcher();
-#endif
-    }
-
-    void OnDisable()
-    {
-#if UNITY_EDITOR
-        StopFileWatcher();
-#endif
     }
 
     void Start()
@@ -77,33 +60,6 @@ public class InventoryManager : MonoBehaviour
         yesButton.onClick.AddListener(OnYesButtonClicked);
         noButton.onClick.AddListener(OnNoButtonClicked);
     }
-
-#if UNITY_EDITOR
-    private void StartFileWatcher()
-    {
-        string filePath = Path.Combine(Application.dataPath, "Resources", jsonFilePath + ".json");
-        fileWatcher = new FileSystemWatcher(Path.GetDirectoryName(filePath));
-        fileWatcher.Filter = Path.GetFileName(filePath);
-        fileWatcher.NotifyFilter = NotifyFilters.LastWrite;
-        fileWatcher.Changed += OnFileChanged;
-        fileWatcher.EnableRaisingEvents = true;
-    }
-
-    private void StopFileWatcher()
-    {
-        if (fileWatcher != null)
-        {
-            fileWatcher.Changed -= OnFileChanged;
-            fileWatcher.Dispose();
-            fileWatcher = null;
-        }
-    }
-
-    private void OnFileChanged(object sender, FileSystemEventArgs e)
-    {
-        StartCoroutine(LoadDataAndUpdateUI());
-    }
-#endif
 
     private IEnumerator LoadDataAndUpdateUI()
     {
@@ -232,7 +188,7 @@ public class InventoryManager : MonoBehaviour
                     if (PlayerPrefs.GetInt("Energy") < 4)
                     {
                         PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + StatValue[i]);
-                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111* StatValue[i]);
+                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111 * StatValue[i]);
                     }
                 }
                 else

@@ -20,7 +20,7 @@ public class UIManager_Intro : MonoBehaviour
     }
     private void Start()
     {
-        AudioManager.Instance.playBGM("IntroMusic");
+        AudioManager.Instance.PlayBGM("IntroMusic");
     }
     public void OnClick_Start()
     {

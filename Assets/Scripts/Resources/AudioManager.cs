@@ -7,15 +7,15 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; } = null;
 
-    public AudioSource BGMSource;
-    //public AudioSource SFXSource;
-    private static AudioManager instance;
+    public AudioSource bgmSource;
+    public AudioSource[] sfxSource;
 
     private void Awake()
     {
         Instance = this; // ¿ŒΩ∫≈œΩ∫»≠
+        DontDestroyOnLoad(gameObject);
 
-        if (instance == null)
+        /*if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -23,44 +23,65 @@ public class AudioManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        } // æ¿ ≥—±Ê ∂ß ¿Ωæ« ¿’±‚
+        } // æ¿ ≥—±Ê ∂ß ¿Ωæ« ¿’±‚*/
     } 
-
-    public void playBGM(string name)
-    {
-        AudioClip BGMClip = Resources.Load<AudioClip>("Music/BGM/" + name);
-        if(BGMClip !=null)
-        {
-            if (BGMClip != null)
-            {
-                BGMSource.clip = BGMClip;
-                BGMSource.volume = PlayerPrefs.GetFloat("BGM");
-                BGMSource.Play();
-            }
-        }
-    } // BGM ∆≤±‚
-
-    public void StopBGM()
-    {
-        BGMSource.Stop();
-    }
-    /*public void playSFX(string name)
-    {
-        AudioClip SFXClip = Resources.Load<AudioClip>("SFX/" + name);
-        if (SFXClip != null)
-        {
-            if (SFXClip != null)
-            {
-                SFXSource.clip = SFXClip;
-                SFXSource.volume = PlayerPrefs.GetFloat("SFX");
-                SFXSource.Play();
-            }
-        }
-    } // SFX ∆≤±‚*/
 
     private void Update()
     {
-        BGMSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
-        //SFXSource.volume = PlayerPrefs.GetFloat("SFX");
+        bgmSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
+        for(int i=0;i<sfxSource.Length;++i)
+        {
+            sfxSource[i].volume= PlayerPrefs.GetFloat("SFX",0.6f);
+        }
     } // BGM, SFX¿ª πŸ∑Œ π›øµ«œ±‚
+
+    public void PlayBGM(string name)
+    {
+        AudioClip bgmClip = Resources.Load<AudioClip>("BGM/" + name);
+        if (bgmClip != null)
+        {
+            bgmSource.clip = bgmClip;
+            bgmSource.volume = PlayerPrefs.GetFloat("BGM");
+            bgmSource.Play();
+        }
+    }
+
+    public void StopBGM()
+    {
+        if (bgmSource.isPlaying)
+        {
+            bgmSource.Stop();
+        }
+    }
+
+    public void PlaySFX(string name)
+    {
+        AudioClip sfxClip = Resources.Load<AudioClip>("SFX/" + name);
+
+        if (sfxClip != null)
+        {
+            for (int i = 0; i < sfxSource.Length; ++i)
+            {
+                if (sfxSource[i].isPlaying == false)
+                {
+                    sfxSource[i].clip = sfxClip;
+                    sfxSource[i].volume = PlayerPrefs.GetFloat("SFX");
+                    sfxSource[i].spatialBlend = 0;
+                    sfxSource[i].Play();
+                    return;
+                }
+            }
+        }
+    }
+
+    public void StopSFX()
+    {
+        for (int i = 0; i < sfxSource.Length; ++i)
+        {
+            if (sfxSource[i].isPlaying)
+            {
+                sfxSource[i].Stop();
+            }
+        }
+    }
 }

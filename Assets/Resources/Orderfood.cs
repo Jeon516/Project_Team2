@@ -202,6 +202,8 @@ public class Orderfood : MonoBehaviour
         {
             File.WriteAllText(jsonFilePath, jsonData);
             Debug.Log("Inventory JSON file saved successfully.");
+            Debug.Log(jsonFilePath);
+            Debug.Log(jsonData);
         }
         catch (IOException e)
         {

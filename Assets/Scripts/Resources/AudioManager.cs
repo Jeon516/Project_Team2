@@ -28,21 +28,25 @@ public class AudioManager : MonoBehaviour
 
     private void Update()
     {
-        bgmSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
+        /*bgmSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
         for(int i=0;i<sfxSource.Length;++i)
         {
             sfxSource[i].volume= PlayerPrefs.GetFloat("SFX",0.6f);
-        }
+        }*/
     } // BGM, SFX을 바로 반영하기
 
     public void PlayBGM(string name)
     {
-        AudioClip bgmClip = Resources.Load<AudioClip>("BGM/" + name);
+        AudioClip bgmClip = Resources.Load<AudioClip>("Music/BGM/" + name);
         if (bgmClip != null)
         {
             bgmSource.clip = bgmClip;
             bgmSource.volume = PlayerPrefs.GetFloat("BGM");
             bgmSource.Play();
+        }
+        else
+        {
+            Debug.LogError("BGM이 나오지 않습니다");
         }
     }
 
@@ -56,7 +60,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(string name)
     {
-        AudioClip sfxClip = Resources.Load<AudioClip>("SFX/" + name);
+        AudioClip sfxClip = Resources.Load<AudioClip>("Music/SFX/" + name);
 
         if (sfxClip != null)
         {

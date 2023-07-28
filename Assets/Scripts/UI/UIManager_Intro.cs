@@ -24,7 +24,8 @@ public class UIManager_Intro : MonoBehaviour
     }
     public void OnClick_Start()
     {
-        if((Day/20 == 0 && Day%20==0)|| (Day / 20 == 0 && Day % 20 == 1))
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        if ((Day/20 == 0 && Day%20==0)|| (Day / 20 == 0 && Day % 20 == 1))
         {
             Restart();
         }
@@ -36,7 +37,8 @@ public class UIManager_Intro : MonoBehaviour
 
     public void OnClick_NewStart(bool Yes)
     {
-        if(Yes)
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        if (Yes)
         {
             PlayerPrefs.SetInt("Day", 0);
             SceneManager.LoadScene("Loading");
@@ -49,6 +51,7 @@ public class UIManager_Intro : MonoBehaviour
 
     public void OnClick_Load()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (Day / 20 == 0 && Day % 20 == 0 || Day / 20 == 0 && Day % 20 == 1)
         {
             NoData.SetActive(true);
@@ -61,17 +64,19 @@ public class UIManager_Intro : MonoBehaviour
 
     public void OnClick_Setting()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         IntroSetting.SetActive(true); // ȯ�漳�� Ű��
     } // 'Setting'을 누를 때
     public void OnClick_Exit()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Application.Quit(); // 어플 종료
     } // 'Exit'을 누를 때
 
     private void Restart()
     {
 
-        PlayerPrefs.SetInt("Day", 0);
+        PlayerPrefs.SetInt("Day", 2);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
         PlayerPrefs.SetInt("IsHeaven", 1);

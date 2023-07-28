@@ -52,6 +52,7 @@ public class InventoryManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("업데이트 되었습니다");
         for (int i = 0; i < uiButtonList.Count; i++)
         {
             int index = i;
@@ -65,6 +66,7 @@ public class InventoryManager : MonoBehaviour
     private IEnumerator LoadDataAndUpdateUI()
     {
         yield return LoadDataFromJsonFile();
+        Debug.Log("json 파일에 접속되었습니다.");
         UpdateUI();
     }
 
@@ -75,37 +77,20 @@ public class InventoryManager : MonoBehaviour
 
     private IEnumerator LoadDataFromJsonFile()
     {
-        string filePath = Path.Combine(Application.streamingAssetsPath, GetCorrectedFilePath(jsonFilePath + ".json"));
+        string jsonFileName = "inventory.json";
+        jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-        // Android needs special handling due to its security model.
-        UnityWebRequest www = UnityWebRequest.Get(filePath);
-
-        // The file path for Android should start with "jar:file://" for streaming assets.
-        www.url = "jar:file://" + filePath;
-
-        yield return www.SendWebRequest();
-
-        if (www.result == UnityWebRequest.Result.ConnectionError || www.result == UnityWebRequest.Result.ProtocolError)
+        if (File.Exists(jsonFilePath))
         {
-            Debug.LogError(www.error);
+            string jsonData = File.ReadAllText(jsonFilePath);
+            inventoryData = JsonUtility.FromJson<Inventory>(jsonData);
+            Debug.Log("JSON 파일 불러오기 성공!");
+            Debug.Log(jsonData);
         }
         else
         {
-            inventoryData = JsonUtility.FromJson<Inventory>(www.downloadHandler.text);
+            Debug.LogWarning("JSON 파일이 존재하지 않습니다.");
         }
-#else
-        // For other platforms, use File.ReadAllText
-        if (File.Exists(filePath))
-        {
-            string jsonString = File.ReadAllText(filePath);
-            inventoryData = JsonUtility.FromJson<Inventory>(jsonString);
-        }
-        else
-        {
-            Debug.LogError("File not found at path: " + filePath);
-        }
-#endif
 
         yield return null;
     }
@@ -139,6 +124,7 @@ public class InventoryManager : MonoBehaviour
                 }
 
                 uiTextList[i].text = "" + item.quantity;
+                Debug.Log(item.imageName + "이 있습니다");
             }
             else
             {
@@ -148,6 +134,8 @@ public class InventoryManager : MonoBehaviour
         }
 
         UpdateUIItemText();
+
+        Debug.Log("UI가 업데이트되었습니다");
     }
 
     private void OnButtonClicked(int index)

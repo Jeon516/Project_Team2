@@ -3817,7 +3817,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8483806bb928f384e8d70f6e8ac242e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BGMSource: {fileID: 442294723}
+  bgmSource: {fileID: 0}
+  sfxSource: []
 --- !u!4 &442294722
 Transform:
   m_ObjectHideFlags: 0
@@ -12995,7 +12996,6 @@ GameObject:
   - component: {fileID: 1610893769}
   - component: {fileID: 1610893773}
   - component: {fileID: 1610893774}
-  - component: {fileID: 1610893775}
   - component: {fileID: 1610893776}
   - component: {fileID: 1610893777}
   m_Layer: 5
@@ -13161,26 +13161,6 @@ MonoBehaviour:
   Love: 0
   LoveX: 0
   LoveY: 0
---- !u!114 &1610893775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610893768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23c6cafd8f74554ea00dd0c08b8e0df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Money: 0
-  Day: 0
-  DayText: {fileID: 0}
-  GameStart: {fileID: 0}
-  Play: 0
-  Gold: 0
-  GoldText: {fileID: 0}
-  LoadingScreen: {fileID: 0}
 --- !u!114 &1610893776
 MonoBehaviour:
   m_ObjectHideFlags: 0

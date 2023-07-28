@@ -13,10 +13,11 @@ public class UI_MusicSetting : MonoBehaviour
 
     private void Start()
     {
-        BGMVolume = PlayerPrefs.GetFloat("BGM") * 100;
-        SFXVolume = PlayerPrefs.GetFloat("SFX") * 100;
+        BGMVolume = PlayerPrefs.GetFloat("BGM",0.6f) * 100;
+        SFXVolume = PlayerPrefs.GetFloat("SFX",0.6f) * 100;
         BGMOrder = PlayerPrefs.GetInt("BGMOrder", 2);
         SFXOrder = PlayerPrefs.GetInt("SFXOrder", 2);
+
         for (int i = 0; i <= BGMOrder; i++)
         {
             BGMSize[i].SetActive(false);
@@ -25,9 +26,18 @@ public class UI_MusicSetting : MonoBehaviour
         {
             BGMSize[i].SetActive(true);
         }
+        for (int i = 0; i <= BGMOrder; i++)
+        {
+            SFXSize[i].SetActive(false);
+        }
+        for (int i = BGMOrder + 1; i < 5; i++)
+        {
+            SFXSize[i].SetActive(true);
+        }
     }
     public void OnClick_BGMVolumeBig()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (BGMVolume < 100)
         {
             BGMVolume += 20;
@@ -46,6 +56,7 @@ public class UI_MusicSetting : MonoBehaviour
     }
     public void OnClick_BGMVolumeSmall()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (BGMVolume > 0)
         {
             BGMVolume -= 20;
@@ -64,6 +75,7 @@ public class UI_MusicSetting : MonoBehaviour
     }
     public void OnClick_SFXVolumeBig()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (SFXVolume < 100)
         {
             SFXVolume += 20;
@@ -82,6 +94,7 @@ public class UI_MusicSetting : MonoBehaviour
     }
     public void OnClick_SFXVolumeSmall()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (SFXVolume > 0)
         {
             SFXVolume -= 20;
@@ -100,6 +113,7 @@ public class UI_MusicSetting : MonoBehaviour
     }
     public void OnClick_Close()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 }

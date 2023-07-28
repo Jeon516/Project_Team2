@@ -55,7 +55,10 @@ public class UpbringingGameManager : MonoBehaviour
     }
     private void Start()
     {
-        if(Day%20==0)
+        AudioManager.Instance.PlayBGM("Upbringing");
+        AudioManager.Instance.PlaySFX("UpbringingIn");
+
+        if (Day%20==0)
         {
             DayText.text = "20ÀÏ Â°";
         }
@@ -97,31 +100,37 @@ public class UpbringingGameManager : MonoBehaviour
 
     public void OnClick_NextDay()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         PlayerPrefs.SetInt("ActionNum", ActionNum);
-       NextDayQuestion.SetActive(true);
+        NextDayQuestion.SetActive(true);
     }
     public void OnClick_Random()
     {
-        if(ActionNum>=50)
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        if (ActionNum>=50)
             RandomQuestion.SetActive(true);
     } // RandomStat
 
     public void OnClick_Want()
     {
-        if(ActionNum>=100)
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        if (ActionNum>=100)
             Stat.SetActive(true);
     } // WantStat
 
     public void OnClick_InteractiQuestion()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         InteractionQuestion.SetActive(true);
     }
 
     public void NextDayAnswer(bool Yes)
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         NextDayQuestion.SetActive(false);
         if (Yes)
         {
+            AudioManager.Instance.PlaySFX("NextDay");
             if (Day < 20)
             {
                 Day++;

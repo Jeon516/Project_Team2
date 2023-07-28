@@ -29,6 +29,7 @@ public class ShopGacha : MonoBehaviour
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(WaitSeconds);
+        AudioManager.Instance.PlaySFX("GachaOpen");
         Close.SetActive(false);
         Open.SetActive(true);
         yield return new WaitForSeconds(WaitSeconds - 2);

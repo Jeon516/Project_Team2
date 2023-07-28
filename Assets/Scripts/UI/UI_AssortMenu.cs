@@ -8,6 +8,7 @@ public class UI_AssortMenu : MonoBehaviour
 
     public void OnClick_MeunOpen()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Menu.SetActive(true);
         Time.timeScale = 0;
     }

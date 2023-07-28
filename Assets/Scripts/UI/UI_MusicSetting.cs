@@ -26,11 +26,12 @@ public class UI_MusicSetting : MonoBehaviour
         {
             BGMSize[i].SetActive(true);
         }
-        for (int i = 0; i <= BGMOrder; i++)
+
+        for (int i = 0; i <= SFXOrder; i++)
         {
             SFXSize[i].SetActive(false);
         }
-        for (int i = BGMOrder + 1; i < 5; i++)
+        for (int i = SFXOrder + 1; i < 5; i++)
         {
             SFXSize[i].SetActive(true);
         }
@@ -52,6 +53,7 @@ public class UI_MusicSetting : MonoBehaviour
             }
             PlayerPrefs.SetFloat("BGM", BGMVolume / 100.0f);
             PlayerPrefs.SetInt("BGMOrder", BGMOrder);
+            AudioManager.Instance.bgmSource.volume = PlayerPrefs.GetFloat("BGM", 0.6f);
         }
     }
     public void OnClick_BGMVolumeSmall()
@@ -71,6 +73,7 @@ public class UI_MusicSetting : MonoBehaviour
             }
             PlayerPrefs.SetFloat("BGM", BGMVolume / 100.0f);
             PlayerPrefs.SetInt("BGMOrder", BGMOrder);
+            AudioManager.Instance.bgmSource.volume = PlayerPrefs.GetFloat("BGM", 0.6f);
         }
     }
     public void OnClick_SFXVolumeBig()
@@ -90,6 +93,11 @@ public class UI_MusicSetting : MonoBehaviour
             }
             PlayerPrefs.SetFloat("SFX", SFXVolume / 100.0f);
             PlayerPrefs.SetInt("SFXOrder", SFXOrder);
+
+            for (int i = 0; i < AudioManager.Instance.sfxSource.Length; ++i)
+            {
+                AudioManager.Instance.sfxSource[i].volume = PlayerPrefs.GetFloat("SFX", 0.6f);
+            }
         }
     }
     public void OnClick_SFXVolumeSmall()
@@ -109,6 +117,11 @@ public class UI_MusicSetting : MonoBehaviour
             }
             PlayerPrefs.SetFloat("SFX", SFXVolume / 100.0f);
             PlayerPrefs.SetInt("SFXOrder", SFXOrder);
+
+            for (int i = 0; i < AudioManager.Instance.sfxSource.Length; ++i)
+            {
+                AudioManager.Instance.sfxSource[i].volume = PlayerPrefs.GetFloat("SFX", 0.6f);
+            }
         }
     }
     public void OnClick_Close()

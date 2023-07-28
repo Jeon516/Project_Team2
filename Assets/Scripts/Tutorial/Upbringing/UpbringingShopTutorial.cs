@@ -37,6 +37,7 @@ public class UpbringingShopTutorial : MonoBehaviour
 
     public void Onclick_Shop()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         TutorialShopButton.interactable = false;
         TutorialShop.SetActive(true);
         IsClick = true;
@@ -50,6 +51,7 @@ public class UpbringingShopTutorial : MonoBehaviour
 
     public void Onclick_TutorialGacha()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         ChatText.text = "";
         ChatSet.SetActive(false);
         FreeButton.SetActive(false);
@@ -61,6 +63,7 @@ public class UpbringingShopTutorial : MonoBehaviour
     }
     public void Onclick_NoButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         FreeButton.SetActive(true);
     }
     IEnumerator Wait()

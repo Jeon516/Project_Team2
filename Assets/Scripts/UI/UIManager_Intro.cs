@@ -20,7 +20,7 @@ public class UIManager_Intro : MonoBehaviour
     }
     private void Start()
     {
-        AudioManager.Instance.PlayBGM("IntroMusic");
+        AudioManager.Instance.PlayBGM("Intro");
     }
     public void OnClick_Start()
     {
@@ -76,7 +76,7 @@ public class UIManager_Intro : MonoBehaviour
     private void Restart()
     {
 
-        PlayerPrefs.SetInt("Day", 2);
+        PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
         PlayerPrefs.SetInt("IsHeaven", 1);

@@ -8,7 +8,8 @@ public class InventoryUse : MonoBehaviour
 
     public void OnClick_YesButton()
     {
-        for(int i=0;i<20;i++)
+        AudioManager.Instance.PlaySFX("Eat");
+        for (int i=0;i<20;i++)
         {
             if(UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf==true)
             {
@@ -21,6 +22,7 @@ public class InventoryUse : MonoBehaviour
 
     public void OnClick_NoButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 }

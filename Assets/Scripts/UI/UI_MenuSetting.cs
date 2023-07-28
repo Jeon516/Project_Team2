@@ -11,18 +11,22 @@ public class UI_MenuSetting : MonoBehaviour
 
     public void OnClick_Setting()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Setting.SetActive(true);
     }
     public void OnClick_Shop()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Shop.SetActive(true);
     }
     public void OnClick_Informaition()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Information.SetActive(true);
     }
     public void OnClick_Inventory()
     {
+        AudioManager.Instance.PlaySFX("dog-panting");
         Inventory.SetActive(true);
     }
 }

@@ -19,11 +19,13 @@ public class UI_InventorySetting : MonoBehaviour
 
     public void OnClick_InventoryCancel()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     } // 'X' ¹öÆ° 
 
     public void OnClick_Trash()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         for (int i = 0; i < 20; i++)
         {
             if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)
@@ -35,6 +37,7 @@ public class UI_InventorySetting : MonoBehaviour
 
     public void OnClick_Use()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         for (int i = 0; i < 20; i++)
         {
             if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)

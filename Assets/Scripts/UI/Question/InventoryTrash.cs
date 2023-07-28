@@ -6,6 +6,7 @@ public class InventoryTrash : MonoBehaviour
 {
     public void OnClick_YesButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         for (int i = 0; i < 20; i++)
         {
             if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)
@@ -19,6 +20,7 @@ public class InventoryTrash : MonoBehaviour
 
     public void OnClick_NoButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 }

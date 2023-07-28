@@ -28,8 +28,11 @@ public class FirstScene : MonoBehaviour
     private Coroutine transitionCoroutine;
     private Coroutine colorTransitionCoroutine;
 
+
     void Start()
     {
+        AudioManager.Instance.StopBGM();
+
         ShowImage(currentImageIndex);
 
         blurMaterial = new Material(blurMaterial);
@@ -109,6 +112,11 @@ public class FirstScene : MonoBehaviour
                 }
                 else
                 {
+                    if(index==4)
+                    {
+                        AudioManager.Instance.PlayBGM("Intro");
+                    }
+
                     if (transitionCoroutine != null)
                     {
                         StopCoroutine(transitionCoroutine);

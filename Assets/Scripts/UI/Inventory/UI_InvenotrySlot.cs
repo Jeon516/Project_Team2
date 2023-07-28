@@ -28,6 +28,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     public void Selected(Button button)
     {
         Debug.Log(button);
+        AudioManager.Instance.PlaySFX("ButtonClick");
         for (int i=0;i< buttons.Length; i++)
         {
             if (buttons[i] == button)

@@ -18,6 +18,8 @@ public class SaveUserData : MonoBehaviour
 
     private void SaveData()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick"); //Play SFX
+
         // Load existing data if available
         UserData userData = LoadData();
 

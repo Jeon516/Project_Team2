@@ -6,6 +6,7 @@ public class RandomQuestion : MonoBehaviour
 {
    public void OnClick_YesButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (UpbringingGameManager.Instance.ActionNum >= 50)
         {
             int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 50;
@@ -29,6 +30,7 @@ public class RandomQuestion : MonoBehaviour
 
     public void OnClick_NoButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 }

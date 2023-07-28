@@ -26,23 +26,27 @@ public class UI_ShopSetting : MonoBehaviour
     }
     public void OnClick_Random()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         Random.SetActive(true);
         Shop.SetActive(false);
     }
 
     public void OnClick_Shop()
     {
-         Shop.SetActive(true);
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        Shop.SetActive(true);
          Random.SetActive(false);
     }
 
     public void OnClick_Close()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     }
 
     public void OnClick_ShopGacha()
     {
+        AudioManager.Instance.PlaySFX("GachaClose");
         Gold -= 2000;
         PlayerPrefs.SetInt("Gold", Gold);
         PlayerPrefs.SetInt("IsRandomFree", 0);

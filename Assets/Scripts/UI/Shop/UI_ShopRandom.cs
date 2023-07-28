@@ -35,6 +35,7 @@ public class UI_ShopRandom : MonoBehaviour
     }
     public void OnClick_Free()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (PlayerPrefs.GetInt("Gold") >= 2000)
             FreeBuyQuestion.SetActive(true);
         else
@@ -43,6 +44,7 @@ public class UI_ShopRandom : MonoBehaviour
 
     public void OnClick_Buy(bool Yes)
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         FreeBuyQuestion.SetActive(false);
     }
 

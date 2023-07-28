@@ -34,11 +34,12 @@ public class HeavenGameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Instance.PlayBGM("Heaven");
         DayText.text = (Day % 20).ToString() + "일째";
-       // if (Day >=2)
+       if (Day >=2)
             GameStart.SetActive(true);
-       // else
-            //GameStart.SetActive(false);
+       else
+            GameStart.SetActive(false);
     }
 
     public void OnClick_LeftStation()
@@ -59,6 +60,7 @@ public class HeavenGameManager : MonoBehaviour
 
     public void OnClick_GameStart()
     {
+        AudioManager.Instance.PlaySFX("GameStart");
         GameStart.SetActive(false);
         Play = true;
     } // ���� ��ŸƮ

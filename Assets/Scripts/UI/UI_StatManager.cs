@@ -130,6 +130,7 @@ public class UI_StatManager : MonoBehaviour
 
     public void OnClick_CloseButton()
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         gameObject.SetActive(false);
     } // ÆË¾÷Ã¢ ²ô±â
 
@@ -153,6 +154,7 @@ public class UI_StatManager : MonoBehaviour
 
     public void OnClick_StatButton(int index)
     {
+        AudioManager.Instance.PlaySFX("ButtonClick");
         if (UpbringingGameManager.Instance.ActionNum >= 100)
         {
             StatNum = index;
@@ -162,7 +164,8 @@ public class UI_StatManager : MonoBehaviour
     }
     public void OnClick_QuestionButton(bool valiable)
     {
-        if(valiable && StatNum>=0 && StatNum<=4)
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        if (valiable && StatNum>=0 && StatNum<=4)
         {
             Increase(StatNum);
             StatQuestion.SetActive(false);

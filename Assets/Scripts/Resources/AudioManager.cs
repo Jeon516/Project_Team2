@@ -12,28 +12,16 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this; // 인스턴스화
-        DontDestroyOnLoad(gameObject);
-
-        /*if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
             DontDestroyOnLoad(gameObject);
         }
         else
         {
             Destroy(gameObject);
-        } // 씬 넘길 때 음악 잇기*/
+        }
     } 
-
-    private void Update()
-    {
-        /*bgmSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
-        for(int i=0;i<sfxSource.Length;++i)
-        {
-            sfxSource[i].volume= PlayerPrefs.GetFloat("SFX",0.6f);
-        }*/
-    } // BGM, SFX을 바로 반영하기
 
     public void PlayBGM(string name)
     {
@@ -52,10 +40,7 @@ public class AudioManager : MonoBehaviour
 
     public void StopBGM()
     {
-        if (bgmSource.isPlaying)
-        {
-            bgmSource.Stop();
-        }
+        bgmSource.Stop();
     }
 
     public void PlaySFX(string name)

@@ -39,6 +39,7 @@ public class InteractionQuestion : MonoBehaviour
     {
         if (Yes && PlayerPrefs.GetInt("Interaction")<1)
         {
+            AudioManager.Instance.PlaySFX("Interaction");
             if (InteractionNum == 0)
             {
                 if (UpbringingGameManager.Instance.Gold >= 1000)
@@ -92,6 +93,10 @@ public class InteractionQuestion : MonoBehaviour
             }
             UpbringingGameManager.Instance.ActionNumText.text = UpbringingGameManager.Instance.ActionNum.ToString();
             PlayerPrefs.SetInt("ActionNum", UpbringingGameManager.Instance.ActionNum);
+        }
+        else
+        {
+            AudioManager.Instance.PlaySFX("ButtonClick");
         }
         gameObject.SetActive(false);
     }

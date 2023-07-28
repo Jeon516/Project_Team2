@@ -45,7 +45,7 @@ public class UI_ShopSetting : MonoBehaviour
     {
         Gold -= 2000;
         PlayerPrefs.SetInt("Gold", Gold);
-        PlayerPrefs.SetInt("IsRandomFree", 1);
+        PlayerPrefs.SetInt("IsRandomFree", 0);
         ShopGachaScreen.SetActive(true);
         ShopGacha.Instance.GachaStart();
     }

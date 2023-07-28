@@ -18528,7 +18528,7 @@ PrefabInstance:
       objectReference: {fileID: 1956768843}
     - target: {fileID: 7596243328793185752, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: jsonFilePath
-      value: InventoryData
+      value: inventory
       objectReference: {fileID: 0}
     - target: {fileID: 7596243328793185752, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: uiItemTextComponent

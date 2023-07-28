@@ -121,6 +121,7 @@ public class InventoryManager : MonoBehaviour
                 else
                 {
                     Debug.LogError("Image not found at path: " + imagePath);
+                    // If the sprite is not found, you may want to display a default image here.
                 }
 
                 uiTextList[i].text = "" + item.quantity;
@@ -140,16 +141,32 @@ public class InventoryManager : MonoBehaviour
 
     private void OnButtonClicked(int index)
     {
-        inventoryData.usingItem = (index >= 0 && index < inventoryData.itemList.Count) ? inventoryData.itemList[index].itemName : string.Empty;
-        UpdateUIItemText();
-
-        if (index >= 0 && index < uiImageList.Count && index < inventoryData.itemList.Count)
+        if (index >= 0 && index < uiImageList.Count)
         {
-            uiItemImage.sprite = uiImageList[index].sprite;
+            InvenData item = inventoryData.itemList[index];
+            inventoryData.usingItem = item.itemName; // Set the currently selected item's name
+
+            string imagePath = "Image/Food/" + item.myClass + "/" + item.imageName;
+            Sprite sprite = Resources.Load<Sprite>(imagePath);
+            if (sprite != null)
+            {
+                uiItemImage.sprite = sprite;
+            }
+            else
+            {
+                Debug.LogError("Image not found at path: " + imagePath);
+                // If the sprite is not found, you may want to display a default image here.
+            }
+
+            // Update the UI item text based on the selected item
+            UpdateUIItemText();
         }
         else
         {
+            // If the clicked index is out of range, reset the selected item
             uiItemImage.sprite = null;
+            inventoryData.usingItem = string.Empty;
+            UpdateUIItemText();
         }
     }
 

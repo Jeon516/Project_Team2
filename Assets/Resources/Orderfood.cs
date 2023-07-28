@@ -47,6 +47,7 @@ public class Orderfood : MonoBehaviour
     public Image OpenImage;
 
     private InventoryData inventoryData;
+    private ItemData selectedLevelItem; // 전역 변수로 선택된 아이템을 저장하기 위한 변수 추가
 
     private void Start()
     {
@@ -84,11 +85,11 @@ public class Orderfood : MonoBehaviour
                 // For Android, use UnityWebRequest to load the JSON file
                 yield return www.SendWebRequest();
 
-                if (!www.isNetworkError && !www.isHttpError)
+                if (www.result == UnityWebRequest.Result.Success)
                 {
                     string jsonData = www.downloadHandler.text;
                     ItemDataList itemList = JsonUtility.FromJson<ItemDataList>(jsonData);
-                    LoadRandomItem(itemList);
+                    LoadFixedItem(itemList);
                     SaveInventoryToJson();
                     UpdateUI();
                 }
@@ -104,7 +105,7 @@ public class Orderfood : MonoBehaviour
                 {
                     string jsonData = File.ReadAllText(jsonFilePath);
                     ItemDataList itemList = JsonUtility.FromJson<ItemDataList>(jsonData);
-                    LoadRandomItem(itemList);
+                    LoadFixedItem(itemList);
                     SaveInventoryToJson();
                     UpdateUI();
                 }
@@ -116,25 +117,25 @@ public class Orderfood : MonoBehaviour
         }
     }
 
-    private void LoadRandomItem(ItemDataList itemList)
+    private void LoadFixedItem(ItemDataList itemList)
     {
         if (itemList != null && itemList.items.Length > 0)
         {
-            ItemData selectedItem = itemList.items[Random.Range(0, itemList.items.Length)];
-            Debug.Log("Selected Item: " + selectedItem.name);
+            selectedLevelItem = itemList.items[Random.Range(0, itemList.items.Length)]; // Choose a random item from the list.
+            Debug.Log("Selected Item: " + selectedLevelItem.name);
 
             ItemInfo newItemInfo = new ItemInfo
             {
-                myClass = selectedItem.myClass,
-                itemName = selectedItem.name,
+                myClass = selectedLevelItem.myClass,
+                itemName = selectedLevelItem.name,
                 quantity = 1,
-                conv = selectedItem.conv,
-                firstStatType = selectedItem.firstStatType,
-                secondStatType = selectedItem.secondStatType,
-                firstStatValue = selectedItem.firstStatValue,
-                secondStatValue = selectedItem.secondStatValue,
-                itemText = selectedItem.itemText,
-                imageName = selectedItem.imageName
+                conv = selectedLevelItem.conv,
+                firstStatType = selectedLevelItem.firstStatType,
+                secondStatType = selectedLevelItem.secondStatType,
+                firstStatValue = selectedLevelItem.firstStatValue,
+                secondStatValue = selectedLevelItem.secondStatValue,
+                itemText = selectedLevelItem.itemText,
+                imageName = selectedLevelItem.imageName
             };
 
             // Update the inventory data
@@ -148,26 +149,11 @@ public class Orderfood : MonoBehaviour
 
     private void UpdateUI()
     {
-        if (inventoryData == null)
+        // Use the selectedLevelItem to update the UI elements
+        if (selectedLevelItem != null)
         {
-            Debug.LogError("Inventory data is null!");
-            return;
-        }
-
-        if (selectedImage == null || foodImage == null || SelectedName == null || SelectedInfo == null || OpenImage == null)
-        {
-            Debug.LogError("UI elements not assigned in the Inspector!");
-            return;
-        }
-
-        if (inventoryData.itemList.Count > 0)
-        {
-            int randomIndex = Random.Range(0, inventoryData.itemList.Count);
-            var selectedItem = inventoryData.itemList[randomIndex];
-            var itemName = selectedItem.itemName;
-
-            // Update UI elements
-            string imagePath = "Image/Food/" + selectedItem.myClass + "/" + selectedItem.imageName;
+            // Update UI elements using selectedLevelItem
+            string imagePath = "Image/Food/" + selectedLevelItem.myClass + "/" + selectedLevelItem.imageName;
             Sprite selectedSprite = Resources.Load<Sprite>(imagePath);
 
             if (selectedSprite != null)
@@ -176,11 +162,11 @@ public class Orderfood : MonoBehaviour
                 foodImage.sprite = selectedSprite;
                 OpenImage.sprite = selectedSprite;
 
-                SelectedName.text = selectedItem.itemName;
-                SelectedInfo.text = selectedItem.itemText;
+                SelectedName.text = selectedLevelItem.name;
+                SelectedInfo.text = selectedLevelItem.itemText;
 
                 // Update the quantity
-                selectedItem.quantity++;
+                // The quantity is not modified in this example, modify it based on your logic if needed.
             }
             else
             {
@@ -189,7 +175,7 @@ public class Orderfood : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Inventory is empty!");
+            Debug.LogWarning("No item selected!");
         }
     }
 
@@ -202,12 +188,43 @@ public class Orderfood : MonoBehaviour
         {
             File.WriteAllText(jsonFilePath, jsonData);
             Debug.Log("Inventory JSON file saved successfully.");
-            Debug.Log(jsonFilePath);
-            Debug.Log(jsonData);
         }
         catch (IOException e)
         {
             Debug.LogError("Error writing inventory JSON file: " + e.Message);
+        }
+    }
+
+    private void UpdateInventory(ItemInfo newItemInfo)
+    {
+        inventoryData.itemList.Add(newItemInfo);
+    }
+
+    private void LoadInventoryData()
+    {
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+
+        if (File.Exists(jsonFilePath))
+        {
+            string jsonData = File.ReadAllText(jsonFilePath);
+            inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
+        }
+        else
+        {
+            Debug.Log("No existing inventory data found. Creating new inventory data.");
+            inventoryData = new InventoryData();
+        }
+    }
+
+    private void DebugInventoryContents()
+    {
+        Debug.Log("Inventory Contents:");
+
+        foreach (var item in inventoryData.itemList)
+        {
+            string itemName = item.itemName;
+            int quantity = item.quantity;
+            Debug.Log(itemName + " x " + quantity);
         }
     }
 
@@ -260,39 +277,6 @@ public class Orderfood : MonoBehaviour
         }
 
         return null;
-    }
-
-    private void UpdateInventory(ItemInfo newItemInfo)
-    {
-        inventoryData.itemList.Add(newItemInfo);
-    }
-
-    private void LoadInventoryData()
-    {
-        string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
-
-        if (File.Exists(jsonFilePath))
-        {
-            string jsonData = File.ReadAllText(jsonFilePath);
-            inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
-        }
-        else
-        {
-            Debug.Log("No existing inventory data found. Creating new inventory data.");
-            inventoryData = new InventoryData();
-        }
-    }
-
-    private void DebugInventoryContents()
-    {
-        Debug.Log("Inventory Contents:");
-
-        foreach (var item in inventoryData.itemList)
-        {
-            string itemName = item.itemName;
-            int quantity = item.quantity;
-            Debug.Log(itemName + " x " + quantity);
-        }
     }
 }
 

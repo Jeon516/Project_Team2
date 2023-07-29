@@ -19,7 +19,8 @@ public class UI_QuestionNew : MonoBehaviour
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 1000);
-         PlayerPrefs.SetInt("Interaction", 0);
+        PlayerPrefs.SetInt("Interaction", 0);
+        PlayerPrefs.SetInt("IsRandomFree", 0);
         PlayerPrefs.SetInt("IsHeaven", 1);
 
         PlayerPrefs.SetInt("Energy", 0);

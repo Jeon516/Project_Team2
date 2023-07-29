@@ -37,7 +37,10 @@ public class InventoryManager : MonoBehaviour
     public Button yesButton;
     public Button noButton;
     public string jsonFilePath = "InventoryData"; // Removed the directory part of the path
+    public GameObject[] Exist=new GameObject[20];
+    public Text EatConv;
 
+    private InvenData SelectedItem;
     private Inventory inventoryData;
     private int FirstStatType;
     private int SecondStatType;
@@ -79,6 +82,8 @@ public class InventoryManager : MonoBehaviour
         string jsonFileName = "inventory.json";
         jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
 
+        Debug.Log(jsonFilePath);
+
         if (File.Exists(jsonFilePath))
         {
             string jsonData = File.ReadAllText(jsonFilePath);
@@ -106,6 +111,7 @@ public class InventoryManager : MonoBehaviour
         {
             if (i < inventoryData.itemList.Count)
             {
+                Exist[i].SetActive(true);
                 InvenData item = inventoryData.itemList[i];
                 string imagePath = "Image/Food/" + item.myClass + "/" + item.imageName;
                 Sprite sprite = Resources.Load<Sprite>(imagePath);
@@ -124,6 +130,8 @@ public class InventoryManager : MonoBehaviour
             }
             else
             {
+                Debug.Log("아이템이 없습니다");
+                Exist[i].SetActive(false);
                 uiImageList[i].sprite = null;
                 uiTextList[i].text = string.Empty;
             }
@@ -157,6 +165,7 @@ public class InventoryManager : MonoBehaviour
             FirstStatValue = item.firstStatValue;
             SecondStatType = item.secondStatType;
             SecondStatValue = item.secondStatValue;
+            SelectedItem = item;
 
             // Update the UI item text based on the selected item
             UpdateUIItemText();
@@ -170,17 +179,38 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    private void SaveInventoryToJson()
+    {
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+        string jsonData = JsonUtility.ToJson(inventoryData);
+
+        try
+        {
+            File.WriteAllText(jsonFilePath, jsonData);
+            Debug.Log("Inventory JSON file saved successfully.");
+        }
+        catch (IOException e)
+        {
+            Debug.LogError("Error writing inventory JSON file: " + e.Message);
+        }
+    }
+
     private void OnYesButtonClicked()
     {
-        inventoryData.usingItemText = string.Empty;
+        Debug.Log("먹기 버튼");
+        EatConv.text = SelectedItem.conv;
+        gameObject.SetActive(false);
+        inventoryData.itemList.Remove(SelectedItem);
         UpdateUI();
+        SaveInventoryToJson();
         StatChange();
     }
 
     private void OnNoButtonClicked()
     {
-        inventoryData.usingItemText = string.Empty;
+        inventoryData.itemList.Remove(SelectedItem);
         UpdateUI();
+        SaveInventoryToJson();
     }
 
     private void UpdateUIItemText()

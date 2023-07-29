@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
+
+
 
 public class UIManager_Intro : MonoBehaviour
 {
     public GameObject IntroSetting; // 환경 설정
     public GameObject NewQuestion;
     public GameObject NoData;
+    private string jsonFilePath;
     private int Day;
     private int IsHeaven;
 
@@ -20,6 +24,9 @@ public class UIManager_Intro : MonoBehaviour
     }
     private void Start()
     {
+        string jsonFileName = "inventory.json";
+        jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+
         AudioManager.Instance.PlayBGM("Intro");
     }
     public void OnClick_Start()
@@ -40,6 +47,7 @@ public class UIManager_Intro : MonoBehaviour
         AudioManager.Instance.PlaySFX("ButtonClick");
         if (Yes)
         {
+            Restart();
             PlayerPrefs.SetInt("Day", 0);
             SceneManager.LoadScene("Loading");
         }
@@ -75,7 +83,7 @@ public class UIManager_Intro : MonoBehaviour
 
     private void Restart()
     {
-        Debug.Log("다시 시작합니다");
+        ClearInventoryData();
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
@@ -99,4 +107,32 @@ public class UIManager_Intro : MonoBehaviour
         PlayerPrefs.SetFloat("LoveX", 0);
         SceneManager.LoadScene("Loading");
     } // Data Initialize
+
+    private void ClearInventoryData()
+    {
+        if (File.Exists(jsonFilePath))
+        {
+            // 파일이 존재하면 파일 내용을 읽어옵니다.
+            string jsonData = File.ReadAllText(jsonFilePath);
+
+            // JSON 데이터를 InventoryData 객체로 역직렬화합니다.
+            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
+
+            // 데이터를 삭제할 로직을 추가합니다.
+            inventoryData.itemList.Clear();
+
+            // 수정된 데이터를 다시 JSON 형식으로 직렬화합니다.
+            string updatedJsonData = JsonUtility.ToJson(inventoryData);
+
+            // 수정된 데이터를 다시 파일에 씁니다.
+            File.WriteAllText(jsonFilePath, updatedJsonData);
+
+            Debug.Log("Inventory JSON data cleared.");
+        }
+        else
+        {
+            Debug.Log("Inventory JSON file not found.");
+        }
+    }
 }
+

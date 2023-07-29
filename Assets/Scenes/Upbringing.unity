@@ -13282,6 +13282,10 @@ MonoBehaviour:
   SelectedName: {fileID: 765414216}
   SelectedInfo: {fileID: 1874953037}
   OpenImage: {fileID: 469029417}
+  H_images:
+  - {fileID: 0}
+  M_images: []
+  L_images: []
 --- !u!1 &1617218743
 GameObject:
   m_ObjectHideFlags: 0
@@ -29969,6 +29973,9 @@ MonoBehaviour:
   SelectedName: {fileID: 0}
   SelectedInfo: {fileID: 0}
   OpenImage: {fileID: 0}
+  H_images: []
+  M_images: []
+  L_images: []
 --- !u!224 &4604737870290699480
 RectTransform:
   m_ObjectHideFlags: 0

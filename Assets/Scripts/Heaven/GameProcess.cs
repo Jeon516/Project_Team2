@@ -86,35 +86,55 @@ public class GameProcess : MonoBehaviour
         SE = 80;
         AE = 20;
 
-        if (dayValue >= 1 && dayValue <= 5)
+        if (dayValue >= 1 && dayValue <= 3)
         {
-            TL = 40;
-            TR = 40;
-            R = 20;
-            SN = 80;
-            AN = 20;
-            SE = 80;
-            AE = 20;
+            TL = 45;
+            TR = 45;
+            R = 10;
+            SN = 100;
+            AN = 0;
+            SE = 100;
+            AE = 0;
         }
-        else if (dayValue >= 6 && dayValue <= 15)
+        else if (dayValue >= 4 && dayValue <= 6)
         {
-            TL--;
-            TR--;
-            R += 2;
-            SN -= 2;
-            AN += 2;
-            SE -= 2;
-            AE += 2;
+            TL = 45;
+            TR = 45;
+            R = 10;
+            SN = 90;
+            AN = 10;
+            SE = 100;
+            AE = 0;
+        }
+        else if (dayValue >= 7 && dayValue <= 9)
+        {
+            TL = 45;
+            TR = 45;
+            R = 10;
+            SN = 95;
+            AN = 5;
+            SE = 95;
+            AE = 5;
+        }
+        else if (dayValue >= 10 && dayValue <= 15)
+        {
+            TL = 46;
+            TR = 46;
+            R = 8;
+            SN -= 1;
+            AN += 1;
+            SE -= 1;
+            AE += 1;
         }
         else if (dayValue >= 16 && dayValue <= 20)
         {
-            TL = 30;
-            TR = 30;
-            R = 40;
-            SN = 60;
-            AN = 40;
-            SE = 60;
-            AE = 40;
+            TL = 47;
+            TR = 47;
+            R = 6;
+            SN -= 1;
+            AN += 1;
+            SE -= 1;
+            AE += 1;
         }
 
         LoadSetDataList();
@@ -153,6 +173,7 @@ public class GameProcess : MonoBehaviour
             Debug.LogError("JSON file not found.");
         }
     }
+
 
     private void LoadTicketImages()
     {
@@ -316,7 +337,29 @@ public class GameProcess : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
             Wrong();
+=======
+            combo = 0;
+            wrongCount++;
+            //clock.fillTimer+=2;
+        }
+        if (combo >= 1 && combo <= 4)
+        {
+            ingamegold += 100;
+        }
+        else if (combo >= 5 && combo <= 9)
+        {
+            ingamegold += 130;
+        }
+        else if (combo >= 10 && combo <= 14)
+        {
+            ingamegold += 160;
+        }
+        else
+        {
+            ingamegold += 200;
+>>>>>>> Stashed changes
         }
         Combo();
 
@@ -384,7 +427,29 @@ public class GameProcess : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
             Wrong();
+=======
+            combo = 0;
+            wrongCount++;
+            //clock.fillTimer+=2;
+        }
+        if (combo >= 1 && combo <= 4)
+        {
+            ingamegold += 100;
+        }
+        else if (combo >= 5 && combo <= 9)
+        {
+            ingamegold += 130;
+        }
+        else if (combo >= 10 && combo <= 14)
+        {
+            ingamegold += 160;
+        }
+        else
+        {
+            ingamegold += 200;
+>>>>>>> Stashed changes
         }
         Combo();
 
@@ -422,6 +487,7 @@ public class GameProcess : MonoBehaviour
         {
             if (randomColor3 == "ticket to heaven 3" && textLoader.TextValue == "바다의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_03")
             {
+<<<<<<< Updated upstream
                 Wrong();
             }
             else if (randomColor3 == "ticket to heaven 4" && textLoader.TextValue == "행운의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_04")
@@ -439,9 +505,39 @@ public class GameProcess : MonoBehaviour
             else if (randomColor3 == "ticket to heaven 8" && textLoader.TextValue == "과일의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_08")
             {
                 Wrong();
+=======
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 4" && textLoader.TextValue == "행운의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_04")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 6" && textLoader.TextValue == "간식의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_06")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 7" && textLoader.TextValue == "자연의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_07")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 8" && textLoader.TextValue == "과일의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_08")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+>>>>>>> Stashed changes
             }
             else if (randomColor3 == "ticket to heaven 9" && textLoader.TextValue == "미용의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_09")
             {
+<<<<<<< Updated upstream
                 Wrong();
             }
             else if (randomColor3 == "ticket to heaven 13" && textLoader.TextValue == "겨울의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_13")
@@ -459,6 +555,35 @@ public class GameProcess : MonoBehaviour
             else if (randomColor3 == "ticket to heaven 35" && textLoader.TextValue == "도서의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_35")
             {
                 Wrong();
+=======
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 13" && textLoader.TextValue == "겨울의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_13")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 15" && textLoader.TextValue == "별빛의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_15")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 21" && textLoader.TextValue == "모험의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_21")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 35" && textLoader.TextValue == "도서의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_35")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+>>>>>>> Stashed changes
             }
             else
             {
@@ -469,6 +594,7 @@ public class GameProcess : MonoBehaviour
         {
             if (randomColor3 == "ticket to heaven 3" && textLoader.TextValue == "바다의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_03")
             {
+<<<<<<< Updated upstream
                 Wrong();
             }
             else if (randomColor3 == "ticket to heaven 4" && textLoader.TextValue == "행운의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_04")
@@ -486,9 +612,39 @@ public class GameProcess : MonoBehaviour
             else if (randomColor3 == "ticket to heaven 8" && textLoader.TextValue == "과일의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_08")
             {
                 Wrong();
+=======
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 4" && textLoader.TextValue == "행운의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_04")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 6" && textLoader.TextValue == "간식의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_06")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 7" && textLoader.TextValue == "자연의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_07")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 8" && textLoader.TextValue == "과일의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_08")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+>>>>>>> Stashed changes
             }
             else if (randomColor3 == "ticket to heaven 9" && textLoader.TextValue == "미용의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_09")
             {
+<<<<<<< Updated upstream
                 Wrong();
             }
             else if (randomColor3 == "ticket to heaven 13" && textLoader.TextValue == "겨울의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_13")
@@ -506,6 +662,35 @@ public class GameProcess : MonoBehaviour
             else if (randomColor3 == "ticket to heaven 35" && textLoader.TextValue == "도서의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_35")
             {
                 Wrong();
+=======
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 13" && textLoader.TextValue == "겨울의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_13")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 15" && textLoader.TextValue == "별빛의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_15")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 21" && textLoader.TextValue == "모험의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_21")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+            }
+            else if (randomColor3 == "ticket to heaven 35" && textLoader.TextValue == "도서의" && emblemLoader.emblempng == "FantasyEmblem3_256_B_35")
+            {
+                combo = 0;
+                wrongCount++;
+                //clock.fillTimer+=2;
+>>>>>>> Stashed changes
             }
             else
             {
@@ -514,7 +699,28 @@ public class GameProcess : MonoBehaviour
         }
         else
         {
+<<<<<<< Updated upstream
             Correct();
+=======
+            combo++;
+            correct++;
+        }
+        if (combo >= 1 && combo <= 4)
+        {
+            ingamegold += 100;
+        }
+        else if (combo >= 5 && combo <= 9)
+        {
+            ingamegold += 130;
+        }
+        else if (combo >= 10 && combo <= 14)
+        {
+            ingamegold += 160;
+        }
+        else
+        {
+            ingamegold += 200;
+>>>>>>> Stashed changes
         }
         Combo();
 

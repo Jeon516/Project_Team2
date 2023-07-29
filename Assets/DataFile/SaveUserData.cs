@@ -15,26 +15,32 @@ public class SaveUserData : MonoBehaviour
         filePath = "UserData"; // The file name without extension since it's in the Resources folder
         saveButton.onClick.AddListener(SaveData);
     }
+    private void OnInputValueChanged(string newText)
+    {
+        newText = newText.Replace(" ", "");
+        if(newText != null)
+        {
+            inputField.text = newText;
+        }
+    }
 
     private void SaveData()
     {
         AudioManager.Instance.PlaySFX("ButtonClick"); //Play SFX
 
-        // Load existing data if available
         UserData userData = LoadData();
 
-        // Update data with new input
         if (userData != null)
         {
-            userData.name = inputField.text;
+            if(inputField.text != null)
+                {
 
-            // Convert to JSON
-            string jsonData = JsonUtility.ToJson(userData);
-
-            // Save data to file
-            File.WriteAllText(Path.Combine(Application.dataPath, "Resources/UserData.json"), jsonData);
-
-            Debug.Log("Data saved to: " + filePath);
+                    OnInputValueChanged(inputField.text);
+                    userData.name = inputField.text;
+                    string jsonData = JsonUtility.ToJson(userData);
+                    File.WriteAllText(Path.Combine(Application.dataPath, "Resources/UserData.json"), jsonData);
+                    Debug.Log("Data saved to: " + filePath);
+                }
         }
         else
         {

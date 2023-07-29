@@ -24,7 +24,7 @@ public class InvenData
 public class Inventory
 {
     public List<InvenData> itemList = new List<InvenData>();
-    public string usingItem;
+    public string usingItemText;
 }
 
 public class InventoryManager : MonoBehaviour
@@ -38,12 +38,11 @@ public class InventoryManager : MonoBehaviour
     public Button noButton;
     public string jsonFilePath = "InventoryData"; // Removed the directory part of the path
 
-    private int firstStatType;
-    private int secondStatType;
-    private int firstStatValue;
-    private int secondStatValue;
-
     private Inventory inventoryData;
+    private int FirstStatType;
+    private int SecondStatType;
+    private int FirstStatValue;
+    private int SecondStatValue;
 
     void OnEnable()
     {
@@ -109,10 +108,6 @@ public class InventoryManager : MonoBehaviour
             {
                 InvenData item = inventoryData.itemList[i];
                 string imagePath = "Image/Food/" + item.myClass + "/" + item.imageName;
-                firstStatType = item.firstStatType;
-                firstStatValue = item.firstStatValue;
-                secondStatType = item.secondStatType;
-                secondStatValue = item.secondStatValue;
                 Sprite sprite = Resources.Load<Sprite>(imagePath);
                 if (sprite != null)
                 {
@@ -144,7 +139,7 @@ public class InventoryManager : MonoBehaviour
         if (index >= 0 && index < uiImageList.Count)
         {
             InvenData item = inventoryData.itemList[index];
-            inventoryData.usingItem = item.itemName; // Set the currently selected item's name
+            inventoryData.usingItemText = item.itemName; // Set the currently selected item's name
 
             string imagePath = "Image/Food/" + item.myClass + "/" + item.imageName;
             Sprite sprite = Resources.Load<Sprite>(imagePath);
@@ -158,6 +153,11 @@ public class InventoryManager : MonoBehaviour
                 // If the sprite is not found, you may want to display a default image here.
             }
 
+            FirstStatType=item.firstStatType;
+            FirstStatValue = item.firstStatValue;
+            SecondStatType = item.secondStatType;
+            SecondStatValue = item.secondStatValue;
+
             // Update the UI item text based on the selected item
             UpdateUIItemText();
         }
@@ -165,31 +165,29 @@ public class InventoryManager : MonoBehaviour
         {
             // If the clicked index is out of range, reset the selected item
             uiItemImage.sprite = null;
-            inventoryData.usingItem = string.Empty;
+            inventoryData.usingItemText = string.Empty;
             UpdateUIItemText();
         }
     }
 
     private void OnYesButtonClicked()
     {
-        inventoryData.usingItem = string.Empty;
+        inventoryData.usingItemText = string.Empty;
         UpdateUI();
         StatChange();
-        Debug.Log(firstStatType + "에서 " + firstStatValue + "만큼 증가하였습니다");
-        Debug.Log(secondStatType + "에서 " + secondStatValue + "만큼 증가하였습니다");
     }
 
     private void OnNoButtonClicked()
     {
-        inventoryData.usingItem = string.Empty;
+        inventoryData.usingItemText = string.Empty;
         UpdateUI();
     }
 
     private void UpdateUIItemText()
     {
-        if (!string.IsNullOrEmpty(inventoryData.usingItem))
+        if (!string.IsNullOrEmpty(inventoryData.usingItemText))
         {
-            InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItem);
+            InvenData item = inventoryData.itemList.Find(x => x.itemName == inventoryData.usingItemText);
             if (item != null)
             {
                 uiItemTextComponent.text = item.itemText;
@@ -207,13 +205,13 @@ public class InventoryManager : MonoBehaviour
 
     private void StatChange()
     {
-        int[] StatType = { firstStatType, secondStatType };
-        int[] StatValue = { firstStatValue, secondStatValue };
+        int[] StatType = { FirstStatType, SecondStatType };
+        int[] StatValue = { FirstStatValue, SecondStatValue };
         //data connect
 
         for (int i = 0; i < 2; i++)
         {
-            Debug.Log(StatType[i]);
+            Debug.Log(StatType[i]+"이 "+StatValue[i]+"만큼 늘어났습니다.");
             if (StatType[i] == 101)
             {
                 if (StatValue[i] > 0)
@@ -311,7 +309,7 @@ public class InventoryManager : MonoBehaviour
             }
             else if (StatType[i] == 106)
             {
-                PlayerPrefs.SetInt("ActionNum", PlayerPrefs.GetInt("ActionNum") + firstStatValue);
+                PlayerPrefs.SetInt("ActionNum", PlayerPrefs.GetInt("ActionNum") + StatValue[i]);
             }
         }
     }

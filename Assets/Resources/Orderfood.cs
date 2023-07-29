@@ -138,6 +138,9 @@ public class Orderfood : MonoBehaviour
                 imageName = selectedLevelItem.imageName
             };
 
+            Debug.Log(selectedLevelItem.firstStatType + "이 "+selectedLevelItem.firstStatValue + "만큼 늘어날 수 있습니다.");
+            Debug.Log(selectedLevelItem.secondStatType + "이 " + selectedLevelItem.secondStatValue + "만큼 늘어날 수 있습니다.");
+
             // Update the inventory data
             UpdateInventory(newItemInfo);
         }

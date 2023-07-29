@@ -75,8 +75,8 @@ public class UIManager_Intro : MonoBehaviour
 
     private void Restart()
     {
-
-        PlayerPrefs.SetInt("Day", 0);
+        Debug.Log("다시 시작합니다");
+        PlayerPrefs.SetInt("Day", 2);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
         PlayerPrefs.SetInt("IsHeaven", 1);

@@ -84,7 +84,7 @@ public class UIManager_Intro : MonoBehaviour
     private void Restart()
     {
         ClearInventoryData();
-        PlayerPrefs.SetInt("Day", 0);
+        PlayerPrefs.SetInt("Day", 9);
         PlayerPrefs.SetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("Gold", 100000);
         PlayerPrefs.SetInt("IsHeaven", 1);

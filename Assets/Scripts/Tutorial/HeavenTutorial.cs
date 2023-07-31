@@ -20,6 +20,14 @@ public class HeavenTutorial : MonoBehaviour
     private int Day;
     private bool IsClick = true;
 
+    public Image GetColorImage;
+    public Image GetEnblem;
+    public Text GetText;
+
+    public Image SetColorImage;
+    public Image SetEnblem;
+    public Text SetText;
+
     private string[] Chat = {  "앞에 있는 버튼을 누르면 업무를 시작하게 됩니다. 한 번 눌러보시겠어요?", 
         "저기 티켓과 열차가 보이시죠? 저희가 해야 할 일은 열차에 탑승할 강아지의 티켓이 열차의 정보와 일치하는지 확인하고 안내하는 일입니다.",
     "왼쪽 열차의 티켓이면 왼쪽을 터치하고,", "오른쪽 열차의 티켓이면 오른쪽을 터치하면 됩니다.", 
@@ -37,6 +45,9 @@ public class HeavenTutorial : MonoBehaviour
         if (Day == 1)
         {
             gameObject.SetActive(true);
+            SetColorImage.sprite = GetColorImage.sprite;
+            SetEnblem.sprite = GetEnblem.sprite;
+            SetText.text = GetText.text;
             StartButton.interactable=false;
         }
         else

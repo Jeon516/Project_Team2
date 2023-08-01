@@ -44,9 +44,9 @@ public class InteractionManager : MonoBehaviour
         Middle = Random.Range(30, 60);
         High = Random.Range(60, 90);
 
-        LowInteractionText.text = InteractionData[Low]+"\n재화 1000 소모";
-        MiddleInteractionText.text = InteractionData[Middle] + "\n재화 2000 소모";
-        HighInteractionText.text = InteractionData[High] + "\n재화 3000 소모";
+        LowInteractionText.text = InteractionData[Low];
+        MiddleInteractionText.text = InteractionData[Middle];
+        HighInteractionText.text = InteractionData[High];
 
         LowFlavor = FlavorData[Low];
         MiddleFlavor = FlavorData[Middle];

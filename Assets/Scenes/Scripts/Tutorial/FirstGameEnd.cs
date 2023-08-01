@@ -6,9 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class FirstGameEnd : MonoBehaviour
 {
+    public Text NameText;
     public Text ChatText;
+    public GameObject GhostImage;
     private int order;
     private int Day;
+    private string PlayerName;
+    private Color PlayerNameColor;
+    private Color PlayerChatColor;
+    private Color JayNameColor;
+    private Color JayChatColor;
 
     private string[] Chat = {  "수고하셨습니다! \n 적응이 빠르시네요!",
         "(관리소를 나오니 작은 유령이 \n나를 빼꼼 훔쳐보고 있다.)",
@@ -25,13 +32,19 @@ public class FirstGameEnd : MonoBehaviour
     {
         Day = PlayerPrefs.GetInt("Day");
         PlayerPrefs.SetInt("Day", Day);
+        PlayerName = PlayerPrefs.GetString("Player");
+
+        PlayerNameColor = new Color32(47, 110, 255, 255);
+        PlayerChatColor = new Color32(50, 50, 50, 255);
+        JayNameColor = new Color32(84, 84, 84, 255);
+        JayChatColor = new Color32(123, 123, 123, 255);
     }
 
     private void Start()
     {
-        Debug.Log(Day);
         if (Day%20 == 1 && Day/20==0)
         {
+            NameText.text = "제이";
             gameObject.SetActive(true);
             ChatText.text = Chat[0];
             order = 1;
@@ -47,7 +60,32 @@ public class FirstGameEnd : MonoBehaviour
             gameObject.SetActive(false);
             SceneManager.LoadScene("Upbringing");
         }
-        if (Input.GetMouseButtonDown(0) && Chat.Length > order)
+        else if (Input.GetMouseButtonDown(0) && (order == 3 || order == 7))
+        {
+            GhostImage.SetActive(true);
+            NameText.text = "제이";
+            ChatText.text = Chat[order];
+            NameText.color = JayNameColor;
+            ChatText.color = JayChatColor;
+            order++;
+        }
+        else if (Input.GetMouseButtonDown(0) && (order == 2||order==6))
+        {
+            GhostImage.SetActive(true);
+            NameText.text = PlayerName;
+            ChatText.text = Chat[order];
+            NameText.color = PlayerNameColor;
+            ChatText.color = PlayerChatColor;
+            order++;
+        }
+        else if (Input.GetMouseButtonDown(0) && (order==1|| order == 8))
+        {
+            GhostImage.SetActive(true);
+            NameText.text = "";
+            ChatText.text = Chat[order];
+            order++;
+        }
+        else if (Input.GetMouseButtonDown(0) && Chat.Length > order)
         {
             ChatText.text = Chat[order];
             order++;

@@ -31,7 +31,7 @@ public class UpbringingShopTutorial : MonoBehaviour
             FreeButton.SetActive(true);
             Block[0].SetActive(false);
             order++;
-            ChatTransform.anchoredPosition = new Vector2(0, -360);
+            //ChatTransform.anchoredPosition = new Vector2(0, -360);
         }
     }
 
@@ -58,6 +58,7 @@ public class UpbringingShopTutorial : MonoBehaviour
     }
     public void Onclick_YesButton()
     {
+        QuestioinTutorial.SetActive(false);
         CancelButton.SetActive(false);
         StartCoroutine(Wait());
     }

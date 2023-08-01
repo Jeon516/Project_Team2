@@ -31,6 +31,8 @@ public class CollectedDog : MonoBehaviour
 
     public GameObject[] Selected;
     public Image[] SelectedImage;
+    public Text SelectedText;
+    public Text SelectedNameText;
 
     private void Awake()
     {
@@ -56,6 +58,24 @@ public class CollectedDog : MonoBehaviour
         {
             OnClick_CollectDog();
             UnlockDogInformation();
+        }
+    }
+
+    public void OnClick_SelectDog()
+    {
+        for (int i = 0; i < 33; i++)
+        {
+            if (Selected[i].activeSelf)
+            {
+                for (int j = 0; j < CollectedDogDatas.collectedDogData.Count; j++)
+                {
+                    if (SelectedImage[i].sprite.name == CollectedDogDatas.collectedDogData[j].DogImageName)
+                    {
+                        SelectedText.text = CollectedDogDatas.collectedDogData[j].DogInformation;
+                        SelectedNameText.text = CollectedDogDatas.collectedDogData[j].DogName;
+                    }
+                }
+            }
         }
     }
 

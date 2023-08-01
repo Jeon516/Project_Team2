@@ -7,6 +7,7 @@ using System;
 public class HeavenTutorial : MonoBehaviour
 {
     public RectTransform ChatTransform;
+    public RectTransform NameTransform;
     public Text ChatText;
     public Button StartButton;
 
@@ -67,6 +68,7 @@ public class HeavenTutorial : MonoBehaviour
         {
             StartButton.interactable = true;
             TutorialChat.SetActive(false);
+            ModifyTextRectTransform(-585, 120, 500, 200);
         }
         else if (Input.GetMouseButtonDown(0) && order == 2 && IsClick)
         {
@@ -74,6 +76,7 @@ public class HeavenTutorial : MonoBehaviour
             for (int i=0;i<4; i++)
                 TutorialInformation[i].SetActive(true);
             ModifyRectTransform(485,-296,900,700);
+            ModifyTextRectTransform(-290, 105, 500, 200);
             ChatDisplay();
         }
         else if (Input.GetMouseButtonDown(0) && order == 3 && IsClick)
@@ -90,7 +93,8 @@ public class HeavenTutorial : MonoBehaviour
             for (int i = 4; i < 6; i++)
                 TutorialInformation[i].SetActive(false);
             TutorialInformation[6].SetActive(true);
-            ModifyRectTransform(0, 53, 1500, 800);
+            ModifyRectTransform(0, 53, 1800, 800);
+            ModifyTextRectTransform(-590, 120, 500, 200);
             ChatDisplay();
         }
         else if (Input.GetMouseButtonDown(0) && order == 5 && IsClick)
@@ -99,14 +103,14 @@ public class HeavenTutorial : MonoBehaviour
                 TutorialInformation[i].SetActive(true);
             TutorialInformation[1].SetActive(false);
             TutorialInformation[6].SetActive(false);
-            ModifyRectTransform(0, -296, 1500, 800);
+            ModifyRectTransform(0, -250, 1800, 800);
             ChatDisplay();
         }
         else if (Input.GetMouseButtonDown(0) && order == 6 && IsClick)
         {
             for (int i = 1; i < 9; i++)
                 TutorialInformation[i].SetActive(false);
-            ModifyRectTransform(0, -296, 1500, 800);
+            ModifyRectTransform(0, -250, 1800, 800);
             ChatDisplay();
         }
     }
@@ -141,5 +145,12 @@ public class HeavenTutorial : MonoBehaviour
         // Width, Height, Pos X, Pos Y 변경
         ChatTransform.sizeDelta = new Vector2(width, height);
         ChatTransform.anchoredPosition = new Vector2(x, y);
+    }
+
+    private void ModifyTextRectTransform(int x, int y, int width, int height)
+    {
+        // Width, Height, Pos X, Pos Y 변경
+        NameTransform.sizeDelta = new Vector2(width, height);
+        NameTransform.anchoredPosition = new Vector2(x, y);
     }
 }

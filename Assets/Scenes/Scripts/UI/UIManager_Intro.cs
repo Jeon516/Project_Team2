@@ -12,6 +12,7 @@ public class UIManager_Intro : MonoBehaviour
     public GameObject NewQuestion;
     public GameObject NoData;
     private string jsonFilePath;
+    private string PlayerName;
     private int Day;
     private int IsHeaven;
 
@@ -21,6 +22,8 @@ public class UIManager_Intro : MonoBehaviour
         PlayerPrefs.SetInt("Day", Day);
         IsHeaven = PlayerPrefs.GetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
+        PlayerName = PlayerPrefs.GetString("Player", "플레이어");
+        PlayerPrefs.SetString("Player", PlayerName);
     }
     private void Start()
     {

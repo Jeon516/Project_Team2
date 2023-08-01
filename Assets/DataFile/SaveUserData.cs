@@ -9,9 +9,12 @@ public class SaveUserData : MonoBehaviour
     public Button saveButton;
 
     private string filePath;
+    private string PlayerName;
 
     private void Awake()
     {
+        PlayerName = PlayerPrefs.GetString("Player", "플레이어");
+        PlayerPrefs.SetString("Player", PlayerName);
         filePath = "UserData"; // The file name without extension since it's in the Resources folder
         saveButton.onClick.AddListener(SaveData);
     }
@@ -37,6 +40,7 @@ public class SaveUserData : MonoBehaviour
 
                     OnInputValueChanged(inputField.text);
                     userData.name = inputField.text;
+                    PlayerPrefs.SetString("Player", inputField.text);
                     string jsonData = JsonUtility.ToJson(userData);
                     File.WriteAllText(Path.Combine(Application.dataPath, "Resources/UserData.json"), jsonData);
                     Debug.Log("Data saved to: " + filePath);

@@ -5341,7 +5341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.51337683, g: 0.103462085, b: 0.7075472, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5349,8 +5349,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 4d533ae9cd87c2c4c8b497d1e26298b1, type: 3}
-    m_FontSize: 45
+    m_Font: {fileID: 12800000, guid: daa379680a6501c4f9f3896aaa3310b6, type: 3}
+    m_FontSize: 50
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -30321,7 +30321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdab02ea1a3f23649b67fc35603e15e9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ec3e5d05459fd734995b8de9a513cb28, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -35422,7 +35422,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uC774\uB300\uB85C \uC9C4\uD589\uD558\uACA0\uC2B5\uB2C8\uAE84?"
+  m_Text: "\uC774\uB300\uB85C \uC9C4\uD589\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE84?"
 --- !u!222 &5227927274999133661
 CanvasRenderer:
   m_ObjectHideFlags: 0

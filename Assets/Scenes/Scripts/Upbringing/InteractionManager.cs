@@ -44,6 +44,8 @@ public class InteractionManager : MonoBehaviour
         Middle = Random.Range(30, 60);
         High = Random.Range(60, 90);
 
+
+        Debug.Log(InteractionData[Low]);
         LowInteractionText.text = InteractionData[Low];
         MiddleInteractionText.text = InteractionData[Middle];
         HighInteractionText.text = InteractionData[High];

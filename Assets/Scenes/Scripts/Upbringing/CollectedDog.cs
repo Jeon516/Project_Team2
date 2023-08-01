@@ -29,6 +29,9 @@ public class CollectedDog : MonoBehaviour
     private string SelectedDogInformation;
     private string SelectedDogImage;
 
+    public GameObject[] Selected;
+    public Image[] SelectedImage;
+
     private void Awake()
     {
         CollectEnergy = PlayerPrefs.GetInt("Energy");

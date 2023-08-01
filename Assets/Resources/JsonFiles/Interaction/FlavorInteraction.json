@@ -417,7 +417,7 @@
       "Value": "중",
       "NUM": 59,
       "Interaction": "같이 동물농장 시청하기",
-      "Conversation": "야옹이다! 히익... 사자? \동물농장이 공포영화였어?",
+      "Conversation": "야옹이다! 히익... 사자? \n동물농장이 공포영화였어?",
       "Favor": 10
     },
     {
@@ -522,7 +522,7 @@
       "Value": "상",
       "NUM": 74,
       "Interaction": "닭다리 모양 삑삑이 선물해주기",
-      "Conversation": "츄릅...인형에서 닭고기 냄새! \n이런건 어디서 구한거야?"
+      "Conversation": "츄릅...인형에서 닭고기 냄새! \n이런건 어디서 구한거야?",
       "Favor": 15
     },
     {
@@ -536,14 +536,14 @@
       "Value": "상",
       "NUM": 76,
       "Interaction": "닭삑삑이 선물해주기",
-      "Conversation": "꾸엑! 꾸엑! \n닭이 막 소리를 질러"
+      "Conversation": "꾸엑! 꾸엑! \n닭이 막 소리를 질러",
       "Favor": 15
     },
     {
       "Value": "상",
       "NUM": 77,
       "Interaction": "천국 도그 어질리티 연습하기",
-      "Conversation": "슉슉슉 더 빨리 뛰어야지! \n유령 신기록을 세울거야!"
+      "Conversation": "슉슉슉 더 빨리 뛰어야지! \n유령 신기록을 세울거야!",
       "Favor": 15
     },
     {
@@ -557,21 +557,21 @@
       "Value": "상",
       "NUM": 79,
       "Interaction": "천국 강아지 놀이터 놀러가기",
-      "Conversation": "구름 시소 타고 놀자! \n아니다, 별똥별 미끄럼틀부터!"
+      "Conversation": "구름 시소 타고 놀자! \n아니다, 별똥별 미끄럼틀부터!",
       "Favor": 15
     },
     {
       "Value": "상",
       "NUM": 80,
       "Interaction": "천국 강아지 놀이공원 가기",
-      "Conversation": "대관람차에서 보는 천국 풍경! \n너어무 이쁘다아~ 여기가 진짜 천국이야!"
+      "Conversation": "대관람차에서 보는 천국 풍경! \n너어무 이쁘다아~ 여기가 진짜 천국이야!",
       "Favor": 15
     },
     {
       "Value": "상",
       "NUM": 81,
       "Interaction": "천국 바다 가기",
-      "Conversation": "반짝반짝 모래알이 내 코에 다 묻었어! \n헤헤 재밌다"
+      "Conversation": "반짝반짝 모래알이 내 코에 다 묻었어! \n헤헤 재밌다",
       "Favor": 15
     },
     {

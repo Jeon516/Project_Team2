@@ -14163,6 +14163,74 @@ MonoBehaviour:
   ShowDogImage: {fileID: 1420575080}
   ShowDogName: {fileID: 1759007792}
   ShowDogInformation: {fileID: 198278220}
+  Selected:
+  - {fileID: 1381705695}
+  - {fileID: 41551129}
+  - {fileID: 1764534519}
+  - {fileID: 341063405}
+  - {fileID: 923342949}
+  - {fileID: 843025065}
+  - {fileID: 991137271}
+  - {fileID: 1174227055}
+  - {fileID: 1658221494}
+  - {fileID: 1253588070}
+  - {fileID: 1800880764}
+  - {fileID: 1357246512}
+  - {fileID: 492271621}
+  - {fileID: 1963712047}
+  - {fileID: 1836141500}
+  - {fileID: 1634136685}
+  - {fileID: 2109532425}
+  - {fileID: 1131166523}
+  - {fileID: 1615021310}
+  - {fileID: 825544286}
+  - {fileID: 861628217}
+  - {fileID: 1504368645}
+  - {fileID: 294095546}
+  - {fileID: 1350539996}
+  - {fileID: 381105170}
+  - {fileID: 987227508}
+  - {fileID: 259046507}
+  - {fileID: 1209792707}
+  - {fileID: 2091881795}
+  - {fileID: 778650855}
+  - {fileID: 590731823}
+  - {fileID: 1982270148}
+  - {fileID: 1009642454}
+  SelectedImage:
+  - {fileID: 24711649}
+  - {fileID: 650230050}
+  - {fileID: 1768209604}
+  - {fileID: 1123635294}
+  - {fileID: 1531969689}
+  - {fileID: 333091228}
+  - {fileID: 726699494}
+  - {fileID: 263846486}
+  - {fileID: 1329318449}
+  - {fileID: 1288071204}
+  - {fileID: 1421233948}
+  - {fileID: 430322791}
+  - {fileID: 693649858}
+  - {fileID: 1839801672}
+  - {fileID: 1789725893}
+  - {fileID: 129297091}
+  - {fileID: 267411635}
+  - {fileID: 770760137}
+  - {fileID: 1104159401}
+  - {fileID: 886685655}
+  - {fileID: 842614596}
+  - {fileID: 1301767250}
+  - {fileID: 83318287}
+  - {fileID: 1728984913}
+  - {fileID: 195950942}
+  - {fileID: 1819021579}
+  - {fileID: 1667513428}
+  - {fileID: 449678092}
+  - {fileID: 181272816}
+  - {fileID: 1623247213}
+  - {fileID: 140813421}
+  - {fileID: 72152591}
+  - {fileID: 492596158}
 --- !u!114 &1610893776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25581,6 +25649,10 @@ PrefabInstance:
     - target: {fileID: 8971251809992494725, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8982058042457870371, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9028104109110552493, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
       propertyPath: m_IsActive

@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.IO;
 using System;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class CollectedDog : MonoBehaviour
 {
@@ -28,12 +29,28 @@ public class CollectedDog : MonoBehaviour
     private string SelectedDogName;
     private string SelectedDogInformation;
     private string SelectedDogImage;
+    // 스탯 계산 후 강아지
 
     public GameObject[] Selected;
     public Image[] SelectedImage;
     public Text SelectedText;
     public Text SelectedNameText;
+    //도감
 
+    public GameObject ChatInformation;
+    public GameObject BlackScreen;
+    public GameObject DogInformation;
+    public Text ChatText;
+    private int order = 0;
+
+    public static CollectedDog Instance { get; private set; } = null;
+
+    public void LastEvent()
+    {
+        BlackScreen.SetActive(true);
+        ChatText.text = "(유령을 돌본지 벌써 20일이 되었다.\n이제 떠나보낼 준비를 해야 할 것 같다.)";
+        order++;
+    }
     private void Awake()
     {
         CollectEnergy = PlayerPrefs.GetInt("Energy");
@@ -41,6 +58,8 @@ public class CollectedDog : MonoBehaviour
         CollectDeliberation = PlayerPrefs.GetInt("Deliberation");
         CollectCuriosoty = PlayerPrefs.GetInt("Curiosoty");
         CollectLove = PlayerPrefs.GetInt("Love");
+
+        Instance = this;
     }
     // Start is called before the first frame update
     void Start()
@@ -58,6 +77,49 @@ public class CollectedDog : MonoBehaviour
         {
             OnClick_CollectDog();
             UnlockDogInformation();
+        }
+        if(Input.GetMouseButtonDown(0) && order==1)
+        {
+            bool Check = false;
+            ShowScreen.SetActive(true);
+            CalculateProbability();
+            for (int i=0;i< CollectedDogDatas.collectedDogData.Count;i++)
+            {
+                if(CollectedDogDatas.collectedDogData[i].DogName== collectDogDataList.dogs[selectedDogIndex].Name)
+                {
+                    ChatText.text = "(눈을 떠보니 전에도 본 듯한 강아지가 나를 지켜보고 있다.)";
+                    Check = true;
+                    break;
+                }
+            }
+
+            if(!Check)
+            {
+                ChatText.text = "(눈을 떠보니 처음 보는 강아지가 나를 지켜보고 있다.)";
+            }
+            order++;
+        }
+        else if(Input.GetMouseButtonDown(0) && order == 2)
+        {
+            DogInformation.SetActive(true);
+            ChatInformation.SetActive(false);
+            OnClick_CollectDog();
+            order++;
+        }
+        else if (Input.GetMouseButtonDown(0) && order == 3)
+        {
+            UpbringingGameManager.Instance.StartCoroutine(LoadingScene());
+        }
+    }
+
+    public IEnumerator LoadingScene()
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
+
+        while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
+        {
+            yield return new WaitForSeconds(0.1f);
+            gameObject.SetActive(false);
         }
     }
 
@@ -77,7 +139,7 @@ public class CollectedDog : MonoBehaviour
                 }
             }
         }
-    }
+    } //도감 설명 text를 위함
 
     private void LoadDogStat()
     {
@@ -186,8 +248,6 @@ public class CollectedDog : MonoBehaviour
 
     private void OnClick_CollectDog()
     {
-        ShowScreen.SetActive(true);
-        CalculateProbability();
         SaveDogData();
 
         ShowDogInformation.text = SelectedDogInformation;

@@ -18,7 +18,7 @@ public class UpbringingGameManager : MonoBehaviour
     public GameObject RandomQuestion;
     public GameObject InteractionQuestion;
     public GameObject NextDayQuestion;
-    public GameObject FGT; // FGT용 팝업창
+    public GameObject LastEvent; // FGT용 팝업창
 
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary
     public int[] Cal = new int[2];
@@ -67,7 +67,7 @@ public class UpbringingGameManager : MonoBehaviour
             DayText.text = (Day % 20).ToString() + "일 째";
         }
         ActionNumText.text = ActionNum.ToString();
-        FGT.SetActive(false);
+        LastEvent.SetActive(false);
     }
 
     private void Update()
@@ -107,14 +107,14 @@ public class UpbringingGameManager : MonoBehaviour
     public void OnClick_Random()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        if (ActionNum>=50)
+        if (ActionNum>=100)
             RandomQuestion.SetActive(true);
     } // RandomStat
 
     public void OnClick_Want()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        if (ActionNum>=100)
+        if (ActionNum>=150)
             Stat.SetActive(true);
     } // WantStat
 
@@ -140,11 +140,12 @@ public class UpbringingGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Interaction", 0);
                 StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
-            else if(Day==20)
+            else if(Day % 20 == 0)
             {
-                FGT.SetActive(true);
+                LastEvent.SetActive(true);
+                Day++;
                 PlayerPrefs.SetInt("Day", Day);
-                //StartCoroutine(LoadingSceneController.Instance.LoadingScene());
+                CollectedDog.Instance.LastEvent();
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }
     }

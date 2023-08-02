@@ -7476,6 +7476,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 728879931986401785, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 870126007427738691, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1107496167442481146, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7490,7 +7498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1503562306490833652, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 80
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1676337191962724763, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Sprite
@@ -7630,11 +7638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2713355504766523382, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Text
-      value: "\uAC04\uC2DD"
+      value: "\uAC04\uC2DD \uBF51\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 2713355504766523382, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 80
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 2891314632085883305, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: ShopGacha
@@ -7694,7 +7702,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8648054288191298212, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8771393061721869977, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Type
@@ -14857,7 +14865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a04a0baf01c533849a7fbfe7016e66eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4284bb261eb706b4796eef8294fbe6ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

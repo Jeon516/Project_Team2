@@ -40,8 +40,15 @@ public class CollectedDog : MonoBehaviour
     public GameObject ChatInformation;
     public GameObject BlackScreen;
     public GameObject DogInformation;
+    public GameObject GhostImage;
+    public GameObject JayImage;
+    private Color InformationChatColor;
+    private Color JayNameColor;
+    private Color JayChatColor;
     public Text ChatText;
+    public Text CharacterText;
     private int order = 0;
+    //20일차 이후의 이벤트
 
     public static CollectedDog Instance { get; private set; } = null;
 
@@ -49,6 +56,7 @@ public class CollectedDog : MonoBehaviour
     {
         BlackScreen.SetActive(true);
         ChatText.text = "(유령을 돌본지 벌써 20일이 되었다.\n이제 떠나보낼 준비를 해야 할 것 같다.)";
+        ChatText.color = InformationChatColor;
         order++;
     }
     private void Awake()
@@ -58,6 +66,12 @@ public class CollectedDog : MonoBehaviour
         CollectDeliberation = PlayerPrefs.GetInt("Deliberation");
         CollectCuriosoty = PlayerPrefs.GetInt("Curiosoty");
         CollectLove = PlayerPrefs.GetInt("Love");
+        GhostImage.SetActive(false);
+        JayImage.SetActive(false);
+
+        JayNameColor = new Color32(84, 84, 84, 255);
+        JayChatColor = new Color32(123, 123, 123, 255);
+        InformationChatColor = new Color32(50, 50, 50, 255);
 
         Instance = this;
     }
@@ -73,19 +87,19 @@ public class CollectedDog : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            OnClick_CollectDog();
-            UnlockDogInformation();
-        }
-        if(Input.GetMouseButtonDown(0) && order==1)
+        Chat();
+    }
+
+    private void Chat()
+    {
+        if (Input.GetMouseButtonDown(0) && order == 1)
         {
             bool Check = false;
             ShowScreen.SetActive(true);
             CalculateProbability();
-            for (int i=0;i< CollectedDogDatas.collectedDogData.Count;i++)
+            for (int i = 0; i < CollectedDogDatas.collectedDogData.Count; i++)
             {
-                if(CollectedDogDatas.collectedDogData[i].DogName== collectDogDataList.dogs[selectedDogIndex].Name)
+                if (CollectedDogDatas.collectedDogData[i].DogName == collectDogDataList.dogs[selectedDogIndex].Name)
                 {
                     ChatText.text = "(눈을 떠보니 전에도 본 듯한 강아지가 나를 지켜보고 있다.)";
                     Check = true;
@@ -93,13 +107,13 @@ public class CollectedDog : MonoBehaviour
                 }
             }
 
-            if(!Check)
+            if (!Check)
             {
                 ChatText.text = "(눈을 떠보니 처음 보는 강아지가 나를 지켜보고 있다.)";
             }
             order++;
         }
-        else if(Input.GetMouseButtonDown(0) && order == 2)
+        else if (Input.GetMouseButtonDown(0) && order == 2)
         {
             DogInformation.SetActive(true);
             ChatInformation.SetActive(false);
@@ -108,7 +122,53 @@ public class CollectedDog : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && order == 3)
         {
-            UpbringingGameManager.Instance.StartCoroutine(LoadingScene());
+            DogInformation.SetActive(false);
+            ChatInformation.SetActive(true);
+            ChatText.text = "(관리소의 제이에게 데려가 보자.)";
+            order++;
+            //StartCoroutine(LoadingScene());
+        }
+        else if(Input.GetMouseButtonDown(0) && order == 4)
+        {
+            CharacterText.text = "제이";
+            CharacterText.color = JayNameColor;
+            ChatText.text = "음? 그 강아지는…\n 아하! 그 유령이 기억을 찾았나 보군요 ?";
+            ChatText.color = JayChatColor;
+            JayImage.SetActive(true);
+            order++;
+        } 
+        else if(Input.GetMouseButtonDown(0) && order == 5)
+        {
+            order++;
+            ChatText.text = "돌보느라 수고하셨습니다!\n업무를 하시는 동안 이 강아지가 열차에 탈 수 있도록\n준비하겠습니다.";
+            if(UpbringingGameManager.Instance.Day/20!=1)
+            {
+                StartCoroutine(LoadingScene());
+            }
+        }
+        else if (Input.GetMouseButtonDown(0) && order == 7)
+        {
+            order++;
+            CharacterText.text = "";
+            ChatText.text = "(관리소를 나오니 제이가 작은 유령과 함께 나를 기다리고 있다.)";
+            ChatText.color = InformationChatColor;
+            GhostImage.SetActive(true);
+        }
+        else if (Input.GetMouseButtonDown(0) && order == 8)
+        {
+            order++;
+            CharacterText.text = "제이";
+            ChatText.text = "하하…눈치채셨나요? 이번에 돌봐주셔야 할 유령입니다.";
+            ChatText.color = JayChatColor;
+        }
+        else if (Input.GetMouseButtonDown(0) && order == 9)
+        {
+            order++;
+            ChatText.text = "유령이 기억을 찾게 된다면 저번처럼 관리소에 데리고 오시면 됩니다.\n그럼, 앞으로도 잘 부탁드립니다!";
+        }
+        else if(Input.GetMouseButtonDown(0) && order == 10)
+        {
+            StartCoroutine(LoadingScene());
         }
     }
 
@@ -167,6 +227,7 @@ public class CollectedDog : MonoBehaviour
     private void LoadDogCollect()
     {
         string jsonFilePath = Path.Combine(Application.persistentDataPath, "collecteddog.json");
+        Debug.Log("파일의 경로는"+jsonFilePath);
 
         if (File.Exists(jsonFilePath))
         {

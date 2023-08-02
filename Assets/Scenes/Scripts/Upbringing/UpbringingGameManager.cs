@@ -24,7 +24,7 @@ public class UpbringingGameManager : MonoBehaviour
     public int[] Cal = new int[2];
 
     public int InteractionChance;
-    private int Day;
+    public int Day;
     private int IsHeaven;
     private int IsRandomFree;
 
@@ -131,12 +131,12 @@ public class UpbringingGameManager : MonoBehaviour
         if (Yes)
         {
             AudioManager.Instance.PlaySFX("NextDay");
-            if (Day < 20)
+            if (Day %20!=0)
             {
                 Day++;
+                PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("IsRandomFree", 0);
-                PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("Interaction", 0);
                 StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
@@ -145,6 +145,9 @@ public class UpbringingGameManager : MonoBehaviour
                 LastEvent.SetActive(true);
                 Day++;
                 PlayerPrefs.SetInt("Day", Day);
+                PlayerPrefs.SetInt("IsHeaven", 1);
+                PlayerPrefs.SetInt("IsRandomFree", 0);
+                PlayerPrefs.SetInt("Interaction", 0);
                 CollectedDog.Instance.LastEvent();
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }

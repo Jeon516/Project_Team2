@@ -19,7 +19,8 @@ public class UIManager_Intro : MonoBehaviour
     private void Awake()
     {
         Day= PlayerPrefs.GetInt("Day", 0);
-        PlayerPrefs.SetInt("Day", Day);
+        //PlayerPrefs.SetInt("Day", Day);
+        PlayerPrefs.SetInt("Day", 2);
         IsHeaven = PlayerPrefs.GetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
         PlayerName = PlayerPrefs.GetString("Player", "플레이어");

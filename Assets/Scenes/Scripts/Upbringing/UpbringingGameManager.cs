@@ -19,6 +19,7 @@ public class UpbringingGameManager : MonoBehaviour
     public GameObject InteractionQuestion;
     public GameObject NextDayQuestion;
     public GameObject LastEvent; // FGT용 팝업창
+    public GameObject EndingEvent; // 엔딩 이벤트
 
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary
     public int[] Cal = new int[2];
@@ -52,6 +53,12 @@ public class UpbringingGameManager : MonoBehaviour
         PlayerPrefs.SetInt("IsRandomFree", IsRandomFree);
 
         LoadingScreen.SetActive(false);
+        EndingEvent.SetActive(false);
+
+        if(CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count==32)
+        {
+            EndingEvent.SetActive(true);
+        }
     }
     private void Start()
     {
@@ -153,9 +160,25 @@ public class UpbringingGameManager : MonoBehaviour
         }
     }
 
+    public void Onclick_Ending()
+    {
+        StartCoroutine(EndingScene());
+    }
+
     public IEnumerator LoadingScene()
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
+
+        while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
+        {
+            yield return new WaitForSeconds(0.1f);
+            gameObject.SetActive(false);
+        }
+    }
+
+    public IEnumerator EndingScene()
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync("Ending");
 
         while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {

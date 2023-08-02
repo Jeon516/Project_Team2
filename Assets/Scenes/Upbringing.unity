@@ -7409,6 +7409,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1503562306490833652, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_Text
+      value: "\uBCC4\uC870\uAC01 \uC0C1\uC810"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1503562306490833652, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 1676337191962724763, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -7545,6 +7553,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2713355504766523382, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_Text
+      value: "\uAC04\uC2DD"
+      objectReference: {fileID: 0}
+    - target: {fileID: 2713355504766523382, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 80
+      objectReference: {fileID: 0}
     - target: {fileID: 2891314632085883305, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: ShopGacha
       value: 
@@ -7589,6 +7605,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7140367103333324965, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 67ad33abbd93adf4e9a44af6c02dae8c, type: 3}
     - target: {fileID: 8445788440291975205, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_SizeDelta.y
       value: 200

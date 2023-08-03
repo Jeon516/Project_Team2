@@ -11,7 +11,9 @@ public class UIManager_Intro : MonoBehaviour
     public GameObject IntroSetting; // 환경 설정
     public GameObject NewQuestion;
     public GameObject NoData;
-    private string jsonFilePath;
+    private string InventoryjsonFilePath;
+     private string CollectedfoodjsonFilePath;
+    private string CollectedDogjsonFilePath;
     private string PlayerName;
     private int Day;
     private int IsHeaven;
@@ -19,8 +21,7 @@ public class UIManager_Intro : MonoBehaviour
     private void Awake()
     {
         Day= PlayerPrefs.GetInt("Day", 0);
-        //PlayerPrefs.SetInt("Day", Day);
-        PlayerPrefs.SetInt("Day", 2);
+        PlayerPrefs.SetInt("Day", Day);
         IsHeaven = PlayerPrefs.GetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
         PlayerName = PlayerPrefs.GetString("Player", "플레이어");
@@ -28,8 +29,9 @@ public class UIManager_Intro : MonoBehaviour
     }
     private void Start()
     {
-        string jsonFileName = "inventory.json";
-        jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+        InventoryjsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+        CollectedfoodjsonFilePath = Path.Combine(Application.persistentDataPath, "collectfood.json");
+        CollectedDogjsonFilePath = Path.Combine(Application.persistentDataPath, "collecteddog.json");
 
         AudioManager.Instance.PlayBGM("Intro");
     }
@@ -88,9 +90,12 @@ public class UIManager_Intro : MonoBehaviour
     private void Restart()
     {
         ClearInventoryData();
+        ClearCollectFoodData();
+        ClearCollectDogData();
+        PlayerPrefs.SetString("Player", "");
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 1000);
-        PlayerPrefs.SetInt("Gold", 100000);
+        PlayerPrefs.SetInt("Gold", 0);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsRandomFree", 0);
         PlayerPrefs.SetInt("Interaction", 0);
@@ -114,28 +119,58 @@ public class UIManager_Intro : MonoBehaviour
 
     private void ClearInventoryData()
     {
-        if (File.Exists(jsonFilePath))
+        if (File.Exists(InventoryjsonFilePath))
         {
-            // 파일이 존재하면 파일 내용을 읽어옵니다.
-            string jsonData = File.ReadAllText(jsonFilePath);
-
-            // JSON 데이터를 InventoryData 객체로 역직렬화합니다.
+            string jsonData = File.ReadAllText(InventoryjsonFilePath);
             InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
-
-            // 데이터를 삭제할 로직을 추가합니다.
             inventoryData.itemList.Clear();
 
-            // 수정된 데이터를 다시 JSON 형식으로 직렬화합니다.
             string updatedJsonData = JsonUtility.ToJson(inventoryData);
-
-            // 수정된 데이터를 다시 파일에 씁니다.
-            File.WriteAllText(jsonFilePath, updatedJsonData);
+            File.WriteAllText(InventoryjsonFilePath, updatedJsonData);
 
             Debug.Log("Inventory JSON data cleared.");
         }
         else
         {
             Debug.Log("Inventory JSON file not found.");
+        }
+    }
+
+    private void ClearCollectFoodData()
+    {
+        if (File.Exists(CollectedfoodjsonFilePath))
+        {
+            string jsonData = File.ReadAllText(CollectedfoodjsonFilePath);
+            Food CollectionFoodData = JsonUtility.FromJson<Food>(jsonData);
+            CollectionFoodData.foods.Clear();
+
+            string updatedJsonData = JsonUtility.ToJson(CollectionFoodData);
+            File.WriteAllText(CollectedfoodjsonFilePath, updatedJsonData);
+
+            Debug.Log("CollectionFood JSON data cleared.");
+        }
+        else
+        {
+            Debug.Log("CollectionFood JSON file not found.");
+        }
+    }
+
+    private void ClearCollectDogData()
+    {
+        if (File.Exists(InventoryjsonFilePath))
+        {
+            string jsonData = File.ReadAllText(InventoryjsonFilePath);
+            CollectedDogData CollectionDogData = JsonUtility.FromJson<CollectedDogData>(jsonData);
+            CollectionDogData.collectedDogData.Clear();
+
+            string updatedJsonData = JsonUtility.ToJson(CollectionDogData);
+            File.WriteAllText(InventoryjsonFilePath, updatedJsonData);
+
+            Debug.Log("CollectionDog JSON data cleared.");
+        }
+        else
+        {
+            Debug.Log("CollectionDog JSON file not found.");
         }
     }
 }

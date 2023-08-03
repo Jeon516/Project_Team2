@@ -94,7 +94,7 @@ public class UIManager_Intro : MonoBehaviour
         ClearCollectDogData();
         PlayerPrefs.SetString("Player", "");
         PlayerPrefs.SetInt("Day", 0);
-        PlayerPrefs.SetInt("ActionNum", 1000);
+        PlayerPrefs.SetInt("ActionNum", 0);
         PlayerPrefs.SetInt("Gold", 0);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsRandomFree", 0);
@@ -157,14 +157,14 @@ public class UIManager_Intro : MonoBehaviour
 
     private void ClearCollectDogData()
     {
-        if (File.Exists(InventoryjsonFilePath))
+        if (File.Exists(CollectedDogjsonFilePath))
         {
-            string jsonData = File.ReadAllText(InventoryjsonFilePath);
+            string jsonData = File.ReadAllText(CollectedDogjsonFilePath);
             CollectedDogData CollectionDogData = JsonUtility.FromJson<CollectedDogData>(jsonData);
             CollectionDogData.collectedDogData.Clear();
 
             string updatedJsonData = JsonUtility.ToJson(CollectionDogData);
-            File.WriteAllText(InventoryjsonFilePath, updatedJsonData);
+            File.WriteAllText(CollectedDogjsonFilePath, updatedJsonData);
 
             Debug.Log("CollectionDog JSON data cleared.");
         }

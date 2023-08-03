@@ -25,7 +25,10 @@ public class UI_InventoryInformation : MonoBehaviour
     {
         FoodImage.GetComponent<Image>().sprite = null;
         FoodText.text = "";
-        FoodNameText.text = "";
+        if(FoodNameText)
+        {
+            FoodNameText.text = "";
+        }
     } // 이미지 없애기 및 텍스트 없애기
 
 }

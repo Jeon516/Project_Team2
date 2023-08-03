@@ -505,7 +505,7 @@ public class Orderfood : MonoBehaviour
         }
     }
 
-    private void Onclick_CollectFood()
+    public void Onclick_CollectFood()
     {
         for (int i = 0; i < 110; i++)
         {
@@ -515,6 +515,7 @@ public class Orderfood : MonoBehaviour
                 {
                     if (SelectedImage[i].sprite.name == foodList.foods[j].Image)
                     {
+                        Debug.Log(i);
                         ShowDogName.text = foodList.foods[j].Name;
                         ShowDogInformation.text = foodList.foods[j].Info;
                     }
@@ -572,8 +573,8 @@ public class Orderfood : MonoBehaviour
                     ItemDataList itemList = JsonUtility.FromJson<ItemDataList>(jsonData);
                     LoadFixedItem(itemList);
                     SaveInventoryToJson();
-                    SaveFoodData();
                     UpdateUI();
+                    SaveFoodData();
                 }
                 else
                 {
@@ -604,6 +605,7 @@ public class Orderfood : MonoBehaviour
                 imageName = selectedLevelItem.imageName
             };
 
+            Debug.Log(selectedLevelItem.imageName);
             // Update the inventory data
             UpdateInventory(newItemInfo);
             ActivateImage();
@@ -659,6 +661,7 @@ public class Orderfood : MonoBehaviour
             Image = selectedLevelItem.imageName
         };
 
+        Debug.Log(CollectedItemInfo);
         foodList.foods.Add(CollectedItemInfo);
 
         string jsonFilePath = Path.Combine(Application.persistentDataPath, "collectfood.json");

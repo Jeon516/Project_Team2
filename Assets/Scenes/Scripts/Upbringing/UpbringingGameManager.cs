@@ -74,6 +74,7 @@ public class UpbringingGameManager : MonoBehaviour
             DayText.text = (Day % 20).ToString() + "ÀÏ Â°";
         }
         ActionNumText.text = ActionNum.ToString();
+        GoldText.text = Gold.ToString();
         LastEvent.SetActive(false);
     }
 

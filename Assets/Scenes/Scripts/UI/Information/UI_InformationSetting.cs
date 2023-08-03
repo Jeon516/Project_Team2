@@ -23,7 +23,13 @@ public class UI_InformationSetting : MonoBehaviour
     public void OnClick_Close()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
+        FoodMiddle.SetActive(false);
+        FoodLow.SetActive(false);
+        FoodHigh.SetActive(false);
+        LevelButton.SetActive(false);
+        DogTag.SetActive(false);
         gameObject.SetActive(false);
+        UI_InventoryInformation.Instance.SwitchImageNull();
     }
 
     public void OnClick_DogTag()

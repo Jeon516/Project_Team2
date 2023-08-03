@@ -7,6 +7,7 @@ public class UI_InventoryInformation : MonoBehaviour
 {
     public Image FoodImage;
     public Text FoodText;
+    public Text FoodNameText;
 
     public static UI_InventoryInformation Instance { get; private set; } = null;
 
@@ -24,6 +25,7 @@ public class UI_InventoryInformation : MonoBehaviour
     {
         FoodImage.GetComponent<Image>().sprite = null;
         FoodText.text = "";
+        FoodNameText.text = "";
     } // 이미지 없애기 및 텍스트 없애기
 
 }

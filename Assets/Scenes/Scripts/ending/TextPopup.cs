@@ -8,6 +8,6 @@ public class TextPopup : MonoBehaviour
     private void Start()
     {
         string savedValue = PlayerPrefs.GetString("DogName");
-        displayText.text = "보고 싶었어! " + savedValue + "!";
+        displayText.text = savedValue + "......?";
     }
 }

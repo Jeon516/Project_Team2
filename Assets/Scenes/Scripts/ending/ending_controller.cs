@@ -16,6 +16,21 @@ public class ending_controller : MonoBehaviour
     public Image image11;
     public Image image12;
     public Image image13;
+    public Image image14;
+    public Image image15;
+    public Image image16;
+    public Image image17;
+    public Image image18;
+    public Image image19;
+    public Image image20;
+    public Image image21;
+    public Image image22;
+    public Image image23;
+    public Image image24;
+    public Image image25;
+    public Image image26;
+    public Image image27;
+    public Image image28;
 
     public Button myButton;
     public GameObject book1Prefab;
@@ -87,38 +102,117 @@ public class ending_controller : MonoBehaviour
         }
         else if (clickCount == 7)
         {
-            image6.gameObject.SetActive(false);
-            image7.gameObject.SetActive(true);
+            //image8 fade in
+            image8.gameObject.SetActive(true);
         }
         else if (clickCount == 8)
         {
-            image7.gameObject.SetActive(false);
-            image8.gameObject.SetActive(true);
-        }
-        else if (clickCount == 9)
-        {
+            //fadeout
             image8.gameObject.SetActive(false);
             image9.gameObject.SetActive(true);
         }
-        else if (clickCount == 10)
+        else if (clickCount == 9)
         {
             image9.gameObject.SetActive(false);
             image10.gameObject.SetActive(true);
         }
-        else if (clickCount == 11)
+        else if (clickCount == 10)
         {
             image10.gameObject.SetActive(false);
             image11.gameObject.SetActive(true);
         }
-        else if (clickCount == 12)
+        else if (clickCount == 11)
         {
             image11.gameObject.SetActive(false);
             image12.gameObject.SetActive(true);
         }
-        else if (clickCount == 13)
+        else if (clickCount == 12)
         {
             image12.gameObject.SetActive(false);
             image13.gameObject.SetActive(true);
+        }
+        else if (clickCount == 13)
+        {
+            image13.gameObject.SetActive(false);
+            image14.gameObject.SetActive(true);
+        }
+        else if (clickCount == 14)
+        {
+            image14.gameObject.SetActive(false);
+            image15.gameObject.SetActive(true);
+        }
+        else if (clickCount == 15)
+        {
+            image15.gameObject.SetActive(false);
+            image16.gameObject.SetActive(true);
+        }
+        else if (clickCount == 16)
+        {
+            image16.gameObject.SetActive(false);
+            image17.gameObject.SetActive(true);
+        }
+        else if (clickCount == 17)
+        {
+            image17.gameObject.SetActive(false);
+            image18.gameObject.SetActive(true);
+        }
+        else if (clickCount == 18)
+        {
+            image18.gameObject.SetActive(false);
+            image19.gameObject.SetActive(true);
+        }
+        else if (clickCount == 19)
+        {
+            //image19 fadeout
+            image19.gameObject.SetActive(false);
+            image20.gameObject.SetActive(true);
+        }
+        else if (clickCount == 20)
+        {
+            image20.gameObject.SetActive(false);
+            image21.gameObject.SetActive(true);
+        }
+        else if (clickCount == 21)
+        {
+            image21.gameObject.SetActive(false);
+            image22.gameObject.SetActive(true);
+        }
+        else if (clickCount == 22)
+        {
+            image22.gameObject.SetActive(false);
+            image23.gameObject.SetActive(true);
+        }
+        else if (clickCount == 23)
+        {
+            image23.gameObject.SetActive(false);
+            image24.gameObject.SetActive(true);
+        }
+        else if (clickCount == 24)
+        {
+            image24.gameObject.SetActive(false);
+            image25.gameObject.SetActive(true);
+        }
+        else if (clickCount == 25)
+        {
+            image25.gameObject.SetActive(false);
+            image26.gameObject.SetActive(true);
+        }
+        else if (clickCount == 26)
+        {
+            image26.gameObject.SetActive(false);
+            image27.gameObject.SetActive(true);
+        }
+        else if (clickCount == 27)
+        {
+            image27.gameObject.SetActive(false);
+            image28.gameObject.SetActive(true);
+        }
+        else if (clickCount == 28)
+        {
+            /*
+            image28 뿌옇게 처리
+            endingcredit
+            */
         }
     }
 }

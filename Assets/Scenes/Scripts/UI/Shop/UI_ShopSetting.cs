@@ -6,6 +6,7 @@ public class UI_ShopSetting : MonoBehaviour
 {
     public GameObject Random;
     public GameObject Shop;
+    public GameObject StarShop;
     public GameObject ShopGachaScreen;
     public int Gold;
     private bool IsRandom = false;
@@ -27,6 +28,7 @@ public class UI_ShopSetting : MonoBehaviour
     public void OnClick_Random()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
+        StarShop.SetActive(false);
         Random.SetActive(true);
         Shop.SetActive(false);
     }
@@ -34,8 +36,17 @@ public class UI_ShopSetting : MonoBehaviour
     public void OnClick_Shop()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
+        StarShop.SetActive(false);
         Shop.SetActive(true);
-         Random.SetActive(false);
+        Random.SetActive(false);
+    }
+
+    public void OnClick_StarShop()
+    {
+        AudioManager.Instance.PlaySFX("ButtonClick");
+        StarShop.SetActive(true);
+        Shop.SetActive(false);
+        Random.SetActive(false);
     }
 
     public void OnClick_Close()

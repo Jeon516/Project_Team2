@@ -7659,7 +7659,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1871502999891216390, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Text
-      value: "\uC77C\uBC18 \uBF51\uAE30"
+      value: "\uBF51\uAE30"
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871502999891216390, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 65
       objectReference: {fileID: 0}
     - target: {fileID: 2181486212880544284, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_IsActive
@@ -7791,7 +7795,7 @@ PrefabInstance:
       objectReference: {fileID: 1757522862}
     - target: {fileID: 2967856025183959298, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Text
-      value: "\uC2A4\uD398\uC15C \uBF51\uAE30"
+      value: "\uC2E0\uC911\uD558\uAC8C \uBF51\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 2967856025183959298, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_FontData.m_Font
@@ -7859,7 +7863,7 @@ PrefabInstance:
       objectReference: {fileID: 1906189019}
     - target: {fileID: 5126374324120795285, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Text
-      value: "\uD504\uB9AC\uBBF8\uC5C4 \uBF51\uAE30"
+      value: "\uB354 \uC2E0\uC911\uD558\uAC8C \uBF51\uAE30"
       objectReference: {fileID: 0}
     - target: {fileID: 5126374324120795285, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Color.b
@@ -7999,7 +8003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8648054288191298212, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8771393061721869977, guid: ac27fd7fdd8aeb04fb87bd82d12a5ded, type: 3}
       propertyPath: m_Type

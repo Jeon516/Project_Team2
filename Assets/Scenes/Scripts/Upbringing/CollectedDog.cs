@@ -25,7 +25,7 @@ public class CollectedDog : MonoBehaviour
 
     private DogStat collectDogDataList;
     private int selectedDogIndex;
-    private CollectedDogData CollectedDogDatas;
+    public CollectedDogData CollectedDogDatas;
     private string SelectedDogName;
     private string SelectedDogInformation;
     private string SelectedDogImage;
@@ -332,10 +332,6 @@ public class CollectedDog : MonoBehaviour
             DogInformation = collectDogDataList.dogs[selectedDogIndex].BackStory,
             DogImageName = collectDogDataList.dogs[selectedDogIndex].Image
         };
-
-        SelectedDogName = collectDogDataList.dogs[selectedDogIndex].Name;
-        SelectedDogInformation = collectDogDataList.dogs[selectedDogIndex].BackStory;
-        SelectedDogImage = collectDogDataList.dogs[selectedDogIndex].Image;
 
         CollectedDogDatas.collectedDogData.Add(CollectedDogInfo);
 

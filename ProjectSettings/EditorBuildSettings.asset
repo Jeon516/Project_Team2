@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Upbringing.unity
     guid: 73dc0b39732328a47919fa522c80c490
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 607344a4eb9fc5946afc55356f47cdab
   m_configObjects: {}

@@ -18,8 +18,7 @@ public class GameProcess : MonoBehaviour
     private int combo = 0;
     private int wrongCount = 0;
     private int totalCount = 0;
-    private int ingamegold = 0;
-    //private Clock clock;
+    public int ingamegold = 0;
 
     public static GameProcess Instance { get; private set; } = null;
 
@@ -65,18 +64,23 @@ public class GameProcess : MonoBehaviour
 
     private void Awake()
     {
+        Instance = this;
         dayValue = PlayerPrefs.GetInt("Day", 1);
+        if(dayValue%20==0)
+        {
+            dayValue = 20;
+        }
+        else
+        {
+            dayValue %= 20;
+        }
     }
-    private void Update()
-    {
-        DayText.text = "Day : " + dayValue;
-    }
+
     private void Start()
     {
         buttonChangeColors.onClick.AddListener(OnChangeColorsButtonClick);
         textLoader = GetComponent<TextLoader>();
         emblemLoader = GetComponent<EmblemLoader>();
-        //clock = GetComponent<Clock>();
 
         TL = 40;
         TR = 40;
@@ -628,7 +632,8 @@ public class GameProcess : MonoBehaviour
         AudioManager.Instance.PlaySFX("incorrect-answer-bell");
         combo = 0;
         wrongCount++;
-        //clock.fillTimer+=2;
+
+        Clock.Instance.fillTimer = Mathf.Max(0f, Clock.Instance.fillTimer + 2); // 틀렸을 때 시간 감소 (0초 미만으로 내려가지 않도록 함)
     }
     private void Combo()
     {

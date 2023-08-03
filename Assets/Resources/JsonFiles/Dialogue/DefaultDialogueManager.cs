@@ -13,6 +13,11 @@ public class DefaultDialogueManager : MonoBehaviour
     {
         LoadDialogue();
         DisplayRandomMessage();
+
+        if (CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count == 32)
+        {
+            textUI.text = "내 일기를 읽어줘";
+        }
     }
 
     private void LoadDialogue()

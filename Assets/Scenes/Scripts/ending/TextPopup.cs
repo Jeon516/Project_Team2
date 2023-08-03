@@ -7,7 +7,7 @@ public class TextPopup : MonoBehaviour
 
     private void Start()
     {
-        string savedValue = PlayerPrefs.GetString("PlayerInput", "");
-        displayText.text = savedValue;
+        string savedValue = PlayerPrefs.GetString("DogName");
+        displayText.text = "보고 싶었어! " + savedValue + "!";
     }
 }

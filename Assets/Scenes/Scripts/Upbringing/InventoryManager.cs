@@ -80,6 +80,7 @@ public class InventoryManager : MonoBehaviour
     {
         string jsonFileName = "inventory.json";
         jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
+        Debug.Log(jsonFilePath);
 
         Debug.Log(jsonFilePath);
 
@@ -237,19 +238,19 @@ public class InventoryManager : MonoBehaviour
         int[] StatValue = { FirstStatValue, SecondStatValue };
 
         int Energy = PlayerPrefs.GetInt("Energy");
-        int EnergyX = PlayerPrefs.GetInt("EnergyX");
+        float EnergyX = PlayerPrefs.GetFloat("EnergyX");
 
         int Sociality = PlayerPrefs.GetInt("Sociality");
-        int SocialityX = PlayerPrefs.GetInt("SocialityX");
+        float SocialityX = PlayerPrefs.GetFloat("SocialityX");
 
         int Deliberation = PlayerPrefs.GetInt("Deliberation");
-        int DeliberationX = PlayerPrefs.GetInt("DeliberationX");
+        float DeliberationX = PlayerPrefs.GetFloat("DeliberationX");
 
         int Curiosoty = PlayerPrefs.GetInt("Curiosoty");
-        int CuriosotyX = PlayerPrefs.GetInt("CuriosotyX");
+        float CuriosotyX = PlayerPrefs.GetFloat("CuriosotyX");
 
         int Love = PlayerPrefs.GetInt("Love");
-        int LoveX = PlayerPrefs.GetInt("LoveX");
+        float LoveX = PlayerPrefs.GetFloat("LoveX");
 
         int ActionNum = PlayerPrefs.GetInt("ActionNum");
 

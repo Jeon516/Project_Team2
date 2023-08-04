@@ -60,7 +60,7 @@ public class UI_ShopSetting : MonoBehaviour
         AudioManager.Instance.PlaySFX("GachaClose");
         Gold -= 16000;
         PlayerPrefs.SetInt("Gold", Gold);
-        PlayerPrefs.SetInt("IsRandomFree", 0);
+        PlayerPrefs.SetInt("IsRandomFree", 1);
         ShopGachaScreen.SetActive(true);
         ShopGacha.Instance.GachaStart();
     }

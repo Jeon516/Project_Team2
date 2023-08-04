@@ -5,6 +5,9 @@ using UnityEngine;
 public class InteractionQuestion : MonoBehaviour
 {
     private int InteractionNum;
+    private int InteractionOne;
+    private int InteractionTwo;
+    private int InteractionThree;
     public GameObject NoMoney;
 
     public static InteractionQuestion Instance { get; private set; } = null;
@@ -27,12 +30,9 @@ public class InteractionQuestion : MonoBehaviour
         InteractionNum = 2;
     } // 선물하기 버튼
 
-    public void BlockButton()
+    public void BlockButton(int index)
     {
-        for (int i = 0; i < 3; i++)
-        {
-            UpbringingGameManager.Instance.BlockInteraction[i].SetActive(true);
-        }
+        UpbringingGameManager.Instance.BlockInteraction[index].SetActive(true);
     } // 상호작용 막기
 
     public void OnClick_Button(bool Yes)
@@ -48,9 +48,9 @@ public class InteractionQuestion : MonoBehaviour
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.LowInteractionConservation;
                     UpbringingGameManager.Instance.Gold -= 1000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
-                    UpbringingGameManager.Instance.InteractionChance++;
-                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
-                    BlockButton();
+                    UpbringingGameManager.Instance.InteractionOneChance++;
+                    PlayerPrefs.SetInt("InteractionOneChance", UpbringingGameManager.Instance.InteractionOneChance);
+                    BlockButton(0);
                 }
                 else
                 {
@@ -65,9 +65,9 @@ public class InteractionQuestion : MonoBehaviour
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.MiddleInteractionConservation;
                     UpbringingGameManager.Instance.Gold -= 2000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
-                    UpbringingGameManager.Instance.InteractionChance++;
-                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
-                    BlockButton();
+                    UpbringingGameManager.Instance.InteractionTwoChance++;
+                    PlayerPrefs.SetInt("InteractionTwoChance", UpbringingGameManager.Instance.InteractionTwoChance);
+                    BlockButton(1);
                 }
                 else
                 {
@@ -82,9 +82,9 @@ public class InteractionQuestion : MonoBehaviour
                     InteractionManager.Instance.ConservationText.text = InteractionManager.Instance.HighInteractionConservation;
                     UpbringingGameManager.Instance.Gold -= 3000;
                     PlayerPrefs.SetInt("Gold", UpbringingGameManager.Instance.Gold);
-                    UpbringingGameManager.Instance.InteractionChance++;
-                    PlayerPrefs.SetInt("Interaction", UpbringingGameManager.Instance.InteractionChance);
-                    BlockButton();
+                    UpbringingGameManager.Instance.InteractionThreeChance++;
+                    PlayerPrefs.SetInt("InteractionThreeChance", UpbringingGameManager.Instance.InteractionThreeChance);
+                    BlockButton(2);
                 }
                 else
                 {

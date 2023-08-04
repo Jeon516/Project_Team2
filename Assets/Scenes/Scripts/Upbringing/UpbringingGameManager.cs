@@ -24,7 +24,9 @@ public class UpbringingGameManager : MonoBehaviour
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary
     public int[] Cal = new int[2];
 
-    public int InteractionChance;
+    public int InteractionOneChance;
+    public int InteractionTwoChance;
+    public int InteractionThreeChance;
     public int Day;
     private int IsHeaven;
     private int IsRandomFree;
@@ -45,33 +47,35 @@ public class UpbringingGameManager : MonoBehaviour
 
         Instance = this;
 
-        Day = PlayerPrefs.GetInt("Day");
+        Day = PlayerPrefs.GetInt("Day",1);
         PlayerPrefs.SetInt("Day", Day);
-        IsHeaven = PlayerPrefs.GetInt("IsHeaven");
+        IsHeaven = PlayerPrefs.GetInt("IsHeaven",0);
         PlayerPrefs.SetInt("IsHeaven", IsHeaven);
-        IsRandomFree = PlayerPrefs.GetInt("IsRandomFree");
+        IsRandomFree = PlayerPrefs.GetInt("IsRandomFree",0);
         PlayerPrefs.SetInt("IsRandomFree", IsRandomFree);
+        InteractionOneChance = PlayerPrefs.GetInt("InteractionOneChance", 0);
+        PlayerPrefs.SetInt("InteractionOneChance", InteractionOneChance);
+        InteractionTwoChance = PlayerPrefs.GetInt("InteractionTwoChance", 0);
+        PlayerPrefs.SetInt("InteractionTwoChance", InteractionTwoChance);
+        InteractionThreeChance = PlayerPrefs.GetInt("InteractionThreeChance", 0);
+        PlayerPrefs.SetInt("InteractionThreeChance", InteractionThreeChance);
 
         LoadingScreen.SetActive(false);
         EndingEvent.SetActive(false);
-
-        if(CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count==32)
-        {
-            EndingEvent.SetActive(true);
-        }
     }
     private void Start()
     {
         AudioManager.Instance.PlayBGM("Upbringing");
         AudioManager.Instance.PlaySFX("UpbringingIn");
 
-        if (Day%20==0)
+        if (Day % 20 == 0)
         {
-            DayText.text = "20일 째";
+            DayText.text = "20일째";
         }
         else
         {
-            DayText.text = (Day % 20).ToString() + "일 째";
+            Debug.Log("날씨가 적용되었습니다");
+            DayText.text = (Day % 20).ToString() + "일째";
         }
         ActionNumText.text = ActionNum.ToString();
         GoldText.text = Gold.ToString();
@@ -88,21 +92,33 @@ public class UpbringingGameManager : MonoBehaviour
         PlayerPrefs.SetInt("Gold", Gold);
         GoldText.text = Gold.ToString();
 
-        InteractionChance = PlayerPrefs.GetInt("Interaction", 0);
-        PlayerPrefs.SetInt("Interaction", InteractionChance);
-        if(InteractionChance>=1)
+        InteractionOneChance = PlayerPrefs.GetInt("InteractionOneChance", 0);
+        InteractionTwoChance = PlayerPrefs.GetInt("InteractionTwoChance", 0);
+        InteractionThreeChance = PlayerPrefs.GetInt("InteractionThreeChance", 0);
+
+        if (InteractionOneChance >= 1)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                BlockInteraction[i].SetActive(true);
-            }
-        } // One Interaction
+            BlockInteraction[0].SetActive(true);
+        } 
         else
         {
-            for (int i = 0; i < 3; i++)
-            {
-                BlockInteraction[i].SetActive(false);
-            }
+            BlockInteraction[0].SetActive(false);
+        }
+        if (InteractionTwoChance >= 1)
+        {
+            BlockInteraction[1].SetActive(true);
+        }
+        else
+        {
+            BlockInteraction[1].SetActive(false);
+        }
+        if (InteractionThreeChance >= 1)
+        {
+            BlockInteraction[2].SetActive(true);
+        }
+        else
+        {
+            BlockInteraction[2].SetActive(false);
         }
     }
 
@@ -145,7 +161,9 @@ public class UpbringingGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("IsRandomFree", 0);
-                PlayerPrefs.SetInt("Interaction", 0);
+                PlayerPrefs.SetInt("InteractionOneChance", 0);
+                PlayerPrefs.SetInt("InteractionTwoChance", 0);
+                PlayerPrefs.SetInt("InteractionThreeChance", 0);
                 StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
             else if(Day % 20 == 0)
@@ -155,7 +173,9 @@ public class UpbringingGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("IsHeaven", 1);
                 PlayerPrefs.SetInt("IsRandomFree", 0);
-                PlayerPrefs.SetInt("Interaction", 0);
+                PlayerPrefs.SetInt("InteractionOneChance", 0);
+                PlayerPrefs.SetInt("InteractionTwoChance", 0);
+                PlayerPrefs.SetInt("InteractionThreeChance", 0);
                 CollectedDog.Instance.LastEvent();
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }

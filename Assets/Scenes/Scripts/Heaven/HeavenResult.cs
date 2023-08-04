@@ -18,6 +18,6 @@ public class HeavenResult : MonoBehaviour
         AudioManager.Instance.PlaySFX("GameOver");
         GoldText.text = "È¹µæÇÑ ±¸¸§ Á¶°¢ : "+GameProcess.Instance.ingamegold.ToString();
         SuccessText.text = "¼º°ø È½¼ö : " + GameProcess.Instance.correct.ToString();
-        PlayerPrefs.SetInt("Gold", Gold+ GameProcess.Instance.ingamegold);
+        PlayerPrefs.SetInt("Gold", Gold + GameProcess.Instance.ingamegold);
     }
 }

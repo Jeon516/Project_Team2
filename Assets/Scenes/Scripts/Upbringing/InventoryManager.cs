@@ -64,7 +64,6 @@ public class InventoryManager : MonoBehaviour
         yesButton.onClick.AddListener(OnYesButtonClicked);
         noButton.onClick.AddListener(OnNoButtonClicked);
     }
-
     private IEnumerator LoadDataAndUpdateUI()
     {
         yield return LoadDataFromJsonFile();
@@ -197,7 +196,6 @@ public class InventoryManager : MonoBehaviour
 
     private void OnYesButtonClicked()
     {
-        Debug.Log("먹기 버튼");
         EatConv.text = SelectedItem.conv;
         gameObject.SetActive(false);
         inventoryData.itemList.Remove(SelectedItem);
@@ -237,6 +235,29 @@ public class InventoryManager : MonoBehaviour
     {
         int[] StatType = { FirstStatType, SecondStatType };
         int[] StatValue = { FirstStatValue, SecondStatValue };
+
+        int Energy = PlayerPrefs.GetInt("Energy");
+        int EnergyX = PlayerPrefs.GetInt("EnergyX");
+
+        int Sociality = PlayerPrefs.GetInt("Sociality");
+        int SocialityX = PlayerPrefs.GetInt("SocialityX");
+
+        int Deliberation = PlayerPrefs.GetInt("Deliberation");
+        int DeliberationX = PlayerPrefs.GetInt("DeliberationX");
+
+        int Curiosoty = PlayerPrefs.GetInt("Curiosoty");
+        int CuriosotyX = PlayerPrefs.GetInt("CuriosotyX");
+
+        int Love = PlayerPrefs.GetInt("Love");
+        int LoveX = PlayerPrefs.GetInt("LoveX");
+
+        int ActionNum = PlayerPrefs.GetInt("ActionNum");
+
+        Debug.Log(Energy+" : Energy입니다.");
+        Debug.Log(Sociality+" : Sociality입니다.");
+        Debug.Log(Deliberation+ " : Deliberation입니다");
+        Debug.Log(Curiosoty + " : Curiosoty입니다");
+        Debug.Log(Love + " : Love입니다");
         //data connect
 
         for (int i = 0; i < 2; i++)
@@ -246,18 +267,18 @@ public class InventoryManager : MonoBehaviour
             {
                 if (StatValue[i] > 0)
                 {
-                    if (PlayerPrefs.GetInt("Energy") < 4)
+                    if (Energy < 4)
                     {
-                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + StatValue[i]);
-                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Energy", Energy + StatValue[i]);
+                        PlayerPrefs.SetFloat("EnergyX", EnergyX - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
-                    if (PlayerPrefs.GetInt("Energy") > -4)
+                    if (Energy > -4)
                     {
-                        PlayerPrefs.SetInt("Energy", PlayerPrefs.GetInt("Energy") + StatValue[i]);
-                        PlayerPrefs.SetFloat("EnergyX", PlayerPrefs.GetInt("EnergyX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Energy", Energy + StatValue[i]);
+                        PlayerPrefs.SetFloat("EnergyX", EnergyX - 111 * StatValue[i]);
                     }
                 }
             }
@@ -265,18 +286,18 @@ public class InventoryManager : MonoBehaviour
             {
                 if (StatValue[i] > 0)
                 {
-                    if (PlayerPrefs.GetInt("Sociality") < 4)
+                    if (Sociality < 4)
                     {
-                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + StatValue[i]);
-                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Sociality", Sociality + StatValue[i]);
+                        PlayerPrefs.SetFloat("SocialityX", SocialityX - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
-                    if (PlayerPrefs.GetInt("Sociality") > -4)
+                    if (Sociality > -4)
                     {
-                        PlayerPrefs.SetInt("Sociality", PlayerPrefs.GetInt("Sociality") + StatValue[i]);
-                        PlayerPrefs.SetFloat("SocialityX", PlayerPrefs.GetInt("SocialityX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Sociality", Sociality + StatValue[i]);
+                        PlayerPrefs.SetFloat("SocialityX", SocialityX - 111 * StatValue[i]);
                     }
                 }
             }
@@ -284,18 +305,18 @@ public class InventoryManager : MonoBehaviour
             {
                 if (StatValue[i] > 0)
                 {
-                    if (PlayerPrefs.GetInt("Deliberation") < 4)
+                    if (Deliberation < 4)
                     {
-                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + StatValue[i]);
-                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Deliberation", Deliberation + StatValue[i]);
+                        PlayerPrefs.SetFloat("DeliberationX", DeliberationX - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
-                    if (PlayerPrefs.GetInt("Deliberation") > -4)
+                    if (Deliberation > -4)
                     {
-                        PlayerPrefs.SetInt("Deliberation", PlayerPrefs.GetInt("Deliberation") + StatValue[i]);
-                        PlayerPrefs.SetFloat("DeliberationX", PlayerPrefs.GetInt("DeliberationX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Deliberation", Deliberation + StatValue[i]);
+                        PlayerPrefs.SetFloat("DeliberationX", DeliberationX - 111 * StatValue[i]);
                     }
                 }
             }
@@ -303,18 +324,18 @@ public class InventoryManager : MonoBehaviour
             {
                 if (StatValue[i] > 0)
                 {
-                    if (PlayerPrefs.GetInt("Curiosoty") < 4)
+                    if (Curiosoty < 4)
                     {
-                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + StatValue[i]);
-                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Curiosoty", Curiosoty + StatValue[i]);
+                        PlayerPrefs.SetFloat("CuriosotyX", CuriosotyX - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
-                    if (PlayerPrefs.GetInt("Curiosoty") > -4)
+                    if (Curiosoty > -4)
                     {
-                        PlayerPrefs.SetInt("Curiosoty", PlayerPrefs.GetInt("Curiosoty") + StatValue[i]);
-                        PlayerPrefs.SetFloat("CuriosotyX", PlayerPrefs.GetInt("CuriosotyX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Curiosoty", Curiosoty + StatValue[i]);
+                        PlayerPrefs.SetFloat("CuriosotyX", CuriosotyX - 111 * StatValue[i]);
                     }
                 }
             }
@@ -322,24 +343,24 @@ public class InventoryManager : MonoBehaviour
             {
                 if (StatValue[i] > 0)
                 {
-                    if (PlayerPrefs.GetInt("Love") < 4)
+                    if (Love < 4)
                     {
-                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + StatValue[i]);
-                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Love", Love + StatValue[i]);
+                        PlayerPrefs.SetFloat("LoveX", LoveX - 111 * StatValue[i]);
                     }
                 }
                 else
                 {
-                    if (PlayerPrefs.GetInt("Love") > -4)
+                    if (Love > -4)
                     {
-                        PlayerPrefs.SetInt("Love", PlayerPrefs.GetInt("Love") + StatValue[i]);
-                        PlayerPrefs.SetFloat("LoveX", PlayerPrefs.GetInt("LoveX") - 111 * StatValue[i]);
+                        PlayerPrefs.SetInt("Love", Love + StatValue[i]);
+                        PlayerPrefs.SetFloat("LoveX", LoveX - 111 * StatValue[i]);
                     }
                 }
             }
             else if (StatType[i] == 106)
             {
-                PlayerPrefs.SetInt("ActionNum", PlayerPrefs.GetInt("ActionNum") + StatValue[i]);
+                PlayerPrefs.SetInt("ActionNum", ActionNum + StatValue[i]);
             }
         }
     }

@@ -75,7 +75,7 @@ public class CollectedDog : MonoBehaviour
 
         Instance = this;
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         ShowScreen.SetActive(false);
@@ -126,7 +126,6 @@ public class CollectedDog : MonoBehaviour
             ChatInformation.SetActive(true);
             ChatText.text = "(관리소의 제이에게 데려가 보자.)";
             order++;
-            //StartCoroutine(LoadingScene());
         }
         else if(Input.GetMouseButtonDown(0) && order == 4)
         {

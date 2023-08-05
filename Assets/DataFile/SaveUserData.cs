@@ -13,7 +13,7 @@ public class SaveUserData : MonoBehaviour
 
     private void Awake()
     {
-        PlayerName = PlayerPrefs.GetString("Player", "ÇÃ·¹ÀÌ¾î");
+        PlayerName = PlayerPrefs.GetString("Player", "ï¿½Ã·ï¿½ï¿½Ì¾ï¿½");
         PlayerPrefs.SetString("Player", PlayerName);
         filePath = "UserData"; // The file name without extension since it's in the Resources folder
         saveButton.onClick.AddListener(SaveData);

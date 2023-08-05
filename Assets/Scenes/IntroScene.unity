@@ -2265,8 +2265,9 @@ MonoBehaviour:
   transitionTimeIndex1: 4
   maxBlurRadius: 100
   minBlurRadius: 1
-  pauseTimeAfterIndex1: 2
+  pauseTimeAfterIndex1: 3
   transitionTimeIndex3: 4
+  loadImage: {fileID: 1822015768}
 --- !u!114 &748118747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6001,7 +6002,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

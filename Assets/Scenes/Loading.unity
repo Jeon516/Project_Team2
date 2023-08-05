@@ -985,7 +985,7 @@ MonoBehaviour:
   - {fileID: 777033582}
   fadeInSpeed: 0.1
   fadeOutSpeed: 0.03
-  repeatCount: 2
+  repeatCount: 1
 --- !u!1 &1598050008
 GameObject:
   m_ObjectHideFlags: 0

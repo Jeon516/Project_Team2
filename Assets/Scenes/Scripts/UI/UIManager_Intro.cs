@@ -12,11 +12,15 @@ public class UIManager_Intro : MonoBehaviour
     public GameObject NewQuestion;
     public GameObject NoData;
     private string InventoryjsonFilePath;
-     private string CollectedfoodjsonFilePath;
+    private string CollectedfoodjsonFilePath;
     private string CollectedDogjsonFilePath;
     private string PlayerName;
     private int Day;
     private int IsHeaven;
+
+    private Food CollectionFoodData;
+    private CollectedDogData CollectionDogData;
+    private InventoryData inventoryData;
 
     private void Awake()
     {
@@ -32,6 +36,10 @@ public class UIManager_Intro : MonoBehaviour
         InventoryjsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
         CollectedfoodjsonFilePath = Path.Combine(Application.persistentDataPath, "collectfood.json");
         CollectedDogjsonFilePath = Path.Combine(Application.persistentDataPath, "collecteddog.json");
+
+        CollectionFoodData = new Food();
+        CollectionDogData = new CollectedDogData();
+        inventoryData = new InventoryData();
 
         AudioManager.Instance.PlayBGM("Intro");
     }
@@ -92,10 +100,11 @@ public class UIManager_Intro : MonoBehaviour
         ClearInventoryData();
         ClearCollectFoodData();
         ClearCollectDogData();
+
         PlayerPrefs.SetString("Player", "");
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 0);
-        PlayerPrefs.SetInt("Gold", 50000);
+        PlayerPrefs.SetInt("Gold", 5000);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsRandomFree", 0);
         PlayerPrefs.SetInt("Interaction", 0);
@@ -122,7 +131,7 @@ public class UIManager_Intro : MonoBehaviour
         if (File.Exists(InventoryjsonFilePath))
         {
             string jsonData = File.ReadAllText(InventoryjsonFilePath);
-            InventoryData inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
+            inventoryData = JsonUtility.FromJson<InventoryData>(jsonData);
             inventoryData.itemList.Clear();
 
             string updatedJsonData = JsonUtility.ToJson(inventoryData);
@@ -132,6 +141,8 @@ public class UIManager_Intro : MonoBehaviour
         }
         else
         {
+            string updatedJsonData = JsonUtility.ToJson(inventoryData);
+            File.WriteAllText(InventoryjsonFilePath, updatedJsonData);
             Debug.Log("Inventory JSON file not found.");
         }
     }
@@ -141,7 +152,7 @@ public class UIManager_Intro : MonoBehaviour
         if (File.Exists(CollectedfoodjsonFilePath))
         {
             string jsonData = File.ReadAllText(CollectedfoodjsonFilePath);
-            Food CollectionFoodData = JsonUtility.FromJson<Food>(jsonData);
+            CollectionFoodData = JsonUtility.FromJson<Food>(jsonData);
             CollectionFoodData.foods.Clear();
 
             string updatedJsonData = JsonUtility.ToJson(CollectionFoodData);
@@ -151,6 +162,8 @@ public class UIManager_Intro : MonoBehaviour
         }
         else
         {
+            string updatedJsonData = JsonUtility.ToJson(CollectionFoodData);
+            File.WriteAllText(CollectedfoodjsonFilePath, updatedJsonData);
             Debug.Log("CollectionFood JSON file not found.");
         }
     }
@@ -160,7 +173,7 @@ public class UIManager_Intro : MonoBehaviour
         if (File.Exists(CollectedDogjsonFilePath))
         {
             string jsonData = File.ReadAllText(CollectedDogjsonFilePath);
-            CollectedDogData CollectionDogData = JsonUtility.FromJson<CollectedDogData>(jsonData);
+            CollectionDogData = JsonUtility.FromJson<CollectedDogData>(jsonData);
             CollectionDogData.collectedDogData.Clear();
 
             string updatedJsonData = JsonUtility.ToJson(CollectionDogData);
@@ -170,6 +183,8 @@ public class UIManager_Intro : MonoBehaviour
         }
         else
         {
+            string updatedJsonData = JsonUtility.ToJson(CollectionDogData);
+            File.WriteAllText(CollectedDogjsonFilePath, updatedJsonData);
             Debug.Log("CollectionDog JSON file not found.");
         }
     }

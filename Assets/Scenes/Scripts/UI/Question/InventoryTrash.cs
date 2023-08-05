@@ -11,7 +11,9 @@ public class InventoryTrash : MonoBehaviour
         {
             if (UI_InvenotrySlot.Instance.SelectedBoundary[i].activeSelf == true)
             {
+                UI_InvenotrySlot.Instance.IsCheck[i] = 0;
                 UI_InvenotrySlot.Instance.Deleted();
+                InventoryManager.Instance.UpdateUI();
                 
                 gameObject.SetActive(false);
             }

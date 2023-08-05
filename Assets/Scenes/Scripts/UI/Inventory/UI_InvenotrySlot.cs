@@ -10,7 +10,7 @@ public class UI_InvenotrySlot : MonoBehaviour
     public Image[] SelectedImage;
     public Button[] buttons;
 
-    private int[] IsCheck; // ´­·¶´ÂÁö ¾È ´­·¶´ÂÁö
+    public int[] IsCheck; // ´­·¶´ÂÁö ¾È ´­·¶´ÂÁö
     private int SelectedNum; // ¼±ÅÃµÈ ¼ø¼­
     public static UI_InvenotrySlot Instance { get; private set; } = null;
 

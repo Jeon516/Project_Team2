@@ -68,8 +68,6 @@ public class Orderfood : MonoBehaviour
 
         ParseLevelData();
         selectionButton.onClick.AddListener(StartSelection);
-        inventoryData = new InventoryData();
-        foodList = new Food();
         LoadInventoryData();
         LoadFoodCollect();
         ActivateImage();
@@ -626,6 +624,7 @@ public class Orderfood : MonoBehaviour
             Debug.Log(selectedLevelItem.imageName);
             // Update the inventory data
             UpdateInventory(newItemInfo);
+            SaveFoodData(); 
             ActivateImage();
         }
         else
@@ -762,7 +761,6 @@ public class Orderfood : MonoBehaviour
         else
         {
             Debug.Log("No existing inventory data found. Creating new inventory data.");
-            inventoryData = new InventoryData();
         }
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class UI_AssortMenu : MonoBehaviour
 {
     public GameObject Menu;
+    public GameObject Exit;
 
     public void OnClick_MeunOpen()
     {

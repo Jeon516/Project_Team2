@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         if (bgmClip != null)
         {
             bgmSource.clip = bgmClip;
-            bgmSource.volume = PlayerPrefs.GetFloat("BGM");
+            bgmSource.volume = PlayerPrefs.GetFloat("BGM",0.6f);
             bgmSource.Play();
         }
         else
@@ -54,7 +54,7 @@ public class AudioManager : MonoBehaviour
                 if (sfxSource[i].isPlaying == false)
                 {
                     sfxSource[i].clip = sfxClip;
-                    sfxSource[i].volume = PlayerPrefs.GetFloat("SFX");
+                    sfxSource[i].volume = PlayerPrefs.GetFloat("SFX", 0.6f);
                     sfxSource[i].spatialBlend = 0;
                     sfxSource[i].Play();
                     return;

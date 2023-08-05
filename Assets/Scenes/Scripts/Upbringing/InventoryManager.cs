@@ -47,6 +47,12 @@ public class InventoryManager : MonoBehaviour
     private int FirstStatValue;
     private int SecondStatValue;
 
+    public static InventoryManager Instance { get; private set; } = null;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     void Start()
     {
         inventoryData = new Inventory();
@@ -88,15 +94,13 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-            string jsonData = JsonUtility.ToJson(inventoryData, true);
-            File.WriteAllText(jsonFilePath, jsonData);
             Debug.LogWarning("JSON 파일이 존재하지 않습니다.");
         }
 
         yield return null;
     }
 
-    private void UpdateUI()
+    public void UpdateUI()
     {
         if (uiImageList == null || uiTextList == null || uiItemTextComponent == null || uiItemImage == null)
         {

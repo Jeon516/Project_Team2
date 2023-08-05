@@ -2262,11 +2262,11 @@ MonoBehaviour:
   nextButton: {fileID: 1629407380}
   blurTargetImage: {fileID: 470546859}
   blurMaterial: {fileID: 2100000, guid: 931cd27bd8a59b54cbd5ebcef31d6669, type: 2}
-  transitionTimeIndex1: 8
+  transitionTimeIndex1: 4
   maxBlurRadius: 100
   minBlurRadius: 1
-  pauseTimeAfterIndex1: 3
-  transitionTimeIndex3: 8
+  pauseTimeAfterIndex1: 2
+  transitionTimeIndex3: 4
 --- !u!114 &748118747
 MonoBehaviour:
   m_ObjectHideFlags: 0

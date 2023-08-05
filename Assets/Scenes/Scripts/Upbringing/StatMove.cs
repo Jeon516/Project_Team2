@@ -25,12 +25,6 @@ public class StatMove : MonoBehaviour
         float CuriosotyX = PlayerPrefs.GetFloat("CuriosotyX");
         float LoveX = PlayerPrefs.GetFloat("LoveX");
 
-        /*for (int i = 0; i < 5; i++)
-        {
-            RectTransform rectTransform = State[i].GetComponent<RectTransform>();
-            rectTransform.anchoredPosition = new Vector2(PlayerPrefs.GetFloat(StatOrder[i] + "X")*99/111, PlayerPrefs.GetFloat(StatOrder[i] + "Y"));
-        }*/
-
         RectTransform rectTransform1 = State[0].GetComponent<RectTransform>();
         rectTransform1.anchoredPosition = new Vector2(EnergyX * 99 / 111, PlayerPrefs.GetFloat(StatOrder[0] + "Y"));
 

@@ -21,6 +21,7 @@ public class FirstScene : MonoBehaviour
     public float minBlurRadius = 0.0f;
     public float pauseTimeAfterIndex1 = 3.0f;
     public float transitionTimeIndex3 = 5.0f;
+    public Image loadImage;
 
     private int currentImageIndex = 0;
     private bool isTransitioning = false;
@@ -33,6 +34,7 @@ public class FirstScene : MonoBehaviour
     {
         AudioManager.Instance.StopBGM();
 
+        StartCoroutine(ShowLoading());
         ShowImage(currentImageIndex);
 
         blurMaterial = new Material(blurMaterial);
@@ -43,6 +45,41 @@ public class FirstScene : MonoBehaviour
             nextButton.onClick.AddListener(ShowNextImage);
             nextButton.interactable = true;
         }
+    }
+
+    private IEnumerator ShowLoading()
+    {
+        for (int r = 0; r < 600; r++)
+        {
+            ResetLoading();
+
+            loadImage.gameObject.SetActive(true);
+            loadImage.canvasRenderer.SetAlpha(0f);
+            loadImage.CrossFadeAlpha(1f, 1f, true);
+            yield return new WaitForSeconds(3f);
+
+            float currentFadeOutTime = 0f;
+
+            while (currentFadeOutTime < 2f)
+            {
+                float deltaTime = Time.deltaTime;
+                currentFadeOutTime += deltaTime;
+
+                float fadeAmount = Mathf.Lerp(1f, 0f, currentFadeOutTime /2f);
+                loadImage.canvasRenderer.SetAlpha(fadeAmount);
+
+                yield return null;
+            }
+
+            yield return new WaitForSeconds(1f);
+
+            loadImage.gameObject.SetActive(false);
+        }
+    }
+
+    private void ResetLoading()
+    {
+         loadImage.canvasRenderer.SetAlpha(1f);
     }
 
     private IEnumerator TransitionBlurEffect(float startBlurValue, float targetBlurValue, float transitionTime)

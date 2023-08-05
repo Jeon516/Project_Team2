@@ -145,7 +145,7 @@ public class CollectedDog : MonoBehaviour
                 StartCoroutine(LoadingScene());
             }
         }
-        else if (Input.GetMouseButtonDown(0) && order == 7)
+        else if (Input.GetMouseButtonDown(0) && order == 6)
         {
             order++;
             CharacterText.text = "";
@@ -153,19 +153,19 @@ public class CollectedDog : MonoBehaviour
             ChatText.color = InformationChatColor;
             GhostImage.SetActive(true);
         }
-        else if (Input.GetMouseButtonDown(0) && order == 8)
+        else if (Input.GetMouseButtonDown(0) && order == 7)
         {
             order++;
             CharacterText.text = "제이";
             ChatText.text = "하하…눈치채셨나요? 이번에 돌봐주셔야 할 유령입니다.";
             ChatText.color = JayChatColor;
         }
-        else if (Input.GetMouseButtonDown(0) && order == 9)
+        else if (Input.GetMouseButtonDown(0) && order == 8)
         {
             order++;
             ChatText.text = "유령이 기억을 찾게 된다면 저번처럼 관리소에 데리고 오시면 됩니다.\n그럼, 앞으로도 잘 부탁드립니다!";
         }
-        else if(Input.GetMouseButtonDown(0) && order == 10)
+        else if(Input.GetMouseButtonDown(0) && order == 9)
         {
             StartCoroutine(LoadingScene());
         }
@@ -310,9 +310,9 @@ public class CollectedDog : MonoBehaviour
     {
         SaveDogData();
 
-        ShowDogInformation.text = SelectedDogInformation;
-        ShowDogName.text = SelectedDogName;
-        Sprite sprite = Resources.Load<Sprite>("Image/CollectDog/" + SelectedDogImage);
+        ShowDogInformation.text = collectDogDataList.dogs[selectedDogIndex].BackStory;
+        ShowDogName.text = collectDogDataList.dogs[selectedDogIndex].Name;
+        Sprite sprite = Resources.Load<Sprite>("Image/CollectDog/" + collectDogDataList.dogs[selectedDogIndex].Image);
         if(sprite!=null)
         {
             ShowDogImage.sprite = sprite;

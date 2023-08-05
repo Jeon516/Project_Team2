@@ -174,11 +174,11 @@ public class Orderfood : MonoBehaviour
             {
                 M_images[14].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Takoyaki")
+            else if (foodList.foods[i].Image == "hamburger")
             {
                 M_images[15].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "hamburger")
+            else if (foodList.foods[i].Image == "French fries")
             {
                 M_images[16].gameObject.SetActive(false);
             }
@@ -194,133 +194,145 @@ public class Orderfood : MonoBehaviour
             {
                 M_images[19].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Takoyaki")
+            else if (foodList.foods[i].Image == "Fried Chicken")
             {
                 M_images[20].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Fried Chicken")
+            else if (foodList.foods[i].Image == "seasoned spicy chicken")
             {
                 M_images[21].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "seasoned spicy chicken")
+            else if (foodList.foods[i].Image == "fruit salad")
             {
                 M_images[22].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "fruit salad")
+            else if (foodList.foods[i].Image == "Macaron")
             {
                 M_images[23].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Macaron")
+            else if (foodList.foods[i].Image == "a dango")
             {
                 M_images[24].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "a dongo")
+            else if (foodList.foods[i].Image == "Pudding")
             {
                 M_images[25].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Pudding")
+            else if (foodList.foods[i].Image == "Strawberry cake")
             {
                 M_images[26].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Strawberry cake")
+            else if (foodList.foods[i].Image == "Chocolate Cake")
             {
                 M_images[27].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Chocolate Cake")
+            else if (foodList.foods[i].Image == "Carrot Cake")
             {
                 M_images[28].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Carrot Cake")
+            else if (foodList.foods[i].Image == "Red Velvet cake")
             {
                 M_images[29].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Blueberry cake")
+            else if (foodList.foods[i].Image == "Banana cake")
             {
                 M_images[30].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Banana cake")
+            else if (foodList.foods[i].Image == "Shrimp sushi")
             {
                 M_images[31].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Shrimp sushi")
+            else if (foodList.foods[i].Image == "fried tofu sushi")
             {
                 M_images[32].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Egg sushi")
+            else if (foodList.foods[i].Image == "Salmon sushi")
             {
                 M_images[33].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Tuna sushi")
+            else if (foodList.foods[i].Image == "Egg sushi")
             {
                 M_images[34].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Pork Cutlet")
+            else if (foodList.foods[i].Image == "Tuna sushi")
             {
                 M_images[35].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Sweet Potatoes and Cheese Stuffed Pork Cutlet")
+            else if (foodList.foods[i].Image == "Pork Cutlet")
             {
                 M_images[36].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Ham and Cheese Sandwich")
+            else if (foodList.foods[i].Image == "Sweet Potatoes and Cheese Stuffed Pork Cutlet")
             {
                 M_images[37].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Ham and egg Sandwich")
+            else if (foodList.foods[i].Image == "Pork Cutlet with Curry")
             {
                 M_images[38].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "a peanut butter sandwich")
+            else if (foodList.foods[i].Image == "Ham and Cheese Sandwich")
             {
                 M_images[39].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "ang butter sandwich")
+            else if (foodList.foods[i].Image == "Ham and egg Sandwich")
             {
                 M_images[40].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Mint chocolate icecream")
+            else if (foodList.foods[i].Image == "a barbecued chicken sandwich")
             {
                 M_images[41].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Shooting Star icecream")
+            else if (foodList.foods[i].Image == "a peanut butter sandwich")
             {
                 M_images[42].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Strawberry Ice Cream")
+            else if (foodList.foods[i].Image == "ang butter sandwich")
             {
                 M_images[43].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Chocolate ice cream")
+            else if (foodList.foods[i].Image == "Mint chocolate ice cream")
             {
                 M_images[44].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Yogurt ice cream")
+            else if (foodList.foods[i].Image == "Shooting Star ice cream")
             {
                 M_images[45].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Soda ice cream")
+            else if (foodList.foods[i].Image == "Strawberry Ice Cream")
             {
                 M_images[46].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Combination Pizza")
+            else if (foodList.foods[i].Image == "Chocolate ice cream")
             {
                 M_images[47].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Sweet Potato Pizza")
+            else if (foodList.foods[i].Image == "Yogurt ice cream")
             {
                 M_images[48].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Potato pizza")
+            else if (foodList.foods[i].Image == "Soda ice cream")
             {
                 M_images[49].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "pepperoni pizza")
+            else if (foodList.foods[i].Image == "Combination Pizza")
             {
                 M_images[50].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Cheeze pizza")
+            else if (foodList.foods[i].Image == "Sweet Potato Pizza")
             {
                 M_images[51].gameObject.SetActive(false);
+            }
+            else if (foodList.foods[i].Image == "Potato pizza")
+            {
+                M_images[52].gameObject.SetActive(false);
+            }
+            else if (foodList.foods[i].Image == "pepperoni pizza")
+            {
+                M_images[53].gameObject.SetActive(false);
+            }
+            else if (foodList.foods[i].Image == "Cheese pizza")
+            {
+                M_images[54].gameObject.SetActive(false);
             }
             else if (foodList.foods[i].Image == "Milk-flavored stick dog gum")
             {
@@ -338,7 +350,7 @@ public class Orderfood : MonoBehaviour
             {
                 L_images[3].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Dried pollack-flavored stick dog gum")
+            else if (foodList.foods[i].Image == "Dried pollack flavored stick dog gum")
             {
                 L_images[4].gameObject.SetActive(false);
             }
@@ -378,7 +390,7 @@ public class Orderfood : MonoBehaviour
             {
                 L_images[13].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "Chicken-flavored feed")
+            else if (foodList.foods[i].Image == "chicken-flavored feed")
             {
                 L_images[14].gameObject.SetActive(false);
             }
@@ -478,7 +490,7 @@ public class Orderfood : MonoBehaviour
             {
                 L_images[38].gameObject.SetActive(false);
             }
-            else if (foodList.foods[i].Image == "dried sweet potato")
+            else if (foodList.foods[i].Image == "dried sweet potatoes")
             {
                 L_images[39].gameObject.SetActive(false);
             }

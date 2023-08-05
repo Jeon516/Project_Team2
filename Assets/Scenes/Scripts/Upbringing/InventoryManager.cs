@@ -47,13 +47,9 @@ public class InventoryManager : MonoBehaviour
     private int FirstStatValue;
     private int SecondStatValue;
 
-    void OnEnable()
-    {
-        StartCoroutine(LoadDataAndUpdateUI());
-    }
-
     void Start()
     {
+        inventoryData = new Inventory();
         Debug.Log("업데이트 되었습니다");
         for (int i = 0; i < uiButtonList.Count; i++)
         {
@@ -63,11 +59,13 @@ public class InventoryManager : MonoBehaviour
 
         yesButton.onClick.AddListener(OnYesButtonClicked);
         noButton.onClick.AddListener(OnNoButtonClicked);
+
+        StartCoroutine(LoadDataAndUpdateUI());
     }
     private IEnumerator LoadDataAndUpdateUI()
     {
         yield return LoadDataFromJsonFile();
-        Debug.Log("json 파일에 접속되었습니다.");
+        Debug.Log("Inventory json 파일에 접속되었습니다.");
         UpdateUI();
     }
 
@@ -82,8 +80,6 @@ public class InventoryManager : MonoBehaviour
         jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
         Debug.Log(jsonFilePath);
 
-        Debug.Log(jsonFilePath);
-
         if (File.Exists(jsonFilePath))
         {
             string jsonData = File.ReadAllText(jsonFilePath);
@@ -94,9 +90,26 @@ public class InventoryManager : MonoBehaviour
         else
         {
             Debug.LogWarning("JSON 파일이 존재하지 않습니다.");
+            SaveNewData();
         }
 
         yield return null;
+    }
+
+    private void SaveNewData()
+    {
+        string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
+        string jsonData = JsonUtility.ToJson(inventoryData);
+
+        try
+        {
+            File.WriteAllText(jsonFilePath, jsonData);
+            Debug.Log("Inventory JSON file saved successfully.");
+        }
+        catch (IOException e)
+        {
+            Debug.LogError("Error writing inventory JSON file: " + e.Message);
+        }
     }
 
     private void UpdateUI()

@@ -21,13 +21,11 @@ public class UI_InvenotrySlot : MonoBehaviour
     }
     private void OnEnable()
     {
-        Debug.Log(buttons.Length);
         Initialized();
     } 
 
     public void Selected(Button button)
     {
-        Debug.Log(button);
         AudioManager.Instance.PlaySFX("ButtonClick");
         for (int i=0;i< buttons.Length; i++)
         {

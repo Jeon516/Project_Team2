@@ -22083,6 +22083,14 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 565348271113956551, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
+      propertyPath: InfoText
+      value: 
+      objectReference: {fileID: 941159872}
+    - target: {fileID: 565348271113956551, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
+      propertyPath: NameText
+      value: 
+      objectReference: {fileID: 2045673137}
     - target: {fileID: 565792759307765014, guid: a648608e675fe2d41a7b87ec37676abb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 2

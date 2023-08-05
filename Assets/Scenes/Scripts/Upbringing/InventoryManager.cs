@@ -75,7 +75,7 @@ public class InventoryManager : MonoBehaviour
     }
 
     private IEnumerator LoadDataFromJsonFile()
-    {
+    { // 인벤토리 초기화
         string jsonFileName = "inventory.json";
         jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
         Debug.Log(jsonFilePath);
@@ -85,31 +85,15 @@ public class InventoryManager : MonoBehaviour
             string jsonData = File.ReadAllText(jsonFilePath);
             inventoryData = JsonUtility.FromJson<Inventory>(jsonData);
             Debug.Log("JSON 파일 불러오기 성공!");
-            Debug.Log(jsonData);
         }
         else
         {
+            string jsonData = JsonUtility.ToJson(inventoryData, true);
+            File.WriteAllText(jsonFilePath, jsonData);
             Debug.LogWarning("JSON 파일이 존재하지 않습니다.");
-            SaveNewData();
         }
 
         yield return null;
-    }
-
-    private void SaveNewData()
-    {
-        string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
-        string jsonData = JsonUtility.ToJson(inventoryData);
-
-        try
-        {
-            File.WriteAllText(jsonFilePath, jsonData);
-            Debug.Log("Inventory JSON file saved successfully.");
-        }
-        catch (IOException e)
-        {
-            Debug.LogError("Error writing inventory JSON file: " + e.Message);
-        }
     }
 
     private void UpdateUI()

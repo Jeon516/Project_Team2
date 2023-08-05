@@ -95,7 +95,7 @@ public class UIManager_Intro : MonoBehaviour
         PlayerPrefs.SetString("Player", "");
         PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 0);
-        PlayerPrefs.SetInt("Gold", 5000);
+        PlayerPrefs.SetInt("Gold", 50000);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsRandomFree", 0);
         PlayerPrefs.SetInt("Interaction", 0);

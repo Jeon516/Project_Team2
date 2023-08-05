@@ -3,6 +3,7 @@ Shader "blur"
     Properties
     {
         _Radius("Radius", Range(1, 255)) = 1
+        _MainTex("Main Texture", 2D) = "white" {} // solve error from the logcat
     }
 
     Category

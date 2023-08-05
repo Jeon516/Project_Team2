@@ -57,10 +57,15 @@ public class Orderfood : MonoBehaviour
     public Image[] SelectedImage;
     public Text ShowDogName;
     public Text ShowDogInformation;
+    public int selectorder=0;
     // Show FoodCollection
+
+    public static Orderfood Instance { get; private set; } = null;
 
     private void Start()
     {
+        Instance = this;
+
         ParseLevelData();
         selectionButton.onClick.AddListener(StartSelection);
         inventoryData = new InventoryData();
@@ -523,11 +528,12 @@ public class Orderfood : MonoBehaviour
         {
             if (Selected[i].activeSelf)
             {
+                Debug.Log(i+"이 켜져있습니다");
                 for (int j = 0; j < foodList.foods.Count; j++)
                 {
                     if (SelectedImage[i].sprite.name == foodList.foods[j].Image)
                     {
-                        Debug.Log(i);
+                        selectorder = i;
                         ShowDogName.text = foodList.foods[j].Name;
                         ShowDogInformation.text = foodList.foods[j].Info;
                     }

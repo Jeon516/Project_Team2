@@ -49,7 +49,7 @@ public class Loading : MonoBehaviour
 
         StartCoroutine(ShowLoading());
 
-        Invoke("LoadNextScene", 13f);
+        Invoke("LoadNextScene", 7f);
     }
 
     private IEnumerator ShowLoading()

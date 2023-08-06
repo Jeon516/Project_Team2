@@ -37,11 +37,11 @@ public class HeavenGameManager : MonoBehaviour
         AudioManager.Instance.PlayBGM("Heaven");
         if (Day % 20 == 0)
         {
-            DayText.text = "20일 째";
+            DayText.text = "20일째";
         }
         else
         {
-            DayText.text = (Day % 20).ToString() + "일 째";
+            DayText.text = (Day % 20).ToString() + "일째";
         }
        if (Day >=2)
             GameStart.SetActive(true);

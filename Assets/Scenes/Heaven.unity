@@ -2491,7 +2491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1684070318242102405, guid: 334724ef86216274dbf35e8a07e95ffc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1960
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 1684070318242102405, guid: 334724ef86216274dbf35e8a07e95ffc, type: 3}
       propertyPath: m_SizeDelta.y
@@ -6010,6 +6010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 490307892}
     m_Modifications:
+    - target: {fileID: 6993079053248702725, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1920
+      objectReference: {fileID: 0}
     - target: {fileID: 6993079053639567499, guid: 5c0fd1eea47a53148a17eea6c96b37b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1

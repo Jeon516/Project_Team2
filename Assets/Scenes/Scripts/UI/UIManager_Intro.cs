@@ -36,6 +36,7 @@ public class UIManager_Intro : MonoBehaviour
         InventoryjsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
         CollectedfoodjsonFilePath = Path.Combine(Application.persistentDataPath, "collectfood.json");
         CollectedDogjsonFilePath = Path.Combine(Application.persistentDataPath, "collecteddog.json");
+        Debug.Log(CollectedDogjsonFilePath);
 
         CollectionFoodData = new Food();
         CollectionDogData = new CollectedDogData();

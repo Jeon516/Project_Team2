@@ -18,7 +18,7 @@ public class UpbringingGameManager : MonoBehaviour
     public GameObject RandomQuestion;
     public GameObject InteractionQuestion;
     public GameObject NextDayQuestion;
-    public GameObject LastEvent; // FGT용 팝업창
+    public GameObject LastEvent;
     public GameObject EndingEvent; // 엔딩 이벤트
 
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary

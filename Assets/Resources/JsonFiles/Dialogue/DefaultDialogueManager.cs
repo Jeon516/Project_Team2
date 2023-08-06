@@ -6,9 +6,16 @@ using System.IO;
 public class DefaultDialogueManager : MonoBehaviour
 {
     public Text textUI;
+    public string randomMessage;
 
     private List<string> messages;
 
+    public static DefaultDialogueManager Instance { get; private set; } = null;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         LoadDialogue();
@@ -46,7 +53,7 @@ public class DefaultDialogueManager : MonoBehaviour
         if (messages != null && messages.Count > 0)
         {
             int randomIndex = Random.Range(0, messages.Count);
-            string randomMessage = messages[randomIndex];
+            randomMessage = messages[randomIndex];
             textUI.text = randomMessage;
         }
         else

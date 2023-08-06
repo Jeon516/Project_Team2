@@ -66,7 +66,7 @@ public class UpbringingTutorial : MonoBehaviour
     }
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         ChatSet.SetActive(true);
         BackGroundImage.SetActive(true);
         ChatText.text = FirstChat[0];

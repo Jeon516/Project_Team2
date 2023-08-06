@@ -59,6 +59,7 @@ public class InteractionQuestion : MonoBehaviour
             }
             else if (InteractionNum == 1)
             {
+                Debug.Log("상호작용하였습니다");
                 if (UpbringingGameManager.Instance.Gold >= 2000)
                 {
                     UpbringingGameManager.Instance.ActionNum += InteractionManager.Instance.MiddleFlavor;

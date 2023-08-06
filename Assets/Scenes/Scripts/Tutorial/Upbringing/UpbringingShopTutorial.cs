@@ -10,21 +10,19 @@ public class UpbringingShopTutorial : MonoBehaviour
     private int TutorialDay;
     private bool IsClick = false;
 
-    public Button[] Block; // 6번째 버튼은 취소 버튼
+    public Button[] Block; // 6번째 버튼은 취소 버튼, 7번째는 뽑기 버튼
     public Text ChatText;
     public GameObject ChatSet;
     public GameObject TutorialShop;
     public Button TutorialShopButton;
     public RectTransform ChatTransform;
-    public GameObject CancelButton;
-    public GameObject FreeButton;
-    public GameObject QuestioinTutorial;
+    public GameObject Inventory;
 
     private string[] Chat = {  "각각의 음식 주문은 하루에 한 번씩만 가능하니 유의하시기 바랍니다.","딱 이번만 비용을 대신 내드릴 테니 한 번 주문해보세요."};
 
     private void Start()
     {
-        for(int i=0;i<6;i++)
+        for(int i=0;i<7;i++)
         {
             Block[i].interactable = false;
         }
@@ -35,9 +33,12 @@ public class UpbringingShopTutorial : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && 1 == order && IsClick)
         {
             ChatText.text = Chat[order];
-            FreeButton.SetActive(true);
             order++;
-            ChatTransform.anchoredPosition = new Vector2(0, -360);
+        }
+        else if(Input.GetMouseButtonDown(0) && 2 == order && IsClick)
+        {
+            Block[6].interactable = true;
+            ChatSet.SetActive(false);
         }
     }
 
@@ -48,33 +49,19 @@ public class UpbringingShopTutorial : MonoBehaviour
         TutorialShop.SetActive(true);
         IsClick = true;
         ChatText.text = Chat[order];
-        /*for(int i=0;i<6;i++)
-        {
-            Block[i].SetActive(true);
-        }*/
         order++;
+        int Gold = PlayerPrefs.GetInt("Gold")+16000;
+        PlayerPrefs.SetInt("Gold", Gold);
+        Debug.Log("순서는 다음과 같습니다"+order);
     }
 
-    public void Onclick_TutorialGacha()
+    public void Onclick_CancelUnlock()
     {
-        AudioManager.Instance.PlaySFX("ButtonClick");
-        ChatText.text = "";
-        ChatSet.SetActive(false);
-        FreeButton.SetActive(false);
+        Block[5].interactable = true;
     }
-    public void Onclick_YesButton()
+
+    public void Onclick_InventoryUnlock()
     {
-        QuestioinTutorial.SetActive(false);
-        CancelButton.SetActive(false);
-        StartCoroutine(Wait());
-    }
-    public void Onclick_NoButton()
-    {
-        AudioManager.Instance.PlaySFX("ButtonClick");
-        FreeButton.SetActive(true);
-    }
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(5);
+        Inventory.SetActive(true);
     }
 }

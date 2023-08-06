@@ -103,12 +103,14 @@ public class UIManager_Intro : MonoBehaviour
         ClearCollectDogData();
 
         PlayerPrefs.SetString("Player", "");
-        PlayerPrefs.SetInt("Day", 2);
+        PlayerPrefs.SetInt("Day", 0);
         PlayerPrefs.SetInt("ActionNum", 0);
-        PlayerPrefs.SetInt("Gold", 500000);
+        PlayerPrefs.SetInt("Gold", 0);
         PlayerPrefs.SetInt("IsHeaven", 1);
         PlayerPrefs.SetInt("IsRandomFree", 0);
-        PlayerPrefs.SetInt("Interaction", 0);
+        PlayerPrefs.SetInt("InteractionOneChance", 0);
+        PlayerPrefs.SetInt("InteractionTwoChance", 0);
+        PlayerPrefs.SetInt("InteractionThreeChance", 0);
 
         PlayerPrefs.SetInt("Energy", 0);
         PlayerPrefs.SetFloat("EnergyX", 0);

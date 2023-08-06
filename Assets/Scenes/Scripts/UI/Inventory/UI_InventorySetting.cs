@@ -17,6 +17,12 @@ public class UI_InventorySetting : MonoBehaviour
         Instance = this;
     }
 
+    private void OnEnable()
+    {
+        TrashQuestion.SetActive(false);
+        UseQuestion.SetActive(false);
+    }
+
     public void OnClick_InventoryCancel()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");

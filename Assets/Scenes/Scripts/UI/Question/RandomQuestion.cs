@@ -7,9 +7,9 @@ public class RandomQuestion : MonoBehaviour
    public void OnClick_YesButton()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        if (UpbringingGameManager.Instance.ActionNum >= 50)
+        if (UpbringingGameManager.Instance.ActionNum >= 100)
         {
-            int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 50;
+            int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 100;
             PlayerPrefs.SetInt("ActionNum", ChangeNum);
 
             int StatOrderNum = Random.Range(0, 5);

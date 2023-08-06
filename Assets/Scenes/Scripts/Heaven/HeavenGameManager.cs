@@ -73,8 +73,7 @@ public class HeavenGameManager : MonoBehaviour
     {
         if (Day / 20 == 0 && Day % 20 == 1)
         {
-            gameObject.SetActive(false);
-            SceneManager.LoadScene("Tutorial");
+            StartCoroutine(TutorialLoadingScene());
         }
         else
         {
@@ -87,6 +86,17 @@ public class HeavenGameManager : MonoBehaviour
     public IEnumerator LoadingScene()
     {
         AsyncOperation loading = SceneManager.LoadSceneAsync("Loading");
+
+        while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
+        {
+            yield return new WaitForSeconds(0.1f);
+            gameObject.SetActive(false);
+        }
+    }
+
+    public IEnumerator TutorialLoadingScene()
+    {
+        AsyncOperation loading = SceneManager.LoadSceneAsync("Tutorial");
 
         while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {

@@ -39,35 +39,35 @@ public class UI_StatManager : MonoBehaviour
 
     public void Increase(int index)
     {
-            if (index == 0 && StatManager.Instance.Energy < 4 && CurrentNum >= 100)
+            if (index == 0 && StatManager.Instance.Energy < 4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Energy++;
                 PlayerPrefs.SetInt("Energy", StatManager.Instance.Energy);
                 StatMove(index, -111);
             DecreaseNum();
         }
-            else if (index == 1 && StatManager.Instance.Sociality < 4 && CurrentNum >= 100)
+            else if (index == 1 && StatManager.Instance.Sociality < 4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Sociality++;
                 PlayerPrefs.SetInt("Sociality", StatManager.Instance.Sociality);
                 StatMove(index, -111);
             DecreaseNum();
         }
-            else if (index == 2 && StatManager.Instance.Deliberation < 4 && CurrentNum >= 100)
+            else if (index == 2 && StatManager.Instance.Deliberation < 4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Deliberation++;
                 PlayerPrefs.SetInt("Deliberation", StatManager.Instance.Deliberation);
                 StatMove(index, -111);
             DecreaseNum();
         }
-            else if (index == 3 && StatManager.Instance.Curiosoty < 4 && CurrentNum >= 100)
+            else if (index == 3 && StatManager.Instance.Curiosoty < 4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Curiosoty++;
                 PlayerPrefs.SetInt("Curiosoty", StatManager.Instance.Curiosoty);
                 StatMove(index, -111);
             DecreaseNum();
         }
-            else if (index == 4 && StatManager.Instance.Love < 4 && CurrentNum >= 100)
+            else if (index == 4 && StatManager.Instance.Love < 4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Love++;
                 PlayerPrefs.SetInt("Love", StatManager.Instance.Love);
@@ -78,9 +78,9 @@ public class UI_StatManager : MonoBehaviour
 
     public void Decrease(int index)
     {
-        if (CurrentNum >= 100)
+        if (CurrentNum >= 150)
         {
-            if (index == 0 && StatManager.Instance.Energy > -4 && CurrentNum >= 100)
+            if (index == 0 && StatManager.Instance.Energy > -4 && CurrentNum >= 150)
             {
                 
                 StatManager.Instance.Energy--;
@@ -88,28 +88,28 @@ public class UI_StatManager : MonoBehaviour
                 StatMove(index, 111);
                 DecreaseNum();
             }
-            else if (index == 1 && StatManager.Instance.Sociality > -4 && CurrentNum >= 100)
+            else if (index == 1 && StatManager.Instance.Sociality > -4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Sociality--;
                 PlayerPrefs.SetInt("Sociality", StatManager.Instance.Sociality);
                 StatMove(index, 111);
                 DecreaseNum();
             }
-            else if (index == 2 && StatManager.Instance.Deliberation > -4 && CurrentNum >= 100)
+            else if (index == 2 && StatManager.Instance.Deliberation > -4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Deliberation--;
                 PlayerPrefs.SetInt("Deliberation", StatManager.Instance.Deliberation);
                 StatMove(index, 111);
                 DecreaseNum();
             }
-            else if (index == 3 && StatManager.Instance.Curiosoty > -4 && CurrentNum >= 100)
+            else if (index == 3 && StatManager.Instance.Curiosoty > -4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Curiosoty--;
                 PlayerPrefs.SetInt("Curiosoty", StatManager.Instance.Curiosoty);
                 StatMove(index, 111);
                 DecreaseNum();
             }
-            else if (index == 4 && StatManager.Instance.Love > -4 && CurrentNum >= 100)
+            else if (index == 4 && StatManager.Instance.Love > -4 && CurrentNum >= 150)
             {
                 StatManager.Instance.Love--;
                 PlayerPrefs.SetInt("Love", StatManager.Instance.Love);
@@ -148,14 +148,14 @@ public class UI_StatManager : MonoBehaviour
 
     private void DecreaseNum()
     {
-        int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 100;
+        int ChangeNum = PlayerPrefs.GetInt("ActionNum") - 150;
         PlayerPrefs.SetInt("ActionNum", ChangeNum);
     } // 호감도 감소
 
     public void OnClick_StatButton(int index)
     {
         AudioManager.Instance.PlaySFX("ButtonClick");
-        if (UpbringingGameManager.Instance.ActionNum >= 100)
+        if (UpbringingGameManager.Instance.ActionNum >= 150)
         {
             StatNum = index;
             StatQuestion.SetActive(true);

@@ -44,6 +44,7 @@ public class ending_controller : MonoBehaviour
 
     void Start()
     {
+        AudioManager.Instance.PlayBGM("Ending");
         myButton.onClick.AddListener(OnMyButtonClick);
         book1Prefab.SetActive(false);
         book2Prefab.SetActive(false);

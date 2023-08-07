@@ -12,6 +12,7 @@ public class UI_ShopSetting : MonoBehaviour
     private bool IsRandom = false;
     private bool IsShop = false;
 
+
     public static UI_ShopSetting Instance { get; private set; } = null;
 
     private void Start()

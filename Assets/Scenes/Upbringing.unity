@@ -7245,6 +7245,34 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 136015408}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Onclick_Cancel
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UpbringingTutorialInventory, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8501513785155949365, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8540043163868850176, guid: 2b0e33b92066d7e409ea63cb96427874, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -11682,7 +11710,6 @@ RectTransform:
   m_Children:
   - {fileID: 1526290903}
   - {fileID: 1990933001}
-  - {fileID: 2109859464}
   m_Father: {fileID: 1154525170}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12905,6 +12932,7 @@ RectTransform:
   - {fileID: 136015407}
   - {fileID: 1010103252}
   - {fileID: 397234094}
+  - {fileID: 2109859464}
   - {fileID: 1506097527}
   - {fileID: 1344762869}
   - {fileID: 1840611130}
@@ -15362,7 +15390,7 @@ RectTransform:
   - {fileID: 540367144}
   - {fileID: 268679726}
   m_Father: {fileID: 1154525170}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -15932,7 +15960,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -65}
-  m_SizeDelta: {x: 1500, y: 250}
+  m_SizeDelta: {x: 1500, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1361740645 stripped
 MonoBehaviour:
@@ -17472,7 +17500,7 @@ RectTransform:
   m_LocalScale: {x: 0.96137977, y: 0.99996734, z: 0.99996734}
   m_Children: []
   m_Father: {fileID: 1154525170}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18591,7 +18619,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1584328071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24081,7 +24109,7 @@ RectTransform:
   - {fileID: 5227927273835152621}
   - {fileID: 2065717802}
   m_Father: {fileID: 1154525170}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -25029,7 +25057,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -39616,8 +39644,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 715741243}
-  m_Father: {fileID: 1010103252}
-  m_RootOrder: 2
+  m_Father: {fileID: 1154525170}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class UpbringingTutorialInventory : MonoBehaviour
 {
     private int order = 0;
+    private bool On = false;
 
     public Text ChatText;
     public Button[] InventoryButton;
@@ -70,9 +71,13 @@ public class UpbringingTutorialInventory : MonoBehaviour
 
     public void Onclick_FoodIcon()
     {
-        ChatSet.SetActive(true);
-        ChatDisplay();
-        ChatTransform.anchoredPosition = new Vector2(0, -220);
+        if (!On)
+        {
+            On = true;
+            ChatSet.SetActive(true);
+            ChatDisplay();
+            ChatTransform.anchoredPosition = new Vector2(0, -220);
+        }
     }
 
     public void Onclick_Eat()

@@ -43,10 +43,11 @@ public class HeavenGameManager : MonoBehaviour
         {
             DayText.text = (Day % 20).ToString() + "일째";
         }
-       if (Day >=2)
-            GameStart.SetActive(true);
-       else
+
+        if (Day == 1 || Day == 4 || Day == 7)
             GameStart.SetActive(false);
+        else
+            GameStart.SetActive(true);
     }
 
     public void OnClick_LeftStation()

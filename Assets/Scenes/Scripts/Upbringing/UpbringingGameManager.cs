@@ -30,6 +30,7 @@ public class UpbringingGameManager : MonoBehaviour
     public int Day;
     private int IsHeaven;
     private int IsRandomFree;
+    private bool FirstEeventOn = false;
 
     public static UpbringingGameManager Instance { get; private set; } = null;
     public GameObject LoadingScreen;
@@ -71,19 +72,27 @@ public class UpbringingGameManager : MonoBehaviour
         if (Day % 20 == 0)
         {
             DayText.text = "20일째";
+            LastEvent.SetActive(true);
+            CollectedDog.Instance.LastEvent();
         }
         else
         {
             Debug.Log("날씨가 적용되었습니다");
             DayText.text = (Day % 20).ToString() + "일째";
+            LastEvent.SetActive(false);
         }
         ActionNumText.text = ActionNum.ToString();
         GoldText.text = Gold.ToString();
-        LastEvent.SetActive(false);
+        
     }
 
     private void Update()
     {
+        if(Input.GetMouseButtonDown(0) && !FirstEeventOn)
+        {
+            FirstEeventOn = true;
+            LastEvent.SetActive(false);
+        }
         ActionNum = PlayerPrefs.GetInt("ActionNum", 1000);
         PlayerPrefs.SetInt("ActionNum", ActionNum);
         ActionNumText.text = PlayerPrefs.GetInt("ActionNum", 1000).ToString();
@@ -176,7 +185,8 @@ public class UpbringingGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("InteractionOneChance", 0);
                 PlayerPrefs.SetInt("InteractionTwoChance", 0);
                 PlayerPrefs.SetInt("InteractionThreeChance", 0);
-                CollectedDog.Instance.LastEvent();
+                CollectedDog.Instance.order++;
+                CollectedDog.Instance.EndEvent = true;
             } // 20일 째에는 강아지 유령의 정체가 밝혀지는 순간
         }
     }

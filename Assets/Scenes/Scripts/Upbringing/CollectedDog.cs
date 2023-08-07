@@ -47,7 +47,8 @@ public class CollectedDog : MonoBehaviour
     private Color JayChatColor;
     public Text ChatText;
     public Text CharacterText;
-    private int order = 0;
+    public int order = 0;
+    public bool EndEvent = false;
     //20일차 이후의 이벤트
 
     public static CollectedDog Instance { get; private set; } = null;
@@ -57,8 +58,8 @@ public class CollectedDog : MonoBehaviour
         BlackScreen.SetActive(true);
         ChatText.text = "(유령을 돌본지 벌써 20일이 되었다.\n이제 떠나보낼 준비를 해야 할 것 같다.)";
         ChatText.color = InformationChatColor;
-        order++;
     }
+
     private void Awake()
     {
         CollectEnergy = PlayerPrefs.GetInt("Energy");
@@ -92,7 +93,7 @@ public class CollectedDog : MonoBehaviour
 
     private void Chat()
     {
-        if (Input.GetMouseButtonDown(0) && order == 1)
+        if (EndEvent && order == 1)
         {
             bool Check = false;
             ShowScreen.SetActive(true);

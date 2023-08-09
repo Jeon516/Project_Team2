@@ -550,7 +550,7 @@ public class Orderfood : MonoBehaviour
         {
             string jsonFileName = selectedLevelData.level + ".json";
             string jsonFilePath = Path.Combine(Application.streamingAssetsPath, jsonFileName);
-            StartCoroutine(LoadJson(jsonFilePath, selectedLevelData));
+            LoadJson(jsonFilePath, selectedLevelData);
         }
         else
         {
@@ -558,14 +558,18 @@ public class Orderfood : MonoBehaviour
         }
     }
 
-    private IEnumerator LoadJson(string jsonFilePath, LevelData selectedLevelData)
+    private void LoadJson(string jsonFilePath, LevelData selectedLevelData)
     {
         using (UnityWebRequest www = UnityWebRequest.Get(jsonFilePath))
         {
             if (Application.platform == RuntimePlatform.Android)
             {
                 // For Android, use UnityWebRequest to load the JSON file
-                yield return www.SendWebRequest();
+                www.SendWebRequest();
+                while (!www.isDone)
+                {
+                    // Wait for the request to complete
+                }
 
                 if (www.result == UnityWebRequest.Result.Success)
                 {
@@ -604,11 +608,7 @@ public class Orderfood : MonoBehaviour
     {
         if (itemList != null && itemList.items.Length > 0)
         {
-            Debug.Log("itemList는 이와 같습니다"+itemList);
-            Debug.Log("itemList.items는 이와 같습니다" + itemList.items);
-            Debug.Log("itemList.items[0]는 이와 같습니다" + itemList.items[0]);
-            //selectedLevelItem = itemList.items[Random.Range(0, itemList.items.Length)]; // Choose a random item from the list.
-            selectedLevelItem = itemList.items[18];
+            selectedLevelItem = itemList.items[Random.Range(0, itemList.items.Length)]; // Choose a random item from the list.
             Debug.Log("Selected Item: " + selectedLevelItem.name);
 
             ItemInfo newItemInfo = new ItemInfo

@@ -12922,7 +12922,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1154525170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44157,6 +44157,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1610893772}
     m_Modifications:
+    - target: {fileID: 8792348154788236515, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
+      propertyPath: ChatTransform
+      value: 
+      objectReference: {fileID: 8792348154918762882}
+    - target: {fileID: 8792348154788236515, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
+      propertyPath: NameTransform
+      value: 
+      objectReference: {fileID: 8792348154918762881}
     - target: {fileID: 8792348154788236516, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -44410,6 +44418,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f14c95c87ba802440bb0741f5f3a6f7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &8792348154918762881 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8792348156428176898, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
+  m_PrefabInstance: {fileID: 8792348154918762879}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8792348154918762882 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8792348156032617663, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
+  m_PrefabInstance: {fileID: 8792348154918762879}
+  m_PrefabAsset: {fileID: 0}
 --- !u!222 &8942780438862919518
 CanvasRenderer:
   m_ObjectHideFlags: 0

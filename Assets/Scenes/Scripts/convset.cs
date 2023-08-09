@@ -3,6 +3,8 @@ using UnityEngine.UI;
 
 public class convset : MonoBehaviour
 {
+    public RectTransform ChatTransform;
+    public RectTransform NameTransform;
     public Text uiText;
     public Image uiImage;
     private Sprite[] imageSprites;
@@ -13,6 +15,11 @@ public class convset : MonoBehaviour
     private int CurrentOrder = 0;
     private int DayValue = 0;
 
+    private void Awake()
+    {
+        ModifyRectTransform(0, -180, 1800, 1000);
+        ModifyTextRectTransform(-597, -30, 500, 200);
+    }
     private void Start()
     {
         PlayerName = PlayerPrefs.GetString("Player", "플레이어");
@@ -171,5 +178,19 @@ public class convset : MonoBehaviour
         {
             Debug.LogError("Image not found at path: " + imagePath);
         }
+    }
+
+    private void ModifyRectTransform(int x, int y, int width, int height)
+    {
+        // Width, Height, Pos X, Pos Y 변경
+        ChatTransform.sizeDelta = new Vector2(width, height);
+        ChatTransform.anchoredPosition = new Vector2(x, y);
+    }
+
+    private void ModifyTextRectTransform(int x, int y, int width, int height)
+    {
+        // Width, Height, Pos X, Pos Y 변경
+        NameTransform.sizeDelta = new Vector2(width, height);
+        NameTransform.anchoredPosition = new Vector2(x, y);
     }
 }

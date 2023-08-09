@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 public class UpbringingGameManager : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class UpbringingGameManager : MonoBehaviour
     public GameObject NextDayQuestion;
     public GameObject LastEvent;
     public GameObject EndingEvent; // 엔딩 이벤트
+    public GameObject TenEvent;
 
     public Dictionary<int, string> StatOrder = new Dictionary<int, string>(); // Stat Dictonary
     public int[] Cal = new int[2];
@@ -74,6 +76,17 @@ public class UpbringingGameManager : MonoBehaviour
             DayText.text = "20일째";
             LastEvent.SetActive(true);
             CollectedDog.Instance.LastEvent();
+        }
+        else if (Day == 21)
+        {
+            LastEvent.SetActive(true);
+            CollectedDog.Instance.NewCircle();
+            FirstEeventOn = true;
+        }
+        else if(Day%20==10)
+        {
+            DayText.text = (Day % 20).ToString() + "일째";
+            TenEvent.SetActive(true);
         }
         else
         {

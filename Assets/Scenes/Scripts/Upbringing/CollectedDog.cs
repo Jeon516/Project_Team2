@@ -79,7 +79,14 @@ public class CollectedDog : MonoBehaviour
 
     void Start()
     {
-        ShowScreen.SetActive(false);
+        if(UpbringingGameManager.Instance.Day== 21)
+        {
+            ShowScreen.SetActive(true);
+        }
+        else
+        {
+            ShowScreen.SetActive(false);
+        }
         CollectedDogDatas = new CollectedDogData();
         LoadDogStat();
         LoadDogCollect();
@@ -158,36 +165,43 @@ public class CollectedDog : MonoBehaviour
         {
             order++;
             ChatText.text = "돌보느라 수고하셨습니다!\n업무를 하시는 동안 이 강아지가 열차에 탈 수 있도록\n준비하겠습니다.";
-            if(UpbringingGameManager.Instance.Day/20!=1)
-            {
-                StartCoroutine(LoadingScene());
-            }
         }
         else if (Input.GetMouseButtonDown(0) && order == 6)
         {
-            order++;
-            CharacterText.text = "";
-            ChatText.text = "(관리소를 나오니 제이가 작은 유령과 함께 나를 기다리고 있다.)";
-            ChatText.color = InformationChatColor;
-            GhostImage.SetActive(true);
+            StartCoroutine(LoadingScene());
         }
-        else if (Input.GetMouseButtonDown(0) && order == 7)
+
+        else if (Input.GetMouseButtonDown(0) && order == 8)
         {
+            Debug.Log(order+"입니다");
             order++;
             CharacterText.text = "제이";
             ChatText.text = "하하…눈치채셨나요? 이번에 돌봐주셔야 할 유령입니다.";
             ChatText.color = JayChatColor;
         }
-        else if (Input.GetMouseButtonDown(0) && order == 8)
+        else if (Input.GetMouseButtonDown(0) && order == 9)
         {
+            Debug.Log(order + "입니다");
             order++;
             ChatText.text = "유령이 기억을 찾게 된다면 저번처럼 관리소에 데리고 오시면 됩니다.\n그럼, 앞으로도 잘 부탁드립니다!";
         }
-        else if(Input.GetMouseButtonDown(0) && order == 9)
+        else if(Input.GetMouseButtonDown(0) && order == 10)
         {
-            StartCoroutine(LoadingScene());
+            UpbringingGameManager.Instance.LastEvent.SetActive(false);
+            Debug.Log(order + "입니다");
         }
     }
+
+    public void NewCircle()
+    {
+        CharacterText.text = "";
+        ChatText.text = "(관리소를 나오니 제이가 작은 유령과 함께 나를 기다리고 있다.)";
+        ChatText.color = InformationChatColor;
+        GhostImage.SetActive(true);
+        JayImage.SetActive(true);
+        order = 8;
+        Debug.Log(order);
+    } // after 1 circle
 
     public IEnumerator LoadingScene()
     {

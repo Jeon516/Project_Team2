@@ -5,30 +5,52 @@ public class convset : MonoBehaviour
 {
     public Text uiText;
     public Image uiImage;
-    public int maxNumImages = 10;
+    private Sprite[] imageSprites;
 
+    private string PlayerName;
     private bool isDogText = true;
+    private int TotalOrder = 10;
+    private int CurrentOrder = 0;
+    private int DayValue = 0;
+
+    private void Start()
+    {
+        PlayerName = PlayerPrefs.GetString("Player", "플레이어");
+        DayValue = PlayerPrefs.GetInt("Day", 0);
+        DayValue /= 20;
+
+        if (DayValue >= 32)
+            DayValue = 1;
+
+        TotalOrder = 20;
+        CurrentOrder = 0;
+        LoadImagesForDayValue();
+        SwitchText();
+    }
 
     public void OnButtonClick()
     {
-        // 텍스트 변경
         SwitchText();
-
-        // 이미지 할당
-        LoadImagesForDayValue();
+        if(CurrentOrder>=TotalOrder)
+        {
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            uiImage.sprite = imageSprites[CurrentOrder];
+            CurrentOrder++;
+        }
     }
 
     private void SwitchText()
     {
         isDogText = !isDogText;
 
-        int dayValue = PlayerPrefs.GetInt("DayValue", 0) % 32;
-
         // 시작 텍스트를 초기화합니다.
         string initialText = "";
 
         // 특정 DayValue에 따라 시작 텍스트를 변경합니다.
-        switch (dayValue)
+        switch (DayValue)
         {
             case 1:
                 initialText = "강아지";
@@ -67,7 +89,7 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
             case 13:
-                initialText = "유저";
+                initialText = PlayerName;
                 break;
             case 14:
                 initialText = "강아지";
@@ -94,7 +116,7 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
             case 22:
-                initialText = "유저";
+                initialText = PlayerName;
                 break;
             case 23:
                 initialText = "강아지";
@@ -130,22 +152,20 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
         }
-        uiText.text = isDogText ? initialText : "유저";
+        uiText.text = isDogText ? initialText : PlayerName;
     }
 
     private void LoadImagesForDayValue()
     {
-        int dayValue = PlayerPrefs.GetInt("DayValue", 0);
+        string imagePath = "Image/10DayPrefeb/Day" + DayValue;
 
-        int remainder = dayValue % 32;
+        imageSprites = Resources.LoadAll<Sprite>(imagePath);
 
-        string imagePath = "Image/10DayPrefeb/Day" + remainder;
-
-        Sprite imageSprite = Resources.Load<Sprite>(imagePath);
-
-        if (imageSprite != null)
+        if (imageSprites != null)
         {
-            uiImage.sprite = imageSprite;
+            TotalOrder=imageSprites.Length;
+            uiImage.sprite = imageSprites[0];
+            CurrentOrder++;
         }
         else
         {

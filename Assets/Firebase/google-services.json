@@ -1,0 +1,97 @@
+{
+  "project_info": {
+    "project_number": "363958351473",
+    "project_id": "overtherainbow-22da2",
+    "storage_bucket": "overtherainbow-22da2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363958351473:android:c63d37d80b7d75a22f4dd0",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.OvertheRainbow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoYk4CJ4k1sYYsL6UyY5lhQ-fCamPuR0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363958351473:android:3cce7ae160fef86f2f4dd0",
+        "android_client_info": {
+          "package_name": "com.company.over"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoYk4CJ4k1sYYsL6UyY5lhQ-fCamPuR0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363958351473:android:efa5d7f495fecba12f4dd0",
+        "android_client_info": {
+          "package_name": "com.overtherainbow.OvertheRainbow"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoYk4CJ4k1sYYsL6UyY5lhQ-fCamPuR0Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363958351473-4eemb07ucaqb6ke0bvqfp220s34pibh4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -604,7 +604,11 @@ public class Orderfood : MonoBehaviour
     {
         if (itemList != null && itemList.items.Length > 0)
         {
-            selectedLevelItem = itemList.items[Random.Range(0, itemList.items.Length)]; // Choose a random item from the list.
+            Debug.Log("itemList는 이와 같습니다"+itemList);
+            Debug.Log("itemList.items는 이와 같습니다" + itemList.items);
+            Debug.Log("itemList.items[0]는 이와 같습니다" + itemList.items[0]);
+            //selectedLevelItem = itemList.items[Random.Range(0, itemList.items.Length)]; // Choose a random item from the list.
+            selectedLevelItem = itemList.items[18];
             Debug.Log("Selected Item: " + selectedLevelItem.name);
 
             ItemInfo newItemInfo = new ItemInfo
@@ -631,7 +635,7 @@ public class Orderfood : MonoBehaviour
         {
             Debug.LogError("No items found in the JSON file.");
         }
-    }
+    } // add food
 
     /// <summary>
     /// ///////////////////////////////////////////////////////////////////////////////////////////

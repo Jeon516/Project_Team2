@@ -59,6 +59,9 @@ public class convset : MonoBehaviour
         // 특정 DayValue에 따라 시작 텍스트를 변경합니다.
         switch (DayValue)
         {
+            case 0:
+                initialText = "강아지";
+                break;
             case 1:
                 initialText = "강아지";
                 break;
@@ -93,10 +96,10 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
             case 12:
-                initialText = "강아지";
+                initialText = PlayerName;
                 break;
             case 13:
-                initialText = PlayerName;
+                initialText = "강아지";
                 break;
             case 14:
                 initialText = "강아지";
@@ -120,10 +123,10 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
             case 21:
-                initialText = "강아지";
+                initialText = PlayerName;
                 break;
             case 22:
-                initialText = PlayerName;
+                initialText = "강아지";
                 break;
             case 23:
                 initialText = "강아지";
@@ -150,9 +153,6 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
             case 31:
-                initialText = "강아지";
-                break;
-            case 0:
                 initialText = "강아지";
                 break;
             default:

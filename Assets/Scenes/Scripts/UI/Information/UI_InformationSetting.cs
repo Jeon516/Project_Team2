@@ -10,6 +10,7 @@ public class UI_InformationSetting : MonoBehaviour
     public GameObject FoodMiddle;
     public GameObject FoodHigh;
     public GameObject LevelButton;
+    public Image InfoImage;
     public Text NameText;
     public Text InfoText;
     private bool IsDog = false;
@@ -19,6 +20,7 @@ public class UI_InformationSetting : MonoBehaviour
     {
         NameText.text = "";
         InfoText.text = "";
+        InfoImage.GetComponent<Image>().sprite = null;
         DogTag.SetActive(false);
         LevelButton.SetActive(false);
         FoodLow.SetActive(false);
@@ -44,6 +46,7 @@ public class UI_InformationSetting : MonoBehaviour
         {
             NameText.text = "";
             InfoText.text = "";
+            InfoImage.GetComponent<Image>().sprite = null;
             DogTag.SetActive(true);
             FoodLow.SetActive(false);
             FoodMiddle.SetActive(false);
@@ -80,6 +83,8 @@ public class UI_InformationSetting : MonoBehaviour
         AudioManager.Instance.PlaySFX("ButtonClick");
         NameText.text = "";
         InfoText.text = "";
+        InfoImage.GetComponent<Image>().sprite = null;
+        UI_InvenotrySlot.Instance.Initialized();
         Orderfood.Instance.Selected[Orderfood.Instance.selectorder].SetActive(false);
         FoodLow.SetActive(true);
         FoodMiddle.SetActive(false);
@@ -94,6 +99,8 @@ public class UI_InformationSetting : MonoBehaviour
         AudioManager.Instance.PlaySFX("ButtonClick");
         NameText.text = "";
         InfoText.text = "";
+        InfoImage.GetComponent<Image>().sprite = null;
+        UI_InvenotrySlot.Instance.Initialized();
         Orderfood.Instance.Selected[Orderfood.Instance.selectorder].SetActive(false);
         FoodMiddle.SetActive(true);
         FoodLow.SetActive(false);
@@ -108,6 +115,8 @@ public class UI_InformationSetting : MonoBehaviour
         AudioManager.Instance.PlaySFX("ButtonClick");
         NameText.text = "";
         InfoText.text = "";
+        InfoImage.GetComponent<Image>().sprite = null;
+        UI_InvenotrySlot.Instance.Initialized();
         Orderfood.Instance.Selected[Orderfood.Instance.selectorder].SetActive(false);
         FoodHigh.SetActive(true);
         FoodLow.SetActive(false);

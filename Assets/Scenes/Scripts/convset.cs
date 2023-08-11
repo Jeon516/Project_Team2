@@ -26,7 +26,11 @@ public class convset : MonoBehaviour
         DayValue = PlayerPrefs.GetInt("Day", 0);
         DayValue /= 20;
 
-        if (DayValue >= 32)
+        if(CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count==32)
+        {
+            DayValue = 32;
+        }
+        else if (DayValue >= 32)
             DayValue = 1;
 
         TotalOrder = 20;

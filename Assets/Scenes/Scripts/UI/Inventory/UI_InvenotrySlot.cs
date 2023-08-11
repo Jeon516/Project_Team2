@@ -65,7 +65,7 @@ public class UI_InvenotrySlot : MonoBehaviour
         Icon[SelectedNum].SetActive(false);
         UI_InventoryInformation.Instance.SwitchImageNull();
     } // 인벤토리 이미지 및 큰 이미지 삭제
-    private void Initialized()
+    public void Initialized()
     {
         for (int i = 0; i < buttons.Length; i++)
         {

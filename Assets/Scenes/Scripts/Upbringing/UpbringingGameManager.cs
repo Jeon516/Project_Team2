@@ -188,6 +188,17 @@ public class UpbringingGameManager : MonoBehaviour
                 PlayerPrefs.SetInt("InteractionThreeChance", 0);
                 StartCoroutine(LoadingScene());
             } // 20일 내의 시간은 천국 씬으로 넘어감
+            else if (Day % 20 == 0 && CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count == 32)
+            {
+                Day++;
+                PlayerPrefs.SetInt("Day", Day);
+                PlayerPrefs.SetInt("IsHeaven", 1);
+                PlayerPrefs.SetInt("IsRandomFree", 0);
+                PlayerPrefs.SetInt("InteractionOneChance", 0);
+                PlayerPrefs.SetInt("InteractionTwoChance", 0);
+                PlayerPrefs.SetInt("InteractionThreeChance", 0);
+                EndingEvent.SetActive(true);
+            } // Collect 32 Dogs
             else if(Day % 20 == 0)
             {
                 LastEvent.SetActive(true);

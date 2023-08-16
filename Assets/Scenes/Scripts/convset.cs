@@ -15,11 +15,6 @@ public class convset : MonoBehaviour
     private int CurrentOrder = 0;
     private int DayValue = 0;
 
-    private void Awake()
-    {
-        ModifyRectTransform(0, -180, 1800, 1000);
-        ModifyTextRectTransform(-597, -30, 500, 200);
-    }
     private void Start()
     {
         PlayerName = PlayerPrefs.GetString("Player", "플레이어");
@@ -36,7 +31,113 @@ public class convset : MonoBehaviour
         TotalOrder = 20;
         CurrentOrder = 0;
         LoadImagesForDayValue();
-        SwitchText();
+
+        string initialText = "";
+
+        // 특정 DayValue에 따라 시작 텍스트를 변경합니다.
+        switch (DayValue)
+        {
+            case 0:
+                initialText = "강아지";
+                break;
+            case 1:
+                initialText = "강아지";
+                break;
+            case 2:
+                initialText = "강아지";
+                break;
+            case 3:
+                initialText = "강아지";
+                break;
+            case 4:
+                initialText = "강아지";
+                break;
+            case 5:
+                initialText = "강아지";
+                break;
+            case 6:
+                initialText = "강아지";
+                break;
+            case 7:
+                initialText = "강아지";
+                break;
+            case 8:
+                initialText = "강아지";
+                break;
+            case 9:
+                initialText = "강아지";
+                break;
+            case 10:
+                initialText = "강아지";
+                break;
+            case 11:
+                initialText = "강아지";
+                break;
+            case 12:
+                initialText = PlayerName;
+                break;
+            case 13:
+                initialText = "강아지";
+                break;
+            case 14:
+                initialText = "강아지";
+                break;
+            case 15:
+                initialText = "강아지";
+                break;
+            case 16:
+                initialText = "강아지";
+                break;
+            case 17:
+                initialText = "강아지";
+                break;
+            case 18:
+                initialText = "강아지";
+                break;
+            case 19:
+                initialText = "강아지";
+                break;
+            case 20:
+                initialText = "강아지";
+                break;
+            case 21:
+                initialText = PlayerName;
+                break;
+            case 22:
+                initialText = "강아지";
+                break;
+            case 23:
+                initialText = "강아지";
+                break;
+            case 24:
+                initialText = "강아지";
+                break;
+            case 25:
+                initialText = "강아지";
+                break;
+            case 26:
+                initialText = "강아지";
+                break;
+            case 27:
+                initialText = "강아지";
+                break;
+            case 28:
+                initialText = "강아지";
+                break;
+            case 29:
+                initialText = "강아지";
+                break;
+            case 30:
+                initialText = "강아지";
+                break;
+            case 31:
+                initialText = "강아지";
+                break;
+            default:
+                initialText = "강아지";
+                break;
+        }
+        uiText.text = initialText;
     }
 
     public void OnButtonClick()
@@ -55,6 +156,7 @@ public class convset : MonoBehaviour
 
     private void SwitchText()
     {
+        Debug.Log(DayValue);
         isDogText = !isDogText;
 
         // 시작 텍스트를 초기화합니다.
@@ -163,6 +265,7 @@ public class convset : MonoBehaviour
                 initialText = "강아지";
                 break;
         }
+
         uiText.text = isDogText ? initialText : PlayerName;
     }
 
@@ -182,19 +285,5 @@ public class convset : MonoBehaviour
         {
             Debug.LogError("Image not found at path: " + imagePath);
         }
-    }
-
-    private void ModifyRectTransform(int x, int y, int width, int height)
-    {
-        // Width, Height, Pos X, Pos Y 변경
-        ChatTransform.sizeDelta = new Vector2(width, height);
-        ChatTransform.anchoredPosition = new Vector2(x, y);
-    }
-
-    private void ModifyTextRectTransform(int x, int y, int width, int height)
-    {
-        // Width, Height, Pos X, Pos Y 변경
-        NameTransform.sizeDelta = new Vector2(width, height);
-        NameTransform.anchoredPosition = new Vector2(x, y);
     }
 }

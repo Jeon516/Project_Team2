@@ -33,6 +33,7 @@ public class FirstScene : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.StopBGM();
+        AudioManager.Instance.PlaySFX("CarCrash");
 
         StartCoroutine(ShowLoading());
         ShowImage(currentImageIndex);

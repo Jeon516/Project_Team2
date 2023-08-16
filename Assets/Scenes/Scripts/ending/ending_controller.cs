@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ending_controller : MonoBehaviour
@@ -31,6 +32,8 @@ public class ending_controller : MonoBehaviour
     public Image image26;
     public Image image27;
     public Image image28;
+    public RectTransform EndingCredit;
+    public GameObject Credit;
 
     public Button myButton;
     public GameObject book1Prefab;
@@ -41,6 +44,7 @@ public class ending_controller : MonoBehaviour
     public GameObject next2;
 
     public int clickCount = 0;
+    private bool IsCredit=false;
 
     void Start()
     {
@@ -214,6 +218,32 @@ public class ending_controller : MonoBehaviour
             image28 뿌옇게 처리
             endingcredit
             */
+            AudioManager.Instance.PlayBGM("Outro");
+            Credit.SetActive(true);
+            IsCredit = true;
+        }
+    }
+
+    private void Update()
+    {
+        int End= PlayerPrefs.GetInt("End", 0);
+
+        if (End == 1 && Input.GetMouseButtonDown(0))
+        {
+            SceneManager.LoadSceneAsync("Loading");
+        }
+        if (IsCredit)
+        {
+            if(EndingCredit.anchoredPosition.y>=1500)
+            {
+                IsCredit = false;
+                PlayerPrefs.SetInt("End", 1);
+                return;
+            }
+            float CreditPosition = EndingCredit.anchoredPosition.y+Time.deltaTime*65;
+            EndingCredit.anchoredPosition = new Vector2(0, CreditPosition);
+            Debug.Log(EndingCredit.anchoredPosition);
         }
     }
 }
+

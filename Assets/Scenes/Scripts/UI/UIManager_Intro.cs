@@ -31,6 +31,7 @@ public class UIManager_Intro : MonoBehaviour
         PlayerName = PlayerPrefs.GetString("Player", "플레이어");
         PlayerPrefs.SetString("Player", PlayerName);
     }
+
     private void Start()
     {
         InventoryjsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
@@ -44,6 +45,7 @@ public class UIManager_Intro : MonoBehaviour
 
         AudioManager.Instance.PlayBGM("Intro");
     }
+
     public void OnClick_Start()
     {
         AudioManager.Instance.PlaySFX("ButtonClick");

@@ -66,11 +66,11 @@ public class InventoryManager : MonoBehaviour
         yesButton.onClick.AddListener(OnYesButtonClicked);
         noButton.onClick.AddListener(OnNoButtonClicked);
 
-        StartCoroutine(LoadDataAndUpdateUI());
+        LoadDataAndUpdateUI();
     }
-    private IEnumerator LoadDataAndUpdateUI()
+    private void LoadDataAndUpdateUI()
     {
-        yield return LoadDataFromJsonFile();
+        LoadDataFromJsonFile();
         Debug.Log("Inventory json 파일에 접속되었습니다.");
         UpdateUI();
     }
@@ -80,7 +80,7 @@ public class InventoryManager : MonoBehaviour
         return originalPath.Replace("\\", "/");
     }
 
-    private IEnumerator LoadDataFromJsonFile()
+    private void LoadDataFromJsonFile()
     { // 인벤토리 초기화
         string jsonFileName = "inventory.json";
         jsonFilePath = Path.Combine(Application.persistentDataPath, jsonFileName);
@@ -96,8 +96,6 @@ public class InventoryManager : MonoBehaviour
         {
             Debug.LogWarning("JSON 파일이 존재하지 않습니다.");
         }
-
-        yield return null;
     }
 
     public void UpdateUI()
@@ -254,7 +252,6 @@ public class InventoryManager : MonoBehaviour
         float LoveX = PlayerPrefs.GetFloat("LoveX");
 
         int ActionNum = PlayerPrefs.GetInt("ActionNum");
-        //data connect
 
         for (int i = 0; i < 2; i++)
         {

@@ -16,9 +16,11 @@ public class Loading : MonoBehaviour
     private List<string> characters;
     private int Day;
     private int IsHeaven;
+    private int EndingAfter;
 
     private void Awake()
     {
+        EndingAfter = PlayerPrefs.GetInt("End", 0);
         Day = PlayerPrefs.GetInt("Day", 0);
         PlayerPrefs.SetInt("Day", Day);
         IsHeaven = PlayerPrefs.GetInt("IsHeaven");
@@ -128,6 +130,11 @@ public class Loading : MonoBehaviour
         if ((Day / 20 == 0 && Day % 20 == 0) || (Day / 20 == 0 && Day % 20 == 1))
         {
             SceneManager.LoadScene("IntroScene");
+        }
+        else if(EndingAfter==1)
+        {
+            PlayerPrefs.SetInt("End", 0);
+            SceneManager.LoadScene("Intro_Width");
         }
         else if (IsHeaven == 1)
         { 

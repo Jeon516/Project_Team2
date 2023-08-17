@@ -46,9 +46,14 @@ public class IntroTutorial : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && Chat.Length>order && IsClick)
         {
+            Debug.Log(order);
             if(order<2)
             {
                 NameText.text = "관리소 직원";
+            }
+            else
+            {
+                NameText.text = "제이";
             }
             ChatText.text = Chat[order];
             if (order == 2)
@@ -59,6 +64,7 @@ public class IntroTutorial : MonoBehaviour
                 order++;
             }
             order++;
+            Debug.Log(NameText.text);
         }
     }
 

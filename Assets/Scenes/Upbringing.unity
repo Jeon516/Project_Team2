@@ -44779,11 +44779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156032617663, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1800
+      value: 1500
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156032617663, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156032617663, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_LocalScale.x
@@ -44811,7 +44811,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156032617663, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -180
+      value: -229
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176897, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_Text
@@ -44827,11 +44827,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176897, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_FontData.m_MinSize
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176897, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 100
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176897, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_FontData.m_Alignment
@@ -44871,11 +44871,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176898, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -596.8898
+      value: -502
       objectReference: {fileID: 0}
     - target: {fileID: 8792348156428176898, guid: 8f2f69f3653be6e409099e486b2417d1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: -113
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

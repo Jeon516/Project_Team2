@@ -226,7 +226,7 @@ public class UpbringingGameManager : MonoBehaviour
 
         while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             gameObject.SetActive(false);
         }
     }
@@ -237,7 +237,7 @@ public class UpbringingGameManager : MonoBehaviour
 
         while (!loading.isDone) //씬 로딩 완료시 로딩완료시 완료된다.
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.5f);
             gameObject.SetActive(false);
         }
     }

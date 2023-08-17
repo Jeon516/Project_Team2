@@ -332,7 +332,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (Deliberation < 4)
                     {
-                        if (Sociality + StatValue[i] >= 4)
+                        if (Deliberation + StatValue[i] >= 4)
                         {
                             PlayerPrefs.SetInt("Deliberation", 4);
                             PlayerPrefs.SetFloat("DeliberationX", -444);
@@ -346,7 +346,7 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    if (Sociality + StatValue[i] <= -4)
+                    if (Deliberation + StatValue[i] <= -4)
                     {
                         PlayerPrefs.SetInt("Deliberation", -4);
                         PlayerPrefs.SetFloat("DeliberationX", 444);
@@ -364,7 +364,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (Curiosoty < 4)
                     {
-                        if (Sociality + StatValue[i] >= 4)
+                        if (Curiosoty + StatValue[i] >= 4)
                         {
                             PlayerPrefs.SetInt("Curiosoty", 4);
                             PlayerPrefs.SetFloat("CuriosotyX", -444);
@@ -380,7 +380,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (Curiosoty > -4)
                     {
-                        if (Sociality + StatValue[i] <= -4)
+                        if (Curiosoty + StatValue[i] <= -4)
                         {
                             PlayerPrefs.SetInt("Curiosoty", -4);
                             PlayerPrefs.SetFloat("CuriosotyX", 444);
@@ -399,7 +399,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     if (Love < 4)
                     {
-                        if (Sociality + StatValue[i] >= 4)
+                        if (Love + StatValue[i] >= 4)
                         {
                             PlayerPrefs.SetInt("Love", 4);
                             PlayerPrefs.SetFloat("LoveX", -444);
@@ -413,7 +413,7 @@ public class InventoryManager : MonoBehaviour
                 }
                 else
                 {
-                    if (Sociality + StatValue[i] <= -4)
+                    if (Love + StatValue[i] <= -4)
                     {
                         PlayerPrefs.SetInt("Love", -4);
                         PlayerPrefs.SetFloat("LoveX", 444);

@@ -99,20 +99,22 @@ public class HeavenTutorial : MonoBehaviour
         }
         else if (Input.GetMouseButtonDown(0) && order == 5 && IsClick)
         {
-            for (int i = 7; i < 9; i++)
+            for (int i = 1; i < 3; i++)
                 TutorialInformation[i].SetActive(true);
-            TutorialInformation[1].SetActive(false);
+            TutorialInformation[4].SetActive(true);
             TutorialInformation[6].SetActive(false);
             ModifyRectTransform(0, -250, 1800, 800);
             ChatDisplay();
-        }
+        } 
         else if (Input.GetMouseButtonDown(0) && order == 6 && IsClick)
         {
-            for (int i = 1; i < 9; i++)
-                TutorialInformation[i].SetActive(false);
-            ModifyRectTransform(0, -250, 1800, 800);
+            for (int i = 7; i < 9; i++)
+                TutorialInformation[i].SetActive(true);
+            TutorialInformation[1].SetActive(false);
+            TutorialInformation[2].SetActive(false);
+            TutorialInformation[4].SetActive(false);
             ChatDisplay();
-        }
+        } 
     }
 
     public void OnClick_TutorialStart()

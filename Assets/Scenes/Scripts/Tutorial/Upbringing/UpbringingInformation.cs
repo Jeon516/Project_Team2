@@ -48,7 +48,6 @@ public class UpbringingInformation : MonoBehaviour
         {
             ChatSet.SetActive(true);
             NextDay.SetActive(true);
-            ChatDisplay();
         }
         else if (Input.GetMouseButtonDown(0) && order == 3)
         {

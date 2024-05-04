@@ -718,6 +718,7 @@ public class Orderfood : MonoBehaviour
                 SelectedName.text = selectedLevelItem.name;
                 SelectedInfo.text = selectedLevelItem.itemText;
 
+                //InventoryManager.Instance.UpdateUI();
                 // Update the quantity
                 // The quantity is not modified in this example, modify it based on your logic if needed.
             }
@@ -736,7 +737,6 @@ public class Orderfood : MonoBehaviour
     {
         string jsonFilePath = Path.Combine(Application.persistentDataPath, "inventory.json");
         string jsonData = JsonUtility.ToJson(inventoryData);
-
         try
         {
             File.WriteAllText(jsonFilePath, jsonData);

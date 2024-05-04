@@ -9,8 +9,6 @@ public class UI_ShopSetting : MonoBehaviour
     public GameObject StarShop;
     public GameObject ShopGachaScreen;
     public int Gold;
-    private bool IsRandom = false;
-    private bool IsShop = false;
 
 
     public static UI_ShopSetting Instance { get; private set; } = null;

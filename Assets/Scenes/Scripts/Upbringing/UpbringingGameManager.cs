@@ -96,7 +96,6 @@ public class UpbringingGameManager : MonoBehaviour
         }
         ActionNumText.text = ActionNum.ToString();
         GoldText.text = Gold.ToString();
-        
     }
 
     private void Update()
@@ -190,6 +189,7 @@ public class UpbringingGameManager : MonoBehaviour
             } // 20일 내의 시간은 천국 씬으로 넘어감
             else if (Day % 20 == 0 && CollectedDog.Instance.CollectedDogDatas.collectedDogData.Count == 32)
             {
+                Debug.Log("되었습니다");
                 Day++;
                 PlayerPrefs.SetInt("Day", Day);
                 PlayerPrefs.SetInt("IsHeaven", 1);

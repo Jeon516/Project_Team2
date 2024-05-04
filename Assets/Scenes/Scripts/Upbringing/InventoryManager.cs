@@ -143,7 +143,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OnButtonClicked(int index)
     {
-        if (index >= 0 && index < uiImageList.Count)
+        if (index >= 0 && index < inventoryData.itemList.Count)
         {
             InvenData item = inventoryData.itemList[index];
             inventoryData.usingItemText = item.itemName; // Set the currently selected item's name

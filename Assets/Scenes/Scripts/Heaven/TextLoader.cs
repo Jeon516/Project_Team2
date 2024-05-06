@@ -123,7 +123,7 @@ public class TextLoader : MonoBehaviour
                 if (useWaveText)
                 {
                     // Get wave text or other matching text
-                    int randomIndex = Random.Range(0, matchingSets.Count - 1);
+                    int randomIndex = Random.Range(0, matchingSets.Count);
                     textValue = matchingSets[randomIndex].Sort;
                 }
                 else

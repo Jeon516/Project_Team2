@@ -14,8 +14,8 @@ public class FirstScene : MonoBehaviour
 {
     public ImageData[] imagesToDisplay;
     public Button nextButton;
-    public Image blurTargetImage;
-    public Material blurMaterial;
+    //public Image blurTargetImage;
+    //public Material blurMaterial;
     public float transitionTimeIndex1 = 2.0f;
     public float maxBlurRadius = 255.0f;
     public float minBlurRadius = 0.0f;
@@ -38,8 +38,8 @@ public class FirstScene : MonoBehaviour
         StartCoroutine(ShowLoading());
         ShowImage(currentImageIndex);
 
-        blurMaterial = new Material(blurMaterial);
-        blurTargetImage.material = blurMaterial;
+        //blurMaterial = new Material(blurMaterial);
+        //blurTargetImage.material = blurMaterial;
 
         if (nextButton != null)
         {
@@ -91,13 +91,13 @@ public class FirstScene : MonoBehaviour
         while (elapsedTime < transitionTime)
         {
             float currentBlurValue = Mathf.Lerp(startBlurValue, targetBlurValue, elapsedTime / transitionTime);
-            blurMaterial.SetFloat("_Radius", currentBlurValue);
+            //blurMaterial.SetFloat("_Radius", currentBlurValue);
 
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        blurMaterial.SetFloat("_Radius", targetBlurValue);
+        //blurMaterial.SetFloat("_Radius", targetBlurValue);
         isTransitioning = false;
     }
 
@@ -160,7 +160,7 @@ public class FirstScene : MonoBehaviour
                         StopCoroutine(transitionCoroutine);
                     }
 
-                    blurMaterial.SetFloat("_Radius", minBlurRadius);
+                    //blurMaterial.SetFloat("_Radius", minBlurRadius);
                 }
             }
         }

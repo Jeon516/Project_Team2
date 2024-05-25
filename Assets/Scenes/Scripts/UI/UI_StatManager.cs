@@ -17,14 +17,17 @@ public class UI_StatManager : MonoBehaviour
     private string[] StatText = { "활발함", "사회성", "대담함", "호기심", "애정표현",
         "차분함", "독립성", "신중함", "조용함", "냉정함"};
 
-    private void Start()
+    private void Awake()
     {
         StatOrder.Add(0, "Energy");
         StatOrder.Add(1, "Sociality");
         StatOrder.Add(2, "Deliberation");
         StatOrder.Add(3, "Curiosoty");
         StatOrder.Add(4, "Love");
+    }
 
+    private void Start()
+    {
         OnEnable();
     } // 딕셔너리 초기화
     

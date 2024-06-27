@@ -295,7 +295,8 @@ public class CollectedDog : MonoBehaviour
         for (int i = 0; i < collectDogDataList.dogs.Count; i++)
         {
             DogData dogData = collectDogDataList.dogs[i];
-            double distanceSquared = Math.Sqrt(Math.Pow(CollectEnergy - dogData.Energy, 2)+ Math.Pow(CollectSociality - dogData.Sociality, 2)+ Math.Pow(CollectDeliberation - dogData.Deliberation, 2)
+            double distanceSquared = Math.Sqrt(Math.Pow(CollectEnergy - dogData.Energy, 2)+ 
+                Math.Pow(CollectSociality - dogData.Sociality, 2)+ Math.Pow(CollectDeliberation - dogData.Deliberation, 2)
                 + Math.Pow(CollectCuriosoty - dogData.Curiosoty, 2)+ Math.Pow(CollectLove - dogData.Love, 2));
             distanceFromDesiredValues[i] = Math.Sqrt(distanceSquared);
         }

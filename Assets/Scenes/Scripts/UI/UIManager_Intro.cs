@@ -83,8 +83,8 @@ public class UIManager_Intro : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("ActionNum", 300);
-            PlayerPrefs.SetInt("Day", 10);
+            //PlayerPrefs.SetInt("ActionNum", 300);
+            PlayerPrefs.SetInt("Day", Day);
             SceneManager.LoadScene("Loading");
         }
     } // 'Load Start'을 누를 때

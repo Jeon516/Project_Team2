@@ -38,13 +38,10 @@ public class FirstScene : MonoBehaviour
         StartCoroutine(ShowLoading());
         ShowImage(currentImageIndex);
 
-        //blurMaterial = new Material(blurMaterial);
-        //blurTargetImage.material = blurMaterial;
-
         if (nextButton != null)
         {
             nextButton.onClick.AddListener(ShowNextImage);
-            nextButton.interactable = true;
+            nextButton.interactable = false;
         }
     }
 
@@ -74,6 +71,7 @@ public class FirstScene : MonoBehaviour
 
             yield return new WaitForSeconds(1f);
 
+            nextButton.interactable = true;
             loadImage.gameObject.SetActive(false);
         }
     }

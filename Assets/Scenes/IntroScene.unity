@@ -2262,8 +2262,6 @@ MonoBehaviour:
   - image: {fileID: 1243816290}
     useInTransition: 1
   nextButton: {fileID: 1629407380}
-  blurTargetImage: {fileID: 470546859}
-  blurMaterial: {fileID: 2100000, guid: 931cd27bd8a59b54cbd5ebcef31d6669, type: 2}
   transitionTimeIndex1: 4
   maxBlurRadius: 100
   minBlurRadius: 1
@@ -6243,7 +6241,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1822015767
 RectTransform:
   m_ObjectHideFlags: 0

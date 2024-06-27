@@ -14,11 +14,7 @@ public class FirstScene : MonoBehaviour
 {
     public ImageData[] imagesToDisplay;
     public Button nextButton;
-    //public Image blurTargetImage;
-    //public Material blurMaterial;
     public float transitionTimeIndex1 = 2.0f;
-    public float maxBlurRadius = 255.0f;
-    public float minBlurRadius = 0.0f;
     public float pauseTimeAfterIndex1 = 3.0f;
     public float transitionTimeIndex3 = 5.0f;
     public Image loadImage;
@@ -81,24 +77,6 @@ public class FirstScene : MonoBehaviour
          loadImage.canvasRenderer.SetAlpha(1f);
     }
 
-    private IEnumerator TransitionBlurEffect(float startBlurValue, float targetBlurValue, float transitionTime)
-    {
-        isTransitioning = true;
-        float elapsedTime = 0.0f;
-
-        while (elapsedTime < transitionTime)
-        {
-            float currentBlurValue = Mathf.Lerp(startBlurValue, targetBlurValue, elapsedTime / transitionTime);
-            //blurMaterial.SetFloat("_Radius", currentBlurValue);
-
-            elapsedTime += Time.deltaTime;
-            yield return null;
-        }
-
-        //blurMaterial.SetFloat("_Radius", targetBlurValue);
-        isTransitioning = false;
-    }
-
     private IEnumerator PauseAfterIndex1(float pauseTime)
     {
         isSceneTransitionAllowed = false; // Disable scene transition during the pause
@@ -127,8 +105,6 @@ public class FirstScene : MonoBehaviour
                     {
                         StopCoroutine(transitionCoroutine);
                     }
-
-                    transitionCoroutine = StartCoroutine(TransitionBlurEffect(maxBlurRadius, minBlurRadius, transitionTimeIndex1));
                     StartCoroutine(PauseAfterIndex1(transitionTimeIndex1 + pauseTimeAfterIndex1));
                 }
                 else if (index == 3)
@@ -143,7 +119,6 @@ public class FirstScene : MonoBehaviour
                         StopCoroutine(colorTransitionCoroutine);
                     }
 
-                    transitionCoroutine = StartCoroutine(TransitionBlurEffect(maxBlurRadius, minBlurRadius, transitionTimeIndex3));
                     colorTransitionCoroutine = StartCoroutine(TransitionColorEffect(Color.black, Color.white, transitionTimeIndex3));
                 }
                 else
@@ -158,7 +133,6 @@ public class FirstScene : MonoBehaviour
                         StopCoroutine(transitionCoroutine);
                     }
 
-                    //blurMaterial.SetFloat("_Radius", minBlurRadius);
                 }
             }
         }
@@ -170,8 +144,6 @@ public class FirstScene : MonoBehaviour
         {
             StopCoroutine(transitionCoroutine);
         }
-
-        transitionCoroutine = StartCoroutine(TransitionBlurEffect(minBlurRadius, maxBlurRadius, transitionTimeIndex1));
     }
 
     private IEnumerator TransitionColorEffect(Color startColor, Color targetColor, float transitionTime)

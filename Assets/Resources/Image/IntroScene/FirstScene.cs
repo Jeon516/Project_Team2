@@ -24,6 +24,8 @@ public class FirstScene : MonoBehaviour
     private bool isSceneTransitionAllowed = true;
     private Coroutine transitionCoroutine;
     private Coroutine colorTransitionCoroutine;
+    private bool isFade = false;
+    private float fadeTime = 0f;
 
 
     void Start()
@@ -41,40 +43,30 @@ public class FirstScene : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowLoading()
+    private void Update()
     {
-        for (int r = 0; r < 600; r++)
+        if(isFade)
         {
-            ResetLoading();
-
-            loadImage.gameObject.SetActive(true);
-            loadImage.canvasRenderer.SetAlpha(0f);
-            loadImage.CrossFadeAlpha(1f, 1f, true);
-            yield return new WaitForSeconds(3f);
-
-            float currentFadeOutTime = 0f;
-
-            while (currentFadeOutTime < 2f)
+            fadeTime += Time.deltaTime;
+            if(fadeTime >= 2)
             {
-                float deltaTime = Time.deltaTime;
-                currentFadeOutTime += deltaTime;
-
-                float fadeAmount = Mathf.Lerp(1f, 0f, currentFadeOutTime /2f);
-                loadImage.canvasRenderer.SetAlpha(fadeAmount);
-
-                yield return null;
+                imagesToDisplay[1].image.color = new Color(imagesToDisplay[1].image.color.r, imagesToDisplay[1].image.color.g,
+                imagesToDisplay[1].image.color.b, 1 - ((fadeTime-2) / 2f));
+                if (fadeTime >= 4)
+                {
+                    imagesToDisplay[1].image.color = new Color(imagesToDisplay[1].image.color.r, imagesToDisplay[1].image.color.g,
+                        imagesToDisplay[1].image.color.b, 0f);
+                    isFade = false;
+                }
             }
-
-            yield return new WaitForSeconds(1f);
-
-            nextButton.interactable = true;
-            loadImage.gameObject.SetActive(false);
         }
     }
 
-    private void ResetLoading()
+    private IEnumerator ShowLoading()
     {
-         loadImage.canvasRenderer.SetAlpha(1f);
+        loadImage.gameObject.SetActive(true);
+        yield return new WaitForSeconds(5f);
+        nextButton.interactable = true;
     }
 
     private IEnumerator PauseAfterIndex1(float pauseTime)
@@ -101,11 +93,14 @@ public class FirstScene : MonoBehaviour
             {
                 if (index == 1)
                 {
+                    isFade = true;
+                    StartCoroutine(ShowLoading());
                     if (transitionCoroutine != null)
                     {
                         StopCoroutine(transitionCoroutine);
                     }
                     StartCoroutine(PauseAfterIndex1(transitionTimeIndex1 + pauseTimeAfterIndex1));
+                    nextButton.interactable = true;
                 }
                 else if (index == 3)
                 {
